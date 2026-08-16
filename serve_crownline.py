@@ -20,7 +20,12 @@ _session = new_set(first_game_white="A")
 
 
 def _meld_dict(meld):
-    return {"line": list(meld.line), "piece_ids": list(meld.piece_ids)}
+    return {
+        "line": list(meld.line),
+        "piece_ids": list(meld.piece_ids),
+        "points": meld.points,
+        "royal": meld.royal,
+    }
 
 
 def _move_dict(move):
@@ -48,6 +53,7 @@ def state_payload():
             "owner": piece.owner,
             "value": piece.value,
             "king": piece.king,
+            "cooldown": game.piece_cooldown(piece.owner, piece.value),
         }
         for position, piece in sorted(game.board.items(), key=lambda item: coord_to_alg(item[0]))
     ]
@@ -97,6 +103,10 @@ def state_payload():
             "winner": game.winner(),
             "triggering_player": game.triggering_player,
             "capture_banks": {"W": game.capture_bank_w, "B": game.capture_bank_b},
+            "cooldowns": {
+                "W": dict(game.cooldowns_w),
+                "B": dict(game.cooldowns_b),
+            },
             "scores": {
                 "W": {
                     "capture": score_w.capture_bank,
