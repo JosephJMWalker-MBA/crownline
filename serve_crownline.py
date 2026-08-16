@@ -19,6 +19,16 @@ _lock = Lock()
 _session = new_set(first_game_white="A")
 
 _SUPERSCRIPT = {1: "¹", 2: "²", 3: "³"}
+_LINE_NAMES = (
+    "Top row",
+    "Middle row",
+    "Bottom row",
+    "Left column",
+    "Center column",
+    "Right column",
+    "Diagonal ↘",
+    "Diagonal ↗",
+)
 
 
 def _meld_dict(meld):
@@ -51,6 +61,36 @@ def _piece_dict(game, position, piece):
         "value": display_value,
         "king": piece.king,
         "cooldown": cooldown,
+    }
+
+
+def _diagnostic_dict(item):
+    return {
+        "line": list(item["line"]),
+        "piece_ids": list(item["piece_ids"]),
+        "reasons": [dict(reason) for reason in item["reasons"]],
+    }
+
+
+def _line_tracker(game, player):
+    retired = game.retired_lines(player)
+    return [
+        {
+            "index": index,
+            "name": _LINE_NAMES[index],
+            "line": list(line),
+            "retired": line in retired,
+        }
+        for index, line in enumerate(game.variant.crown_lines)
+    ]
+
+
+def _feedback_before_move(game, move):
+    return {
+        "meld_diagnostics": [
+            _diagnostic_dict(item)
+            for item in game.crowned_meld_diagnostics_after(move)
+        ],
     }
 
 
@@ -136,6 +176,10 @@ def state_payload():
                 "W": [_meld_dict(meld) for meld in game.melds_w],
                 "B": [_meld_dict(meld) for meld in game.melds_b],
             },
+            "crownline_tracker": {
+                "W": _line_tracker(game, "W"),
+                "B": _line_tracker(game, "B"),
+            },
             "pieces": pieces,
             "crown_squares": crown_squares,
             "crown_lines": [list(line) for line in game.variant.crown_lines],
@@ -196,8 +240,17 @@ class Handler(BaseHTTPRequestHandler):
                         raise ValueError("move is required")
                     meld_line = body.get("meld_line")
                     meld_line = tuple(meld_line) if meld_line else None
-                    _session = _session.apply_notation(notation, meld_line=meld_line)
-                    self._send_json(200, state_payload())
+                    before = _session.current_game
+                    move = before.move_from_notation(notation)
+                    feedback = _feedback_before_move(before, move)
+                    before_melds = len(before.melds(before.turn))
+                    mover = before.turn
+                    _session = _session.apply_move(move, meld_line=meld_line)
+                    payload = state_payload()
+                    after = _session.current_game
+                    feedback["meld_scored"] = len(after.melds(mover)) > before_melds
+                    payload["move_feedback"] = feedback
+                    self._send_json(200, payload)
                     return
 
                 if path == "/api/computer-move":
@@ -212,8 +265,16 @@ class Handler(BaseHTTPRequestHandler):
                         participant=participant,
                         depth=depth,
                     )
-                    _session = _session.apply_notation(notation, meld_line=meld_line)
+                    before = _session.current_game
+                    move = before.move_from_notation(notation)
+                    feedback = _feedback_before_move(before, move)
+                    before_melds = len(before.melds(before.turn))
+                    mover = before.turn
+                    _session = _session.apply_move(move, meld_line=meld_line)
                     payload = state_payload()
+                    after = _session.current_game
+                    feedback["meld_scored"] = len(after.melds(mover)) > before_melds
+                    payload["move_feedback"] = feedback
                     payload["computer_action"] = {
                         "participant": participant,
                         "move": notation,
