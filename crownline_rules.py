@@ -7,12 +7,31 @@ Player = Literal["W", "B"]
 Participant = Literal["A", "B"]
 GameWinner = Literal["W", "B", "DRAW"]
 SetWinner = Literal["A", "B", "DRAW"]
+RulesMode = Literal["official", "sovereign"]
 Coord = Tuple[int, int]
 Line = Tuple[str, str, str]
 
 FILES = "abcdefgh"
 CAPTURE_QUOTA = 15
 MELD_BONUS = 15
+
+OFFICIAL_RULES: RulesMode = "official"
+SOVEREIGN_RULES: RulesMode = "sovereign"
+
+
+def normalize_rules_mode(mode: str) -> RulesMode:
+    if mode == OFFICIAL_RULES:
+        return OFFICIAL_RULES
+    if mode == SOVEREIGN_RULES:
+        return SOVEREIGN_RULES
+    raise ValueError("rules_mode must be 'official' or 'sovereign'")
+
+
+def rules_mode_label(mode: RulesMode) -> str:
+    if mode == OFFICIAL_RULES:
+        return "Official v1.0"
+    return "Experimental Sovereign"
+
 
 GAME1_CROWN_VALUES = (
     ("b6", 8), ("d6", 1), ("f6", 6),
