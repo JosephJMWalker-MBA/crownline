@@ -9,9 +9,13 @@ body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 35% 2
 button, select { font: inherit; }
 .shell { min-height: 100vh; display: grid; grid-template-columns: minmax(0, 1fr) 340px; }
 .stage { position: relative; min-height: 100vh; overflow: hidden; }
-#board { width: 100%; height: 100%; display: block; cursor: pointer; }
+#board { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
+#board:active { cursor: grabbing; }
 .brand { position: absolute; left: 28px; top: 24px; font-weight: 800; letter-spacing: .16em; font-size: 13px; color: #f5f7fa; pointer-events: none; }
 .brand span { color: #8c96a9; font-weight: 600; }
+.view-controls { position: absolute; right: 24px; top: 20px; }
+.view-controls button { border: 1px solid rgba(140,151,171,.3); border-radius: 999px; background: rgba(13,17,24,.72); color: #cbd3df; padding: 8px 12px; cursor: pointer; backdrop-filter: blur(12px); box-shadow: 0 8px 30px rgba(0,0,0,.16); }
+.view-controls button:hover { border-color: rgba(157,176,204,.6); background: rgba(25,31,42,.86); color: #fff; }
 .board-hint { position: absolute; left: 28px; bottom: 24px; color: #7f8999; font-size: 12px; letter-spacing: .02em; pointer-events: none; }
 .panel { padding: 34px 28px; border-left: 1px solid #252a34; background: rgba(9, 12, 18, .88); backdrop-filter: blur(18px); overflow-y: auto; }
 .eyebrow, .section-title { color: #8e98aa; letter-spacing: .14em; font-size: 11px; font-weight: 800; }
@@ -50,4 +54,5 @@ dialog h2 { margin-top: 0; }
   .stage { min-height: 62vh; }
   .panel { border-left: 0; border-top: 1px solid #252a34; }
   .board-hint { display: none; }
+  .view-controls { right: 14px; top: 14px; }
 }
