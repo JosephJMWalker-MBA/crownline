@@ -28,31 +28,82 @@ function replaceGeometry(mesh, geometry) {
   mesh.geometry = geometry;
 }
 
+function woodBumpTexture() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 512;
+  canvas.height = 128;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#808080';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Deterministic layered grain: enough surface variation to catch highlights
+  // without turning the board surround into a literal wood-photo texture.
+  for (let y = 0; y < canvas.height; y += 1) {
+    const wave = Math.sin(y * 0.19) * 9 + Math.sin(y * 0.047) * 15;
+    ctx.strokeStyle = `rgba(255,255,255,${0.035 + ((y % 7) / 7) * 0.025})`;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    for (let x = 0; x <= canvas.width; x += 8) {
+      const drift = Math.sin((x + wave * 5) * 0.026 + y * 0.045) * 4;
+      if (x === 0) ctx.moveTo(x, y + drift);
+      else ctx.lineTo(x, y + drift);
+    }
+    ctx.stroke();
+  }
+
+  for (let i = 0; i < 34; i += 1) {
+    const y = (i * 37) % canvas.height;
+    const phase = i * 0.73;
+    ctx.strokeStyle = 'rgba(30,30,30,0.055)';
+    ctx.lineWidth = i % 5 === 0 ? 2 : 1;
+    ctx.beginPath();
+    for (let x = 0; x <= canvas.width; x += 6) {
+      const py = y + Math.sin(x * 0.02 + phase) * (2 + (i % 3));
+      if (x === 0) ctx.moveTo(x, py);
+      else ctx.lineTo(x, py);
+    }
+    ctx.stroke();
+  }
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set(3.2, 1.25);
+  texture.needsUpdate = true;
+  return texture;
+}
+
+const woodBump = woodBumpTexture();
+
 function addFrame(group, base) {
   if (group.userData.premiumTabletopFrame) return;
   group.userData.premiumTabletopFrame = true;
 
   replaceMaterial(base, physical({
-    color: 0x2b1c12,
-    roughness: 0.30,
+    color: 0x24170f,
+    roughness: 0.33,
     metalness: 0.02,
-    clearcoat: 0.48,
-    clearcoatRoughness: 0.20,
+    clearcoat: 0.42,
+    clearcoatRoughness: 0.22,
+    bumpMap: woodBump,
+    bumpScale: 0.018,
   }));
   base.position.y = -0.30;
 
   const wood = physical({
     color: 0x3a2417,
-    roughness: 0.27,
+    roughness: 0.29,
     metalness: 0.02,
-    clearcoat: 0.58,
-    clearcoatRoughness: 0.18,
+    clearcoat: 0.52,
+    clearcoatRoughness: 0.20,
+    bumpMap: woodBump,
+    bumpScale: 0.026,
   });
   const brass = physical({
-    color: 0xc1964d,
-    roughness: 0.21,
+    color: 0xb88b42,
+    roughness: 0.24,
     metalness: 0.86,
-    clearcoat: 0.16,
+    clearcoat: 0.12,
   });
 
   const rails = [
@@ -89,17 +140,17 @@ function addCrownBorder(tile) {
   if (tile.userData.premiumCrownBorder) return;
   tile.userData.premiumCrownBorder = true;
   const material = physical({
-    color: 0xc1964d,
-    roughness: 0.20,
-    metalness: 0.88,
-    clearcoat: 0.14,
+    color: 0xb9914d,
+    roughness: 0.24,
+    metalness: 0.82,
+    clearcoat: 0.10,
   });
   const y = 0.083;
   const bars = [
-    [0.90, 0.022, 0.035, 0, y, -0.43],
-    [0.90, 0.022, 0.035, 0, y, 0.43],
-    [0.035, 0.022, 0.90, -0.43, y, 0],
-    [0.035, 0.022, 0.90, 0.43, y, 0],
+    [0.90, 0.022, 0.030, 0, y, -0.43],
+    [0.90, 0.022, 0.030, 0, y, 0.43],
+    [0.030, 0.022, 0.90, -0.43, y, 0],
+    [0.030, 0.022, 0.90, 0.43, y, 0],
   ];
   for (const [w, h, d, x, py, z] of bars) {
     const bar = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), material.clone());
@@ -118,13 +169,13 @@ function upgradeTile(tile) {
 
   if (crown) {
     replaceMaterial(tile, physical({
-      color: 0x506d8b,
-      emissive: playable ? 0x101c2a : 0x000000,
-      emissiveIntensity: playable ? 0.28 : 0,
-      roughness: 0.22,
-      metalness: 0.11,
-      clearcoat: 0.72,
-      clearcoatRoughness: 0.16,
+      color: 0x506b86,
+      emissive: playable ? 0x101a27 : 0x000000,
+      emissiveIntensity: playable ? 0.24 : 0,
+      roughness: 0.25,
+      metalness: 0.10,
+      clearcoat: 0.62,
+      clearcoatRoughness: 0.19,
       opacity: playable ? 1 : 0.52,
       transparent: !playable,
     }));
@@ -133,11 +184,11 @@ function upgradeTile(tile) {
     const original = tile.material?.color?.getHex?.() ?? 0x252c37;
     const dark = original < 0x808080;
     replaceMaterial(tile, physical({
-      color: dark ? 0x2b3139 : 0xd8cfbd,
-      roughness: dark ? 0.48 : 0.54,
+      color: dark ? 0x2a3038 : 0xd8cfbd,
+      roughness: dark ? 0.50 : 0.56,
       metalness: 0.02,
-      clearcoat: dark ? 0.16 : 0.10,
-      clearcoatRoughness: 0.42,
+      clearcoat: dark ? 0.12 : 0.07,
+      clearcoatRoughness: 0.46,
       opacity: playable ? 1 : 0.39,
       transparent: !playable,
     }));
@@ -147,20 +198,28 @@ function upgradeTile(tile) {
 
 function checkerProfile(king) {
   const profile = king
-    ? [[0, -0.16], [0.31, -0.16], [0.39, -0.14], [0.44, -0.08], [0.45, 0], [0.42, 0.08], [0.38, 0.12], [0.40, 0.16], [0.35, 0.20], [0.29, 0.21], [0, 0.21]]
-    : [[0, -0.12], [0.31, -0.12], [0.39, -0.10], [0.435, -0.055], [0.445, 0], [0.425, 0.055], [0.38, 0.09], [0.31, 0.12], [0, 0.12]];
+    ? [
+        [0, -0.16], [0.31, -0.16], [0.39, -0.14], [0.44, -0.085],
+        [0.45, -0.015], [0.43, 0.055], [0.39, 0.10], [0.405, 0.14],
+        [0.37, 0.18], [0.315, 0.205], [0, 0.205],
+      ]
+    : [
+        [0, -0.12], [0.31, -0.12], [0.39, -0.10], [0.435, -0.055],
+        [0.445, 0], [0.425, 0.055], [0.38, 0.09], [0.31, 0.12], [0, 0.12],
+      ];
   return profile.map(([r, y]) => new THREE.Vector2(r, y));
 }
 
-function addGrooves(body, owner) {
+function addGrooves(body, owner, king) {
   const material = physical({
-    color: owner === 'W' ? 0xc9baa0 : 0x46505e,
-    roughness: 0.22,
-    metalness: owner === 'W' ? 0.08 : 0.32,
-    clearcoat: 0.35,
+    color: owner === 'W' ? 0xc2b18f : 0x4d5868,
+    roughness: 0.25,
+    metalness: owner === 'W' ? 0.07 : 0.28,
+    clearcoat: 0.28,
   });
-  for (const y of [-0.058, 0.058]) {
-    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.397, 0.014, 8, 48), material.clone());
+  const levels = king ? [-0.066, 0.030] : [-0.058, 0.058];
+  for (const y of levels) {
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.397, 0.015, 8, 48), material.clone());
     ring.rotation.x = Math.PI / 2;
     ring.position.y = y;
     body.add(ring);
@@ -168,45 +227,78 @@ function addGrooves(body, owner) {
   material.dispose();
 }
 
-function addCoronet(group, owner) {
-  if (group.userData.premiumCoronet) return;
-  group.userData.premiumCoronet = true;
+function addKingSignet(group, owner) {
+  if (group.userData.premiumKingSignet) return;
+  group.userData.premiumKingSignet = true;
+
   const gold = physical({
-    color: 0xd9a94e,
-    emissive: 0x352208,
-    emissiveIntensity: 0.32,
-    roughness: 0.18,
-    metalness: 0.90,
-    clearcoat: 0.20,
+    color: 0xc99a44,
+    emissive: 0x241704,
+    emissiveIntensity: 0.16,
+    roughness: 0.22,
+    metalness: 0.88,
+    clearcoat: 0.14,
+  });
+  const pieceMaterial = physical({
+    color: owner === 'W' ? 0xe9ddc7 : 0x151c25,
+    roughness: owner === 'W' ? 0.25 : 0.22,
+    metalness: owner === 'W' ? 0.05 : 0.19,
+    clearcoat: 0.46,
+    clearcoatRoughness: 0.18,
   });
 
-  const collar = new THREE.Mesh(new THREE.TorusGeometry(0.325, 0.038, 12, 56), gold.clone());
-  collar.rotation.x = Math.PI / 2;
-  collar.position.y = 0.265;
-  collar.castShadow = true;
-  groupAdd.call(group, collar);
-
-  for (let i = 0; i < 6; i += 1) {
-    const angle = (i / 6) * Math.PI * 2;
-    const point = new THREE.Mesh(new THREE.ConeGeometry(0.052, 0.15, 12), gold.clone());
-    point.position.set(Math.cos(angle) * 0.27, 0.35, Math.sin(angle) * 0.27);
-    point.castShadow = true;
-    groupAdd.call(group, point);
-  }
-
-  const crownDeck = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.29, 0.32, 0.06, 48),
-    physical({
-      color: owner === 'W' ? 0xe8deca : 0x1b222c,
-      roughness: 0.24,
-      metalness: owner === 'W' ? 0.08 : 0.28,
-      clearcoat: 0.50,
-    })
+  // A King reads as a refined double-stack/signature piece rather than a
+  // literal wearable crown. The gold is structural: waist band + top signet.
+  const upperDeck = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.315, 0.35, 0.065, 56),
+    pieceMaterial
   );
-  crownDeck.position.y = 0.21;
-  crownDeck.castShadow = true;
-  groupAdd.call(group, crownDeck);
+  upperDeck.position.y = 0.177;
+  upperDeck.castShadow = true;
+  upperDeck.receiveShadow = true;
+
+  const waistBand = new THREE.Mesh(new THREE.TorusGeometry(0.405, 0.022, 10, 56), gold.clone());
+  waistBand.rotation.x = Math.PI / 2;
+  waistBand.position.y = 0.095;
+  waistBand.castShadow = true;
+
+  const topBand = new THREE.Mesh(new THREE.TorusGeometry(0.318, 0.018, 10, 56), gold.clone());
+  topBand.rotation.x = Math.PI / 2;
+  topBand.position.y = 0.210;
+  topBand.castShadow = true;
+
+  const signet = new THREE.Mesh(
+    new THREE.RingGeometry(0.248, 0.307, 64),
+    gold.clone()
+  );
+  signet.rotation.x = -Math.PI / 2;
+  signet.position.y = 0.218;
+  signet.renderOrder = 3;
+
+  groupAdd.call(group, upperDeck, waistBand, topBand, signet);
   gold.dispose();
+}
+
+function suppressLegacyKingTreatment(group, object) {
+  if (!group.userData.premiumKingSignet || !object?.isMesh) return;
+
+  // main.js still creates its original crown-cap/ring/halo for semantic visual
+  // feedback. Keep a faint halo, but suppress the literal crown geometry so the
+  // Premium Tabletop signet remains the King silhouette.
+  if (object.geometry?.type === 'RingGeometry' && object.userData?.pulse) {
+    if (object.material) object.material.opacity = Math.min(object.material.opacity ?? 1, 0.10);
+    return;
+  }
+  if (object.geometry?.type === 'TorusGeometry') {
+    object.visible = false;
+    return;
+  }
+  if (
+    object.geometry?.type === 'CylinderGeometry' &&
+    Number(object.geometry?.parameters?.height || 1) <= 0.10
+  ) {
+    object.visible = false;
+  }
 }
 
 function upgradePiece(group, body) {
@@ -221,22 +313,22 @@ function upgradePiece(group, body) {
   body.geometry.computeVertexNormals();
   replaceMaterial(body, physical({
     color: owner === 'W' ? 0xf0e5cf : 0x11171f,
-    emissive: king ? 0x201607 : 0x000000,
-    emissiveIntensity: king ? 0.18 : 0,
-    roughness: owner === 'W' ? 0.27 : 0.23,
-    metalness: owner === 'W' ? 0.05 : 0.17,
-    clearcoat: owner === 'W' ? 0.42 : 0.54,
-    clearcoatRoughness: 0.18,
+    emissive: king ? 0x171005 : 0x000000,
+    emissiveIntensity: king ? 0.09 : 0,
+    roughness: owner === 'W' ? 0.29 : 0.24,
+    metalness: owner === 'W' ? 0.04 : 0.16,
+    clearcoat: owner === 'W' ? 0.38 : 0.48,
+    clearcoatRoughness: 0.20,
   }));
-  addGrooves(body, owner);
-  if (king) addCoronet(group, owner);
+  addGrooves(body, owner, king);
+  if (king) addKingSignet(group, owner);
   upgraded.add(body);
 }
 
 function upgradeLabel(label) {
   if (upgraded.has(label) || label.userData?.kind !== 'piece') return;
   if (label.geometry?.type !== 'CircleGeometry') return;
-  label.position.y += 0.028;
+  label.position.y += 0.030;
   label.renderOrder = 4;
   upgraded.add(label);
 }
@@ -244,6 +336,9 @@ function upgradeLabel(label) {
 THREE.Group.prototype.add = function crownlinePremiumAdd(...objects) {
   for (const object of objects) {
     if (!object?.isMesh) continue;
+
+    suppressLegacyKingTreatment(this, object);
+
     const width = Number(object.geometry?.parameters?.width || 0);
     if (object.geometry?.type === 'BoxGeometry' && Math.abs(width - 8.82) < 0.01) {
       addFrame(this, object);
@@ -260,5 +355,7 @@ THREE.Group.prototype.add = function crownlinePremiumAdd(...objects) {
 window.CrownlinePremiumTabletop = {
   active: true,
   architecture: 'scene-construction',
-  version: 2,
+  version: 3,
+  kingDesign: 'signet',
+  woodSurface: true,
 };
