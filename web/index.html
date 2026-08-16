@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Crownline v1</title>
   <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/rules_mode.css" />
   <script type="importmap">
     {
       "imports": {
@@ -37,6 +38,15 @@
         <h1 id="turn-label">Loading…</h1>
         <p id="variant-label"></p>
       </header>
+
+      <section class="control-block rules-control">
+        <label class="section-title" for="rules-mode">RULES</label>
+        <select id="rules-mode" aria-describedby="rules-note">
+          <option value="official">Official v1.0</option>
+          <option value="sovereign">Experimental · Sovereign King</option>
+        </select>
+        <p id="rules-note" class="rules-note">Official v1.0 · Kings remain subject to mandatory capture.</p>
+      </section>
 
       <section class="control-block">
         <label class="section-title" for="opponent-mode">OPPONENT</label>
@@ -87,5 +97,6 @@
   </dialog>
 
   <script type="module" src="/main.js"></script>
+  <script type="module" src="/rules_mode.js"></script>
 </body>
 </html>
