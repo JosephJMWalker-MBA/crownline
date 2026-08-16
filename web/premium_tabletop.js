@@ -6,6 +6,19 @@ import * as THREE from 'three';
 
 const groupAdd = THREE.Group.prototype.add;
 const upgraded = new WeakSet();
+const kingGroups = new Map();
+const canvas = document.querySelector('#board');
+const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+const hoverCamera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+hoverCamera.position.set(7.7, 9.8, 10.8);
+hoverCamera.lookAt(0, 0, 0);
+
+let latestState = null;
+let stateSyncTimer = null;
+let hoveredKingSquare = null;
+let selectedKingSquare = null;
+let pointerStart = null;
+let pointerDragged = false;
 
 function physical(options = {}) {
   return new THREE.MeshPhysicalMaterial({
@@ -29,21 +42,21 @@ function replaceGeometry(mesh, geometry) {
 }
 
 function woodBumpTexture() {
-  const canvas = document.createElement('canvas');
-  canvas.width = 512;
-  canvas.height = 128;
-  const ctx = canvas.getContext('2d');
+  const canvas2d = document.createElement('canvas');
+  canvas2d.width = 512;
+  canvas2d.height = 128;
+  const ctx = canvas2d.getContext('2d');
   ctx.fillStyle = '#808080';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, canvas2d.width, canvas2d.height);
 
   // Deterministic micro-grain. It should only become visible when light grazes
   // the frame; the board should never read as a photo-textured slab.
-  for (let y = 0; y < canvas.height; y += 1) {
+  for (let y = 0; y < canvas2d.height; y += 1) {
     const wave = Math.sin(y * 0.19) * 9 + Math.sin(y * 0.047) * 15;
     ctx.strokeStyle = `rgba(255,255,255,${0.022 + ((y % 7) / 7) * 0.014})`;
     ctx.lineWidth = 1;
     ctx.beginPath();
-    for (let x = 0; x <= canvas.width; x += 8) {
+    for (let x = 0; x <= canvas2d.width; x += 8) {
       const drift = Math.sin((x + wave * 5) * 0.026 + y * 0.045) * 4;
       if (x === 0) ctx.moveTo(x, y + drift);
       else ctx.lineTo(x, y + drift);
@@ -52,12 +65,12 @@ function woodBumpTexture() {
   }
 
   for (let i = 0; i < 30; i += 1) {
-    const y = (i * 37) % canvas.height;
+    const y = (i * 37) % canvas2d.height;
     const phase = i * 0.73;
     ctx.strokeStyle = 'rgba(30,30,30,0.035)';
     ctx.lineWidth = i % 5 === 0 ? 2 : 1;
     ctx.beginPath();
-    for (let x = 0; x <= canvas.width; x += 6) {
+    for (let x = 0; x <= canvas2d.width; x += 6) {
       const py = y + Math.sin(x * 0.02 + phase) * (2 + (i % 3));
       if (x === 0) ctx.moveTo(x, py);
       else ctx.lineTo(x, py);
@@ -65,7 +78,7 @@ function woodBumpTexture() {
     ctx.stroke();
   }
 
-  const texture = new THREE.CanvasTexture(canvas);
+  const texture = new THREE.CanvasTexture(canvas2d);
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set(3.2, 1.25);
@@ -73,7 +86,31 @@ function woodBumpTexture() {
   return texture;
 }
 
+function kingAuraTexture() {
+  const canvas2d = document.createElement('canvas');
+  canvas2d.width = 256;
+  canvas2d.height = 256;
+  const ctx = canvas2d.getContext('2d');
+  const gradient = ctx.createRadialGradient(128, 128, 4, 128, 128, 126);
+  gradient.addColorStop(0.00, 'rgba(255,248,222,0.92)');
+  gradient.addColorStop(0.22, 'rgba(247,214,145,0.58)');
+  gradient.addColorStop(0.48, 'rgba(218,164,70,0.24)');
+  gradient.addColorStop(0.74, 'rgba(196,132,38,0.07)');
+  gradient.addColorStop(1.00, 'rgba(196,132,38,0)');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, 256, 256);
+
+  const texture = new THREE.CanvasTexture(canvas2d);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.minFilter = THREE.LinearFilter;
+  texture.magFilter = THREE.LinearFilter;
+  texture.generateMipmaps = false;
+  texture.needsUpdate = true;
+  return texture;
+}
+
 const woodBump = woodBumpTexture();
+const kingAuraMap = kingAuraTexture();
 
 function addFrame(group, base) {
   if (group.userData.premiumTabletopFrame) return;
@@ -297,9 +334,17 @@ function addTopInset(body, owner, king) {
   body.add(ring);
 }
 
-function addKingStack(group, owner) {
+function kingPulseOffset(square) {
+  if (!square) return 0;
+  return ((square.charCodeAt(0) * 17 + Number(square[1]) * 29) % 100) / 100 * Math.PI * 2;
+}
+
+function addKingStack(group, body, owner, square) {
   if (group.userData.premiumKingStack) return;
   group.userData.premiumKingStack = true;
+  group.userData.premiumKing = true;
+  group.userData.premiumKingSquare = square;
+  group.userData.premiumKingOwner = owner;
 
   const upperDeck = new THREE.Mesh(
     ribbedCheckerGeometry({ radius: 0.365, height: 0.105, ribs: 20, ribDepth: 0.007, upper: true }),
@@ -312,8 +357,8 @@ function addKingStack(group, owner) {
 
   const gold = physical({
     color: 0xb78b43,
-    emissive: 0x160f03,
-    emissiveIntensity: 0.055,
+    emissive: 0x2b1903,
+    emissiveIntensity: 0.050,
     roughness: 0.46,
     metalness: 0.80,
     clearcoat: 0.04,
@@ -334,18 +379,49 @@ function addKingStack(group, owner) {
   signet.renderOrder = 3;
   signet.userData.premiumManaged = true;
 
-  groupAdd.call(group, upperDeck, waistBand, signet);
+  const aura = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.42, 1.42),
+    new THREE.MeshBasicMaterial({
+      map: kingAuraMap,
+      color: 0xffdda0,
+      transparent: true,
+      opacity: 0.045,
+      depthWrite: false,
+      side: THREE.DoubleSide,
+      blending: THREE.AdditiveBlending,
+    })
+  );
+  aura.rotation.x = -Math.PI / 2;
+  aura.position.y = -0.165;
+  aura.renderOrder = 1;
+  aura.material.toneMapped = false;
+  aura.userData.premiumManaged = true;
+  aura.userData.kingAura = true;
+
+  group.userData.kingGlow = {
+    aura,
+    body,
+    trims: [waistBand, signet],
+    cooldown: 0,
+    pulseOffset: kingPulseOffset(square),
+    eventStart: 0,
+    eventUntil: 0,
+    eventStrength: 0,
+  };
+
+  groupAdd.call(group, aura, upperDeck, waistBand, signet);
+  kingGroups.set(square, group);
   gold.dispose();
+  scheduleStateSync();
 }
 
 function suppressLegacyKingTreatment(group, object) {
   if (!group.userData.premiumKingStack || !object?.isMesh) return;
 
-  // main.js still creates its original crown-cap/ring/halo. Retain only a very
-  // faint halo for promotion/state feedback; the physical King is a double-stack
-  // ribbed checker, not a piece wearing a crown.
+  // Premium Tabletop now owns King aura behavior. Hide the original pulsing
+  // halo as well as the crown-cap/ring so there is only one visual language.
   if (object.geometry?.type === 'RingGeometry' && object.userData?.pulse) {
-    if (object.material) object.material.opacity = Math.min(object.material.opacity ?? 1, 0.075);
+    object.visible = false;
     object.userData.premiumManaged = true;
     return;
   }
@@ -370,6 +446,7 @@ function upgradePiece(group, body) {
   if (sourceHeight < 0.20) return;
 
   const owner = body.userData.owner;
+  const square = body.userData.square;
   const king = sourceHeight >= 0.28;
   replaceGeometry(body, ribbedCheckerGeometry({
     radius: king ? 0.445 : 0.435,
@@ -382,7 +459,7 @@ function upgradePiece(group, body) {
   body.receiveShadow = true;
   body.userData.premiumManaged = true;
   addTopInset(body, owner, king);
-  if (king) addKingStack(group, owner);
+  if (king) addKingStack(group, body, owner, square);
   upgraded.add(body);
 }
 
@@ -398,6 +475,235 @@ function upgradeLabel(group, label) {
   label.renderOrder = 4;
   label.userData.premiumManaged = true;
   upgraded.add(label);
+}
+
+function cleanupKingRegistry() {
+  for (const [square, group] of kingGroups.entries()) {
+    if (!group?.parent) kingGroups.delete(square);
+  }
+  if (hoveredKingSquare && !kingGroups.get(hoveredKingSquare)?.parent) hoveredKingSquare = null;
+  if (selectedKingSquare && !kingGroups.get(selectedKingSquare)?.parent) selectedKingSquare = null;
+}
+
+function usesCrownlineCooldown(data = latestState) {
+  const mode = data?.set?.rules?.mode;
+  return mode === 'candidate' || mode === 'crowned';
+}
+
+function statePieceKey(piece) {
+  return `${piece.owner}:${piece.piece_id}`;
+}
+
+function currentPiece(owner, pieceId, data = latestState) {
+  return data?.game?.pieces?.find((piece) => piece.owner === owner && piece.piece_id === pieceId) || null;
+}
+
+function triggerKingGlow(group, strength = 1, duration = 900) {
+  const glow = group?.userData?.kingGlow;
+  if (!glow) return;
+  const now = performance.now();
+  glow.eventStart = now;
+  glow.eventUntil = Math.max(glow.eventUntil || 0, now + duration);
+  glow.eventStrength = Math.max(glow.eventStrength || 0, strength);
+}
+
+function applyStateToKingGroups(data) {
+  cleanupKingRegistry();
+  const currentSquares = new Set();
+  for (const piece of data?.game?.pieces || []) {
+    if (!piece.king) continue;
+    currentSquares.add(piece.square);
+    const group = kingGroups.get(piece.square);
+    const glow = group?.userData?.kingGlow;
+    if (!glow) continue;
+    glow.cooldown = Number(piece.cooldown || 0);
+    glow.pieceId = piece.piece_id;
+    glow.owner = piece.owner;
+  }
+
+  if (selectedKingSquare && !currentSquares.has(selectedKingSquare)) selectedKingSquare = null;
+  if (hoveredKingSquare && !currentSquares.has(hoveredKingSquare)) hoveredKingSquare = null;
+}
+
+function triggerStateEvents(previous, next) {
+  if (!previous || !next) return;
+  if (
+    previous.set?.set_index !== next.set?.set_index ||
+    previous.set?.game_number !== next.set?.game_number ||
+    previous.set?.rules?.mode !== next.set?.rules?.mode
+  ) return;
+
+  const before = new Map((previous.game?.pieces || []).map((piece) => [statePieceKey(piece), piece]));
+  const cooldownMode = usesCrownlineCooldown(next);
+
+  for (const piece of next.game?.pieces || []) {
+    if (!piece.king) continue;
+    const prior = before.get(statePieceKey(piece));
+    const group = kingGroups.get(piece.square);
+    if (!group?.parent) continue;
+
+    if (prior && !prior.king) triggerKingGlow(group, 1.00, 1050);
+    if (
+      cooldownMode &&
+      prior?.king &&
+      Number(prior.cooldown || 0) > 0 &&
+      Number(piece.cooldown || 0) === 0
+    ) {
+      triggerKingGlow(group, 0.72, 820);
+    }
+  }
+
+  if (!cooldownMode) return;
+  for (const owner of ['W', 'B']) {
+    const priorMelds = previous.game?.melds?.[owner] || [];
+    const nextMelds = next.game?.melds?.[owner] || [];
+    if (nextMelds.length <= priorMelds.length) continue;
+
+    for (const meld of nextMelds.slice(priorMelds.length)) {
+      for (const pieceId of meld.piece_ids || []) {
+        const piece = currentPiece(owner, pieceId, next);
+        if (!piece?.king) continue;
+        const group = kingGroups.get(piece.square);
+        triggerKingGlow(group, meld.royal ? 1.35 : 0.92, meld.royal ? 1450 : 1050);
+      }
+    }
+  }
+}
+
+async function syncKingState() {
+  stateSyncTimer = null;
+  try {
+    const response = await fetch('/api/state', { cache: 'no-store' });
+    if (!response.ok) return;
+    const next = await response.json();
+    const previous = latestState;
+    latestState = next;
+    applyStateToKingGroups(next);
+    triggerStateEvents(previous, next);
+  } catch (_) {
+    // The premium visual layer never blocks gameplay if state decoration fails.
+  }
+}
+
+function scheduleStateSync() {
+  if (stateSyncTimer !== null) clearTimeout(stateSyncTimer);
+  stateSyncTimer = setTimeout(syncKingState, 35);
+}
+
+function kingUnderPointer(event) {
+  if (!canvas) return null;
+  cleanupKingRegistry();
+  const rect = canvas.getBoundingClientRect();
+  if (!rect.width || !rect.height) return null;
+
+  hoverCamera.aspect = rect.width / rect.height;
+  hoverCamera.updateProjectionMatrix();
+  hoverCamera.updateMatrixWorld();
+
+  const world = new THREE.Vector3();
+  const projected = new THREE.Vector3();
+  let bestSquare = null;
+  let bestDistance = Infinity;
+  const threshold = Math.max(28, Math.min(rect.width, rect.height) * 0.052);
+
+  for (const [square, group] of kingGroups.entries()) {
+    if (!group?.parent) continue;
+    group.updateWorldMatrix(true, false);
+    group.getWorldPosition(world);
+    projected.copy(world).project(hoverCamera);
+    if (projected.z < -1 || projected.z > 1) continue;
+
+    const x = rect.left + (projected.x + 1) * 0.5 * rect.width;
+    const y = rect.top + (1 - projected.y) * 0.5 * rect.height;
+    const distance = Math.hypot(event.clientX - x, event.clientY - y);
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      bestSquare = square;
+    }
+  }
+
+  return bestDistance <= threshold ? bestSquare : null;
+}
+
+function mirrorKingSelection(event) {
+  if (pointerDragged) return;
+  hoveredKingSquare = kingUnderPointer(event);
+  const square = hoveredKingSquare;
+  if (!square || !latestState) {
+    selectedKingSquare = null;
+    return;
+  }
+
+  const piece = latestState.game?.pieces?.find((entry) => entry.square === square);
+  const legal = (latestState.game?.legal_move_details || []).some((move) => move.origin === square);
+  if (!piece || piece.owner !== latestState.game?.turn || !legal) {
+    selectedKingSquare = null;
+    return;
+  }
+
+  selectedKingSquare = selectedKingSquare === square ? null : square;
+}
+
+function animateKingGlows(time = 0) {
+  cleanupKingRegistry();
+  const cooldownMode = usesCrownlineCooldown();
+
+  for (const [square, group] of kingGroups.entries()) {
+    const glow = group?.userData?.kingGlow;
+    if (!glow?.aura?.material) continue;
+
+    const cooling = cooldownMode && Number(glow.cooldown || 0) > 0;
+    const ready = cooldownMode && !cooling;
+    const hovered = hoveredKingSquare === square;
+    const selected = selectedKingSquare === square;
+    const pulse = prefersReducedMotion
+      ? 0.5
+      : 0.5 + 0.5 * Math.sin(time * 0.00185 + glow.pulseOffset);
+
+    let auraOpacity = cooldownMode ? (ready ? 0.078 + pulse * 0.014 : 0.033) : 0.044;
+    let auraScale = cooldownMode ? (ready ? 0.985 + pulse * 0.025 : 0.945) : 0.965;
+    let rimIntensity = cooldownMode ? (ready ? 0.105 + pulse * 0.022 : 0.040) : 0.055;
+    let bodyIntensity = cooldownMode ? (ready ? 0.045 + pulse * 0.010 : 0.022) : 0.030;
+
+    if (hovered) {
+      auraOpacity += 0.030;
+      auraScale += 0.020;
+      rimIntensity += 0.070;
+      bodyIntensity += 0.018;
+    }
+    if (selected) {
+      auraOpacity += 0.040;
+      auraScale += 0.030;
+      rimIntensity += 0.100;
+      bodyIntensity += 0.024;
+    }
+
+    if (time < glow.eventUntil) {
+      const duration = Math.max(1, glow.eventUntil - glow.eventStart);
+      const phase = THREE.MathUtils.clamp((time - glow.eventStart) / duration, 0, 1);
+      const flare = Math.sin(Math.PI * phase) * glow.eventStrength;
+      auraOpacity += flare * 0.115;
+      auraScale += flare * 0.060;
+      rimIntensity += flare * 0.310;
+      bodyIntensity += flare * 0.055;
+    } else if (glow.eventStrength) {
+      glow.eventStrength = 0;
+    }
+
+    glow.aura.material.opacity = Math.min(0.25, auraOpacity);
+    glow.aura.scale.setScalar(auraScale);
+
+    for (const trim of glow.trims || []) {
+      if (trim?.material?.emissiveIntensity !== undefined) {
+        trim.material.emissiveIntensity = rimIntensity;
+      }
+    }
+    if (glow.body?.material?.emissiveIntensity !== undefined) {
+      glow.body.material.emissiveIntensity = bodyIntensity;
+    }
+  }
+
+  requestAnimationFrame(animateKingGlows);
 }
 
 THREE.Group.prototype.add = function crownlinePremiumAdd(...objects) {
@@ -419,13 +725,53 @@ THREE.Group.prototype.add = function crownlinePremiumAdd(...objects) {
   return groupAdd.apply(this, objects);
 };
 
+if (canvas) {
+  canvas.addEventListener('pointerdown', (event) => {
+    pointerStart = { x: event.clientX, y: event.clientY };
+    pointerDragged = false;
+  });
+  canvas.addEventListener('pointermove', (event) => {
+    if (pointerStart && Math.hypot(event.clientX - pointerStart.x, event.clientY - pointerStart.y) > 5) {
+      pointerDragged = true;
+    }
+    hoveredKingSquare = kingUnderPointer(event);
+  });
+  canvas.addEventListener('pointerup', (event) => {
+    mirrorKingSelection(event);
+    pointerStart = null;
+    pointerDragged = false;
+  });
+  canvas.addEventListener('pointercancel', () => {
+    pointerStart = null;
+    pointerDragged = false;
+  });
+  canvas.addEventListener('pointerleave', () => {
+    hoveredKingSquare = null;
+  });
+}
+
+const stateObserver = new MutationObserver(scheduleStateSync);
+for (const element of [
+  document.querySelector('#turn-label'),
+  document.querySelector('#bank-w'),
+  document.querySelector('#bank-b'),
+  document.querySelector('#meld-w'),
+  document.querySelector('#meld-b'),
+]) {
+  if (element) stateObserver.observe(element, { childList: true, characterData: true, subtree: true });
+}
+
+scheduleStateSync();
+requestAnimationFrame(animateKingGlows);
+
 window.CrownlinePremiumTabletop = {
   active: true,
   architecture: 'scene-construction',
-  version: 5,
+  version: 6,
   pieceDesign: 'ribbed-checker',
   kingDesign: 'double-stack-signet',
   kingFaceSemantics: 'doubled-value-plus-cooldown',
+  kingGlow: 'state-aware-aura-rim-readiness-event',
   finish: 'satin',
   woodSurface: true,
 };
