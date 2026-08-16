@@ -210,7 +210,7 @@ class Handler(BaseHTTPRequestHandler):
 
                 if path == "/api/reset":
                     first = body.get("first_game_white", "A")
-                    rules_mode = body.get("rules_mode", "official")
+                    rules_mode = body.get("rules_mode", _session.rules_mode)
                     _session = new_set(first_game_white=first, rules_mode=rules_mode)
                     self._send_json(200, state_payload())
                     return
