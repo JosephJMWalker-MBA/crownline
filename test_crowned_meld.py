@@ -7,7 +7,7 @@ def C(square):
     return c.alg_to_coord(square)
 
 
-def forming_position(*, kings=(False, False, False), cooldowns=()):
+def forming_position(*, kings=(False, False, False), cooldowns=(), melds=()):
     before = {
         C("b4"): c.Piece("W", 1, king=kings[0]),
         C("d4"): c.Piece("W", 2, king=kings[1]),
@@ -20,6 +20,7 @@ def forming_position(*, kings=(False, False, False), cooldowns=()):
         rules_mode=c.CROWNED_MELD_RULES,
         turn="W",
         cooldowns_w=tuple(cooldowns),
+        melds_w=tuple(melds),
     )
 
 
@@ -27,6 +28,8 @@ def test_crowned_meld_requires_at_least_one_king():
     game = forming_position()
     move = game.move_from_notation("e3-f4")
     assert game.meld_options_after(move) == ()
+    diagnostics = game.crowned_meld_diagnostics_after(move)
+    assert diagnostics[0]["reasons"][0]["code"] == "king_required"
 
 
 def test_one_king_crownline_scores_15_and_marks_all_three_pieces():
@@ -40,6 +43,7 @@ def test_one_king_crownline_scores_15_and_marks_all_three_pieces():
     game = game.apply_move(move)
     assert game.score("W").meld_bonus == 15
     assert game.cooldowns("W") == {1: 3, 2: 3, 3: 3}
+    assert options[0].line in game.retired_lines("W")
 
 
 def test_three_kings_create_royal_crownline_worth_30():
@@ -88,17 +92,27 @@ def test_standing_line_does_not_rescore_when_cooldown_is_clear():
     assert game.eligible_melds_on_board(board, "W", previous_board=board) == ()
 
 
-def test_same_pieces_may_score_again_after_cooldown_if_line_is_broken_and_rebuilt():
+def test_scored_line_is_retired_for_that_player_even_after_cooldown():
+    retired = c.Meld(("b4", "d4", "f4"), (1, 2, 3), points=15)
+    game = forming_position(kings=(True, False, False), melds=(retired,))
+    move = game.move_from_notation("e3-f4")
+    assert game.meld_options_after(move) == ()
+    diagnostics = game.crowned_meld_diagnostics_after(move)
+    codes = {reason["code"] for reason in diagnostics[0]["reasons"]}
+    assert "retired_line" in codes
+
+
+def test_same_pieces_may_score_a_different_line_after_cooldown():
+    old_meld = c.Meld(("b4", "d4", "f4"), (1, 2, 3), points=15)
     previous = {
-        C("b4"): c.Piece("W", 1, king=True),
-        C("d4"): c.Piece("W", 2),
+        C("b6"): c.Piece("W", 1, king=True),
+        C("e5"): c.Piece("W", 2),
         C("e3"): c.Piece("W", 3),
         C("a7"): c.Piece("B", 4),
     }
     rebuilt = dict(previous)
     rebuilt.pop(C("e3"))
     rebuilt[C("f4")] = c.Piece("W", 3)
-    old_meld = c.Meld(("b4", "d4", "f4"), (1, 2, 3), points=15)
     game = c.GameState(
         board=previous,
         variant=c.GAME1,
@@ -109,13 +123,34 @@ def test_same_pieces_may_score_again_after_cooldown_if_line_is_broken_and_rebuil
 
     options = game.eligible_melds_on_board(rebuilt, "W", previous_board=previous)
     assert len(options) == 1
+    assert options[0].line == ("b6", "e5", "f4")
     assert options[0].piece_ids == (1, 2, 3)
 
 
-def test_cooldown_prevents_rebuild_from_scoring_early():
+def test_retirement_is_per_player_not_global():
+    line = ("b4", "d4", "f4")
+    game = c.GameState(
+        board={},
+        variant=c.GAME1,
+        rules_mode=c.CROWNED_MELD_RULES,
+        melds_w=(c.Meld(line, (1, 2, 3)),),
+        melds_b=(),
+    )
+    assert line in game.retired_lines("W")
+    assert line not in game.retired_lines("B")
+
+
+def test_cooldown_prevents_new_line_from_scoring_early_and_explains_why():
     game = forming_position(kings=(True, False, False), cooldowns=((1, 1),))
     move = game.move_from_notation("e3-f4")
     assert game.meld_options_after(move) == ()
+    diagnostics = game.crowned_meld_diagnostics_after(move)
+    cooldown_reason = next(
+        reason
+        for reason in diagnostics[0]["reasons"]
+        if reason["code"] == "cooldown"
+    )
+    assert cooldown_reason["pieces"] == [{"piece_id": 1, "turns": 1}]
 
 
 def test_crowned_profile_persists_into_game_two():
