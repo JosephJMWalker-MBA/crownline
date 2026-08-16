@@ -100,6 +100,8 @@ const dynamicObjects = [];
 const clickTargets = [];
 const highlightObjects = [];
 const effectObjects = [];
+const previewObjects = [];
+const previewTileBases = [];
 const pieceGroups = new Map();
 const tileObjects = new Map();
 const raycaster = new THREE.Raycaster();
@@ -167,9 +169,75 @@ function clearEffects() {
   clearObjects(effectObjects);
 }
 
+function clearCrownlinePreview() {
+  while (previewTileBases.length) {
+    const entry = previewTileBases.pop();
+    if (!entry?.tile?.material) continue;
+    entry.tile.material.emissive.copy(entry.emissive);
+    entry.tile.material.emissiveIntensity = entry.intensity;
+  }
+  clearObjects(previewObjects);
+}
+
+function showCrownlinePreview(line) {
+  clearCrownlinePreview();
+  if (!Array.isArray(line) || line.length !== 3) return;
+
+  const positions = line.map((square) => {
+    const p = squareToWorld(square);
+    return new THREE.Vector3(p.x, 0.35, p.z);
+  });
+  const geometry = new THREE.BufferGeometry().setFromPoints(positions);
+  const material = new THREE.LineBasicMaterial({
+    color: 0xf0c86a,
+    transparent: true,
+    opacity: 0.92,
+  });
+  const beam = new THREE.Line(geometry, material);
+  boardGroup.add(beam);
+  previewObjects.push(beam);
+
+  for (const square of line) {
+    const p = squareToWorld(square);
+    const ring = new THREE.Mesh(
+      new THREE.RingGeometry(0.31, 0.50, 48),
+      new THREE.MeshBasicMaterial({
+        color: 0xf0c86a,
+        transparent: true,
+        opacity: 0.78,
+        blending: THREE.AdditiveBlending,
+        side: THREE.DoubleSide,
+        depthWrite: false,
+      })
+    );
+    ring.rotation.x = -Math.PI / 2;
+    ring.position.set(p.x, 0.27, p.z);
+    boardGroup.add(ring);
+    previewObjects.push(ring);
+
+    const tile = tileObjects.get(square);
+    if (tile?.material?.emissive) {
+      previewTileBases.push({
+        tile,
+        emissive: tile.material.emissive.clone(),
+        intensity: tile.material.emissiveIntensity || 0,
+      });
+      tile.material.emissive.setHex(0xb98a24);
+      tile.material.emissiveIntensity = 1.2;
+    }
+  }
+}
+
+window.addEventListener('crownline-preview-line', (event) => {
+  const line = event.detail?.line;
+  if (Array.isArray(line) && line.length === 3) showCrownlinePreview(line);
+  else clearCrownlinePreview();
+});
+
 function clearDynamic() {
   clearHighlights();
   clearEffects();
+  clearCrownlinePreview();
   clearObjects(dynamicObjects);
   clickTargets.length = 0;
   pieceGroups.clear();
@@ -552,6 +620,7 @@ async function animateMove(previousState, moveNotation) {
   if (!movingGroup) return;
 
   clearHighlights();
+  clearCrownlinePreview();
   const baseY = movingGroup.position.y;
   for (let i = 1; i < detail.path.length; i += 1) {
     const from = { x: movingGroup.position.x, z: movingGroup.position.z };
@@ -598,6 +667,7 @@ function newMelds(previousState, nextState, color) {
 
 async function flashMeld(line) {
   if (!line?.length) return;
+  clearCrownlinePreview();
   const positions = line.map((square) => {
     const p = squareToWorld(square);
     return new THREE.Vector3(p.x, 0.34, p.z);
