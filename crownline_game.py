@@ -237,13 +237,23 @@ class GameState:
             return ()
 
         captures = []
+        sovereign_king_can_capture = False
         for position, piece in self.board.items():
-            if piece.owner == self.turn:
-                captures.extend(self._capture_sequences_from(self.board, position, piece))
+            if piece.owner != self.turn:
+                continue
+            piece_captures = self._capture_sequences_from(self.board, position, piece)
+            captures.extend(piece_captures)
+            if piece.king and piece_captures:
+                sovereign_king_can_capture = True
 
         if captures:
-            if uses_sovereign_king(self.rules_mode):
-                captures.extend(self._simple_moves(kings_only=True))
+            # Sovereignty releases the capture obligation for the whole turn only
+            # when a King could have satisfied that obligation. The player may
+            # then choose any otherwise legal non-capturing move, including with
+            # a different ordinary piece. If only ordinary pieces can capture,
+            # mandatory capture still binds the turn.
+            if uses_sovereign_king(self.rules_mode) and sovereign_king_can_capture:
+                captures.extend(self._simple_moves())
             return tuple(sorted(captures, key=lambda move: move.notation()))
 
         return self._simple_moves()
