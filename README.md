@@ -132,6 +132,12 @@ The browser is intentionally non-authoritative: it renders serialized Python sta
 - green markers indicate ordinary destinations;
 - amber markers indicate capture destinations;
 - click a highlighted destination to submit the move;
+- pieces animate along their legal paths and captured pieces visibly leave play;
+- completing a Crownline illuminates the three scoring nodes and surfaces the `+15` banked meld;
+- promotion produces a visual King-crowning cue;
+- Game 1 → Game 2 and final-set resolution use explicit transition states rather than abrupt board replacement;
+- capture banks, meld counters, and aggregate score cards pulse when their values change;
+- drag horizontally to rotate the board, or use **Flip board** for an exact 180° view;
 - if multiple legal capture routes reach the same destination, the interface asks which route to use rather than silently choosing;
 - the move-notation panel remains available as a fallback/reference;
 - choose **Computer · Player B** from the opponent menu for single-player mode.
@@ -156,4 +162,4 @@ If this README and the official rules differ, **`RULES.md` governs**.
 
 ---
 
-**Status:** Official Rules v1.0 frozen; v1 Python engine implemented; WebGL board directly playable; baseline computer opponent implemented.
+**Status:** Official Rules v1.0 frozen; v1 Python engine implemented; WebGL board directly playable with animated move/scoring feedback; baseline computer opponent implemented.
