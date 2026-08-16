@@ -26,7 +26,7 @@ const ruleFeedbackTitle = document.querySelector('#rule-feedback-title');
 const ruleFeedbackCopy = document.querySelector('#rule-feedback-copy');
 
 const GLOBAL_SEEN = 'crownline-onboarding-v2';
-const PROFILE_SEEN = (mode) => `crownline-profile-guide-v3:${mode}`;
+const PROFILE_SEEN = (mode) => `crownline-profile-guide-v4:${mode}`;
 
 let latestState = null;
 let previousState = null;
@@ -115,7 +115,7 @@ const crownedCoreScreens = (kicker) => [
     title: 'Create. Recover. Reposition.',
     copy: `<p>The same pieces may score again after cooldown—but they must newly complete a <strong>different Crownline you have not retired</strong>.</p>
       <p><strong>Promote → form Crownline → score → cooldown → find another line.</strong></p>
-      <p>The Crownline Map in the sidebar shows what remains available.</p>`,
+      <p>The Crownline Map in the sidebar shows what remains available. Hover any listed geometry to see it glow on the board.</p>`,
   },
 ];
 
@@ -132,14 +132,15 @@ const profileScreens = {
   sovereign: [
     {
       kicker: 'EXPERIMENTAL · SOVEREIGN KING',
-      title: 'Kings gain a choice.',
-      copy: `<p>A King may <strong>decline a mandatory capture</strong> and make another legal one-square King move instead.</p>
-        <p>Ordinary pieces still must capture when required.</p>`,
+      title: 'A King can release the turn.',
+      copy: `<p>If one of your Kings has an available capture, you may <strong>decline the capture obligation for that turn</strong>.</p>
+        <p>You may then make <strong>any otherwise legal non-capturing move with any of your pieces</strong>. You do not have to move the King.</p>
+        <p>If only ordinary pieces can capture, mandatory capture still applies.</p>`,
     },
     {
       kicker: 'SOVEREIGN KING',
       title: 'Freedom has a price.',
-      copy: `<p>If a King chooses to capture, it must still complete the legal multiple-jump sequence.</p>
+      copy: `<p>If you choose a King capture, that King must still complete the legal multiple-jump sequence.</p>
         <p>Kings also remain worth <strong>double their printed value</strong> when captured.</p>
         <p>This profile isolates King agency for comparison.</p>`,
     },
@@ -150,15 +151,15 @@ const profileScreens = {
       kicker: 'EXPERIMENTAL · CROWNLINE v1.1 CANDIDATE',
       title: 'The crown grants agency.',
       copy: `<p>This candidate combines the two strongest playtest rules.</p>
-        <p><strong>Kings are Sovereign:</strong> a King may decline a mandatory capture and make another legal one-square King move.</p>
-        <p>Ordinary pieces remain capture-bound. A King that chooses to capture must finish its legal multi-jump.</p>`,
+        <p><strong>Kings are Sovereign:</strong> when one of your Kings has an available capture, you may decline capture for the turn and make any otherwise legal non-capturing move with any piece.</p>
+        <p>If only ordinary pieces can capture, mandatory capture still applies. A King that captures must finish its legal multi-jump.</p>`,
     },
     ...crownedCoreScreens('CROWNLINE v1.1 CANDIDATE'),
     {
       kicker: 'CROWNLINE v1.1 CANDIDATE',
       title: 'Why the rules work together.',
       copy: `<p>Promotion now changes the strategic phase of the game.</p>
-        <p>A King can choose between <strong>capture, defense, Crownline construction, and Crownline denial</strong>—but remains worth double when captured.</p>
+        <p>A King can release the turn from a forced capture, allowing you to choose between <strong>capture, defense, Crownline construction, and Crownline denial</strong>—but Kings remain worth double when captured.</p>
         <p>This is the leading candidate for the next Official Crownline ruleset.</p>`,
     },
   ],
@@ -255,6 +256,8 @@ function renderTracker(data) {
       const row = document.createElement('div');
       row.className = `tracker-item${item.retired ? ' retired' : ''}`;
       row.title = item.line.join(' · ');
+      row.tabIndex = 0;
+      row.setAttribute('aria-label', `${item.name}: ${item.line.join(', ')}${item.retired ? ', retired' : ', available'}`);
       const mark = document.createElement('span');
       mark.className = 'mark';
       mark.textContent = item.retired ? '✓' : '○';
@@ -269,12 +272,12 @@ function renderTracker(data) {
 function currentRulesHtml(mode) {
   if (mode === 'candidate') {
     return `<h3>Experimental · Crownline v1.1 Candidate</h3>
-      <p><strong>Sovereign Kings:</strong> Kings may decline mandatory capture and make a legal King step. Ordinary pieces remain capture-bound; Kings that capture must finish the legal multi-jump.</p>
+      <p><strong>Sovereign Kings:</strong> if a King has an available capture, you may decline capture for the turn and make any otherwise legal non-capturing move with any piece. If only ordinary pieces can capture, mandatory capture still applies. A King that captures must finish its legal multi-jump.</p>
       <p><strong>Crowned Meld:</strong> a Crownline needs at least one King. Normal +15; three Kings = Royal +30. Scoring pieces cool down for 3 of their player's turns. Each Crownline geometry may score once per player per game.</p>`;
   }
   if (mode === 'sovereign') {
     return `<h3>Experimental · Sovereign King</h3>
-      <p>Kings may decline mandatory capture and make a legal King step. Ordinary pieces remain capture-bound. A King that captures must finish its legal multi-jump.</p>`;
+      <p>If a King has an available capture, you may decline capture for the turn and make any otherwise legal non-capturing move with any piece. If only ordinary pieces can capture, mandatory capture still applies. A King that captures must finish its legal multi-jump.</p>`;
   }
   if (mode === 'crowned') {
     return `<h3>Experimental · Crowned Meld</h3>
@@ -301,7 +304,7 @@ function renderHelp(tab = activeHelpTab) {
     helpContent.innerHTML = `<h3>The Crown Grid</h3><p><code>8 1 6 / 3 5 7 / 4 9 2</code></p>
       <p>Every row, column, and diagonal totals 15.</p>
       ${currentRulesHtml(mode)}
-      ${isCrownedMode(mode) ? '<p>The live Crownline Map in the sidebar shows which geometries each player has already retired.</p>' : ''}`;
+      ${isCrownedMode(mode) ? '<p>The live Crownline Map shows which geometries each player has retired. Hover or keyboard-focus a listed line to preview its exact squares on the board.</p>' : ''}`;
   } else if (tab === 'current') {
     helpContent.innerHTML = currentRulesHtml(latestState?.set?.rules?.mode || 'official');
   } else {
@@ -346,12 +349,12 @@ function maybeContextual(previous, next) {
   const beforePieces = pieceMap(previous);
   for (const piece of next.game.pieces || []) {
     const before = beforePieces.get(`${piece.owner}:${piece.piece_id}`);
-    if (before && !before.king && piece.king && !isSeen('crownline-tip:promotion-v2')) {
-      markSeen('crownline-tip:promotion-v2');
+    if (before && !before.king && piece.king && !isSeen('crownline-tip:promotion-v3')) {
+      markSeen('crownline-tip:promotion-v3');
       const suffix = mode === 'candidate'
-        ? ' In the v1.1 Candidate, this King may decline mandatory capture and now unlocks Crownline scoring.'
+        ? ' In the v1.1 Candidate, if this King later has a capture, you may decline capture for the turn and move another legal piece instead; Kings also unlock Crownline scoring.'
         : mode === 'sovereign'
-          ? ' In Sovereign, this King may decline mandatory capture.'
+          ? ' In Sovereign, if this King later has a capture, you may decline capture for the turn and move another legal piece instead.'
           : mode === 'crowned'
             ? ' In Crowned Meld, Kings unlock Crownline scoring.'
             : ' In Official v1.0, Kings are still subject to mandatory capture.';
