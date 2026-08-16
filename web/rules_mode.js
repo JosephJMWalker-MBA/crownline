@@ -6,7 +6,9 @@ function explain(mode) {
   select.dataset.experimental = String(experimental);
   note.classList.toggle('experimental', experimental);
 
-  if (mode === 'sovereign') {
+  if (mode === 'candidate') {
+    note.textContent = 'Experimental v1.1 Candidate · Sovereign Kings + King-gated Crownlines, cooldowns, retired lines, and Royal +30.';
+  } else if (mode === 'sovereign') {
     note.textContent = 'Experimental Sovereign · Kings may decline mandatory capture and make a legal King step.';
   } else if (mode === 'crowned') {
     note.textContent = 'Experimental Crowned Meld · Needs a King; pieces cool down for 3 turns; each line scores once per player; three Kings score Royal +30.';
