@@ -11,9 +11,13 @@ from crownline_rules import (
     GameVariant,
     GameWinner,
     Line,
+    OFFICIAL_RULES,
     Player,
+    RulesMode,
+    SOVEREIGN_RULES,
     alg_to_coord,
     coord_to_alg,
+    normalize_rules_mode,
     opponent,
     variant_for,
 )
@@ -80,6 +84,7 @@ class ScoreBreakdown:
 class GameState:
     board: Dict[Coord, Piece]
     variant: GameVariant = GAME1
+    rules_mode: RulesMode = OFFICIAL_RULES
     turn: Player = "W"
     capture_bank_w: int = 0
     capture_bank_b: int = 0
@@ -90,15 +95,19 @@ class GameState:
     end_reason: Optional[str] = None
     ply: int = 0
 
+    def __post_init__(self) -> None:
+        normalize_rules_mode(self.rules_mode)
+
     @classmethod
-    def initial(cls, game_number: int = 1) -> "GameState":
+    def initial(cls, game_number: int = 1, rules_mode: str = OFFICIAL_RULES) -> "GameState":
         variant = variant_for(game_number)
+        normalized_mode = normalize_rules_mode(rules_mode)
         board: Dict[Coord, Piece] = {}
         for square, value in variant.white_setup:
             board[alg_to_coord(square)] = Piece("W", value)
         for square, value in variant.black_setup:
             board[alg_to_coord(square)] = Piece("B", value)
-        return cls(board=board, variant=variant)
+        return cls(board=board, variant=variant, rules_mode=normalized_mode)
 
     def bank(self, player: Player) -> int:
         return self.capture_bank_w if player == "W" else self.capture_bank_b
@@ -169,6 +178,18 @@ class GameState:
         rec(board, start, piece, (start,), ())
         return tuple(results)
 
+    def _simple_moves(self, *, kings_only: bool = False) -> Tuple[Move, ...]:
+        moves = []
+        for position, piece in self.board.items():
+            if piece.owner != self.turn or (kings_only and not piece.king):
+                continue
+            f, r = position
+            for df, dr in self._dirs(piece):
+                destination = (f + df, r + dr)
+                if self.variant.playable(destination) and destination not in self.board:
+                    moves.append(Move(path=(position, destination)))
+        return tuple(sorted(moves, key=lambda move: move.notation()))
+
     def legal_moves(self) -> Tuple[Move, ...]:
         if self.game_over:
             return ()
@@ -177,19 +198,13 @@ class GameState:
         for position, piece in self.board.items():
             if piece.owner == self.turn:
                 captures.extend(self._capture_sequences_from(self.board, position, piece))
+
         if captures:
+            if self.rules_mode == SOVEREIGN_RULES:
+                captures.extend(self._simple_moves(kings_only=True))
             return tuple(sorted(captures, key=lambda move: move.notation()))
 
-        moves = []
-        for position, piece in self.board.items():
-            if piece.owner != self.turn:
-                continue
-            f, r = position
-            for df, dr in self._dirs(piece):
-                destination = (f + df, r + dr)
-                if self.variant.playable(destination) and destination not in self.board:
-                    moves.append(Move(path=(position, destination)))
-        return tuple(sorted(moves, key=lambda move: move.notation()))
+        return self._simple_moves()
 
     def move_from_notation(self, notation: str) -> Move:
         normalized = notation.strip().lower().replace(" ", "")
@@ -312,7 +327,7 @@ class GameState:
 
     def render(self) -> str:
         header = (
-            f"{self.variant.name} | Turn: {self.turn} | "
+            f"{self.variant.name} | Rules: {self.rules_mode} | Turn: {self.turn} | "
             f"Bank W={self.capture_bank_w} B={self.capture_bank_b} | "
             f"Melds W={len(self.melds_w)} B={len(self.melds_b)}"
         )
@@ -340,5 +355,5 @@ class GameState:
         return "\n".join(lines)
 
 
-def new_game(game_number: int = 1) -> GameState:
-    return GameState.initial(game_number)
+def new_game(game_number: int = 1, rules_mode: str = OFFICIAL_RULES) -> GameState:
+    return GameState.initial(game_number, rules_mode=rules_mode)
