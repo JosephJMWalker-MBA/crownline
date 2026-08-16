@@ -29,7 +29,7 @@ def test_official_king_remains_bound_by_mandatory_capture():
     assert [move.notation() for move in game.legal_moves()] == ["c3xe5"]
 
 
-def test_sovereign_king_may_decline_capture_but_ordinary_piece_may_not():
+def test_sovereign_king_may_release_capture_obligation_for_the_turn():
     game = c.GameState(
         board={
             C("c3"): c.Piece("W", 2, king=True),
@@ -44,8 +44,23 @@ def test_sovereign_king_may_decline_capture_but_ordinary_piece_may_not():
 
     assert "c3xe5" in moves
     assert {"c3-b2", "c3-d2", "c3-b4"}.issubset(moves)
-    assert "g1-f2" not in moves
-    assert "g1-h2" not in moves
+    # Declining the King's available capture releases the turn rather than
+    # forcing that same King to move.
+    assert {"g1-f2", "g1-h2"}.issubset(moves)
+
+
+def test_sovereignty_does_not_release_capture_when_only_an_ordinary_piece_can_capture():
+    game = c.GameState(
+        board={
+            C("c3"): c.Piece("W", 2),
+            C("d4"): c.Piece("B", 4),
+            C("g1"): c.Piece("W", 1, king=True),
+        },
+        variant=c.GAME1,
+        rules_mode="sovereign",
+        turn="W",
+    )
+    assert [move.notation() for move in game.legal_moves()] == ["c3xe5"]
 
 
 def test_sovereign_capture_still_requires_complete_multi_jump_sequence():
