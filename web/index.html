@@ -18,6 +18,7 @@
     <section class="stage">
       <canvas id="board"></canvas>
       <div class="brand">CROWNLINE <span>v1.0</span></div>
+      <div class="board-hint">Select a piece · choose a highlighted square</div>
     </section>
     <aside class="panel">
       <header>
@@ -25,6 +26,14 @@
         <h1 id="turn-label">Loading…</h1>
         <p id="variant-label"></p>
       </header>
+
+      <section class="control-block">
+        <label class="section-title" for="opponent-mode">OPPONENT</label>
+        <select id="opponent-mode">
+          <option value="human">Two players</option>
+          <option value="computer">Computer · Player B</option>
+        </select>
+      </section>
 
       <section class="score-grid">
         <article><span>PLAYER A</span><strong id="score-a">0</strong></article>
@@ -38,10 +47,10 @@
         <div><span>Black melds</span><b id="meld-b">0</b></div>
       </section>
 
-      <section>
-        <div class="section-title">LEGAL MOVES</div>
+      <details class="move-reference">
+        <summary>MOVE NOTATION</summary>
         <div id="moves" class="moves"></div>
-      </section>
+      </details>
 
       <section id="status" class="status"></section>
 
@@ -57,6 +66,13 @@
     <p>This move completes more than one eligible meld.</p>
     <div id="meld-options"></div>
     <button id="meld-cancel" class="secondary">Cancel</button>
+  </dialog>
+
+  <dialog id="route-dialog">
+    <h2>Choose capture route</h2>
+    <p>More than one legal sequence reaches that square.</p>
+    <div id="route-options"></div>
+    <button id="route-cancel" class="secondary">Cancel</button>
   </dialog>
 
   <script type="module" src="/main.js"></script>
