@@ -82,24 +82,37 @@ If aggregate scores are equal after Game 2, the official result is a **draw**.
 
 Players may mutually agree to another complete two-game set. If they continue, the previously tied aggregate score remains in force. There is no single-game sudden-death tiebreaker in the base rules.
 
+## Rules profiles
+
+The runtime exposes two clearly separated profiles:
+
+- **Official v1.0** — the normative rules in `RULES.md`; Kings remain subject to mandatory capture.
+- **Experimental Sovereign** — an opt-in playtest profile in which a King may decline the mandatory-capture obligation and make an otherwise legal one-square King move. Ordinary pieces remain capture-bound, and a King that chooses to capture must still complete its legal multiple-jump sequence.
+
+Changing the rules profile starts a fresh Crownline Set. Ordinary **Reset set** preserves the currently selected profile.
+
+The experimental profile does **not** amend Official Rules v1.0. See [`SOVEREIGN_EXPERIMENT.md`](SOVEREIGN_EXPERIMENT.md) for the simulation evidence and cautions behind the playtest.
+
 ## Repository structure
 
 - `RULES.md` — **Official Rules v1.0**
 - `SIMULATION_EVIDENCE.md` — evidence behind the v1.0 rule choices
-- `crownline_rules.py` — Game 1 / Game 2 geometry, scoring values, and immutable rule variants
-- `crownline_game.py` — deterministic single-game movement, capture, promotion, meld, quota, and scoring engine
-- `crownline_set.py` — two-game set state, color swap, aggregate scoring, and tied-set continuation
+- `SOVEREIGN_EXPERIMENT.md` — evidence for the opt-in Sovereign King experiment
+- `crownline_rules.py` — Game 1 / Game 2 geometry, scoring values, and explicit rules-profile identifiers
+- `crownline_game.py` — deterministic single-game movement, capture, promotion, meld, quota, scoring, and profile-aware move generation
+- `crownline_set.py` — two-game set state, color swap, aggregate scoring, tied-set continuation, and rules-profile persistence
 - `crownline_ai.py` — lightweight deterministic computer opponent search
 - `crownline.py` — stable public Python API
 - `play_crownline.py` — console player for a complete Crownline Set
-- `test_crownline.py` — v1 conformance tests
+- `test_crownline.py` — Official v1.0 conformance tests
+- `test_rules_profiles.py` — Official/Sovereign profile-boundary tests
 - `serve_crownline.py` — dependency-free local browser/API server
 - `web/` — Three.js/WebGL playable client
 
 ## Run the tests
 
 ```bash
-pytest -q test_crownline.py
+pytest -q
 ```
 
 ## Play in the console
@@ -122,10 +135,12 @@ Then open:
 http://127.0.0.1:8765
 ```
 
-The browser is intentionally non-authoritative: it renders serialized Python state and submits attempted moves back to the Python engine. Legal moves, captures, melds, scoring, game transitions, set resolution, and computer-opponent moves remain server-side.
+The browser is intentionally non-authoritative: it renders serialized Python state and submits attempted moves back to the Python engine. Legal moves, captures, melds, scoring, game transitions, set resolution, rules-profile behavior, and computer-opponent moves remain server-side.
 
 ### Browser interaction
 
+- choose **Official v1.0** or **Experimental · Sovereign King** from the Rules menu;
+- changing the Rules profile starts a fresh set so rules never mutate mid-game;
 - every square displays algebraic notation (`a1` through `h8`);
 - click one of the current player's movable pieces;
 - legal destination squares are highlighted;
@@ -150,16 +165,16 @@ A single move can theoretically complete more than one eligible Crownline throug
 
 ## Design evidence
 
-Crownline's rules were refined through simulation rather than intuition alone. The experimental work tested random play, heuristic strategy bots, capture quotas, Crownline persistence, board asymmetry, banked melds, complementary scoring, and two-game set balance.
+Crownline's rules were refined through simulation rather than intuition alone. The experimental work tested random play, heuristic strategy bots, capture quotas, Crownline persistence, board asymmetry, banked melds, complementary scoring, two-game set balance, and the optional Sovereign King rule.
 
-See [`SIMULATION_EVIDENCE.md`](SIMULATION_EVIDENCE.md) for details.
+See [`SIMULATION_EVIDENCE.md`](SIMULATION_EVIDENCE.md) and [`SOVEREIGN_EXPERIMENT.md`](SOVEREIGN_EXPERIMENT.md) for details.
 
 ## Rules authority
 
 The normative specification is [`RULES.md`](RULES.md).
 
-If this README and the official rules differ, **`RULES.md` governs**.
+If this README, an experiment, or the browser differs from the official rules, **`RULES.md` governs Official v1.0**.
 
 ---
 
-**Status:** Official Rules v1.0 frozen; v1 Python engine implemented; WebGL board directly playable with animated move/scoring feedback; baseline computer opponent implemented.
+**Status:** Official Rules v1.0 frozen; v1 Python engine implemented; WebGL board directly playable with animated move/scoring feedback; baseline computer opponent implemented; Sovereign King available as an explicitly experimental local rules profile.
