@@ -48,8 +48,6 @@ There is no instant three-in-a-row victory.
 
 ## The Crownline Set
 
-Crownline is played as two games.
-
 ### Game 1
 
 - play on the dark squares;
@@ -58,15 +56,11 @@ Crownline is played as two games.
 
 ### Game 2
 
-- play on the light squares using the mirrored geometry;
+- play on the light squares using mirrored geometry;
 - players swap sides and first move;
-- Crown values are complemented using:
+- Crown values are complemented using `v₂ = 10 - v₁`.
 
-```text
-v₂ = 10 - v₁
-```
-
-So the Game 2 magic square becomes:
+The Game 2 logical magic square is:
 
 ```text
 2 9 4
@@ -76,48 +70,73 @@ So the Game 2 magic square becomes:
 
 Every Crownline still totals **15**.
 
-Each game resets pieces, captures, kings, and meld eligibility. The scores do not reset.
+Each game resets pieces, captures, kings, and meld eligibility. Only game scores carry into the set total.
 
 ```text
 Set Score = Game 1 Score + Game 2 Score
 ```
 
-The player with the higher aggregate score wins the set.
-
 ## Ties
 
-If the aggregate scores are equal after Game 2, the official result is a **draw**.
+If aggregate scores are equal after Game 2, the official result is a **draw**.
 
-The players may mutually agree to play another complete two-game Crownline Set. If they continue, aggregate scoring continues from the tied total until a later complete set produces a leader.
+Players may mutually agree to another complete two-game set. If they continue, the previously tied aggregate score remains in force. There is no single-game sudden-death tiebreaker in the base rules.
 
-There is no single-game sudden-death tiebreaker in the base rules.
-
-## Repository status
-
-The repository currently contains:
+## Repository structure
 
 - `RULES.md` — **Official Rules v1.0**
-- `SIMULATION_EVIDENCE.md` — experimental evidence behind the v1.0 rule choices
-- `crownline.py` — preserved **v0.1** deterministic engine
-- `play_crownline.py` — v0.1 console player
-- `test_crownline.py` — v0.1 engine tests
+- `SIMULATION_EVIDENCE.md` — evidence behind the v1.0 rule choices
+- `crownline_rules.py` — Game 1 / Game 2 geometry, scoring values, and immutable rule variants
+- `crownline_game.py` — deterministic single-game movement, capture, promotion, meld, quota, and scoring engine
+- `crownline_set.py` — two-game set state, color swap, aggregate scoring, and tied-set continuation
+- `crownline.py` — stable public Python API
+- `play_crownline.py` — console player for a complete Crownline Set
+- `test_crownline.py` — v1 conformance tests
+- `serve_crownline.py` — dependency-free local browser/API server
+- `web/` — Three.js/WebGL prototype client
 
-> **Implementation note:** the rules have advanced to v1.0, while the Python engine is intentionally preserved at v0.1. The next implementation milestone is to bring the engine into conformance with the frozen v1.0 specification rather than silently rewriting the prototype history.
+## Run the tests
+
+```bash
+pytest -q test_crownline.py
+```
+
+## Play in the console
+
+```bash
+python play_crownline.py
+```
+
+## Run the browser prototype
+
+```bash
+python serve_crownline.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8765
+```
+
+The browser is intentionally non-authoritative: it renders serialized Python state and submits attempted moves back to the Python engine. Legal moves, captures, melds, scoring, game transitions, and set resolution remain server-side.
+
+## Meld-choice edge case
+
+A single move can theoretically complete more than one eligible Crownline through the moved piece. Because that piece identity cannot belong to two melds, the v1 engine exposes the competing Crownlines and requires the player to choose which one to bank rather than silently selecting for them.
 
 ## Design evidence
 
-Crownline's rules were refined through simulation rather than intuition alone.
-
-The experimental work tested random play, heuristic strategy bots, capture quotas, Crownline persistence, board asymmetry, banked melds, complementary scoring, and two-game set balance. The evidence is recorded separately so that future rule changes can be compared against the current baseline instead of replacing its rationale.
+Crownline's rules were refined through simulation rather than intuition alone. The experimental work tested random play, heuristic strategy bots, capture quotas, Crownline persistence, board asymmetry, banked melds, complementary scoring, and two-game set balance.
 
 See [`SIMULATION_EVIDENCE.md`](SIMULATION_EVIDENCE.md) for details.
 
-## Rules
+## Rules authority
 
 The normative specification is [`RULES.md`](RULES.md).
 
-If this README and the official rules ever differ, **`RULES.md` governs**.
+If this README and the official rules differ, **`RULES.md` governs**.
 
 ---
 
-**Status:** Rules v1.0 frozen; v1.0 engine implementation pending.
+**Status:** Official Rules v1.0 frozen; v1 Python engine implemented; first WebGL browser prototype scaffolded.
