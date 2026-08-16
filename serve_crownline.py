@@ -53,11 +53,17 @@ def _move_dict(move):
 
 def _piece_dict(game, position, piece):
     cooldown = game.piece_cooldown(piece.owner, piece.value)
-    display_value = f"{piece.value}{_SUPERSCRIPT.get(cooldown, '')}"
+    # The top face communicates current scoring consequence, while piece_id
+    # preserves the underlying identity used by the rules engine. Kings therefore
+    # show double their base value. A superscript remains the compact visual
+    # countdown for own turns until that piece may score another Crownline.
+    face_value = piece.value * (2 if piece.king else 1)
+    display_value = f"{face_value}{_SUPERSCRIPT.get(cooldown, '')}"
     return {
         "square": coord_to_alg(position),
         "owner": piece.owner,
         "piece_id": piece.value,
+        "face_value": face_value,
         "value": display_value,
         "king": piece.king,
         "cooldown": cooldown,
