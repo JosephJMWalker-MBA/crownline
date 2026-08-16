@@ -19,7 +19,7 @@ jobs:
         run: python -m py_compile *.py experiments/*.py
       - name: Check browser JavaScript
         run: |
-          for file in web/main.js web/rules_mode.js web/crowned_feedback.js web/onboarding.js; do
+          for file in web/main.js web/graphics.js web/tracker_preview.js web/rules_mode.js web/crowned_feedback.js web/onboarding.js; do
             node --check "$file"
           done
       - name: Smoke browser rules payload
