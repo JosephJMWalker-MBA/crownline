@@ -7,7 +7,7 @@ Player = Literal["W", "B"]
 Participant = Literal["A", "B"]
 GameWinner = Literal["W", "B", "DRAW"]
 SetWinner = Literal["A", "B", "DRAW"]
-RulesMode = Literal["official", "sovereign", "crowned"]
+RulesMode = Literal["official", "sovereign", "crowned", "candidate"]
 Coord = Tuple[int, int]
 Line = Tuple[str, str, str]
 
@@ -20,6 +20,7 @@ MELD_COOLDOWN_TURNS = 3
 OFFICIAL_RULES: RulesMode = "official"
 SOVEREIGN_RULES: RulesMode = "sovereign"
 CROWNED_MELD_RULES: RulesMode = "crowned"
+V1_1_CANDIDATE_RULES: RulesMode = "candidate"
 
 
 def normalize_rules_mode(mode: str) -> RulesMode:
@@ -29,7 +30,9 @@ def normalize_rules_mode(mode: str) -> RulesMode:
         return SOVEREIGN_RULES
     if mode == CROWNED_MELD_RULES:
         return CROWNED_MELD_RULES
-    raise ValueError("rules_mode must be 'official', 'sovereign', or 'crowned'")
+    if mode == V1_1_CANDIDATE_RULES:
+        return V1_1_CANDIDATE_RULES
+    raise ValueError("rules_mode must be 'official', 'sovereign', 'crowned', or 'candidate'")
 
 
 def rules_mode_label(mode: RulesMode) -> str:
@@ -37,7 +40,17 @@ def rules_mode_label(mode: RulesMode) -> str:
         return "Official v1.0"
     if mode == SOVEREIGN_RULES:
         return "Experimental Sovereign"
-    return "Experimental Crowned Meld"
+    if mode == CROWNED_MELD_RULES:
+        return "Experimental Crowned Meld"
+    return "Experimental Crownline v1.1 Candidate"
+
+
+def uses_sovereign_king(mode: RulesMode) -> bool:
+    return mode in (SOVEREIGN_RULES, V1_1_CANDIDATE_RULES)
+
+
+def uses_crowned_meld(mode: RulesMode) -> bool:
+    return mode in (CROWNED_MELD_RULES, V1_1_CANDIDATE_RULES)
 
 
 GAME1_CROWN_VALUES = (
