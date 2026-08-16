@@ -21,6 +21,14 @@
       <div class="view-controls">
         <button id="flip-board" type="button" title="Rotate the board 180 degrees">↻ Flip board</button>
       </div>
+      <div id="event-banner" class="event-banner" aria-live="polite"></div>
+      <div id="game-transition" class="game-transition" aria-hidden="true">
+        <div class="transition-card">
+          <span class="transition-mark">CROWNLINE</span>
+          <strong id="transition-title">GAME 2</strong>
+          <small id="transition-sub">Light squares · complementary Lo Shu</small>
+        </div>
+      </div>
       <div class="board-hint">Click a piece · choose a highlighted square · drag to rotate</div>
     </section>
     <aside class="panel">
@@ -39,8 +47,8 @@
       </section>
 
       <section class="score-grid">
-        <article><span>PLAYER A</span><strong id="score-a">0</strong></article>
-        <article><span>PLAYER B</span><strong id="score-b">0</strong></article>
+        <article id="score-card-a"><span>PLAYER A</span><strong id="score-a">0</strong></article>
+        <article id="score-card-b"><span>PLAYER B</span><strong id="score-b">0</strong></article>
       </section>
 
       <section class="metrics">
