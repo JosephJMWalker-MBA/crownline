@@ -6,6 +6,7 @@
   <title>Crownline v1</title>
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet" href="/rules_mode.css" />
+  <link rel="stylesheet" href="/onboarding.css" />
   <script type="importmap">
     {
       "imports": {
@@ -20,9 +21,14 @@
       <canvas id="board"></canvas>
       <div class="brand">CROWNLINE <span>v1.0</span></div>
       <div class="view-controls">
+        <button id="help-button" type="button" title="Open the Crownline guide">? Help</button>
         <button id="flip-board" type="button" title="Rotate the board 180 degrees">↻ Flip board</button>
       </div>
       <div id="event-banner" class="event-banner" aria-live="polite"></div>
+      <div id="rule-feedback" class="rule-feedback" aria-live="polite" hidden>
+        <strong id="rule-feedback-title">NO CROWNLINE</strong>
+        <span id="rule-feedback-copy"></span>
+      </div>
       <div id="game-transition" class="game-transition" aria-hidden="true">
         <div class="transition-card">
           <span class="transition-mark">CROWNLINE</span>
@@ -69,6 +75,25 @@
         <div><span>Black melds</span><b id="meld-b">0</b></div>
       </section>
 
+      <section id="crownline-tracker" class="crownline-tracker" hidden>
+        <div class="tracker-heading">
+          <span class="section-title">CROWNLINE MAP</span>
+          <button id="tracker-help" type="button" title="Explain retired Crownlines">?</button>
+        </div>
+        <p>Each player may score each geometry once per game.</p>
+        <div class="tracker-columns">
+          <div>
+            <b id="tracker-w-label">WHITE</b>
+            <div id="tracker-w" class="tracker-list"></div>
+          </div>
+          <div>
+            <b id="tracker-b-label">BLACK</b>
+            <div id="tracker-b" class="tracker-list"></div>
+          </div>
+        </div>
+        <small>○ available · ✓ retired</small>
+      </section>
+
       <details class="move-reference">
         <summary>MOVE NOTATION</summary>
         <div id="moves" class="moves"></div>
@@ -97,6 +122,37 @@
     <button id="route-cancel" class="secondary">Cancel</button>
   </dialog>
 
+  <dialog id="guide-dialog" class="guide-dialog">
+    <button id="guide-close" class="dialog-close" type="button" aria-label="Close guide">×</button>
+    <div id="guide-kicker" class="guide-kicker">CROWNLINE</div>
+    <h2 id="guide-title">Welcome to Crownline</h2>
+    <div id="guide-copy" class="guide-copy"></div>
+    <div id="guide-progress" class="guide-progress"></div>
+    <div class="guide-actions">
+      <button id="guide-back" type="button" class="secondary">Back</button>
+      <button id="guide-skip" type="button" class="secondary">Skip</button>
+      <button id="guide-next" type="button">Next</button>
+    </div>
+  </dialog>
+
+  <dialog id="help-dialog" class="help-dialog">
+    <button id="help-close" class="dialog-close" type="button" aria-label="Close help">×</button>
+    <div class="guide-kicker">CROWNLINE GUIDE</div>
+    <h2>Rules at a glance</h2>
+    <div class="help-tabs" role="tablist">
+      <button data-help-tab="basics" class="active">Basics</button>
+      <button data-help-tab="scoring">Scoring</button>
+      <button data-help-tab="crownlines">Crownlines</button>
+      <button data-help-tab="current">Current rules</button>
+    </div>
+    <div id="help-content" class="help-content"></div>
+    <div class="help-footer">
+      <button id="replay-tutorial" type="button" class="secondary">Replay tutorial</button>
+      <button id="profile-tutorial" type="button">Explain this mode</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="/onboarding.js"></script>
   <script type="module" src="/main.js"></script>
   <script type="module" src="/rules_mode.js"></script>
   <script type="module" src="/crowned_feedback.js"></script>
