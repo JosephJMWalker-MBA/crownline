@@ -7,7 +7,7 @@ from pathlib import Path
 from threading import Lock
 from urllib.parse import urlparse
 
-from crownline import MeldChoiceRequired, coord_to_alg, new_set
+from crownline import MeldChoiceRequired, coord_to_alg, new_set, rules_mode_label
 from crownline_ai import choose_computer_action
 
 ROOT = Path(__file__).resolve().parent
@@ -64,6 +64,11 @@ def state_payload():
             "first_game_white": crownline_set.first_game_white,
             "white_participant": crownline_set.white_participant,
             "black_participant": crownline_set.black_participant,
+            "rules": {
+                "mode": crownline_set.rules_mode,
+                "label": rules_mode_label(crownline_set.rules_mode),
+                "experimental": crownline_set.rules_mode != "official",
+            },
             "aggregate": {"A": aggregate_a, "B": aggregate_b},
             "completed_games": [
                 {
@@ -205,7 +210,8 @@ class Handler(BaseHTTPRequestHandler):
 
                 if path == "/api/reset":
                     first = body.get("first_game_white", "A")
-                    _session = new_set(first_game_white=first)
+                    rules_mode = body.get("rules_mode", "official")
+                    _session = new_set(first_game_white=first, rules_mode=rules_mode)
                     self._send_json(200, state_payload())
                     return
 
