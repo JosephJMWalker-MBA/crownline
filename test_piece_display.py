@@ -13,7 +13,7 @@ class _FakeGame:
 
 def test_normal_piece_face_value_keeps_identity_and_cooldown():
     piece = SimpleNamespace(owner="W", value=5, king=False)
-    payload = _piece_dict(_FakeGame(2), (0, 0), piece)
+    payload = _piece_dict(_FakeGame(2), (0, 1), piece)
 
     assert payload["piece_id"] == 5
     assert payload["face_value"] == 5
@@ -23,7 +23,7 @@ def test_normal_piece_face_value_keeps_identity_and_cooldown():
 
 def test_king_face_value_doubles_without_changing_piece_identity():
     piece = SimpleNamespace(owner="B", value=5, king=True)
-    payload = _piece_dict(_FakeGame(3), (0, 0), piece)
+    payload = _piece_dict(_FakeGame(3), (0, 1), piece)
 
     assert payload["piece_id"] == 5
     assert payload["face_value"] == 10
