@@ -1,8 +1,26 @@
 # Crownline v1.1 Candidate
 
-**Status:** experimental promotion candidate. This document does not amend `RULES.md`.
+**Status:** frozen experimental promotion candidate. This document does not amend `RULES.md`.
 
 The v1.1 candidate combines the two experimental mechanics that performed best in human play: **Sovereign King movement** and **Crowned Meld scoring**.
+
+## Candidate freeze
+
+As of the current playtest milestone, the candidate rules are **feature-complete and frozen for observation**.
+
+Development mode is now:
+
+```text
+play → observe → record
+```
+
+not:
+
+```text
+invent → adjust → invent
+```
+
+No new rule mechanics should be added unless actual play exposes a concrete structural failure, repeatable exploit, severe pacing problem, or unintuitive scoring outcome. Cosmetic, onboarding, accessibility, implementation, testing, and presentation work may continue without reopening the ruleset.
 
 ## Candidate rules
 
@@ -70,11 +88,22 @@ capture / defend / build Crownline / deny Crownline
 
 The King gains strategic freedom while remaining a high-value capture target.
 
-## Why this is not Official v1.1 yet
+## Promotion gate
 
-The candidate is grounded in simulation and repeated human play, but the combined rules have not yet received enough direct human-set testing to justify replacing the frozen Official v1.0 specification.
+The candidate should be promoted to **Official Crownline v1.1** only after several additional complete two-game human sets are played under the frozen candidate without discovering a new structural failure.
 
-Promotion to Official v1.1 should require several complete sets under the combined profile without discovering a new repeatable exploit, severe pacing problem, or unintuitive scoring outcome.
+The exact number of sets is less important than evidence quality. Promotion should require that play continues to feel strategically coherent across different positions rather than merely repeating one favorable game.
+
+A promotion-blocking finding includes any of the following:
+
+- a repeatable exploit;
+- a rule that forces obviously inferior or nonsensical play rather than creating a strategic tradeoff;
+- a severe pacing or repetition problem;
+- Crownline scoring becoming trivial, irrelevant, or excessively dominant;
+- a recurring unintuitive scoring outcome that onboarding cannot reasonably solve;
+- a meaningful color/seat advantage that survives the two-game set structure.
+
+Minor balance impressions or single unusual positions should be recorded before changing rules.
 
 ## Playtest focus
 
@@ -88,12 +117,24 @@ During candidate play, watch especially for:
 6. whether the 15-point capture clock still produces satisfying game length;
 7. whether either color/seat develops a repeatable advantage across the two-game set.
 
+## Promotion implementation plan
+
+If the promotion gate is satisfied:
+
+1. promote this frozen candidate to **Official Crownline v1.1**;
+2. update the normative rules specification and conformance tests;
+3. make v1.1 the default polished gameplay experience;
+4. move **Official v1.0**, **Experimental Sovereign King**, and **Experimental Crowned Meld** into a clearly labeled **Legacy & Experimental Rules** area;
+5. preserve all previous rulesets for provenance, comparison, and regression testing rather than deleting them.
+
+No part of that promotion should happen automatically merely because time passes; it requires an explicit promotion decision after playtest review.
+
 ## Runtime profile
 
-The browser exposes this ruleset as:
+The browser currently exposes this ruleset as:
 
 **Experimental · Crownline v1.1 Candidate**
 
 The older **Experimental Sovereign King** and **Experimental Crowned Meld** profiles remain available as comparison controls.
 
-Official v1.0 remains the default normative specification until an explicit promotion decision is made.
+Official v1.0 remains the normative specification until the promotion gate is explicitly satisfied.
