@@ -22,6 +22,18 @@ invent → adjust → invent
 
 No new rule mechanics should be added unless actual play exposes a concrete structural failure, repeatable exploit, severe pacing problem, or unintuitive scoring outcome. Cosmetic, onboarding, accessibility, implementation, testing, and presentation work may continue without reopening the ruleset.
 
+### Play-discovered clarification — 2026-08-16
+
+Human play exposed one ambiguity in the first frozen wording of Sovereignty: declining a King capture still forced the player to move that same King. That constrained the turn in a way the intended strategic principle did not require.
+
+The candidate was therefore clarified rather than expanded:
+
+> **If a King has an available capture, that King may release the mandatory-capture obligation for the turn. The player may then make any otherwise legal non-capturing move with any of their pieces.**
+
+This does **not** mean the mere presence of a King cancels mandatory capture. If captures are available only to ordinary pieces, capture remains mandatory.
+
+This clarification is now part of the frozen candidate and should itself be tested in subsequent sets.
+
 ## Candidate rules
 
 All Official v1.0 set structure, board geometry, capture scoring, 15-point capture quota, final-response turn, Game 1 / Game 2 complementarity, aggregate set scoring, and tie handling remain unchanged except where explicitly modified below.
@@ -29,7 +41,9 @@ All Official v1.0 set structure, board geometry, capture scoring, 15-point captu
 ### Sovereign Kings
 
 - Ordinary pieces remain subject to mandatory capture.
-- A King may decline a mandatory capture and instead make any otherwise legal one-square King move.
+- If at least one King has an available capture, the player may decline the capture obligation for that turn.
+- After declining, the player may make **any otherwise legal non-capturing move with any of their pieces**; the King that could capture does not have to move.
+- If captures are available only to ordinary pieces, mandatory capture still applies.
 - If a King chooses to capture, it must complete the full legal multi-jump sequence.
 - Kings remain worth double their printed value when captured.
 
@@ -83,10 +97,12 @@ promotion
     ↓
 Sovereign King
     ↓
-capture / defend / build Crownline / deny Crownline
+release forced capture when the King can capture
+    ↓
+capture / move another piece / defend / build Crownline / deny Crownline
 ```
 
-The King gains strategic freedom while remaining a high-value capture target.
+The King gains strategic authority over the turn while remaining a high-value capture target.
 
 ## Promotion gate
 
@@ -109,13 +125,14 @@ Minor balance impressions or single unusual positions should be recorded before 
 
 During candidate play, watch especially for:
 
-1. whether Sovereign refusal creates meaningful choices rather than easy escapes;
-2. whether King-gated Crownlines occur often enough to remain central to the game;
-3. whether the 3-turn cooldown feels strategic rather than administrative;
-4. whether per-player line retirement naturally creates planning around the remaining Crownline Map;
-5. whether Royal +30 feels proportionate to three-King formation difficulty;
-6. whether the 15-point capture clock still produces satisfying game length;
-7. whether either color/seat develops a repeatable advantage across the two-game set.
+1. whether whole-turn Sovereign refusal creates meaningful choices rather than easy escapes;
+2. whether the ability to move a different piece after refusal is strategically rich without becoming too permissive;
+3. whether King-gated Crownlines occur often enough to remain central to the game;
+4. whether the 3-turn cooldown feels strategic rather than administrative;
+5. whether per-player line retirement naturally creates planning around the remaining Crownline Map;
+6. whether Royal +30 feels proportionate to three-King formation difficulty;
+7. whether the 15-point capture clock still produces satisfying game length;
+8. whether either color/seat develops a repeatable advantage across the two-game set.
 
 ## Promotion implementation plan
 
