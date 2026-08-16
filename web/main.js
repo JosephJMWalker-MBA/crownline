@@ -3,29 +3,60 @@ import * as THREE from 'three';
 const canvas = document.querySelector('#board');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
 renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
 camera.position.set(7.7, 9.8, 10.8);
 camera.lookAt(0, 0, 0);
 
-scene.add(new THREE.HemisphereLight(0xdde7ff, 0x20232a, 2.25));
-const key = new THREE.DirectionalLight(0xffffff, 4.0);
+scene.add(new THREE.HemisphereLight(0xdde7ff, 0x161a22, 1.9));
+const key = new THREE.DirectionalLight(0xffffff, 4.1);
 key.position.set(4, 10, 6);
 key.castShadow = true;
+key.shadow.mapSize.set(2048, 2048);
+key.shadow.camera.left = -8;
+key.shadow.camera.right = 8;
+key.shadow.camera.top = 8;
+key.shadow.camera.bottom = -8;
 scene.add(key);
+
+const rim = new THREE.DirectionalLight(0x8fb6ff, 1.15);
+rim.position.set(-7, 5, -6);
+scene.add(rim);
+
+const floor = new THREE.Mesh(
+  new THREE.PlaneGeometry(30, 30),
+  new THREE.MeshStandardMaterial({ color: 0x080b10, roughness: 0.96, metalness: 0.02 })
+);
+floor.rotation.x = -Math.PI / 2;
+floor.position.y = -0.47;
+floor.receiveShadow = true;
+scene.add(floor);
 
 const boardGroup = new THREE.Group();
 scene.add(boardGroup);
 
 const boardBase = new THREE.Mesh(
-  new THREE.BoxGeometry(8.7, 0.34, 8.7),
-  new THREE.MeshStandardMaterial({ color: 0x151922, roughness: 0.72, metalness: 0.1 })
+  new THREE.BoxGeometry(8.82, 0.38, 8.82),
+  new THREE.MeshStandardMaterial({ color: 0x141a24, roughness: 0.55, metalness: 0.18 })
 );
-boardBase.position.y = -0.26;
+boardBase.position.y = -0.27;
 boardBase.receiveShadow = true;
+boardBase.castShadow = true;
 boardGroup.add(boardBase);
+
+const inset = new THREE.Mesh(
+  new THREE.BoxGeometry(8.28, 0.08, 8.28),
+  new THREE.MeshStandardMaterial({ color: 0x202631, roughness: 0.62, metalness: 0.08 })
+);
+inset.position.y = -0.045;
+inset.receiveShadow = true;
+boardGroup.add(inset);
 
 const ui = {
   game: document.querySelector('#game-label'),
@@ -42,6 +73,7 @@ const ui = {
   advance: document.querySelector('#advance'),
   reset: document.querySelector('#reset'),
   opponent: document.querySelector('#opponent-mode'),
+  flip: document.querySelector('#flip-board'),
   meldDialog: document.querySelector('#meld-dialog'),
   meldOptions: document.querySelector('#meld-options'),
   meldCancel: document.querySelector('#meld-cancel'),
@@ -62,7 +94,22 @@ const highlightObjects = [];
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
+let boardRotation = 0;
+let targetBoardRotation = 0;
+let pointerDown = false;
+let draggingBoard = false;
+let dragStartX = 0;
+let dragStartY = 0;
+let dragLastX = 0;
+let pressEvent = null;
+
 ui.opponent.value = localStorage.getItem('crownline-opponent') || 'human';
+const savedRotation = Number(localStorage.getItem('crownline-board-rotation'));
+if (Number.isFinite(savedRotation)) {
+  boardRotation = savedRotation;
+  targetBoardRotation = savedRotation;
+  boardGroup.rotation.y = savedRotation;
+}
 
 function squareToWorld(square) {
   const file = square.charCodeAt(0) - 97;
@@ -105,7 +152,8 @@ function pieceLabelTexture(piece) {
   ctx.textBaseline = 'middle';
   ctx.fillText(String(piece.value), 128, 132);
   if (piece.king) {
-    ctx.font = '800 38px system-ui';
+    ctx.fillStyle = '#d7ad55';
+    ctx.font = '900 38px system-ui';
     ctx.fillText('K', 128, 44);
   }
   const texture = new THREE.CanvasTexture(canvas2d);
@@ -121,14 +169,14 @@ function squareMarkTexture(square, crown, darkSquare, playable) {
   ctx.clearRect(0, 0, 256, 256);
 
   const lightText = crown !== undefined || darkSquare;
-  ctx.fillStyle = lightText ? 'rgba(244,247,251,.88)' : 'rgba(22,26,33,.72)';
-  ctx.font = '700 30px system-ui';
+  ctx.fillStyle = lightText ? 'rgba(244,247,251,.72)' : 'rgba(22,26,33,.58)';
+  ctx.font = '700 27px system-ui';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'bottom';
   ctx.fillText(square, 18, 238);
 
   if (crown !== undefined) {
-    ctx.fillStyle = playable ? '#f6f8fb' : 'rgba(246,248,251,.48)';
+    ctx.fillStyle = playable ? '#f6f8fb' : 'rgba(246,248,251,.45)';
     ctx.font = '850 100px system-ui';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -139,6 +187,57 @@ function squareMarkTexture(square, crown, darkSquare, playable) {
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
   return texture;
+}
+
+function addKingTreatment(group, piece) {
+  const gold = 0xd8ad55;
+
+  const halo = new THREE.Mesh(
+    new THREE.RingGeometry(0.39, 0.66, 64),
+    new THREE.MeshBasicMaterial({
+      color: gold,
+      transparent: true,
+      opacity: 0.23,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+      side: THREE.DoubleSide,
+    })
+  );
+  halo.rotation.x = -Math.PI / 2;
+  halo.position.y = -0.145;
+  halo.userData.pulse = true;
+  group.add(halo);
+
+  const crownRing = new THREE.Mesh(
+    new THREE.TorusGeometry(0.30, 0.035, 12, 48),
+    new THREE.MeshStandardMaterial({
+      color: 0xe1bc69,
+      emissive: 0x6b4e18,
+      emissiveIntensity: 1.35,
+      roughness: 0.28,
+      metalness: 0.72,
+    })
+  );
+  crownRing.rotation.x = Math.PI / 2;
+  crownRing.position.y = 0.145;
+  crownRing.castShadow = true;
+  group.add(crownRing);
+
+  const crownCap = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.27, 0.30, 0.075, 48),
+    new THREE.MeshStandardMaterial({
+      color: piece.owner === 'W' ? 0xf3eee2 : 0x242933,
+      emissive: 0x3a2b0f,
+      emissiveIntensity: 0.45,
+      roughness: 0.34,
+      metalness: 0.38,
+    })
+  );
+  crownCap.position.y = 0.125;
+  crownCap.castShadow = true;
+  crownCap.userData = { kind: 'piece', square: piece.square, owner: piece.owner };
+  group.add(crownCap);
+  clickTargets.push(crownCap);
 }
 
 function renderBoard(data) {
@@ -152,31 +251,34 @@ function renderBoard(data) {
       const playable = ((file + 1 + rank) % 2) === parity;
       const crown = crownMap.get(square);
       const darkSquare = ((file + rank) % 2 === 0);
-      const baseColor = darkSquare ? 0x262b35 : 0xd6d1c6;
+      const baseColor = darkSquare ? 0x252c37 : 0xd5d0c5;
       const material = new THREE.MeshStandardMaterial({
-        color: crown !== undefined ? 0x58667a : baseColor,
-        roughness: 0.78,
-        metalness: crown !== undefined ? 0.18 : 0.02,
-        opacity: playable ? 1 : 0.36,
+        color: crown !== undefined ? 0x596b85 : baseColor,
+        emissive: crown !== undefined && playable ? 0x111c2c : 0x000000,
+        emissiveIntensity: crown !== undefined && playable ? 0.42 : 0,
+        roughness: crown !== undefined ? 0.56 : 0.72,
+        metalness: crown !== undefined ? 0.2 : 0.04,
+        opacity: playable ? 1 : 0.39,
         transparent: !playable,
       });
-      const tileHeight = crown !== undefined ? 0.14 : 0.1;
-      const tile = new THREE.Mesh(new THREE.BoxGeometry(0.98, tileHeight, 0.98), material);
+      const tileHeight = crown !== undefined ? 0.145 : 0.1;
+      const tile = new THREE.Mesh(new THREE.BoxGeometry(0.965, tileHeight, 0.965), material);
       const { x, z } = squareToWorld(square);
       tile.position.set(x, 0, z);
       tile.receiveShadow = true;
+      tile.castShadow = crown !== undefined;
       tile.userData = { kind: 'square', square, playable };
       boardGroup.add(tile);
       dynamicObjects.push(tile);
       clickTargets.push(tile);
 
       const mark = new THREE.Mesh(
-        new THREE.PlaneGeometry(0.91, 0.91),
+        new THREE.PlaneGeometry(0.89, 0.89),
         new THREE.MeshBasicMaterial({
           map: squareMarkTexture(square, crown, darkSquare, playable),
           transparent: true,
           depthWrite: false,
-          opacity: playable ? 1 : 0.58,
+          opacity: playable ? 1 : 0.55,
         })
       );
       mark.rotation.x = -Math.PI / 2;
@@ -189,13 +291,17 @@ function renderBoard(data) {
   for (const piece of data.game.pieces) {
     const { x, z } = squareToWorld(piece.square);
     const group = new THREE.Group();
+
+    const bodyMaterial = new THREE.MeshStandardMaterial({
+      color: piece.owner === 'W' ? 0xf0ece1 : 0x171b22,
+      emissive: piece.king ? 0x2c210c : 0x000000,
+      emissiveIntensity: piece.king ? 0.42 : 0,
+      roughness: piece.king ? 0.34 : 0.48,
+      metalness: piece.king ? 0.34 : 0.08,
+    });
     const body = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.37, 0.41, piece.king ? 0.28 : 0.22, 48),
-      new THREE.MeshStandardMaterial({
-        color: piece.owner === 'W' ? 0xf0ece1 : 0x171b22,
-        roughness: 0.48,
-        metalness: piece.king ? 0.28 : 0.08,
-      })
+      new THREE.CylinderGeometry(0.37, 0.41, piece.king ? 0.30 : 0.22, 48),
+      bodyMaterial
     );
     body.castShadow = true;
     body.receiveShadow = true;
@@ -203,17 +309,19 @@ function renderBoard(data) {
     group.add(body);
     clickTargets.push(body);
 
+    if (piece.king) addKingTreatment(group, piece);
+
     const top = new THREE.Mesh(
-      new THREE.CircleGeometry(0.28, 48),
+      new THREE.CircleGeometry(piece.king ? 0.245 : 0.28, 48),
       new THREE.MeshBasicMaterial({ map: pieceLabelTexture(piece), transparent: true })
     );
     top.rotation.x = -Math.PI / 2;
-    top.position.y = piece.king ? 0.145 : 0.115;
+    top.position.y = piece.king ? 0.205 : 0.115;
     top.userData = { kind: 'piece', square: piece.square, owner: piece.owner };
     group.add(top);
     clickTargets.push(top);
 
-    group.position.set(x, piece.king ? 0.22 : 0.17, z);
+    group.position.set(x, piece.king ? 0.235 : 0.17, z);
     boardGroup.add(group);
     dynamicObjects.push(group);
   }
@@ -258,7 +366,7 @@ function renderSelection() {
       new THREE.MeshBasicMaterial({
         color: capture ? 0xffc857 : 0x5be38d,
         transparent: true,
-        opacity: 0.88,
+        opacity: 0.9,
         side: THREE.DoubleSide,
       })
     );
@@ -487,6 +595,11 @@ ui.opponent.addEventListener('change', async () => {
   await maybeComputerMove();
 });
 
+ui.flip.addEventListener('click', () => {
+  targetBoardRotation += Math.PI;
+  localStorage.setItem('crownline-board-rotation', String(targetBoardRotation));
+});
+
 ui.meldCancel.addEventListener('click', () => {
   pendingMove = null;
   ui.meldDialog.close();
@@ -496,11 +609,15 @@ ui.routeCancel.addEventListener('click', () => {
   ui.routeDialog.close();
 });
 
-canvas.addEventListener('pointerdown', (event) => {
-  if (!canHumanInteract()) return;
+function updatePointer(event) {
   const rect = canvas.getBoundingClientRect();
   pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
   pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+}
+
+function handleBoardClick(event) {
+  if (!canHumanInteract()) return;
+  updatePointer(event);
   raycaster.setFromCamera(pointer, camera);
   const hit = raycaster.intersectObjects(clickTargets, false)[0];
   if (!hit) {
@@ -523,9 +640,52 @@ canvas.addEventListener('pointerdown', (event) => {
     }
     return;
   }
-  if (kind === 'square') {
-    chooseDestination(square);
+  if (kind === 'square') chooseDestination(square);
+}
+
+canvas.addEventListener('pointerdown', (event) => {
+  pointerDown = true;
+  draggingBoard = false;
+  dragStartX = event.clientX;
+  dragStartY = event.clientY;
+  dragLastX = event.clientX;
+  pressEvent = event;
+  canvas.setPointerCapture?.(event.pointerId);
+});
+
+canvas.addEventListener('pointermove', (event) => {
+  if (!pointerDown) return;
+  const total = Math.hypot(event.clientX - dragStartX, event.clientY - dragStartY);
+  if (total > 5) draggingBoard = true;
+  if (!draggingBoard) return;
+
+  const dx = event.clientX - dragLastX;
+  dragLastX = event.clientX;
+  targetBoardRotation += dx * 0.0085;
+  selectedSquare = null;
+  statusOverride = null;
+  renderSelection();
+});
+
+canvas.addEventListener('pointerup', (event) => {
+  if (!pointerDown) return;
+  const wasDragging = draggingBoard;
+  pointerDown = false;
+  draggingBoard = false;
+  canvas.releasePointerCapture?.(event.pointerId);
+  if (wasDragging) {
+    localStorage.setItem('crownline-board-rotation', String(targetBoardRotation));
+    renderUI(state);
+    return;
   }
+  handleBoardClick(pressEvent || event);
+  pressEvent = null;
+});
+
+canvas.addEventListener('pointercancel', () => {
+  pointerDown = false;
+  draggingBoard = false;
+  pressEvent = null;
 });
 
 function resize() {
@@ -536,8 +696,17 @@ function resize() {
   camera.updateProjectionMatrix();
 }
 
-function animate() {
+function animate(time = 0) {
   resize();
+  const delta = targetBoardRotation - boardRotation;
+  boardRotation += delta * 0.14;
+  boardGroup.rotation.y = boardRotation;
+
+  const pulse = 0.18 + (Math.sin(time * 0.004) + 1) * 0.07;
+  boardGroup.traverse((object) => {
+    if (object.userData?.pulse && object.material) object.material.opacity = pulse;
+  });
+
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
 }
