@@ -128,6 +128,12 @@ class GameState:
     def used_piece_ids(self, player: Player) -> frozenset[int]:
         return frozenset(piece_id for meld in self.melds(player) for piece_id in meld.piece_ids)
 
+    def retired_lines(self, player: Player) -> frozenset[Line]:
+        """Crowned Meld lines already scored by this player in this game."""
+        if self.rules_mode != CROWNED_MELD_RULES:
+            return frozenset()
+        return frozenset(meld.line for meld in self.melds(player))
+
     def cooldowns(self, player: Player) -> Dict[int, int]:
         source = self.cooldowns_w if player == "W" else self.cooldowns_b
         return dict(source)
@@ -270,6 +276,77 @@ class GameState:
             for square in line
         )
 
+    def crowned_meld_diagnostics_on_board(
+        self,
+        board: Dict[Coord, Piece],
+        player: Player,
+        *,
+        previous_board: Optional[Dict[Coord, Piece]] = None,
+    ) -> Tuple[dict, ...]:
+        """Explain visible newly completed Crownlines that cannot score.
+
+        This is authoritative rules feedback for the client; the browser should
+        render these reasons rather than reimplementing Crowned Meld eligibility.
+        """
+        if self.rules_mode != CROWNED_MELD_RULES:
+            return ()
+
+        cooldowns = self.cooldowns(player)
+        retired = self.retired_lines(player)
+        diagnostics = []
+        for line in self.variant.crown_lines:
+            if not self._line_owned(board, line, player):
+                continue
+            if previous_board is not None and self._line_owned(previous_board, line, player):
+                continue
+
+            pieces = tuple(board[alg_to_coord(square)] for square in line)
+            piece_ids = tuple(piece.value for piece in pieces)
+            reasons = []
+            if line in retired:
+                reasons.append({
+                    "code": "retired_line",
+                    "message": "You already scored this Crownline; it is retired for you this game.",
+                })
+            if len(set(piece_ids)) != 3:
+                reasons.append({
+                    "code": "duplicate_identity",
+                    "message": "A Crownline needs three distinct piece identities.",
+                })
+            blocked = [
+                {"piece_id": piece_id, "turns": cooldowns[piece_id]}
+                for piece_id in piece_ids
+                if cooldowns.get(piece_id, 0) > 0
+            ]
+            if blocked:
+                detail = ", ".join(
+                    f"piece {item['piece_id']} ({item['turns']} turn{'s' if item['turns'] != 1 else ''})"
+                    for item in blocked
+                )
+                reasons.append({
+                    "code": "cooldown",
+                    "message": f"Crownline cooldown remains on {detail}.",
+                    "pieces": blocked,
+                })
+            if not any(piece.king for piece in pieces):
+                reasons.append({
+                    "code": "king_required",
+                    "message": "Crowned Meld requires at least one King in the formation.",
+                })
+            if reasons:
+                diagnostics.append({
+                    "line": line,
+                    "piece_ids": piece_ids,
+                    "reasons": tuple(reasons),
+                })
+        return tuple(diagnostics)
+
+    def crowned_meld_diagnostics_after(self, move: Move) -> Tuple[dict, ...]:
+        if move not in self.legal_moves():
+            raise ValueError(f"Illegal move {move}")
+        board, _ = self._executed_position(move)
+        return self.crowned_meld_diagnostics_on_board(board, self.turn, previous_board=self.board)
+
     def eligible_melds_on_board(
         self,
         board: Dict[Coord, Piece],
@@ -281,11 +358,15 @@ class GameState:
 
         if self.rules_mode == CROWNED_MELD_RULES:
             cooldowns = self.cooldowns(player)
+            retired = self.retired_lines(player)
             for line in self.variant.crown_lines:
                 if not self._line_owned(board, line, player):
                     continue
                 # A standing formation never scores merely because cooldown expires.
                 if previous_board is not None and self._line_owned(previous_board, line, player):
+                    continue
+                # Retirement is per player: the opponent may still score this geometry.
+                if line in retired:
                     continue
                 pieces = tuple(board[alg_to_coord(square)] for square in line)
                 piece_ids = tuple(piece.value for piece in pieces)
