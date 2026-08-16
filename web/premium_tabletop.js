@@ -386,10 +386,15 @@ function upgradePiece(group, body) {
   upgraded.add(body);
 }
 
-function upgradeLabel(label) {
+function upgradeLabel(group, label) {
   if (upgraded.has(label) || label.userData?.kind !== 'piece') return;
   if (label.geometry?.type !== 'CircleGeometry') return;
-  label.position.y += 0.012;
+
+  // The King upper deck tops out around y=.218. Lift the authoritative face
+  // texture clearly above the deck/signet so doubled values and cooldown
+  // superscripts stay readable instead of disappearing into the stack.
+  const king = Boolean(group?.userData?.premiumKingStack);
+  label.position.y += king ? 0.028 : 0.012;
   label.renderOrder = 4;
   label.userData.premiumManaged = true;
   upgraded.add(label);
@@ -408,7 +413,7 @@ THREE.Group.prototype.add = function crownlinePremiumAdd(...objects) {
     if (object.userData?.kind === 'square') upgradeTile(object);
     if (object.userData?.kind === 'piece') {
       upgradePiece(this, object);
-      upgradeLabel(object);
+      upgradeLabel(this, object);
     }
   }
   return groupAdd.apply(this, objects);
@@ -417,9 +422,10 @@ THREE.Group.prototype.add = function crownlinePremiumAdd(...objects) {
 window.CrownlinePremiumTabletop = {
   active: true,
   architecture: 'scene-construction',
-  version: 4,
+  version: 5,
   pieceDesign: 'ribbed-checker',
   kingDesign: 'double-stack-signet',
+  kingFaceSemantics: 'doubled-value-plus-cooldown',
   finish: 'satin',
   woodSurface: true,
 };
