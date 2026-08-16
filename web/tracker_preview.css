@@ -1,0 +1,14 @@
+.tracker-item {
+  cursor: help;
+  border-radius: 6px;
+  padding: 3px 4px;
+  margin: -3px -4px;
+  transition: background .14s ease, color .14s ease, box-shadow .14s ease;
+}
+
+.tracker-item:hover,
+.tracker-item:focus-within {
+  background: rgba(216, 173, 85, .10);
+  color: #f0d184;
+  box-shadow: inset 0 0 0 1px rgba(216, 173, 85, .16);
+}
