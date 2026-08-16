@@ -5,7 +5,6 @@ from typing import Dict, Optional, Tuple
 
 from crownline_rules import (
     CAPTURE_QUOTA,
-    CROWNED_MELD_RULES,
     MELD_BONUS,
     MELD_COOLDOWN_TURNS,
     ROYAL_MELD_BONUS,
@@ -17,11 +16,12 @@ from crownline_rules import (
     OFFICIAL_RULES,
     Player,
     RulesMode,
-    SOVEREIGN_RULES,
     alg_to_coord,
     coord_to_alg,
     normalize_rules_mode,
     opponent,
+    uses_crowned_meld,
+    uses_sovereign_king,
     variant_for,
 )
 
@@ -129,8 +129,8 @@ class GameState:
         return frozenset(piece_id for meld in self.melds(player) for piece_id in meld.piece_ids)
 
     def retired_lines(self, player: Player) -> frozenset[Line]:
-        """Crowned Meld lines already scored by this player in this game."""
-        if self.rules_mode != CROWNED_MELD_RULES:
+        """Crowned-style lines already scored by this player in this game."""
+        if not uses_crowned_meld(self.rules_mode):
             return frozenset()
         return frozenset(meld.line for meld in self.melds(player))
 
@@ -156,7 +156,7 @@ class GameState:
         return replace(self, cooldowns_b=packed)
 
     def _advance_cooldowns_after_turn(self, player: Player, new_meld: Optional[Meld]) -> "GameState":
-        if self.rules_mode != CROWNED_MELD_RULES:
+        if not uses_crowned_meld(self.rules_mode):
             return self
         cooldowns = {
             piece_id: turns - 1
@@ -242,7 +242,7 @@ class GameState:
                 captures.extend(self._capture_sequences_from(self.board, position, piece))
 
         if captures:
-            if self.rules_mode == SOVEREIGN_RULES:
+            if uses_sovereign_king(self.rules_mode):
                 captures.extend(self._simple_moves(kings_only=True))
             return tuple(sorted(captures, key=lambda move: move.notation()))
 
@@ -288,7 +288,7 @@ class GameState:
         This is authoritative rules feedback for the client; the browser should
         render these reasons rather than reimplementing Crowned Meld eligibility.
         """
-        if self.rules_mode != CROWNED_MELD_RULES:
+        if not uses_crowned_meld(self.rules_mode):
             return ()
 
         cooldowns = self.cooldowns(player)
@@ -356,7 +356,7 @@ class GameState:
     ) -> Tuple[Meld, ...]:
         options = []
 
-        if self.rules_mode == CROWNED_MELD_RULES:
+        if uses_crowned_meld(self.rules_mode):
             cooldowns = self.cooldowns(player)
             retired = self.retired_lines(player)
             for line in self.variant.crown_lines:
