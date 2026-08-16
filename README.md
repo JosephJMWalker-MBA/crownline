@@ -84,19 +84,21 @@ Players may mutually agree to another complete two-game set. If they continue, t
 
 ## Rules profiles
 
-The runtime exposes three clearly separated profiles:
+The runtime exposes four separated profiles:
 
+- **Experimental Crownline v1.1 Candidate** — the leading playtest profile. It combines Sovereign Kings with Crowned Meld scoring: Kings may decline mandatory capture; a Crownline requires at least one King; normal Crownlines score **+15**; three Kings score **Royal +30**; scoring pieces receive a 3-turn Crownline cooldown; and each Crownline geometry may score once per player per game before retiring for that player.
 - **Official v1.0** — the normative rules in `RULES.md`; Kings remain subject to mandatory capture and meld-used piece identities remain permanently spent for scoring within that game.
-- **Experimental Sovereign** — a King may decline the mandatory-capture obligation and make an otherwise legal one-square King move. Ordinary pieces remain capture-bound, and a King that chooses to capture must still complete its legal multiple-jump sequence.
-- **Experimental Crowned Meld** — a scoring Crownline must contain at least one King. A normal Crownline scores **+15**. Three Kings create a **Royal Crownline worth +30**. After scoring, all three participating pieces receive a **3-turn Crownline cooldown**. Each of the eight Crownline geometries may score **once per player per game**; the line is then retired for that player, while the opponent may still score the same geometry. Once cooldown clears, the same pieces may score again only by newly completing a different unretired Crownline.
+- **Experimental Sovereign** — isolates the King-movement experiment. A King may decline the mandatory-capture obligation and make an otherwise legal one-square King move. Ordinary pieces remain capture-bound, and a King that chooses to capture must still complete its legal multiple-jump sequence.
+- **Experimental Crowned Meld** — isolates the scoring experiment. A scoring Crownline must contain at least one King, uses the 3-turn cooldown, Royal +30, and per-player line retirement, while Kings remain subject to mandatory capture.
 
 Changing the rules profile starts a fresh Crownline Set. Ordinary **Reset set** preserves the currently selected profile.
 
-The experimental profiles do **not** amend Official Rules v1.0. See [`SOVEREIGN_EXPERIMENT.md`](SOVEREIGN_EXPERIMENT.md) and [`CROWNED_MELD_EXPERIMENT.md`](CROWNED_MELD_EXPERIMENT.md).
+The v1.1 candidate and comparison profiles do **not** amend Official Rules v1.0. See [`V1_1_CANDIDATE.md`](V1_1_CANDIDATE.md), [`SOVEREIGN_EXPERIMENT.md`](SOVEREIGN_EXPERIMENT.md), and [`CROWNED_MELD_EXPERIMENT.md`](CROWNED_MELD_EXPERIMENT.md).
 
 ## Repository structure
 
 - `RULES.md` — **Official Rules v1.0**
+- `V1_1_CANDIDATE.md` — combined Sovereign + Crowned Meld candidate for possible promotion
 - `SIMULATION_EVIDENCE.md` — evidence behind the v1.0 rule choices
 - `SOVEREIGN_EXPERIMENT.md` — evidence for the opt-in Sovereign King experiment
 - `CROWNED_MELD_EXPERIMENT.md` — rationale and evidence for King-required reusable melds and per-player line retirement
@@ -109,6 +111,7 @@ The experimental profiles do **not** amend Official Rules v1.0. See [`SOVEREIGN_
 - `test_crownline.py` — Official v1.0 conformance tests
 - `test_rules_profiles.py` — Official/Sovereign profile-boundary tests
 - `test_crowned_meld.py` — Crowned Meld, Royal, cooldown, retirement, and diagnostic tests
+- `test_v1_1_candidate.py` — combined-profile and experiment-isolation tests
 - `serve_crownline.py` — dependency-free local browser/API server
 - `web/` — Three.js/WebGL playable client, onboarding, help, and contextual rule feedback
 
@@ -145,10 +148,10 @@ The browser is intentionally non-authoritative: it renders serialized Python sta
 - first launch presents a short five-step tutorial covering sets, movement, scoring, the Crown Grid, and the Game 1 → Game 2 relationship;
 - each Rules profile has its own first-time tutorial, and the active profile can be re-explained from **? Help** at any time;
 - the persistent Help panel covers Basics, Scoring, Crownlines, and the Current Rules profile;
-- choose **Official v1.0**, **Experimental · Sovereign King**, or **Experimental · Crowned Meld** from the Rules menu;
+- choose **Experimental · Crownline v1.1 Candidate**, **Official v1.0**, **Experimental · Sovereign King**, or **Experimental · Crowned Meld** from the Rules menu;
 - changing the Rules profile starts a fresh set so rules never mutate mid-game;
-- in Crowned Meld mode, a piece on cooldown shows a superscript countdown such as `5³ → 5² → 5¹ → 5`;
-- Crowned Meld also displays a per-player **Crownline Map** showing all eight geometries as available (`○`) or retired (`✓`);
+- in Crowned Meld and v1.1 Candidate modes, a piece on cooldown shows a superscript countdown such as `5³ → 5² → 5¹ → 5`;
+- those modes also display a per-player **Crownline Map** showing all eight geometries as available (`○`) or retired (`✓`);
 - if a newly completed visible line does not score, the Python engine supplies the exact reason, such as **King required**, **piece cooldown**, or **line already retired**;
 - every square displays algebraic notation (`a1` through `h8`);
 - click one of the current player's movable pieces;
@@ -175,9 +178,9 @@ A single move can theoretically complete more than one eligible Crownline. The e
 
 ## Design evidence
 
-Crownline's rules were refined through simulation and human play rather than intuition alone. Experimental work has tested random play, heuristic strategy bots, capture quotas, Crownline persistence, board asymmetry, banked melds, complementary scoring, two-game set balance, Sovereign King behavior, King-required melds, Royal scoring, three-turn meld cooldowns, and human-discovered same-line farming.
+Crownline's rules were refined through simulation and human play rather than intuition alone. Experimental work has tested random play, heuristic strategy bots, capture quotas, Crownline persistence, board asymmetry, banked melds, complementary scoring, two-game set balance, Sovereign King behavior, King-required melds, Royal scoring, three-turn meld cooldowns, human-discovered same-line farming, and the combined Sovereign + Crowned Meld rules candidate.
 
-See [`SIMULATION_EVIDENCE.md`](SIMULATION_EVIDENCE.md), [`SOVEREIGN_EXPERIMENT.md`](SOVEREIGN_EXPERIMENT.md), and [`CROWNED_MELD_EXPERIMENT.md`](CROWNED_MELD_EXPERIMENT.md) for details.
+See [`SIMULATION_EVIDENCE.md`](SIMULATION_EVIDENCE.md), [`SOVEREIGN_EXPERIMENT.md`](SOVEREIGN_EXPERIMENT.md), [`CROWNED_MELD_EXPERIMENT.md`](CROWNED_MELD_EXPERIMENT.md), and [`V1_1_CANDIDATE.md`](V1_1_CANDIDATE.md) for details.
 
 ## Rules authority
 
@@ -187,4 +190,4 @@ If this README, an experiment, or the browser differs from the official rules, *
 
 ---
 
-**Status:** Official Rules v1.0 frozen; v1 Python engine implemented; WebGL board directly playable; baseline computer opponent implemented; Sovereign King and Crowned Meld available as explicitly experimental local rules profiles; first-launch/profile onboarding and engine-backed rule diagnostics implemented.
+**Status:** Official Rules v1.0 frozen; WebGL board directly playable; baseline computer opponent implemented; Crownline v1.1 Candidate available as the leading human-play profile; Sovereign King and Crowned Meld retained as comparison controls; onboarding and engine-backed rule diagnostics implemented.
