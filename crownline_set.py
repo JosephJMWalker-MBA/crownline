@@ -4,7 +4,15 @@ from dataclasses import dataclass, replace
 from typing import Literal, Optional, Tuple
 
 from crownline_game import GameState, Line, Move
-from crownline_rules import Participant, Player, SetWinner, other_participant
+from crownline_rules import (
+    OFFICIAL_RULES,
+    Participant,
+    Player,
+    RulesMode,
+    SetWinner,
+    normalize_rules_mode,
+    other_participant,
+)
 
 
 @dataclass(frozen=True)
@@ -23,6 +31,7 @@ class GameResult:
 class CrownlineSet:
     first_game_white: Participant
     current_game: GameState
+    rules_mode: RulesMode = OFFICIAL_RULES
     completed_games: Tuple[GameResult, ...] = ()
     carry_score_a: int = 0
     carry_score_b: int = 0
@@ -34,15 +43,18 @@ class CrownlineSet:
         cls,
         first_game_white: Participant = "A",
         *,
+        rules_mode: str = OFFICIAL_RULES,
         carry_score_a: int = 0,
         carry_score_b: int = 0,
         set_index: int = 1,
     ) -> "CrownlineSet":
         if first_game_white not in ("A", "B"):
             raise ValueError("first_game_white must be 'A' or 'B'")
+        normalized_mode = normalize_rules_mode(rules_mode)
         return cls(
             first_game_white=first_game_white,
-            current_game=GameState.initial(1),
+            current_game=GameState.initial(1, rules_mode=normalized_mode),
+            rules_mode=normalized_mode,
             carry_score_a=carry_score_a,
             carry_score_b=carry_score_b,
             set_index=set_index,
@@ -103,7 +115,11 @@ class CrownlineSet:
         result = self._result_for_current_game()
         completed = self.completed_games + (result,)
         if self.game_number == 1:
-            return replace(self, current_game=GameState.initial(2), completed_games=completed)
+            return replace(
+                self,
+                current_game=GameState.initial(2, rules_mode=self.rules_mode),
+                completed_games=completed,
+            )
         return replace(self, completed_games=completed, set_over=True)
 
     def aggregate_scores(self) -> Tuple[int, int]:
@@ -126,11 +142,16 @@ class CrownlineSet:
         score_a, score_b = self.aggregate_scores()
         return CrownlineSet.initial(
             first_game_white=next_first_game_white,
+            rules_mode=self.rules_mode,
             carry_score_a=score_a,
             carry_score_b=score_b,
             set_index=self.set_index + 1,
         )
 
 
-def new_set(first_game_white: Participant = "A") -> CrownlineSet:
-    return CrownlineSet.initial(first_game_white=first_game_white)
+def new_set(
+    first_game_white: Participant = "A",
+    *,
+    rules_mode: str = OFFICIAL_RULES,
+) -> CrownlineSet:
+    return CrownlineSet.initial(first_game_white=first_game_white, rules_mode=rules_mode)
