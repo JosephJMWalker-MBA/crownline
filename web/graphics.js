@@ -343,6 +343,17 @@ function enhancePieceBody(body, state) {
   state.processedMeshes.add(body);
 }
 
+function enhancePieceLabel(label, state) {
+  if (state.processedMeshes.has(label)) return;
+  if (label.userData?.kind !== 'piece' || label.geometry?.type !== 'CircleGeometry') return;
+
+  // The lathed body has a true top surface. Lift the existing authoritative
+  // number texture slightly so it stays crisp instead of becoming coplanar.
+  label.position.y += 0.018;
+  label.renderOrder = 4;
+  state.processedMeshes.add(label);
+}
+
 function enhanceExistingKingMetal(object, state) {
   if (state.processedMeshes.has(object)) return;
   if (!object.isMesh || object.geometry?.type !== 'TorusGeometry') return;
@@ -394,6 +405,7 @@ function enhanceScene(scene, state) {
     enhanceBoardInset(object, state);
     enhanceTile(object, state);
     enhancePieceBody(object, state);
+    enhancePieceLabel(object, state);
     enhanceExistingKingMetal(object, state);
   }
 }
