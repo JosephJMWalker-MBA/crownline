@@ -68,8 +68,9 @@ The combined profile was then played and no immediate structural problem was ide
 
 ### Current frozen candidate
 
-- ordinary pieces remain capture-bound;
-- Kings are Sovereign and may decline mandatory capture;
+- ordinary pieces remain capture-bound unless a King with an available capture releases the turn;
+- if a King can capture, the player may decline capture for the turn and make any otherwise legal non-capturing move with any piece;
+- if only ordinary pieces can capture, mandatory capture remains in force;
 - a Crownline requires at least one King;
 - normal Crownline = +15;
 - three Kings = Royal Crownline +30;
@@ -78,6 +79,20 @@ The combined profile was then played and no immediate structural problem was ide
 - scored geometry retires only for the player who scored it;
 - recovered pieces may later score a different unretired line;
 - Official v1.0 set structure, capture quota, final response, complementary Game 2, and aggregate scoring remain otherwise intact.
+
+---
+
+## Play-discovered clarification — 2026-08-16
+
+**Observed:** under the first Sovereign implementation, declining a King capture still required moving that same King.
+
+**Problem:** this preserved an artificial King-movement constraint after the player had already exercised Sovereignty. The desired strategic choice was to decline the forced capture itself, not merely replace it with a King step.
+
+**Refinement:** when a King has an available capture, declining capture now releases the **whole turn**. The player may make any otherwise legal non-capturing move with any piece. A King that merely exists on the board but cannot capture does not release an ordinary piece's mandatory capture.
+
+**Status:** incorporated into the frozen v1.1 Candidate because it directly resolves a play-observed rule weakness. Subsequent sets should test whether whole-turn release is too permissive or creates the intended positional freedom.
+
+**Interface observation:** new players may not immediately connect sidebar Crownline names with their physical board geometry. The Crownline Map now previews the corresponding glowing line on the board when a row is hovered or keyboard-focused. This is a teaching/presentation change, not a rules change.
 
 ---
 
