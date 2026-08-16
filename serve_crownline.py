@@ -18,6 +18,8 @@ PORT = 8765
 _lock = Lock()
 _session = new_set(first_game_white="A")
 
+_SUPERSCRIPT = {1: "¹", 2: "²", 3: "³"}
+
 
 def _meld_dict(meld):
     return {
@@ -39,6 +41,19 @@ def _move_dict(move):
     }
 
 
+def _piece_dict(game, position, piece):
+    cooldown = game.piece_cooldown(piece.owner, piece.value)
+    display_value = f"{piece.value}{_SUPERSCRIPT.get(cooldown, '')}"
+    return {
+        "square": coord_to_alg(position),
+        "owner": piece.owner,
+        "piece_id": piece.value,
+        "value": display_value,
+        "king": piece.king,
+        "cooldown": cooldown,
+    }
+
+
 def state_payload():
     crownline_set = _session
     game = crownline_set.current_game
@@ -48,13 +63,7 @@ def state_payload():
     legal_moves = game.legal_moves()
 
     pieces = [
-        {
-            "square": coord_to_alg(position),
-            "owner": piece.owner,
-            "value": piece.value,
-            "king": piece.king,
-            "cooldown": game.piece_cooldown(piece.owner, piece.value),
-        }
+        _piece_dict(game, position, piece)
         for position, piece in sorted(game.board.items(), key=lambda item: coord_to_alg(item[0]))
     ]
 
