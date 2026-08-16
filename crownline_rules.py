@@ -7,16 +7,19 @@ Player = Literal["W", "B"]
 Participant = Literal["A", "B"]
 GameWinner = Literal["W", "B", "DRAW"]
 SetWinner = Literal["A", "B", "DRAW"]
-RulesMode = Literal["official", "sovereign"]
+RulesMode = Literal["official", "sovereign", "crowned"]
 Coord = Tuple[int, int]
 Line = Tuple[str, str, str]
 
 FILES = "abcdefgh"
 CAPTURE_QUOTA = 15
 MELD_BONUS = 15
+ROYAL_MELD_BONUS = 30
+MELD_COOLDOWN_TURNS = 3
 
 OFFICIAL_RULES: RulesMode = "official"
 SOVEREIGN_RULES: RulesMode = "sovereign"
+CROWNED_MELD_RULES: RulesMode = "crowned"
 
 
 def normalize_rules_mode(mode: str) -> RulesMode:
@@ -24,13 +27,17 @@ def normalize_rules_mode(mode: str) -> RulesMode:
         return OFFICIAL_RULES
     if mode == SOVEREIGN_RULES:
         return SOVEREIGN_RULES
-    raise ValueError("rules_mode must be 'official' or 'sovereign'")
+    if mode == CROWNED_MELD_RULES:
+        return CROWNED_MELD_RULES
+    raise ValueError("rules_mode must be 'official', 'sovereign', or 'crowned'")
 
 
 def rules_mode_label(mode: RulesMode) -> str:
     if mode == OFFICIAL_RULES:
         return "Official v1.0"
-    return "Experimental Sovereign"
+    if mode == SOVEREIGN_RULES:
+        return "Experimental Sovereign"
+    return "Experimental Crowned Meld"
 
 
 GAME1_CROWN_VALUES = (
