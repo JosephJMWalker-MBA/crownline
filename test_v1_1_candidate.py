@@ -43,13 +43,12 @@ def test_candidate_profile_is_available_and_labeled():
     assert c.rules_mode_label(c.V1_1_CANDIDATE_RULES) == "Experimental Crownline v1.1 Candidate"
 
 
-def test_candidate_king_is_sovereign():
+def test_candidate_king_can_release_capture_obligation_for_whole_turn():
     game = sovereign_position("candidate")
     moves = {move.notation() for move in game.legal_moves()}
     assert "c3xe5" in moves
     assert {"c3-b2", "c3-d2", "c3-b4"}.issubset(moves)
-    assert "g1-f2" not in moves
-    assert "g1-h2" not in moves
+    assert {"g1-f2", "g1-h2"}.issubset(moves)
 
 
 def test_crowned_only_profile_remains_capture_bound():
