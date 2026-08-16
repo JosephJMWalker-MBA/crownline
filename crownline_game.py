@@ -5,7 +5,10 @@ from typing import Dict, Optional, Tuple
 
 from crownline_rules import (
     CAPTURE_QUOTA,
+    CROWNED_MELD_RULES,
     MELD_BONUS,
+    MELD_COOLDOWN_TURNS,
+    ROYAL_MELD_BONUS,
     Coord,
     GAME1,
     GameVariant,
@@ -61,6 +64,8 @@ class Move:
 class Meld:
     line: Line
     piece_ids: Tuple[int, int, int]
+    points: int = MELD_BONUS
+    royal: bool = False
 
 
 class MeldChoiceRequired(ValueError):
@@ -80,6 +85,9 @@ class ScoreBreakdown:
     melds: Tuple[Meld, ...]
 
 
+Cooldowns = Tuple[Tuple[int, int], ...]
+
+
 @dataclass(frozen=True)
 class GameState:
     board: Dict[Coord, Piece]
@@ -90,6 +98,8 @@ class GameState:
     capture_bank_b: int = 0
     melds_w: Tuple[Meld, ...] = ()
     melds_b: Tuple[Meld, ...] = ()
+    cooldowns_w: Cooldowns = ()
+    cooldowns_b: Cooldowns = ()
     triggering_player: Optional[Player] = None
     game_over: bool = False
     end_reason: Optional[str] = None
@@ -118,6 +128,13 @@ class GameState:
     def used_piece_ids(self, player: Player) -> frozenset[int]:
         return frozenset(piece_id for meld in self.melds(player) for piece_id in meld.piece_ids)
 
+    def cooldowns(self, player: Player) -> Dict[int, int]:
+        source = self.cooldowns_w if player == "W" else self.cooldowns_b
+        return dict(source)
+
+    def piece_cooldown(self, player: Player, piece_id: int) -> int:
+        return self.cooldowns(player).get(piece_id, 0)
+
     def _with_bank(self, player: Player, amount: int) -> "GameState":
         return replace(self, **({"capture_bank_w": amount} if player == "W" else {"capture_bank_b": amount}))
 
@@ -125,6 +142,25 @@ class GameState:
         if player == "W":
             return replace(self, melds_w=self.melds_w + (meld,))
         return replace(self, melds_b=self.melds_b + (meld,))
+
+    def _with_cooldowns(self, player: Player, cooldowns: Dict[int, int]) -> "GameState":
+        packed = tuple(sorted((piece_id, turns) for piece_id, turns in cooldowns.items() if turns > 0))
+        if player == "W":
+            return replace(self, cooldowns_w=packed)
+        return replace(self, cooldowns_b=packed)
+
+    def _advance_cooldowns_after_turn(self, player: Player, new_meld: Optional[Meld]) -> "GameState":
+        if self.rules_mode != CROWNED_MELD_RULES:
+            return self
+        cooldowns = {
+            piece_id: turns - 1
+            for piece_id, turns in self.cooldowns(player).items()
+            if turns > 1
+        }
+        if new_meld is not None:
+            for piece_id in new_meld.piece_ids:
+                cooldowns[piece_id] = MELD_COOLDOWN_TURNS
+        return self._with_cooldowns(player, cooldowns)
 
     def piece_at(self, square: str | Coord) -> Optional[Piece]:
         coord = alg_to_coord(square) if isinstance(square, str) else square
@@ -228,9 +264,50 @@ class GameState:
         board[destination] = moving_piece
         return board, capture_points
 
-    def eligible_melds_on_board(self, board: Dict[Coord, Piece], player: Player) -> Tuple[Meld, ...]:
-        used = self.used_piece_ids(player)
+    def _line_owned(self, board: Dict[Coord, Piece], line: Line, player: Player) -> bool:
+        return all(
+            (piece := board.get(alg_to_coord(square))) is not None and piece.owner == player
+            for square in line
+        )
+
+    def eligible_melds_on_board(
+        self,
+        board: Dict[Coord, Piece],
+        player: Player,
+        *,
+        previous_board: Optional[Dict[Coord, Piece]] = None,
+    ) -> Tuple[Meld, ...]:
         options = []
+
+        if self.rules_mode == CROWNED_MELD_RULES:
+            cooldowns = self.cooldowns(player)
+            for line in self.variant.crown_lines:
+                if not self._line_owned(board, line, player):
+                    continue
+                # A standing formation never scores merely because cooldown expires.
+                if previous_board is not None and self._line_owned(previous_board, line, player):
+                    continue
+                pieces = tuple(board[alg_to_coord(square)] for square in line)
+                piece_ids = tuple(piece.value for piece in pieces)
+                if len(set(piece_ids)) != 3:
+                    continue
+                if any(cooldowns.get(piece_id, 0) > 0 for piece_id in piece_ids):
+                    continue
+                king_count = sum(piece.king for piece in pieces)
+                if king_count == 0:
+                    continue
+                royal = king_count == 3
+                options.append(
+                    Meld(
+                        line=line,
+                        piece_ids=piece_ids,
+                        points=ROYAL_MELD_BONUS if royal else MELD_BONUS,
+                        royal=royal,
+                    )
+                )
+            return tuple(options)
+
+        used = self.used_piece_ids(player)
         for line in self.variant.crown_lines:
             pieces = [board.get(alg_to_coord(square)) for square in line]
             if not all(piece is not None and piece.owner == player for piece in pieces):
@@ -244,7 +321,7 @@ class GameState:
         if move not in self.legal_moves():
             raise ValueError(f"Illegal move {move}")
         board, _ = self._executed_position(move)
-        return self.eligible_melds_on_board(board, self.turn)
+        return self.eligible_melds_on_board(board, self.turn, previous_board=self.board)
 
     def apply_notation(self, notation: str, meld_line: Optional[Line] = None) -> "GameState":
         return self.apply_move(self.move_from_notation(notation), meld_line=meld_line)
@@ -258,7 +335,7 @@ class GameState:
             raise ValueError(f"Illegal move {move}. Legal moves: {legal_text}")
 
         board, capture_points = self._executed_position(move)
-        options = self.eligible_melds_on_board(board, self.turn)
+        options = self.eligible_melds_on_board(board, self.turn, previous_board=self.board)
         chosen_meld: Optional[Meld] = None
 
         if len(options) == 1:
@@ -278,6 +355,7 @@ class GameState:
         next_state = replace(self, board=board, ply=self.ply + 1)._with_bank(self.turn, new_bank)
         if chosen_meld is not None:
             next_state = next_state._with_meld(self.turn, chosen_meld)
+        next_state = next_state._advance_cooldowns_after_turn(self.turn, chosen_meld)
 
         if self.triggering_player is not None:
             return replace(next_state, game_over=True, end_reason="final_response_completed")
@@ -294,11 +372,7 @@ class GameState:
         return tuple(
             line
             for line in self.variant.crown_lines
-            if all(
-                (piece := self.board.get(alg_to_coord(square))) is not None
-                and piece.owner == player
-                for square in line
-            )
+            if self._line_owned(self.board, line, player)
         )
 
     def score(self, player: Player) -> ScoreBreakdown:
@@ -308,7 +382,7 @@ class GameState:
             if piece.owner == player
         )
         melds = self.melds(player)
-        meld_bonus = MELD_BONUS * len(melds)
+        meld_bonus = sum(meld.points for meld in melds)
         capture_bank = self.bank(player)
         return ScoreBreakdown(
             capture_bank,
@@ -345,7 +419,9 @@ class GameState:
                 if not self.variant.playable(position):
                     cell = "    "
                 elif (piece := self.board.get(position)) is not None:
-                    cell = f"{piece.token():>3} "
+                    cooldown = self.piece_cooldown(piece.owner, piece.value)
+                    suffix = f"^{cooldown}" if cooldown else ""
+                    cell = f"{piece.token() + suffix:>3} "
                 else:
                     alg = coord_to_alg(position)
                     cell = f"[{crown_values[alg]}] " if alg in crown_values else " .  "
