@@ -8,6 +8,7 @@ from threading import Lock
 from urllib.parse import urlparse
 
 from crownline import MeldChoiceRequired, coord_to_alg, new_set
+from crownline_ai import choose_computer_action
 
 ROOT = Path(__file__).resolve().parent
 WEB_ROOT = ROOT / "web"
@@ -22,12 +23,24 @@ def _meld_dict(meld):
     return {"line": list(meld.line), "piece_ids": list(meld.piece_ids)}
 
 
+def _move_dict(move):
+    return {
+        "notation": move.notation(),
+        "origin": coord_to_alg(move.path[0]),
+        "destination": coord_to_alg(move.path[-1]),
+        "path": [coord_to_alg(square) for square in move.path],
+        "captured": [coord_to_alg(square) for square in move.captured],
+        "is_capture": move.is_capture,
+    }
+
+
 def state_payload():
     crownline_set = _session
     game = crownline_set.current_game
     score_w = game.score("W")
     score_b = game.score("B")
     aggregate_a, aggregate_b = crownline_set.aggregate_scores()
+    legal_moves = game.legal_moves()
 
     pieces = [
         {
@@ -102,7 +115,8 @@ def state_payload():
             "pieces": pieces,
             "crown_squares": crown_squares,
             "crown_lines": [list(line) for line in game.variant.crown_lines],
-            "legal_moves": [move.notation() for move in game.legal_moves()],
+            "legal_moves": [move.notation() for move in legal_moves],
+            "legal_move_details": [_move_dict(move) for move in legal_moves],
         },
     }
 
@@ -160,6 +174,28 @@ class Handler(BaseHTTPRequestHandler):
                     meld_line = tuple(meld_line) if meld_line else None
                     _session = _session.apply_notation(notation, meld_line=meld_line)
                     self._send_json(200, state_payload())
+                    return
+
+                if path == "/api/computer-move":
+                    participant = body.get("participant", "B")
+                    if participant not in ("A", "B"):
+                        raise ValueError("participant must be 'A' or 'B'")
+                    depth = int(body.get("depth", 2))
+                    if depth < 1 or depth > 4:
+                        raise ValueError("depth must be between 1 and 4")
+                    notation, meld_line = choose_computer_action(
+                        _session,
+                        participant=participant,
+                        depth=depth,
+                    )
+                    _session = _session.apply_notation(notation, meld_line=meld_line)
+                    payload = state_payload()
+                    payload["computer_action"] = {
+                        "participant": participant,
+                        "move": notation,
+                        "meld_line": list(meld_line) if meld_line else None,
+                    }
+                    self._send_json(200, payload)
                     return
 
                 if path == "/api/advance":
