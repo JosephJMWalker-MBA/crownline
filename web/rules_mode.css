@@ -1,0 +1,20 @@
+.rules-control {
+  padding: 12px;
+  border: 1px solid #2b313d;
+  border-radius: 12px;
+  background: rgba(17, 21, 29, .78);
+}
+.rules-control .section-title { margin-bottom: 8px; }
+.rules-note {
+  margin: 8px 2px 0;
+  color: #8f98a7;
+  font-size: 11px;
+  line-height: 1.45;
+}
+.rules-note.experimental {
+  color: #d9b66b;
+}
+#rules-mode[data-experimental="true"] {
+  border-color: rgba(216, 173, 85, .72);
+  box-shadow: 0 0 0 2px rgba(216, 173, 85, .10);
+}
