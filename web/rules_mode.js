@@ -2,12 +2,17 @@ const select = document.querySelector('#rules-mode');
 const note = document.querySelector('#rules-note');
 
 function explain(mode) {
-  const sovereign = mode === 'sovereign';
-  select.dataset.experimental = String(sovereign);
-  note.classList.toggle('experimental', sovereign);
-  note.textContent = sovereign
-    ? 'Experimental Sovereign · Kings may decline mandatory capture and make a legal King step.'
-    : 'Official v1.0 · Kings remain subject to mandatory capture.';
+  const experimental = mode !== 'official';
+  select.dataset.experimental = String(experimental);
+  note.classList.toggle('experimental', experimental);
+
+  if (mode === 'sovereign') {
+    note.textContent = 'Experimental Sovereign · Kings may decline mandatory capture and make a legal King step.';
+  } else if (mode === 'crowned') {
+    note.textContent = 'Experimental Crowned Meld · A Crownline needs a King; pieces cool down for 3 turns; three Kings score a Royal +30.';
+  } else {
+    note.textContent = 'Official v1.0 · Kings remain subject to mandatory capture.';
+  }
 }
 
 async function request(path, options = {}) {
