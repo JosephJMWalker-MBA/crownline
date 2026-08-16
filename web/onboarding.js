@@ -26,7 +26,7 @@ const ruleFeedbackTitle = document.querySelector('#rule-feedback-title');
 const ruleFeedbackCopy = document.querySelector('#rule-feedback-copy');
 
 const GLOBAL_SEEN = 'crownline-onboarding-v2';
-const PROFILE_SEEN = (mode) => `crownline-profile-guide-v2:${mode}`;
+const PROFILE_SEEN = (mode) => `crownline-profile-guide-v3:${mode}`;
 
 let latestState = null;
 let previousState = null;
@@ -82,6 +82,43 @@ const globalScreens = [
   },
 ];
 
+const crownedCoreScreens = (kicker) => [
+  {
+    kicker,
+    title: 'No crown, no Crownline.',
+    copy: `<p>A scoring Crownline must contain <strong>at least one King</strong>.</p>
+      <p>Three pieces may occupy a geometric line without scoring if none of them has been crowned.</p>`,
+  },
+  {
+    kicker,
+    title: 'Build the line.',
+    copy: `<p>Complete an available Crownline with three eligible pieces.</p>
+      <p><strong>Crownline: +15</strong></p>
+      <p>If all three pieces are Kings: <strong>ROYAL CROWNLINE +30</strong>.</p>`,
+  },
+  {
+    kicker,
+    title: 'The pieces must recover.',
+    copy: `<p>After scoring, all three participating pieces receive a <strong>3-turn Crown cooldown</strong>.</p>
+      <p>The board marks them <strong>³ → ² → ¹ → ready</strong>.</p>
+      <p>They still move, capture, defend, and promote normally. Only Crownline scoring is unavailable. Only <strong>your own turns</strong> reduce your cooldown.</p>`,
+  },
+  {
+    kicker,
+    title: 'A scored line retires for you.',
+    copy: `<p>Each of the eight Crownline geometries may score <strong>once per player per game</strong>.</p>
+      <p>Your opponent may still score the same geometry. After you claim it, your Crownline Map marks it retired.</p>
+      <p>This prevents repeating one profitable position forever.</p>`,
+  },
+  {
+    kicker,
+    title: 'Create. Recover. Reposition.',
+    copy: `<p>The same pieces may score again after cooldown—but they must newly complete a <strong>different Crownline you have not retired</strong>.</p>
+      <p><strong>Promote → form Crownline → score → cooldown → find another line.</strong></p>
+      <p>The Crownline Map in the sidebar shows what remains available.</p>`,
+  },
+];
+
 const profileScreens = {
   official: [
     {
@@ -104,43 +141,25 @@ const profileScreens = {
       title: 'Freedom has a price.',
       copy: `<p>If a King chooses to capture, it must still complete the legal multiple-jump sequence.</p>
         <p>Kings also remain worth <strong>double their printed value</strong> when captured.</p>
-        <p>This profile tests whether greater King agency creates better decisions or an escape hatch.</p>`,
+        <p>This profile isolates King agency for comparison.</p>`,
     },
   ],
-  crowned: [
+  crowned: crownedCoreScreens('EXPERIMENTAL · CROWNED MELD'),
+  candidate: [
     {
-      kicker: 'EXPERIMENTAL · CROWNED MELD',
-      title: 'No crown, no Crownline.',
-      copy: `<p>A scoring Crownline must contain <strong>at least one King</strong>.</p>
-        <p>Three pieces may occupy a geometric line without scoring if none of them has been crowned.</p>`,
+      kicker: 'EXPERIMENTAL · CROWNLINE v1.1 CANDIDATE',
+      title: 'The crown grants agency.',
+      copy: `<p>This candidate combines the two strongest playtest rules.</p>
+        <p><strong>Kings are Sovereign:</strong> a King may decline a mandatory capture and make another legal one-square King move.</p>
+        <p>Ordinary pieces remain capture-bound. A King that chooses to capture must finish its legal multi-jump.</p>`,
     },
+    ...crownedCoreScreens('CROWNLINE v1.1 CANDIDATE'),
     {
-      kicker: 'CROWNED MELD',
-      title: 'Build the line.',
-      copy: `<p>Complete an available Crownline with three eligible pieces.</p>
-        <p><strong>Crownline: +15</strong></p>
-        <p>If all three pieces are Kings: <strong>ROYAL CROWNLINE +30</strong>.</p>`,
-    },
-    {
-      kicker: 'CROWNED MELD',
-      title: 'The pieces must recover.',
-      copy: `<p>After scoring, all three participating pieces receive a <strong>3-turn Crown cooldown</strong>.</p>
-        <p>The board marks them <strong>³ → ² → ¹ → ready</strong>.</p>
-        <p>They still move, capture, defend, and promote normally. Only Crownline scoring is unavailable. Only <strong>your own turns</strong> reduce your cooldown.</p>`,
-    },
-    {
-      kicker: 'CROWNED MELD',
-      title: 'A scored line retires for you.',
-      copy: `<p>Each of the eight Crownline geometries may score <strong>once per player per game</strong>.</p>
-        <p>Your opponent may still score the same geometry. But after you claim it, your Crownline Map marks it retired.</p>
-        <p>This prevents repeating one profitable position forever.</p>`,
-    },
-    {
-      kicker: 'CROWNED MELD',
-      title: 'Create. Recover. Reposition.',
-      copy: `<p>The same pieces may score again after cooldown—but they must newly complete a <strong>different Crownline you have not retired</strong>.</p>
-        <p><strong>Promote → form Crownline → score → cooldown → find another line.</strong></p>
-        <p>The Crownline Map in the sidebar shows what remains available.</p>`,
+      kicker: 'CROWNLINE v1.1 CANDIDATE',
+      title: 'Why the rules work together.',
+      copy: `<p>Promotion now changes the strategic phase of the game.</p>
+        <p>A King can choose between <strong>capture, defense, Crownline construction, and Crownline denial</strong>—but remains worth double when captured.</p>
+        <p>This is the leading candidate for the next Official Crownline ruleset.</p>`,
     },
   ],
 };
@@ -151,6 +170,10 @@ function markSeen(key) {
 
 function isSeen(key) {
   return localStorage.getItem(key) === '1';
+}
+
+function isCrownedMode(mode) {
+  return mode === 'crowned' || mode === 'candidate';
 }
 
 function renderGuide() {
@@ -218,7 +241,8 @@ function showFeedback(title, copy, duration = 4200) {
 }
 
 function renderTracker(data) {
-  const crowned = data?.set?.rules?.mode === 'crowned';
+  const mode = data?.set?.rules?.mode;
+  const crowned = isCrownedMode(mode);
   tracker.hidden = !crowned;
   if (!crowned) return;
 
@@ -243,6 +267,11 @@ function renderTracker(data) {
 }
 
 function currentRulesHtml(mode) {
+  if (mode === 'candidate') {
+    return `<h3>Experimental · Crownline v1.1 Candidate</h3>
+      <p><strong>Sovereign Kings:</strong> Kings may decline mandatory capture and make a legal King step. Ordinary pieces remain capture-bound; Kings that capture must finish the legal multi-jump.</p>
+      <p><strong>Crowned Meld:</strong> a Crownline needs at least one King. Normal +15; three Kings = Royal +30. Scoring pieces cool down for 3 of their player's turns. Each Crownline geometry may score once per player per game.</p>`;
+  }
   if (mode === 'sovereign') {
     return `<h3>Experimental · Sovereign King</h3>
       <p>Kings may decline mandatory capture and make a legal King step. Ordinary pieces remain capture-bound. A King that captures must finish its legal multi-jump.</p>`;
@@ -268,10 +297,11 @@ function renderHelp(tab = activeHelpTab) {
       <h3>Endgame</h3><p>15 capture points triggers one final response turn, then the game is scored.</p>
       <h3>Set score</h3><p>Game 1 + Game 2. Highest aggregate wins.</p>`;
   } else if (tab === 'crownlines') {
+    const mode = latestState?.set?.rules?.mode || 'official';
     helpContent.innerHTML = `<h3>The Crown Grid</h3><p><code>8 1 6 / 3 5 7 / 4 9 2</code></p>
       <p>Every row, column, and diagonal totals 15.</p>
-      ${currentRulesHtml(latestState?.set?.rules?.mode || 'official')}
-      ${latestState?.set?.rules?.mode === 'crowned' ? '<p>The live Crownline Map in the sidebar shows which geometries each player has already retired.</p>' : ''}`;
+      ${currentRulesHtml(mode)}
+      ${isCrownedMode(mode) ? '<p>The live Crownline Map in the sidebar shows which geometries each player has already retired.</p>' : ''}`;
   } else if (tab === 'current') {
     helpContent.innerHTML = currentRulesHtml(latestState?.set?.rules?.mode || 'official');
   } else {
@@ -316,19 +346,21 @@ function maybeContextual(previous, next) {
   const beforePieces = pieceMap(previous);
   for (const piece of next.game.pieces || []) {
     const before = beforePieces.get(`${piece.owner}:${piece.piece_id}`);
-    if (before && !before.king && piece.king && !isSeen('crownline-tip:promotion')) {
-      markSeen('crownline-tip:promotion');
-      const suffix = mode === 'sovereign'
-        ? ' In Sovereign, this King may decline mandatory capture.'
-        : mode === 'crowned'
-          ? ' In Crowned Meld, Kings unlock Crownline scoring.'
-          : ' In Official v1.0, Kings are still subject to mandatory capture.';
+    if (before && !before.king && piece.king && !isSeen('crownline-tip:promotion-v2')) {
+      markSeen('crownline-tip:promotion-v2');
+      const suffix = mode === 'candidate'
+        ? ' In the v1.1 Candidate, this King may decline mandatory capture and now unlocks Crownline scoring.'
+        : mode === 'sovereign'
+          ? ' In Sovereign, this King may decline mandatory capture.'
+          : mode === 'crowned'
+            ? ' In Crowned Meld, Kings unlock Crownline scoring.'
+            : ' In Official v1.0, Kings are still subject to mandatory capture.';
       showFeedback('KING CROWNED', `Kings move forward and backward.${suffix}`);
       return;
     }
   }
 
-  if (mode === 'crowned') {
+  if (isCrownedMode(mode)) {
     const ready = [];
     for (const piece of next.game.pieces || []) {
       const before = beforePieces.get(`${piece.owner}:${piece.piece_id}`);
