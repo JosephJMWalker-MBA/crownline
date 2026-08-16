@@ -7,9 +7,9 @@ function explain(mode) {
   note.classList.toggle('experimental', experimental);
 
   if (mode === 'candidate') {
-    note.textContent = 'Experimental v1.1 Candidate · Sovereign Kings + King-gated Crownlines, cooldowns, retired lines, and Royal +30.';
+    note.textContent = 'Experimental v1.1 Candidate · A King with a capture can release the turn from mandatory capture; plus King-gated Crownlines, cooldowns, retired lines, and Royal +30.';
   } else if (mode === 'sovereign') {
-    note.textContent = 'Experimental Sovereign · Kings may decline mandatory capture and make a legal King step.';
+    note.textContent = 'Experimental Sovereign · If a King has a capture, you may decline capture for the turn and make any otherwise legal non-capturing move.';
   } else if (mode === 'crowned') {
     note.textContent = 'Experimental Crowned Meld · Needs a King; pieces cool down for 3 turns; each line scores once per player; three Kings score Royal +30.';
   } else {
