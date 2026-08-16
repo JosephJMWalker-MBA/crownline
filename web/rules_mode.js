@@ -9,7 +9,7 @@ function explain(mode) {
   if (mode === 'sovereign') {
     note.textContent = 'Experimental Sovereign · Kings may decline mandatory capture and make a legal King step.';
   } else if (mode === 'crowned') {
-    note.textContent = 'Experimental Crowned Meld · A Crownline needs a King; pieces cool down for 3 turns; three Kings score a Royal +30.';
+    note.textContent = 'Experimental Crowned Meld · Needs a King; pieces cool down for 3 turns; each line scores once per player; three Kings score Royal +30.';
   } else {
     note.textContent = 'Official v1.0 · Kings remain subject to mandatory capture.';
   }
