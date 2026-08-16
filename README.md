@@ -89,11 +89,12 @@ Players may mutually agree to another complete two-game set. If they continue, t
 - `crownline_rules.py` — Game 1 / Game 2 geometry, scoring values, and immutable rule variants
 - `crownline_game.py` — deterministic single-game movement, capture, promotion, meld, quota, and scoring engine
 - `crownline_set.py` — two-game set state, color swap, aggregate scoring, and tied-set continuation
+- `crownline_ai.py` — lightweight deterministic computer opponent search
 - `crownline.py` — stable public Python API
 - `play_crownline.py` — console player for a complete Crownline Set
 - `test_crownline.py` — v1 conformance tests
 - `serve_crownline.py` — dependency-free local browser/API server
-- `web/` — Three.js/WebGL prototype client
+- `web/` — Three.js/WebGL playable client
 
 ## Run the tests
 
@@ -104,13 +105,15 @@ pytest -q test_crownline.py
 ## Play in the console
 
 ```bash
-python play_crownline.py
+python3 play_crownline.py
 ```
 
 ## Run the browser prototype
 
+On macOS, use:
+
 ```bash
-python serve_crownline.py
+python3 serve_crownline.py
 ```
 
 Then open:
@@ -119,7 +122,21 @@ Then open:
 http://127.0.0.1:8765
 ```
 
-The browser is intentionally non-authoritative: it renders serialized Python state and submits attempted moves back to the Python engine. Legal moves, captures, melds, scoring, game transitions, and set resolution remain server-side.
+The browser is intentionally non-authoritative: it renders serialized Python state and submits attempted moves back to the Python engine. Legal moves, captures, melds, scoring, game transitions, set resolution, and computer-opponent moves remain server-side.
+
+### Browser interaction
+
+- every square displays algebraic notation (`a1` through `h8`);
+- click one of the current player's movable pieces;
+- legal destination squares are highlighted;
+- green markers indicate ordinary destinations;
+- amber markers indicate capture destinations;
+- click a highlighted destination to submit the move;
+- if multiple legal capture routes reach the same destination, the interface asks which route to use rather than silently choosing;
+- the move-notation panel remains available as a fallback/reference;
+- choose **Computer · Player B** from the opponent menu for single-player mode.
+
+The current computer opponent uses a deterministic depth-2 minimax-style search over authoritative Python game state. It is intended as a playable baseline opponent, not as a claim of solved or optimal Crownline play.
 
 ## Meld-choice edge case
 
@@ -139,4 +156,4 @@ If this README and the official rules differ, **`RULES.md` governs**.
 
 ---
 
-**Status:** Official Rules v1.0 frozen; v1 Python engine implemented; first WebGL browser prototype scaffolded.
+**Status:** Official Rules v1.0 frozen; v1 Python engine implemented; WebGL board directly playable; baseline computer opponent implemented.
