@@ -1,0 +1,72 @@
+{
+  "experiment": "Stage 2.7 delta-equivalent ordering plus structural exact TT",
+  "suite_id": "v0.1",
+  "rules_mode": "candidate",
+  "positions": 16,
+  "hypothesis": "Replacing full child score recomputation with the proven delta-equivalent ordering calculation lowers the runtime cost of the existing score-order plus structural exact-TT engine without changing its actions, traversal, or cache hits.",
+  "interpretation": [
+    "All 80 tests passed before the benchmark, including exact action, expanded-node, and cache-hit equivalence between the prior score-order + TT engine and the delta-order + TT engine at tested depths.",
+    "The delta implementation preserved the prior combined engine's search tree exactly: 882, 2097, and 7203 expanded nodes at depths 2, 3, and 4, with 0, 312, and 1520 cache hits respectively.",
+    "At depth 2 delta computation made the combined engine 5.1 percent faster than the prior combined implementation, but there were still no transposition hits and it remained 30.7 percent slower than baseline.",
+    "At depth 3 delta computation made the combined engine 4.4 percent faster than the prior combined implementation. The engine retained a 44.47 percent expanded-node reduction but remained 60.7 percent slower than baseline.",
+    "At depth 4 delta computation made the combined engine 4.0 percent faster than the prior combined implementation. The engine retained a 56.83 percent expanded-node reduction and narrowed its runtime gap to 8.1 percent slower than baseline.",
+    "This is the closest the pruning-heavy combined engine has come to a wall-clock win while preserving Baseline A policy exactly. The remaining gap is now small enough that eliminating repeated parent score scans during ordering is a well-isolated next performance hypothesis.",
+    "No browser AI behavior has been changed. These remain benchmark engines until a search configuration earns promotion."
+  ],
+  "depths": [
+    {
+      "depth": 2,
+      "action_equivalence": true,
+      "search_and_cache_equivalence_to_prior_combined": true,
+      "baseline_nodes": 882,
+      "combined_expanded_nodes": 882,
+      "cache_hits": 0,
+      "combined_node_reduction_vs_baseline": 0.0,
+      "baseline_ms": 187.62027,
+      "prior_score_tt_ms": 258.40491,
+      "delta_tt_ms": 245.126992,
+      "delta_tt_over_baseline": 1.3065059121810239,
+      "delta_tt_over_prior_combined": 0.9486158447995435
+    },
+    {
+      "depth": 3,
+      "action_equivalence": true,
+      "search_and_cache_equivalence_to_prior_combined": true,
+      "baseline_nodes": 3776,
+      "combined_expanded_nodes": 2097,
+      "cache_hits": 312,
+      "combined_node_reduction_vs_baseline": 0.4446504237288136,
+      "baseline_ms": 878.749588,
+      "prior_score_tt_ms": 1476.664492,
+      "delta_tt_ms": 1411.717122,
+      "delta_tt_over_baseline": 1.6065067241886433,
+      "delta_tt_over_prior_combined": 0.9560175176203803
+    },
+    {
+      "depth": 4,
+      "action_equivalence": true,
+      "search_and_cache_equivalence_to_prior_combined": true,
+      "baseline_nodes": 16685,
+      "combined_expanded_nodes": 7203,
+      "cache_hits": 1520,
+      "combined_node_reduction_vs_baseline": 0.5682948756367996,
+      "baseline_ms": 3807.88765,
+      "prior_score_tt_ms": 4287.083242,
+      "delta_tt_ms": 4114.653983,
+      "delta_tt_over_baseline": 1.080560762605483,
+      "delta_tt_over_prior_combined": 0.959779353638219
+    }
+  ],
+  "artifact": {
+    "workflow_run_id": 32036759656,
+    "artifact_id": 9290954850,
+    "artifact_sha256": "3f018a6be7d7cc05bb5b2c486cfc232cce70630e8d58644804d83cc6b6f10ebb"
+  },
+  "source_fingerprints": {
+    "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+    "delta_combined_sha256": "33faf53a3a2a4eed800cdd1896a3920b274e912984be55383b3e9d40d8beadc8",
+    "experiment_sha256": "f422794e0b903cd686615b4aa065f3dfd2780f8ef56f3ecbe8c9f7e5a6a13ce7",
+    "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3",
+    "prior_combined_sha256": "a9a9a2179af5bb209e898d785c75e10952f8c666ad547b5c90fc5ef605b3e065"
+  }
+}
