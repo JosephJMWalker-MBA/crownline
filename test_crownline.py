@@ -191,6 +191,41 @@ def test_quota_gives_exactly_one_response_turn():
     assert g.end_reason == "final_response_completed"
 
 
+def test_game2_quota_double_jump_still_allows_immediate_king_recapture_response():
+    """Regression for a live-play anomaly reported in Game 2.
+
+    A King double-jumps across the quota, but the opponent can immediately jump
+    that King. Crossing the quota must expose exactly that one response turn;
+    the double-jump itself must not terminate the game.
+    """
+    g = c.GameState(
+        board={
+            C("c2"): c.Piece("W", 1, king=True),
+            C("d3"): c.Piece("B", 4),
+            C("f5"): c.Piece("B", 6),
+            C("h7"): c.Piece("B", 2),
+        },
+        variant=c.GAME2,
+        rules_mode="candidate",
+        turn="W",
+        capture_bank_w=5,
+    )
+
+    assert [move.notation() for move in g.legal_moves()] == ["c2xe4xg6"]
+
+    triggered = g.apply_notation("c2xe4xg6")
+    assert triggered.capture_bank_w == 15
+    assert triggered.triggering_player == "W"
+    assert triggered.turn == "B"
+    assert not triggered.game_over
+    assert [move.notation() for move in triggered.legal_moves()] == ["h7xf5"]
+
+    ended = triggered.apply_notation("h7xf5")
+    assert ended.capture_bank_b == 2
+    assert ended.game_over
+    assert ended.end_reason == "final_response_completed"
+
+
 def test_set_swaps_colors_and_game_variant():
     s = c.new_set(first_game_white="A")
     assert s.game_number == 1
