@@ -1,0 +1,69 @@
+{
+  "experiment": "Stage 2.8 carried-score ordering",
+  "suite_id": "v0.1",
+  "rules_mode": "candidate",
+  "positions": 16,
+  "hypothesis": "Carrying exact White/Black score totals recursively removes repeated parent score scans while preserving the identical delta-ordering search tree, reducing wall-clock overhead without changing any action.",
+  "interpretation": [
+    "All 83 tests passed before the benchmark. Carried scores were checked against authoritative child score totals, and carried ordering was proven action- and expanded-node-equivalent to delta ordering at tested depths.",
+    "The carried implementation preserved exactly the same 882, 2409, and 9349 expanded-node counts as delta ordering at depths 2, 3, and 4.",
+    "Removing repeated internal parent-score scans produced only a modest additional runtime gain: about 1.6 percent at depth 2, 0.4 percent at depth 3, and 0.9 percent at depth 4 relative to delta ordering.",
+    "At depth 3 the engine still reduced expanded nodes by 36.2 percent but remained 58.0 percent slower than Baseline A. At depth 4 it reduced nodes by 44.0 percent but remained 11.7 percent slower than Baseline A.",
+    "This result localizes the remaining move-ordering overhead further: repeated score scans are not the dominant cost. Child-state construction, action generation, sorting, and the unchanged leaf evaluator now account for most of the remaining gap.",
+    "The Stage 2 evidence no longer supports chasing additional micro-optimizations of the same score-ordering estimate without a new hypothesis. Structural exact TT is already a wall-clock win at depth 4 on its own, while ordering provides much larger node reductions but remains runtime-negative in Python.",
+    "A sensible next Stage 2 decision point is therefore to compare production-relevant search configurations under a fixed time budget rather than continue optimizing fixed-depth traversal in isolation."
+  ],
+  "depths": [
+    {
+      "depth": 2,
+      "action_equivalence": true,
+      "search_tree_equivalence_to_delta_ordering": true,
+      "baseline_nodes": 882,
+      "carried_ordered_nodes": 882,
+      "node_reduction_fraction_vs_baseline": 0.0,
+      "baseline_ms": 207.209273,
+      "delta_ordered_ms": 262.68091,
+      "carried_ordered_ms": 258.390868,
+      "carried_over_baseline": 1.2470043654851297,
+      "carried_over_delta": 0.9836682383961591
+    },
+    {
+      "depth": 3,
+      "action_equivalence": true,
+      "search_tree_equivalence_to_delta_ordering": true,
+      "baseline_nodes": 3776,
+      "carried_ordered_nodes": 2409,
+      "node_reduction_fraction_vs_baseline": 0.3620233050847458,
+      "baseline_ms": 983.513607,
+      "delta_ordered_ms": 1560.672596,
+      "carried_ordered_ms": 1553.795174,
+      "carried_over_baseline": 1.5798410545020554,
+      "carried_over_delta": 0.995593296109878
+    },
+    {
+      "depth": 4,
+      "action_equivalence": true,
+      "search_tree_equivalence_to_delta_ordering": true,
+      "baseline_nodes": 16685,
+      "carried_ordered_nodes": 9349,
+      "node_reduction_fraction_vs_baseline": 0.4396763560083907,
+      "baseline_ms": 4282.946888,
+      "delta_ordered_ms": 4825.005599,
+      "carried_ordered_ms": 4781.951139,
+      "carried_over_baseline": 1.1165095585000397,
+      "carried_over_delta": 0.9910768062095258
+    }
+  ],
+  "artifact": {
+    "workflow_run_id": 32036964659,
+    "artifact_id": 9291016852,
+    "artifact_sha256": "63d698ac3aa2b79e234c504869fee734e0f1a6c0a1123486b13d32952484114d"
+  },
+  "source_fingerprints": {
+    "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+    "carried_order_engine_sha256": "e5c393c12469deb23a4a5e5af9a350b2305758bc4518d6b6d12ae6d82c736413",
+    "delta_order_engine_sha256": "e5151a8dc1b26ded932aeccbe83caa710a3cd0a8a5b6462f5bfa20c6e2c98df6",
+    "experiment_sha256": "a493a4060ef6fed438e19117d633ad6329f19117dd531a1ab501980d757d5a9e9",
+    "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3"
+  }
+}
