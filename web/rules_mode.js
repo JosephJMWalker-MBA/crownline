@@ -1,10 +1,12 @@
 const select = document.querySelector('#rules-mode');
 const note = document.querySelector('#rules-note');
+const brandVersion = document.querySelector('#brand-version');
 
 function explain(mode) {
   const experimental = mode !== 'official';
   select.dataset.experimental = String(experimental);
   note.classList.toggle('experimental', experimental);
+  if (brandVersion) brandVersion.textContent = mode === 'candidate' ? 'v1.1' : 'v1.0';
 
   if (mode === 'candidate') {
     note.textContent = 'Experimental v1.1 Candidate · A King with a capture can release the turn from mandatory capture; plus King-gated Crownlines, cooldowns, retired lines, and Royal +30.';
@@ -29,7 +31,7 @@ async function request(path, options = {}) {
 
 async function syncFromServer() {
   const data = await request('/api/state');
-  const mode = data.set.rules?.mode || 'official';
+  const mode = data.set.rules?.mode || 'candidate';
   select.value = mode;
   select.dataset.current = mode;
   explain(mode);
@@ -38,7 +40,7 @@ async function syncFromServer() {
 
 select.addEventListener('change', async () => {
   const desired = select.value;
-  const previous = select.dataset.current || 'official';
+  const previous = select.dataset.current || 'candidate';
 
   try {
     const current = await request('/api/state');
