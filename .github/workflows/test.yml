@@ -34,3 +34,16 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
+      - name: Run frozen CLSN depth benchmark
+        run: |
+          python3 crownline_position_benchmark.py \
+            --suite v0.1 \
+            --depth-a 2 \
+            --depth-b 3 \
+            --repetition-limit 3 \
+            --json benchmarks/position_v0_1_d2_vs_d3.json
+      - name: Upload frozen CLSN depth benchmark
+        uses: actions/upload-artifact@v4
+        with:
+          name: position-v0-1-d2-vs-d3
+          path: benchmarks/position_v0_1_d2_vs_d3.json
