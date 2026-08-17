@@ -12,12 +12,12 @@ from typing import Optional, Protocol, Tuple
 
 import crownline_ai
 from crownline_game import Line, Move
-from crownline_rules import Participant, RulesMode, normalize_rules_mode
+from crownline_rules import Participant, RulesMode, coord_to_alg, normalize_rules_mode
 from crownline_set import CrownlineSet, new_set
 
 
 ROOT = Path(__file__).resolve().parent
-REPORT_SCHEMA_VERSION = 1
+REPORT_SCHEMA_VERSION = 2
 
 
 @dataclass(frozen=True)
@@ -60,15 +60,24 @@ def _count_baseline_search_nodes():
         crownline_ai._search = original
 
 
-def _root_action_count(state: CrownlineSet) -> int:
-    """Count move + Crownline-choice actions at the root position."""
+def _actions(state: CrownlineSet) -> Tuple[tuple[Move, Optional[Line]], ...]:
+    """Enumerate legal move + Crownline-choice actions for benchmark analysis."""
 
-    total = 0
+    actions = []
     game = state.current_game
     for move in game.legal_moves():
         melds = game.meld_options_after(move)
-        total += len(melds) if len(melds) > 1 else 1
-    return total
+        if len(melds) > 1:
+            actions.extend((move, meld.line) for meld in melds)
+        else:
+            actions.append((move, melds[0].line if melds else None))
+    return tuple(actions)
+
+
+def _root_action_count(state: CrownlineSet) -> int:
+    """Count move + Crownline-choice actions at the root position."""
+
+    return len(_actions(state))
 
 
 @dataclass(frozen=True)
@@ -142,6 +151,56 @@ class ParticipantMetrics:
 
 
 @dataclass(frozen=True)
+class MoveTrace:
+    ply: int
+    participant: Participant
+    color: str
+    notation: str
+    meld_line: Optional[Line]
+    sovereign_opportunity: bool
+    sovereign_refusal: bool
+    state_before: str
+    state_after: str
+
+
+@dataclass(frozen=True)
+class FirstRepeatObservation:
+    fingerprint: str
+    first_seen_ply: int
+    repeated_ply: int
+
+
+@dataclass(frozen=True)
+class EscapeOpportunity:
+    ply: int
+    participant: Participant
+    color: str
+    legal_actions: int
+    escape_actions: int
+    escape_action_examples: Tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class RepetitionDiagnostic:
+    fingerprint: str
+    occurrence_count: int
+    first_seen_ply: int
+    first_repeat_ply: int
+    previous_seen_ply: int
+    detected_ply: int
+    cycle_length: int
+    first_repeat_observed: FirstRepeatObservation
+    repeated_state: dict
+    cycle_moves: Tuple[MoveTrace, ...]
+    sovereign_in_cycle: bool
+    sovereign_refusals_in_cycle: int
+    escape_opportunities: Tuple[EscapeOpportunity, ...]
+    positions_with_escape_actions: int
+    escape_actions: int
+    escape_action_examples: Tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class GameRecord:
     game_number: int
     white_participant: Participant
@@ -160,6 +219,7 @@ class GameRecord:
     melds_b: int
     metrics_a: ParticipantMetrics
     metrics_b: ParticipantMetrics
+    repetition: Optional[RepetitionDiagnostic] = None
 
 
 @dataclass(frozen=True)
@@ -182,6 +242,7 @@ class BenchmarkReport:
     pairs: int
     sets_per_pair: int
     max_game_plies: int
+    repetition_limit: int
     deterministic: bool
     engine_a: dict
     engine_b: dict
@@ -216,12 +277,213 @@ def _sovereign_opportunity(game) -> bool:
     return False
 
 
+def _canonical_meld(meld) -> tuple:
+    return (
+        tuple(meld.line),
+        tuple(meld.piece_ids),
+        meld.points,
+        bool(meld.royal),
+    )
+
+
+def _canonical_game_state(game) -> dict:
+    """Return the complete future-relevant game state, excluding only ply count.
+
+    Excluding `ply` lets the harness recognize a semantically identical position
+    reached at different times. Everything that can alter legal moves, scoring,
+    cooldown/retirement behavior, or terminal status remains in the fingerprint.
+    """
+
+    pieces = [
+        (coord_to_alg(position), piece.owner, piece.value, bool(piece.king))
+        for position, piece in sorted(
+            game.board.items(),
+            key=lambda item: coord_to_alg(item[0]),
+        )
+    ]
+    return {
+        "variant": game.variant.number,
+        "rules_mode": game.rules_mode,
+        "turn": game.turn,
+        "capture_bank_w": game.capture_bank_w,
+        "capture_bank_b": game.capture_bank_b,
+        "melds_w": sorted(_canonical_meld(meld) for meld in game.melds_w),
+        "melds_b": sorted(_canonical_meld(meld) for meld in game.melds_b),
+        "cooldowns_w": list(game.cooldowns_w),
+        "cooldowns_b": list(game.cooldowns_b),
+        "triggering_player": game.triggering_player,
+        "game_over": bool(game.game_over),
+        "end_reason": game.end_reason,
+        "pieces": pieces,
+    }
+
+
+def _game_state_fingerprint(game) -> str:
+    packed = json.dumps(
+        _canonical_game_state(game),
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(packed).hexdigest()
+
+
+def _action_label(move: Move, meld_line: Optional[Line]) -> str:
+    if meld_line is None:
+        return move.notation()
+    return f"{move.notation()} | meld {'-'.join(meld_line)}"
+
+
+def _escape_opportunities(
+    states_by_ply: dict[int, CrownlineSet],
+    *,
+    start_ply: int,
+    end_ply: int,
+    cycle_fingerprints: set[str],
+) -> Tuple[EscapeOpportunity, ...]:
+    """Measure legal deviations from every decision state inside a detected cycle."""
+
+    observations = []
+    for ply in range(start_ply, end_ply):
+        state = states_by_ply.get(ply)
+        if state is None or state.current_game.game_over:
+            continue
+        actions = _actions(state)
+        escapes = []
+        for move, meld_line in actions:
+            child = state.apply_move(move, meld_line=meld_line)
+            if _game_state_fingerprint(child.current_game) not in cycle_fingerprints:
+                escapes.append(_action_label(move, meld_line))
+        observations.append(
+            EscapeOpportunity(
+                ply=ply,
+                participant=state.participant_for_color(state.current_game.turn),
+                color=state.current_game.turn,
+                legal_actions=len(actions),
+                escape_actions=len(escapes),
+                escape_action_examples=tuple(escapes[:8]),
+            )
+        )
+    return tuple(observations)
+
+
+@dataclass
+class RepetitionTracker:
+    """Observe exact game-state recurrence without changing Crownline rules."""
+
+    limit: int = 3
+    seen: dict[str, list[int]] = field(default_factory=dict)
+    history: list[MoveTrace] = field(default_factory=list)
+    states_by_ply: dict[int, CrownlineSet] = field(default_factory=dict)
+    first_repeat: Optional[FirstRepeatObservation] = None
+
+    @classmethod
+    def start(cls, state: CrownlineSet, limit: int = 3) -> "RepetitionTracker":
+        if limit != 0 and limit < 2:
+            raise ValueError("repetition_limit must be 0 (disabled) or at least 2")
+        tracker = cls(limit=limit)
+        fingerprint = _game_state_fingerprint(state.current_game)
+        tracker.seen[fingerprint] = [state.current_game.ply]
+        tracker.states_by_ply[state.current_game.ply] = state
+        return tracker
+
+    def observe(
+        self,
+        before: CrownlineSet,
+        after: CrownlineSet,
+        *,
+        participant: Participant,
+        move: Move,
+        meld_line: Optional[Line],
+        sovereign_opportunity: bool,
+    ) -> Optional[RepetitionDiagnostic]:
+        before_fp = _game_state_fingerprint(before.current_game)
+        after_fp = _game_state_fingerprint(after.current_game)
+        trace = MoveTrace(
+            ply=after.current_game.ply,
+            participant=participant,
+            color=before.current_game.turn,
+            notation=move.notation(),
+            meld_line=meld_line,
+            sovereign_opportunity=sovereign_opportunity,
+            sovereign_refusal=sovereign_opportunity and not move.is_capture,
+            state_before=before_fp,
+            state_after=after_fp,
+        )
+        self.history.append(trace)
+        self.states_by_ply[after.current_game.ply] = after
+
+        occurrences = self.seen.setdefault(after_fp, [])
+        occurrences.append(after.current_game.ply)
+        if len(occurrences) == 2 and self.first_repeat is None:
+            self.first_repeat = FirstRepeatObservation(
+                fingerprint=after_fp,
+                first_seen_ply=occurrences[0],
+                repeated_ply=occurrences[1],
+            )
+
+        if self.limit == 0 or len(occurrences) < self.limit or after.current_game.game_over:
+            return None
+
+        previous_ply = occurrences[-2]
+        detected_ply = occurrences[-1]
+        cycle_moves = tuple(
+            trace
+            for trace in self.history
+            if previous_ply < trace.ply <= detected_ply
+        )
+        cycle_fingerprints = {after_fp}
+        for trace in cycle_moves:
+            cycle_fingerprints.add(trace.state_before)
+            cycle_fingerprints.add(trace.state_after)
+
+        escape_opportunities = _escape_opportunities(
+            self.states_by_ply,
+            start_ply=previous_ply,
+            end_ply=detected_ply,
+            cycle_fingerprints=cycle_fingerprints,
+        )
+        escape_count = sum(item.escape_actions for item in escape_opportunities)
+        escape_examples = tuple(
+            f"ply {item.ply}: {example}"
+            for item in escape_opportunities
+            for example in item.escape_action_examples
+        )[:12]
+        first_repeat = self.first_repeat or FirstRepeatObservation(
+            fingerprint=after_fp,
+            first_seen_ply=occurrences[0],
+            repeated_ply=occurrences[1],
+        )
+        return RepetitionDiagnostic(
+            fingerprint=after_fp,
+            occurrence_count=len(occurrences),
+            first_seen_ply=occurrences[0],
+            first_repeat_ply=occurrences[1],
+            previous_seen_ply=previous_ply,
+            detected_ply=detected_ply,
+            cycle_length=detected_ply - previous_ply,
+            first_repeat_observed=first_repeat,
+            repeated_state=_canonical_game_state(after.current_game),
+            cycle_moves=cycle_moves,
+            sovereign_in_cycle=any(trace.sovereign_opportunity for trace in cycle_moves),
+            sovereign_refusals_in_cycle=sum(
+                trace.sovereign_refusal for trace in cycle_moves
+            ),
+            escape_opportunities=escape_opportunities,
+            positions_with_escape_actions=sum(
+                item.escape_actions > 0 for item in escape_opportunities
+            ),
+            escape_actions=escape_count,
+            escape_action_examples=escape_examples,
+        )
+
+
 def _game_record(
     state: CrownlineSet,
     metrics: dict[Participant, ParticipantMetrics],
     *,
     complete: bool,
     end_reason: Optional[str] = None,
+    repetition: Optional[RepetitionDiagnostic] = None,
 ) -> GameRecord:
     game = state.current_game
     white_score = game.score("W").total
@@ -255,6 +517,30 @@ def _game_record(
         melds_b=len(game.melds_b),
         metrics_a=metrics["A"],
         metrics_b=metrics["B"],
+        repetition=repetition,
+    )
+
+
+def _incomplete_set_record(
+    *,
+    state: CrownlineSet,
+    games: list[GameRecord],
+    pair_index: int,
+    leg: str,
+    first_game_white: Participant,
+) -> SetRecord:
+    aggregate_a = sum(record.score_a for record in games if record.complete)
+    aggregate_b = sum(record.score_b for record in games if record.complete)
+    return SetRecord(
+        pair_index=pair_index,
+        leg=leg,
+        first_game_white=first_game_white,
+        complete=False,
+        winner=None,
+        aggregate_a=aggregate_a,
+        aggregate_b=aggregate_b,
+        capped_game=state.current_game.variant.number,
+        games=tuple(games),
     )
 
 
@@ -265,17 +551,21 @@ def play_benchmark_set(
     first_game_white: Participant,
     rules_mode: str = "candidate",
     max_game_plies: int = 300,
+    repetition_limit: int = 3,
     pair_index: int = 1,
     leg: str = "A-first",
 ) -> SetRecord:
-    """Play one complete Crownline Set or return a clearly marked benchmark cap.
+    """Play one complete Crownline Set or return a marked harness stop.
 
-    A cap is a harness safety boundary, not a Crownline rule. Capped sets are
-    excluded from competitive win-rate calculations and retained as evidence.
+    Ply caps and repetition detection are benchmark safety/diagnostic boundaries,
+    not Crownline rules. Incomplete sets are excluded from competitive win-rate
+    calculations and retained as evidence.
     """
 
     if max_game_plies < 1:
         raise ValueError("max_game_plies must be at least 1")
+    if repetition_limit != 0 and repetition_limit < 2:
+        raise ValueError("repetition_limit must be 0 (disabled) or at least 2")
     normalized_mode = normalize_rules_mode(rules_mode)
     state = new_set(first_game_white=first_game_white, rules_mode=normalized_mode)
     engines: dict[Participant, BenchmarkEngine] = {"A": engine_a, "B": engine_b}
@@ -286,6 +576,7 @@ def play_benchmark_set(
             "A": ParticipantMetrics(),
             "B": ParticipantMetrics(),
         }
+        repetition = RepetitionTracker.start(state, limit=repetition_limit)
 
         while not state.current_game.game_over:
             game = state.current_game
@@ -298,18 +589,12 @@ def play_benchmark_set(
                         end_reason="benchmark_ply_cap",
                     )
                 )
-                aggregate_a = sum(record.score_a for record in games if record.complete)
-                aggregate_b = sum(record.score_b for record in games if record.complete)
-                return SetRecord(
+                return _incomplete_set_record(
+                    state=state,
+                    games=games,
                     pair_index=pair_index,
                     leg=leg,
                     first_game_white=first_game_white,
-                    complete=False,
-                    winner=None,
-                    aggregate_a=aggregate_a,
-                    aggregate_b=aggregate_b,
-                    capped_game=game.variant.number,
-                    games=tuple(games),
                 )
 
             participant = state.participant_for_color(game.turn)
@@ -323,6 +608,7 @@ def play_benchmark_set(
             decision = engine.choose(state, participant)
             move = game.move_from_notation(decision.notation)
             mover_piece = game.board[move.path[0]]
+            previous_state = state
             next_state = state.apply_move(move, meld_line=decision.meld_line)
             after_game = next_state.current_game
             destination_piece = after_game.board.get(move.path[-1])
@@ -335,13 +621,40 @@ def play_benchmark_set(
                 bool(destination_piece is not None and not mover_piece.king and destination_piece.king)
             )
             participant_metrics.sovereign_opportunities += int(sovereign_opportunity)
-            participant_metrics.sovereign_refusals += int(sovereign_opportunity and not move.is_capture)
+            participant_metrics.sovereign_refusals += int(
+                sovereign_opportunity and not move.is_capture
+            )
             participant_metrics.quota_triggers += int(
                 before_trigger is None and after_game.triggering_player is not None
             )
             participant_metrics.final_response_moves += int(before_trigger is not None)
 
             state = next_state
+            diagnostic = repetition.observe(
+                previous_state,
+                state,
+                participant=participant,
+                move=move,
+                meld_line=decision.meld_line,
+                sovereign_opportunity=sovereign_opportunity,
+            )
+            if diagnostic is not None:
+                games.append(
+                    _game_record(
+                        state,
+                        metrics,
+                        complete=False,
+                        end_reason="benchmark_repetition_detected",
+                        repetition=diagnostic,
+                    )
+                )
+                return _incomplete_set_record(
+                    state=state,
+                    games=games,
+                    pair_index=pair_index,
+                    leg=leg,
+                    first_game_white=first_game_white,
+                )
 
         games.append(_game_record(state, metrics, complete=True))
         state = state.advance_game()
@@ -408,13 +721,24 @@ def _build_summary(records: Tuple[SetRecord, ...]) -> dict:
     metrics_b = _aggregate_participant_metrics(records, "B")
 
     end_reasons: dict[str, int] = {}
+    repetitions = []
     for record in records:
         for game in record.games:
             end_reasons[game.end_reason] = end_reasons.get(game.end_reason, 0) + 1
+            if game.repetition is not None:
+                repetitions.append(game.repetition)
 
     return {
         "complete_sets": len(complete),
         "capped_sets": len(capped),
+        "repetition_detected_sets": sum(
+            any(game.repetition is not None for game in record.games) for record in records
+        ),
+        "repetition_cycle_lengths": [item.cycle_length for item in repetitions],
+        "mean_repetition_cycle_length": (
+            mean(item.cycle_length for item in repetitions) if repetitions else 0.0
+        ),
+        "repetition_escape_actions": [item.escape_actions for item in repetitions],
         "set_wins": {"A": a_wins, "B": b_wins, "draws": draws},
         "decisive_win_rate": {
             "A": a_wins / decisive if decisive else 0.0,
@@ -442,11 +766,14 @@ def run_benchmark(
     pairs: int = 1,
     rules_mode: str = "candidate",
     max_game_plies: int = 300,
+    repetition_limit: int = 3,
 ) -> BenchmarkReport:
     """Run seat-balanced pairs of complete two-game Crownline Sets."""
 
     if pairs < 1:
         raise ValueError("pairs must be at least 1")
+    if repetition_limit != 0 and repetition_limit < 2:
+        raise ValueError("repetition_limit must be 0 (disabled) or at least 2")
     normalized_mode = normalize_rules_mode(rules_mode)
     records: list[SetRecord] = []
 
@@ -458,6 +785,7 @@ def run_benchmark(
                 first_game_white="A",
                 rules_mode=normalized_mode,
                 max_game_plies=max_game_plies,
+                repetition_limit=repetition_limit,
                 pair_index=pair_index,
                 leg="A-first",
             )
@@ -469,6 +797,7 @@ def run_benchmark(
                 first_game_white="B",
                 rules_mode=normalized_mode,
                 max_game_plies=max_game_plies,
+                repetition_limit=repetition_limit,
                 pair_index=pair_index,
                 leg="B-first",
             )
@@ -481,6 +810,7 @@ def run_benchmark(
         pairs=pairs,
         sets_per_pair=2,
         max_game_plies=max_game_plies,
+        repetition_limit=repetition_limit,
         deterministic=True,
         engine_a={
             "participant": "A",
@@ -540,12 +870,19 @@ def print_summary(report: BenchmarkReport) -> None:
     )
     print(
         f"Complete sets: {summary['complete_sets']} | capped: {summary['capped_sets']} | "
+        f"repetition stops: {summary['repetition_detected_sets']} | "
         f"A wins {wins['A']} | B wins {wins['B']} | draws {wins['draws']}"
     )
     print(
         f"Aggregate score totals: A {totals['A']} — B {totals['B']} | "
         f"mean paired margin A-B {summary['mean_paired_margin_a_minus_b']:.2f}"
     )
+    if summary["repetition_detected_sets"]:
+        print(
+            "Repetition: "
+            f"mean cycle {summary['mean_repetition_cycle_length']:.1f} plies | "
+            f"cycle lengths {summary['repetition_cycle_lengths']}"
+        )
     print(
         f"A search: {metrics_a['decisions']} decisions | "
         f"{metrics_a['mean_decision_ms']:.2f} ms/decision | "
@@ -579,6 +916,12 @@ def _parse_args() -> argparse.Namespace:
         choices=("official", "sovereign", "crowned", "candidate"),
     )
     parser.add_argument("--max-game-plies", type=int, default=300)
+    parser.add_argument(
+        "--repetition-limit",
+        type=int,
+        default=3,
+        help="stop diagnostically on this exact-state occurrence count; 0 disables",
+    )
     parser.add_argument("--json", dest="json_path", default=None, help="optional JSON report path")
     return parser.parse_args()
 
@@ -593,6 +936,7 @@ def main() -> None:
         pairs=args.pairs,
         rules_mode=args.rules_mode,
         max_game_plies=args.max_game_plies,
+        repetition_limit=args.repetition_limit,
     )
     print_summary(report)
     if args.json_path:
