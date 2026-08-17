@@ -59,6 +59,40 @@ The report records both:
 
 This instrumentation is single-threaded by design.
 
+## Exact-state repetition diagnostics
+
+The first 10-pair depth-2 symmetry run produced an informative failure mode: all 20 sets reached the 300-ply benchmark safety cap in Game 1 instead of producing competitive results. The engines were deterministic and identical, so the repeated runs reproduced the same seat-conditioned trajectories. That observation is treated as evidence of a baseline search-policy pathology, not as a Crownline game result.
+
+The harness therefore now maintains a canonical fingerprint of every future-relevant game state. The fingerprint includes:
+
+- board position, owner, piece identity, and King status;
+- side to move;
+- Game 1 / Game 2 variant and active rules profile;
+- both capture banks;
+- banked Crownlines, including line, identities, points, and Royal status;
+- both players' Crownline cooldowns;
+- quota-trigger/final-response state;
+- terminal status and end reason.
+
+The **ply counter is deliberately excluded**. Two positions reached on different turns should fingerprint identically when every fact that can change future legal play or scoring is otherwise the same.
+
+By default, the benchmark stops diagnostically when an exact state occurs for the **third time**. This is not a Crownline repetition rule and does not award a draw. The set is marked incomplete with `benchmark_repetition_detected` and remains excluded from competitive win-rate calculations.
+
+For each detected cycle, the report preserves:
+
+- the first occurrence of the triggering state;
+- the first repeat and the third-occurrence detection ply;
+- the exact cycle length;
+- the exact move sequence through the last cycle;
+- whether a Sovereign opportunity or refusal occurred in that cycle;
+- the complete repeated-state snapshot;
+- every decision position in the cycle and how many legal actions would leave the set of cycle states;
+- representative escape actions.
+
+The escape-action measurement is intentionally local: an action counts as an escape when its immediate resulting state is outside the detected cycle. It does not claim that the alternative avoids every possible future repetition.
+
+Use `--repetition-limit 0` only when intentionally disabling this diagnostic boundary. Values of 2 or greater are accepted; the standard protocol uses 3.
+
 ## Metrics
 
 Every game records:
@@ -79,7 +113,8 @@ Every game records:
 - Sovereign opportunities;
 - Sovereign refusals;
 - quota triggers;
-- final-response moves.
+- final-response moves;
+- exact-state repetition diagnostics when present.
 
 The tournament summary additionally records:
 
@@ -90,6 +125,7 @@ The tournament summary additionally records:
 - paired A-minus-B margins;
 - mean paired margin;
 - end-reason counts;
+- repetition-detected set count and cycle lengths;
 - mean nodes and milliseconds per decision;
 - nodes per second;
 - Sovereign refusal rate.
@@ -105,23 +141,24 @@ A **Sovereign refusal** occurs when the engine chooses one of those non-capturin
 
 This measures actual use of the v1.1 freedom-of-choice rule rather than merely counting Kings on the board.
 
-## Benchmark safety cap
+## Benchmark safety boundaries
 
-`--max-game-plies` is a benchmark safety boundary, not a Crownline rule.
+`--max-game-plies` and exact-state repetition detection are benchmark boundaries, not Crownline rules.
 
-If a game reaches the cap, its set is marked incomplete and excluded from competitive win-rate calculations. The cap remains in the report as evidence of possible repetition or search-policy pathology.
+If either boundary stops a game, its set is marked incomplete and excluded from competitive win-rate calculations. The evidence remains in the report so a search-policy failure cannot silently disappear from the dataset.
 
-The default is 300 plies per game.
+The fallback ply cap remains 300 plies per game. Exact-state repetition detection normally stops deterministic loops much earlier.
 
 ## Commands
 
-Baseline symmetry/sanity run:
+Baseline symmetry/diagnostic run:
 
 ```bash
 python3 crownline_benchmark.py \
   --pairs 10 \
   --depth-a 2 \
   --depth-b 2 \
+  --repetition-limit 3 \
   --json benchmarks/baseline_d2_vs_d2.json
 ```
 
@@ -132,6 +169,7 @@ python3 crownline_benchmark.py \
   --pairs 10 \
   --depth-a 2 \
   --depth-b 3 \
+  --repetition-limit 3 \
   --json benchmarks/depth2_vs_depth3.json
 ```
 
@@ -142,6 +180,7 @@ python3 crownline_benchmark.py \
   --pairs 10 \
   --depth-a 2 \
   --depth-b 4 \
+  --repetition-limit 3 \
   --json benchmarks/depth2_vs_depth4.json
 ```
 
@@ -164,13 +203,13 @@ Strength and efficiency are separate outcomes. A stronger engine that requires 3
 
 ## Planned progression
 
-### Stage 0 — freeze and measure Baseline A
+### Stage 0 — freeze and diagnose Baseline A
 
-Run depth-2 self-play and preserve its fingerprints and results.
+Preserve the original depth-2 engine, reproduce its deterministic behavior, and characterize the late-game repetition cycle exposed by the first symmetry run. Do not change the evaluator until the cycle itself is measured.
 
 ### Stage 1 — pure depth experiment
 
-Compare depth 2 against depths 3 and 4 with the current evaluator unchanged. This answers how much strength is available from lookahead alone and what it costs in latency/nodes.
+Compare depth 2 against depths 3 and 4 with the current evaluator unchanged. In addition to win rate and cost, ask whether deeper search naturally avoids the Baseline A repetition cycle.
 
 ### Stage 2 — search engineering
 
@@ -210,5 +249,9 @@ Only after the classical engine has a measured ceiling should Crownline evaluate
 A good benchmark result should be expressible as an evidence-backed engineering claim, for example:
 
 > Engine B won 64% of decisive paired sets against Baseline A while searching 22% fewer nodes per decision.
+
+A diagnostic result is equally legitimate when it reveals a limitation, for example:
+
+> Baseline A entered a deterministic 12-ply cycle by ply 74; six legal decisions inside the cycle had alternatives that immediately left the repeated-state set.
 
 The point is not merely to make the bot harder. The goal is to make improvements **reproducible, attributable, and measurable**.
