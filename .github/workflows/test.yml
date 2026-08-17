@@ -34,3 +34,16 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
+      - name: Run repetition-diagnostic baseline benchmark
+        run: |
+          python3 crownline_benchmark.py \
+            --pairs 10 \
+            --depth-a 2 \
+            --depth-b 2 \
+            --repetition-limit 3 \
+            --json benchmarks/baseline_d2_vs_d2_repetition.json
+      - name: Upload repetition-diagnostic baseline
+        uses: actions/upload-artifact@v4
+        with:
+          name: baseline-d2-vs-d2-repetition
+          path: benchmarks/baseline_d2_vs_d2_repetition.json
