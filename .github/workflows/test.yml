@@ -27,8 +27,8 @@ jobs:
           python - <<'PY'
           import serve_crownline
           payload = serve_crownline.state_payload()
-          assert payload['set']['rules']['mode'] == 'official'
-          assert payload['set']['rules']['experimental'] is False
+          assert payload['set']['rules']['mode'] == 'candidate'
+          assert payload['set']['rules']['experimental'] is True
           assert len(payload['game']['crownline_tracker']['W']) == 8
           assert len(payload['game']['crownline_tracker']['B']) == 8
           PY
