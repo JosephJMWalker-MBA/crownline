@@ -1,0 +1,69 @@
+{
+  "experiment": "Stage 2.5 score-only ordering plus structural exact TT",
+  "suite_id": "v0.1",
+  "rules_mode": "candidate",
+  "positions": 16,
+  "hypothesis": "Adding the already-validated structural exact transposition table to score-only ordered search further reduces expanded nodes and may recover enough work to offset cache overhead without changing any action.",
+  "interpretation": [
+    "Action equivalence held at every tested frozen position for depths 2, 3, and 4.",
+    "At depth 2 there were no transposition hits, so the combined engine changed no node counts and remained slower than both baseline and score-only ordering.",
+    "At depth 3 the structural TT reduced the score-ordered engine from 2409 to 2097 expanded nodes, an additional 12.95 percent reduction, for a total 44.47 percent reduction relative to Baseline A. Wall-clock time was 1.3 percent slower than score-only ordering and 66.1 percent slower than baseline.",
+    "At depth 4 the structural TT reduced the score-ordered engine from 9349 to 7203 expanded nodes, an additional 22.95 percent reduction, for a total 56.83 percent reduction relative to Baseline A. It was 4.3 percent faster than score-only ordering, though still 12.1 percent slower than baseline.",
+    "Transposition caching therefore continues to recover meaningful duplicate work even after alpha-beta move ordering changes the traversal. The remaining performance bottleneck is the cost of computing the ordering estimate itself, not a lack of pruning opportunity.",
+    "The next isolated hypothesis should preserve the score-only ordering policy exactly while computing its sibling ordering score incrementally from the parent state rather than recomputing full child score breakdowns."
+  ],
+  "depths": [
+    {
+      "depth": 2,
+      "action_equivalence": true,
+      "baseline_nodes": 882,
+      "score_ordered_nodes": 882,
+      "combined_expanded_nodes": 882,
+      "combined_cache_hits": 0,
+      "incremental_tt_node_reduction_vs_ordered": 0.0,
+      "combined_node_reduction_vs_baseline": 0.0,
+      "baseline_ms": 206.860059,
+      "score_ordered_ms": 269.649281,
+      "combined_ms": 275.751917,
+      "combined_over_ordered": 1.0226320265596646,
+      "combined_over_baseline": 1.3330358117591845
+    },
+    {
+      "depth": 3,
+      "action_equivalence": true,
+      "baseline_nodes": 3776,
+      "score_ordered_nodes": 2409,
+      "combined_expanded_nodes": 2097,
+      "combined_cache_hits": 312,
+      "incremental_tt_node_reduction_vs_ordered": 0.12951432129514318,
+      "combined_node_reduction_vs_baseline": 0.4446504237288136,
+      "baseline_ms": 978.363036,
+      "score_ordered_ms": 1604.025867,
+      "combined_ms": 1625.194147,
+      "combined_over_ordered": 1.0131979977969578,
+      "combined_over_baseline": 1.6611381043897158,
+      "positions_with_cache_hits": 15
+    },
+    {
+      "depth": 4,
+      "action_equivalence": true,
+      "baseline_nodes": 16685,
+      "score_ordered_nodes": 9349,
+      "combined_expanded_nodes": 7203,
+      "combined_cache_hits": 1520,
+      "incremental_tt_node_reduction_vs_ordered": 0.2295432666595358,
+      "combined_node_reduction_vs_baseline": 0.5682948756367995,
+      "baseline_ms": 4243.191107,
+      "score_ordered_ms": 4969.594623,
+      "combined_ms": 4755.624169,
+      "combined_over_ordered": 0.9569439696063445,
+      "combined_over_baseline": 1.1207659855833587,
+      "positions_with_cache_hits": 15
+    }
+  ],
+  "artifact": {
+    "workflow_run_id": 32036105326,
+    "artifact_id": 9290754383,
+    "artifact_sha256": "ad8ff47c7793b3ea924795969f0dea15c7bec2dcbfcb208defe55697d6406a25"
+  }
+}
