@@ -1,0 +1,63 @@
+{
+  "experiment": "Stage 2.3 static-evaluator move ordering",
+  "suite_id": "v0.1",
+  "rules_mode": "candidate",
+  "positions": 16,
+  "hypothesis": "Ordering internal alpha-beta children by the unchanged static Baseline A evaluator reduces expanded search nodes and wall-clock time without changing any chosen action.",
+  "ordering_policy": "At maximizing nodes search the highest one-ply static evaluation first; at minimizing nodes search the lowest first. Root action order and lexicographic tie-breaking remain unchanged.",
+  "interpretation": [
+    "Action equivalence held at every tested frozen position for depths 2, 3, and 4.",
+    "At depth 2 there is no internal alpha-beta pruning opportunity below the root, so ordering changed no node counts and added about 39 percent latency overhead.",
+    "At depth 3 static ordering reduced expanded nodes by 36.2 percent across the suite and never increased node count at any position, but the extra one-ply evaluations made total wall-clock time about 83.3 percent slower than baseline.",
+    "At depth 4 static ordering reduced expanded nodes by 46.6 percent across the suite, with node reduction at all 16 positions, but total wall-clock time was still about 27.2 percent slower than baseline.",
+    "The pruning hypothesis is strongly supported, but using the full static evaluator as the ordering heuristic is too expensive to count as a runtime improvement by itself.",
+    "This result justifies a cheaper ordering heuristic experiment before promoting move ordering into the product engine. The important signal is that Crownline's search tree is highly order-sensitive at depths 3 and 4."
+  ],
+  "depths": [
+    {
+      "depth": 2,
+      "action_equivalence": true,
+      "baseline_nodes": 882,
+      "ordered_nodes": 882,
+      "expanded_node_reduction_fraction": 0.0,
+      "ordering_evaluations": 771,
+      "baseline_ms": 211.771498,
+      "ordered_ms": 294.323857,
+      "latency_ratio_ordered_over_baseline": 1.3898180811848437,
+      "positions_with_node_reduction": 0,
+      "positions_with_node_increase": 0
+    },
+    {
+      "depth": 3,
+      "action_equivalence": true,
+      "baseline_nodes": 3776,
+      "ordered_nodes": 2409,
+      "expanded_node_reduction_fraction": 0.3620233050847458,
+      "ordering_evaluations": 5733,
+      "baseline_ms": 1012.631346,
+      "ordered_ms": 1855.950745,
+      "latency_ratio_ordered_over_baseline": 1.8328000138759284,
+      "positions_with_node_reduction": 14,
+      "positions_with_node_increase": 0
+    },
+    {
+      "depth": 4,
+      "action_equivalence": true,
+      "baseline_nodes": 16685,
+      "ordered_nodes": 8917,
+      "expanded_node_reduction_fraction": 0.4655678753371292,
+      "ordering_evaluations": 16888,
+      "baseline_ms": 4294.670993,
+      "ordered_ms": 5460.962259,
+      "latency_ratio_ordered_over_baseline": 1.271567081134031,
+      "positions_with_node_reduction": 16,
+      "positions_with_node_increase": 0
+    }
+  ],
+  "source_fingerprints": {
+    "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+    "experiment_sha256": "501fbe7959b40db8e06facc735c82ed873e9f3c9b463f954eee0f9db8f97a21d",
+    "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3",
+    "search_engine_sha256": "6428496ca81f3a225ea22d4ed132e75f2be3cf4ba0af9a6cbd4318b1a49d6f2a"
+  }
+}
