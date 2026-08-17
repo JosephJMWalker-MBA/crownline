@@ -1,0 +1,70 @@
+{
+  "experiment": "Stage 2.2 exact transposition key representation",
+  "suite_id": "v0.1",
+  "rules_mode": "candidate",
+  "positions": 16,
+  "hypothesis": "A structural key encoding the same future-relevant CLSN1 facts preserves exact-TT search behavior while removing enough string serialization overhead to improve wall-clock performance.",
+  "interpretation": [
+    "The structural key preserved every chosen action, expanded-node count, and cache-hit count produced by the CLSN-string transposition table on the frozen position suite.",
+    "The representation change reduced transposition-table wall-clock time to about 79 percent of the CLSN-string implementation at depths 2, 3, and 4.",
+    "At depth 2 there were no transposition hits, so even the structural table remained about 9.6 percent slower than baseline because cache management had no work to recover.",
+    "At depth 3 the structural exact-TT implementation was effectively break-even with baseline wall-clock time while still reducing expanded nodes by 16.9 percent.",
+    "At depth 4 the structural exact-TT implementation reduced expanded nodes by 28.6 percent and was about 5.9 percent faster than baseline wall-clock time.",
+    "This supports retaining structural exact transposition caching as a search-engineering building block for deeper searches, while not enabling it blindly at depth 2 where the measured suite shows no benefit.",
+    "The result also preserves the architecture boundary: CLSN1 remains the reversible external state notation and benchmark-fixture identity; the structural tuple is an internal performance representation of the same state facts."
+  ],
+  "depths": [
+    {
+      "depth": 2,
+      "action_equivalence": true,
+      "baseline_nodes": 882,
+      "tt_expanded_nodes": 882,
+      "cache_hits": 0,
+      "cache_hit_rate": 0.0,
+      "expanded_node_reduction_fraction": 0.0,
+      "baseline_ms": 209.282243,
+      "clsn_tt_ms": 290.12890899999996,
+      "structural_tt_ms": 229.435784,
+      "clsn_tt_over_baseline": 1.3863044701790586,
+      "structural_tt_over_baseline": 1.0962983801736108,
+      "structural_over_clsn_tt": 0.7908063515311397
+    },
+    {
+      "depth": 3,
+      "action_equivalence": true,
+      "baseline_nodes": 3776,
+      "tt_expanded_nodes": 3139,
+      "cache_hits": 637,
+      "cache_hit_rate": 0.1686970338983051,
+      "expanded_node_reduction_fraction": 0.16869703389830504,
+      "baseline_ms": 995.7671990000001,
+      "clsn_tt_ms": 1263.452758,
+      "structural_tt_ms": 996.317116,
+      "clsn_tt_over_baseline": 1.2688234351049354,
+      "structural_tt_over_baseline": 1.0005522545837544,
+      "structural_over_clsn_tt": 0.788566972284056
+    },
+    {
+      "depth": 4,
+      "action_equivalence": true,
+      "baseline_nodes": 16685,
+      "tt_expanded_nodes": 11921,
+      "cache_hits": 3740,
+      "cache_hit_rate": 0.2388097822616691,
+      "expanded_node_reduction_fraction": 0.285525921486365,
+      "baseline_ms": 4290.197184000001,
+      "clsn_tt_ms": 5102.836641,
+      "structural_tt_ms": 4036.7179710000005,
+      "clsn_tt_over_baseline": 1.1894177405250004,
+      "structural_tt_over_baseline": 0.9409166520491568,
+      "structural_over_clsn_tt": 0.7910733294038838
+    }
+  ],
+  "source_fingerprints": {
+    "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+    "clsn_sha256": "34d6b79f99657982d046a864bda398b2cf3e584d39c1581ab9850383205f6c88",
+    "experiment_sha256": "af1785f7fee13f40b495ff65ae8f2f3206f10489b23ac396b49e575510b84ade",
+    "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3",
+    "tt_engine_sha256": "8e49266b6a077933441ee4fe3b1e30f4ecca68f293b4be3d973f8e45938d3eee"
+  }
+}
