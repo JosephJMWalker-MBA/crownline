@@ -37,25 +37,27 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
-      - name: Run promotion maturity root diagnostic
+      - name: Run promotion maturity trajectory benchmark
         run: |
-          PYTHONPATH=. python experiments/benchmark_promotion_maturity_diagnostic.py \
-            --weights 0 10 25 50 100 200 400 \
-            --root-depth 3 \
-            --json benchmarks/stage3_promotion_maturity_diagnostic.json
-      - name: Upload promotion maturity root diagnostic
+          PYTHONPATH=. python experiments/benchmark_promotion_maturity_trajectory.py \
+            --depth 3 \
+            --maturity-weight 10 \
+            --max-game-plies 300 \
+            --repetition-limit 3 \
+            --json benchmarks/stage3_promotion_maturity_trajectory.json
+      - name: Upload promotion maturity trajectory benchmark
         uses: actions/upload-artifact@v4
         with:
-          name: stage3-promotion-maturity-diagnostic
-          path: benchmarks/stage3_promotion_maturity_diagnostic.json
-      - name: Commit promotion maturity diagnostic evidence
+          name: stage3-promotion-maturity-trajectory
+          path: benchmarks/stage3_promotion_maturity_trajectory.json
+      - name: Commit promotion maturity trajectory evidence
         if: github.actor != 'github-actions[bot]'
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add benchmarks/stage3_promotion_maturity_diagnostic.json
+          git add benchmarks/stage3_promotion_maturity_trajectory.json
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "Record promotion maturity diagnostic evidence"
+          git commit -m "Record promotion maturity trajectory evidence"
           git push
