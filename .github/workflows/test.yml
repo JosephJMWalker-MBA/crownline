@@ -34,3 +34,17 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
+      - name: Run product penalty 200 self-play
+        run: |
+          PYTHONPATH=. python experiments/benchmark_product_penalty_selfplay.py \
+            --budget-ms 150 \
+            --max-depth 4 \
+            --repeat-penalty 200 \
+            --max-game-plies 300 \
+            --repetition-limit 3 \
+            --json benchmarks/product_candidate_p200_150ms_selfplay.json
+      - name: Upload product penalty 200 self-play
+        uses: actions/upload-artifact@v4
+        with:
+          name: product-candidate-p200-150ms-selfplay
+          path: benchmarks/product_candidate_p200_150ms_selfplay.json
