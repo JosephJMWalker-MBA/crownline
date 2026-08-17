@@ -34,3 +34,13 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
+      - name: Run exact transposition efficiency benchmark
+        run: |
+          PYTHONPATH=. python experiments/benchmark_exact_tt.py \
+            --depths 2 3 4 \
+            --json benchmarks/exact_tt_efficiency_v0_1.json
+      - name: Upload exact transposition efficiency benchmark
+        uses: actions/upload-artifact@v4
+        with:
+          name: exact-tt-efficiency-v0-1
+          path: benchmarks/exact_tt_efficiency_v0_1.json
