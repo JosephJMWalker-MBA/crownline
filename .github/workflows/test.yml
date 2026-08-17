@@ -34,13 +34,14 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
-      - name: Run Stage 3 cycle evaluator diagnostic
+      - name: Run Stage 3 board-value weighting experiment
         run: |
-          PYTHONPATH=. python experiments/diagnose_stage3_cycle.py \
+          PYTHONPATH=. python experiments/benchmark_board_value_weight.py \
+            --weights 1.0 0.75 0.5 0.25 0.0 \
             --depths 2 3 4 \
-            --json benchmarks/stage3_cycle_diagnostic.json
-      - name: Upload Stage 3 cycle evaluator diagnostic
+            --json benchmarks/stage3_board_value_weight.json
+      - name: Upload Stage 3 board-value weighting experiment
         uses: actions/upload-artifact@v4
         with:
-          name: stage3-cycle-diagnostic
-          path: benchmarks/stage3_cycle_diagnostic.json
+          name: stage3-board-value-weight
+          path: benchmarks/stage3_board_value_weight.json
