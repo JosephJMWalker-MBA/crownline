@@ -34,13 +34,3 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
-      - name: Run static move-ordering benchmark
-        run: |
-          PYTHONPATH=. python experiments/benchmark_static_move_ordering.py \
-            --depths 2 3 4 \
-            --json benchmarks/static_move_ordering_v0_1.json
-      - name: Upload static move-ordering benchmark
-        uses: actions/upload-artifact@v4
-        with:
-          name: static-move-ordering-v0-1
-          path: benchmarks/static_move_ordering_v0_1.json
