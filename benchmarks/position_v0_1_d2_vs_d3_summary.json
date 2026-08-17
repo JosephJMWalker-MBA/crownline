@@ -1,0 +1,139 @@
+{
+  "benchmark": "Frozen CLSN position suite v0.1: depth 2 vs depth 3",
+  "rules_mode": "candidate",
+  "suite_id": "v0.1",
+  "scenario_count": 8,
+  "frozen_positions": 16,
+  "sets_attempted": 16,
+  "engines": {
+    "A": {"name": "baseline-d2", "depth": 2},
+    "B": {"name": "baseline-d3", "depth": 3}
+  },
+  "interpretation": [
+    "This is the first benchmark in which every scenario freezes both a Game 1 and Game 2 position as canonical CLSN1 rather than varying only Game 1.",
+    "Four of eight seat-balanced scenario pairs completed in both legs; depth 3 won all four complete scenario pairs.",
+    "Twelve of sixteen individual sets completed; depth 3 won all twelve complete sets.",
+    "Four sets stopped on exact-state repetition and remain excluded from competitive win-rate claims.",
+    "All four detected repetitions were four-ply reversible cycles with many immediate legal exits, so repetition remains a search/evaluation-policy pathology rather than a forced rules outcome.",
+    "Depth 3 searched about 4.26 times as many nodes per decision and took about 4.71 times as long per decision as depth 2 on this CI run.",
+    "The result is materially stronger evidence than the earlier opening-suite run because all sixteen starting positions are frozen, unique, reversible CLSN1 fixtures, but four incomplete scenario pairs still limit the strength claim."
+  ],
+  "summary": {
+    "complete_scenario_pairs": 4,
+    "incomplete_scenario_pairs": 4,
+    "scenario_pair_wins": {"A": 0, "B": 4, "draws": 0},
+    "scenario_pair_margins_a_minus_b": [-71, -72, -81, -47],
+    "mean_paired_margin_a_minus_b": -67.75,
+    "complete_sets": 12,
+    "incomplete_sets": 4,
+    "complete_set_wins": {"A": 0, "B": 12, "draws": 0},
+    "aggregate_score_complete_sets": {"A": 396, "B": 769},
+    "repetition_detected_sets": 4,
+    "repetition_cycle_lengths": [4, 4, 4, 4],
+    "repetition_escape_actions": [29, 18, 20, 22],
+    "normal_final_response_endings": 27
+  },
+  "search_cost": {
+    "depth2": {
+      "decisions": 620,
+      "mean_decision_ms": 8.415870464516129,
+      "mean_search_nodes": 38.80483870967742,
+      "max_decision_ms": 34.190465,
+      "max_search_nodes": 120
+    },
+    "depth3": {
+      "decisions": 614,
+      "mean_decision_ms": 39.62575319381107,
+      "mean_search_nodes": 165.3485342019544,
+      "max_decision_ms": 282.548241,
+      "max_search_nodes": 893
+    },
+    "depth3_vs_depth2_mean_latency_ratio": 4.708453396746232,
+    "depth3_vs_depth2_mean_nodes_ratio": 4.261024097293471
+  },
+  "events": {
+    "depth2": {
+      "capture_points": 238,
+      "promotions": 33,
+      "crownlines_scored": 3,
+      "sovereign_opportunities": 16,
+      "sovereign_refusals": 7,
+      "quota_triggers": 7,
+      "final_response_moves": 20
+    },
+    "depth3": {
+      "capture_points": 389,
+      "promotions": 33,
+      "crownlines_scored": 5,
+      "sovereign_opportunities": 26,
+      "sovereign_refusals": 5,
+      "quota_triggers": 20,
+      "final_response_moves": 7
+    }
+  },
+  "complete_scenario_pairs": [
+    {"scenario_id": "low-lattice", "winner": "B", "paired_margin_a_minus_b": -71},
+    {"scenario_id": "quarter-cross-a", "winner": "B", "paired_margin_a_minus_b": -72},
+    {"scenario_id": "quarter-cross-b", "winner": "B", "paired_margin_a_minus_b": -81},
+    {"scenario_id": "weave", "winner": "B", "paired_margin_a_minus_b": -47}
+  ],
+  "repetitions": [
+    {
+      "scenario_id": "standard-start",
+      "leg": "A-first",
+      "game_number": 2,
+      "detected_ply": 70,
+      "score_at_detection": {"A": 36, "B": 21},
+      "cycle_length": 4,
+      "escape_actions": 29,
+      "sovereign_in_cycle": true,
+      "sovereign_refusals_in_cycle": 1,
+      "cycle_moves": ["c4-d5", "b3-a4", "d5-c4", "a4-b3"]
+    },
+    {
+      "scenario_id": "high-lattice",
+      "leg": "A-first",
+      "game_number": 2,
+      "detected_ply": 55,
+      "score_at_detection": {"A": 24, "B": 18},
+      "cycle_length": 4,
+      "escape_actions": 18,
+      "sovereign_in_cycle": false,
+      "sovereign_refusals_in_cycle": 0,
+      "cycle_moves": ["b1-a2", "d3-e4", "a2-b1", "e4-d3"]
+    },
+    {
+      "scenario_id": "median-line",
+      "leg": "B-first",
+      "game_number": 2,
+      "detected_ply": 54,
+      "score_at_detection": {"A": 44, "B": 18},
+      "cycle_length": 4,
+      "escape_actions": 20,
+      "sovereign_in_cycle": false,
+      "sovereign_refusals_in_cycle": 0,
+      "cycle_moves": ["c6-b5", "b3-a4", "b5-c6", "a4-b3"]
+    },
+    {
+      "scenario_id": "full-spread",
+      "leg": "B-first",
+      "game_number": 1,
+      "detected_ply": 56,
+      "score_at_detection": {"A": 22, "B": 23},
+      "cycle_length": 4,
+      "escape_actions": 22,
+      "sovereign_in_cycle": false,
+      "sovereign_refusals_in_cycle": 0,
+      "cycle_moves": ["a5-b6", "b2-a3", "b6-a5", "a3-b2"]
+    }
+  ],
+  "source_fingerprints": {
+    "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+    "benchmark_harness_sha256": "69492ad15f02c66ec7420b6846fbac22217b19def2ee17814649d7928cc985a9",
+    "clsn_sha256": "34d6b79f99657982d046a864bda398b2cf3e584d39c1581ab9850383205f6c88",
+    "position_loader_sha256": "38dcbc39b475a0934d9ae70e780aec8bc0e6a4148df314252d74bc15d8b57e04",
+    "position_runner_sha256": "159273df8fa05d8b82782fe88bc79ce0086d6ae7f1a810a1efb63c5ed7d7d08a",
+    "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3",
+    "rules_engine_sha256": "de407e548638d66b61599382c180796f52ee481b9e64d6e06b0e374cb503574f"
+  }
+}
