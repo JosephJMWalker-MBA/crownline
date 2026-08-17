@@ -34,14 +34,14 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
-      - name: Run iterative time-budget benchmark
+      - name: Run structural-TT time-budget comparison
         run: |
-          PYTHONPATH=. python experiments/benchmark_iterative_time_budget.py \
+          PYTHONPATH=. python experiments/benchmark_iterative_tt_time_budget.py \
             --budgets-ms 50 150 500 1000 \
             --max-depth 4 \
-            --json benchmarks/iterative_time_budget_v0_1.json
-      - name: Upload iterative time-budget benchmark
+            --json benchmarks/iterative_tt_time_budget_v0_1.json
+      - name: Upload structural-TT time-budget comparison
         uses: actions/upload-artifact@v4
         with:
-          name: iterative-time-budget-v0-1
-          path: benchmarks/iterative_time_budget_v0_1.json
+          name: iterative-tt-time-budget-v0-1
+          path: benchmarks/iterative_tt_time_budget_v0_1.json
