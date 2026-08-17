@@ -96,6 +96,20 @@ The combined profile was then played and no immediate structural problem was ide
 
 ---
 
+## Final-response anomaly — 2026-08-16
+
+**Observed:** in Game 2, a computer King completed a double jump that appeared to end the game immediately. From the resulting board position, the human player believed a legal jump back over that King was available and therefore expected the guaranteed final response turn.
+
+**Replication:** not reproduced in subsequent play.
+
+**Engine review:** the authoritative rules engine currently implements the quota rule as intended: the move that first crosses the capture quota sets `triggering_player`, switches the turn to the opponent, and leaves the game active for exactly one response. The game ends after that response. A Game 2 regression case was added in which a King double-jumps across the quota and is immediately capturable; the response must remain legal and the game must not end until that recapture is taken.
+
+**Possible alternate explanation:** if the quota had already been crossed on the preceding turn, the observed double jump would itself have been the one permitted final response, in which case no further reply is granted. Because the exact position/state was not preserved, this cannot be distinguished from a transient implementation/UI defect after the fact.
+
+**Status:** observation recorded; no rule change. Treat recurrence with a preserved board/state or `end_reason` as a promotion blocker until explained.
+
+---
+
 ## Set entries
 
 Use this compact template for future entries:
