@@ -1,0 +1,202 @@
+{
+  "benchmark": "Baseline depth-2 vs depth-3 controlled diagnostic pair",
+  "rules_mode": "candidate",
+  "pairs": 1,
+  "sets": 2,
+  "repetition_limit": 3,
+  "engine_a": {
+    "participant": "A",
+    "name": "baseline-d2",
+    "depth": 2
+  },
+  "engine_b": {
+    "participant": "B",
+    "name": "baseline-d3",
+    "depth": 3
+  },
+  "interpretation": [
+    "Increasing search depth by one ply materially changed play without changing the evaluator.",
+    "Depth 3 won both games of the only complete two-game set, 63-27 on aggregate.",
+    "In the other seat-balanced leg, depth 3 won Game 1 29-13 before Game 2 entered an exact four-ply repetition cycle.",
+    "Depth 3 therefore did not eliminate repetition; it changed the trajectory and moved the remaining pathology to Game 2.",
+    "The repeated Game 2 cycle was not forced: all four decision states had legal immediate exits, 29 escape actions in total.",
+    "One Sovereign refusal by the depth-3 engine occurred inside the repeated cycle.",
+    "This is promising diagnostic evidence, not a statistically meaningful win-rate claim, because deterministic engines from one exact opening produce only one independent seat-balanced pair."
+  ],
+  "summary": {
+    "complete_sets": 1,
+    "incomplete_sets": 1,
+    "repetition_detected_sets": 1,
+    "complete_set_winner": "B",
+    "complete_set_aggregate": {
+      "A": 27,
+      "B": 63
+    },
+    "complete_set_margin_b_minus_a": 36,
+    "end_reasons": {
+      "final_response_completed": 3,
+      "benchmark_repetition_detected": 1
+    }
+  },
+  "search_cost": {
+    "depth2": {
+      "decisions": 88,
+      "mean_decision_ms": 11.068375034090908,
+      "mean_search_nodes": 48.21590909090909,
+      "max_decision_ms": 27.583055,
+      "max_search_nodes": 110
+    },
+    "depth3": {
+      "decisions": 86,
+      "mean_decision_ms": 52.16770604651163,
+      "mean_search_nodes": 202.93023255813952,
+      "max_decision_ms": 123.034521,
+      "max_search_nodes": 454
+    },
+    "depth3_vs_depth2_mean_latency_ratio": 4.713226127979481,
+    "depth3_vs_depth2_mean_nodes_ratio": 4.209000654151535
+  },
+  "events": {
+    "depth2": {
+      "capture_points": 27,
+      "promotions": 3,
+      "crownlines_scored": 1,
+      "sovereign_opportunities": 0,
+      "sovereign_refusals": 0,
+      "quota_triggers": 0,
+      "final_response_moves": 3
+    },
+    "depth3": {
+      "capture_points": 55,
+      "promotions": 4,
+      "crownlines_scored": 0,
+      "sovereign_opportunities": 5,
+      "sovereign_refusals": 3,
+      "quota_triggers": 3,
+      "final_response_moves": 0
+    }
+  },
+  "sets_detail": [
+    {
+      "leg": "A-first",
+      "complete": false,
+      "game1": {
+        "complete": true,
+        "winner": "B",
+        "score_a": 13,
+        "score_b": 29,
+        "plies": 45,
+        "end_reason": "final_response_completed"
+      },
+      "game2": {
+        "complete": false,
+        "score_a_at_detection": 36,
+        "score_b_at_detection": 21,
+        "plies": 70,
+        "end_reason": "benchmark_repetition_detected"
+      }
+    },
+    {
+      "leg": "B-first",
+      "complete": true,
+      "winner": "B",
+      "aggregate_a": 27,
+      "aggregate_b": 63,
+      "game1": {
+        "winner": "B",
+        "score_a": 17,
+        "score_b": 29,
+        "plies": 34,
+        "end_reason": "final_response_completed"
+      },
+      "game2": {
+        "winner": "B",
+        "score_a": 10,
+        "score_b": 34,
+        "plies": 25,
+        "end_reason": "final_response_completed"
+      }
+    }
+  ],
+  "repetition": {
+    "leg": "A-first",
+    "game_number": 2,
+    "fingerprint": "98c318854e39d7c78fdede614c484092b8993d7eeddcced6489930cf64c4c22d",
+    "first_seen_ply": 62,
+    "first_repeat_ply": 66,
+    "detected_ply": 70,
+    "cycle_length": 4,
+    "cycle_moves": [
+      {
+        "ply": 67,
+        "participant": "B",
+        "color": "W",
+        "notation": "c4-d5",
+        "sovereign_opportunity": true,
+        "sovereign_refusal": true
+      },
+      {
+        "ply": 68,
+        "participant": "A",
+        "color": "B",
+        "notation": "b3-a4",
+        "sovereign_opportunity": false,
+        "sovereign_refusal": false
+      },
+      {
+        "ply": 69,
+        "participant": "B",
+        "color": "W",
+        "notation": "d5-c4",
+        "sovereign_opportunity": false,
+        "sovereign_refusal": false
+      },
+      {
+        "ply": 70,
+        "participant": "A",
+        "color": "B",
+        "notation": "a4-b3",
+        "sovereign_opportunity": false,
+        "sovereign_refusal": false
+      }
+    ],
+    "sovereign_in_cycle": true,
+    "sovereign_refusals_in_cycle": 1,
+    "positions_with_escape_actions": 4,
+    "escape_actions": 29,
+    "escape_counts_by_ply": [
+      {"ply": 66, "legal_actions": 7, "escape_actions": 6},
+      {"ply": 67, "legal_actions": 10, "escape_actions": 9},
+      {"ply": 68, "legal_actions": 7, "escape_actions": 6},
+      {"ply": 69, "legal_actions": 9, "escape_actions": 8}
+    ],
+    "repeated_state": {
+      "variant": 2,
+      "rules_mode": "candidate",
+      "turn": "W",
+      "capture_bank_w": 7,
+      "capture_bank_b": 6,
+      "triggering_player": null,
+      "cooldowns_w": [],
+      "cooldowns_b": [],
+      "melds_w": [],
+      "melds_b": [
+        [["g4", "e4", "c4"], [3, 4, 2], 15, false]
+      ],
+      "pieces": [
+        ["a2", "B", 5, false],
+        ["b3", "B", 4, true],
+        ["c4", "W", 6, true],
+        ["c6", "W", 4, false],
+        ["d3", "B", 2, false],
+        ["d7", "W", 5, true],
+        ["f5", "B", 3, true]
+      ]
+    }
+  },
+  "source_fingerprints": {
+    "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+    "benchmark_harness_sha256": "69492ad15f02c66ec7420b6846fbac22217b19def2ee17814649d7928cc985a9",
+    "rules_engine_sha256": "de407e548638d66b61599382c180796f52ee481b9e64d6e06b0e374cb503574f"
+  }
+}
