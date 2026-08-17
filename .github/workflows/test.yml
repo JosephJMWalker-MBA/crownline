@@ -34,3 +34,16 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
+      - name: Run depth-2 vs depth-3 diagnostic pair
+        run: |
+          python3 crownline_benchmark.py \
+            --pairs 1 \
+            --depth-a 2 \
+            --depth-b 3 \
+            --repetition-limit 3 \
+            --json benchmarks/depth2_vs_depth3_diagnostic.json
+      - name: Upload depth-2 vs depth-3 diagnostic
+        uses: actions/upload-artifact@v4
+        with:
+          name: depth2-vs-depth3-diagnostic
+          path: benchmarks/depth2_vs_depth3_diagnostic.json
