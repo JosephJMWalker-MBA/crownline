@@ -1,0 +1,72 @@
+{
+  "experiment": "Stage 2.6 delta-equivalent score ordering",
+  "suite_id": "v0.1",
+  "rules_mode": "candidate",
+  "positions": 16,
+  "hypothesis": "Computing the existing score-only sibling ordering estimate from one parent score scan plus exact move deltas preserves the identical search tree while reducing ordering overhead enough to improve wall-clock time.",
+  "interpretation": [
+    "The delta estimator matched the existing score-only estimate exactly for every tested root action, including captures, Crownline scoring, Game 1 and Game 2 geometry, and terminal child states.",
+    "Action choice and expanded-node count were identical to score-only ordering at every tested frozen position for depths 2, 3, and 4. This confirms the change altered estimate computation cost only, not search policy or traversal order.",
+    "At depth 2 delta ordering remained unable to reduce nodes and was 25.6 percent slower than baseline, but it was 3.5 percent faster than the previous score-only ordering implementation.",
+    "At depth 3 delta ordering preserved the 36.2 percent node reduction and was 3.3 percent faster than score-only ordering, but remained 58.4 percent slower than baseline.",
+    "At depth 4 delta ordering preserved the 44.0 percent node reduction and was 3.5 percent faster than score-only ordering, but remained 12.8 percent slower than baseline.",
+    "The hypothesis is supported narrowly: incremental score deltas reduce ordering overhead without changing the tree. The gain is real but smaller than hoped because ordering overhead is not dominated by child score rescans alone.",
+    "The next clean combination is to apply the already-validated structural exact transposition table to this delta-equivalent ordering engine. Relative to the prior combined experiment, that changes only ordering-estimate implementation while preserving the same ordering policy and exact-cache semantics."
+  ],
+  "depths": [
+    {
+      "depth": 2,
+      "action_equivalence": true,
+      "search_tree_equivalence_to_score_ordering": true,
+      "baseline_nodes": 882,
+      "score_ordered_nodes": 882,
+      "delta_ordered_nodes": 882,
+      "node_reduction_fraction_vs_baseline": 0.0,
+      "baseline_ms": 207.27744,
+      "score_ordered_ms": 269.686597,
+      "delta_ordered_ms": 260.294333,
+      "delta_over_baseline": 1.255777440130484,
+      "delta_over_score_ordering": 0.9651734120105345
+    },
+    {
+      "depth": 3,
+      "action_equivalence": true,
+      "search_tree_equivalence_to_score_ordering": true,
+      "baseline_nodes": 3776,
+      "score_ordered_nodes": 2409,
+      "delta_ordered_nodes": 2409,
+      "node_reduction_fraction_vs_baseline": 0.3620233050847458,
+      "baseline_ms": 978.940446,
+      "score_ordered_ms": 1604.572678,
+      "delta_ordered_ms": 1550.894675,
+      "delta_over_baseline": 1.5842584514073699,
+      "delta_over_score_ordering": 0.9665468546635692
+    },
+    {
+      "depth": 4,
+      "action_equivalence": true,
+      "search_tree_equivalence_to_score_ordering": true,
+      "baseline_nodes": 16685,
+      "score_ordered_nodes": 9349,
+      "delta_ordered_nodes": 9349,
+      "node_reduction_fraction_vs_baseline": 0.4396763560083907,
+      "baseline_ms": 4221.77111,
+      "score_ordered_ms": 4935.491915,
+      "delta_ordered_ms": 4762.785631,
+      "delta_over_baseline": 1.1281487098432488,
+      "delta_over_score_ordering": 0.965007280535683
+    }
+  ],
+  "artifact": {
+    "workflow_run_id": 32036533003,
+    "artifact_id": 9290889284,
+    "artifact_sha256": "14597235162395689d8709926ae7cf53a371ce634b0cc5c446106505ae65a6b8"
+  },
+  "source_fingerprints": {
+    "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+    "delta_order_engine_sha256": "e5151a8dc1b26ded932aeccbe83caa710a3cd0a8a5b6462f5bfa20c6e2c98df6",
+    "experiment_sha256": "9542b61716a1c6bdbbb6ce5132f968685a3e74a58057f3412f0acdee992d4234",
+    "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3",
+    "score_order_engine_sha256": "55f7d100f40d107755485b1e8a3f54f5ecbe8a2117dabf3485543b2ecb05ae6f"
+  }
+}
