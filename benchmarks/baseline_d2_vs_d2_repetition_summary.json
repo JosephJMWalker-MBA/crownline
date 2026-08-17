@@ -1,0 +1,314 @@
+{
+  "benchmark": "Baseline A depth-2 vs depth-2 repetition diagnostic",
+  "interpretation": [
+    "All 20 seat-balanced sets reproduced an exact four-ply cycle in Game 1.",
+    "The cycle first appeared at ply 66, repeated at ply 70, and triggered the third-occurrence diagnostic at ply 74.",
+    "The cycle did not involve Sovereign opportunities or refusals.",
+    "Every decision state in the cycle had at least one legal action that immediately left the cycle; 24 such escape actions existed across the four decision states.",
+    "Therefore the pathology is policy/evaluation/search selection, not a forced rules loop."
+  ],
+  "pairs": 10,
+  "repetition_limit": 3,
+  "representative_cycle": {
+    "cycle_length": 4,
+    "cycle_moves": [
+      {
+        "color": "W",
+        "notation": "d6-e5",
+        "participant": "A",
+        "ply": 71,
+        "sovereign_opportunity": false,
+        "sovereign_refusal": false
+      },
+      {
+        "color": "B",
+        "notation": "b4-c3",
+        "participant": "B",
+        "ply": 72,
+        "sovereign_opportunity": false,
+        "sovereign_refusal": false
+      },
+      {
+        "color": "W",
+        "notation": "e5-d6",
+        "participant": "A",
+        "ply": 73,
+        "sovereign_opportunity": false,
+        "sovereign_refusal": false
+      },
+      {
+        "color": "B",
+        "notation": "c3-b4",
+        "participant": "B",
+        "ply": 74,
+        "sovereign_opportunity": false,
+        "sovereign_refusal": false
+      }
+    ],
+    "detected_ply": 74,
+    "escape_actions": 24,
+    "escape_opportunities": [
+      {
+        "color": "W",
+        "escape_action_examples": [
+          "b6-a7",
+          "b6-c7",
+          "d6-c5",
+          "d6-c7",
+          "d6-e7"
+        ],
+        "escape_actions": 5,
+        "legal_actions": 6,
+        "participant": "A",
+        "ply": 70
+      },
+      {
+        "color": "B",
+        "escape_action_examples": [
+          "b4-a3",
+          "b4-c5",
+          "d4-c3",
+          "d4-e3",
+          "g5-f4",
+          "g5-f6",
+          "g5-h6",
+          "h4-g3"
+        ],
+        "escape_actions": 8,
+        "legal_actions": 9,
+        "participant": "B",
+        "ply": 71
+      },
+      {
+        "color": "W",
+        "escape_action_examples": [
+          "b6-a7",
+          "b6-c7",
+          "e5-f4",
+          "e5-f6"
+        ],
+        "escape_actions": 4,
+        "legal_actions": 5,
+        "participant": "A",
+        "ply": 72
+      },
+      {
+        "color": "B",
+        "escape_action_examples": [
+          "c3-b2",
+          "c3-d2",
+          "d4-e3",
+          "g5-f4",
+          "g5-f6",
+          "g5-h6",
+          "h4-g3"
+        ],
+        "escape_actions": 7,
+        "legal_actions": 8,
+        "participant": "B",
+        "ply": 73
+      }
+    ],
+    "fingerprint": "01eb75ff6702650b5abff86c5e1b2578f6365e542938573fe163841816db3943",
+    "first_repeat_ply": 70,
+    "first_seen_ply": 66,
+    "game_number": 1,
+    "leg": "A-first",
+    "plies_at_detection": 74,
+    "positions_with_escape_actions": 4,
+    "repeated_state": {
+      "capture_bank_b": 7,
+      "capture_bank_w": 6,
+      "cooldowns_b": [],
+      "cooldowns_w": [],
+      "end_reason": null,
+      "game_over": false,
+      "melds_b": [
+        [
+          [
+            "b4",
+            "d4",
+            "f4"
+          ],
+          [
+            5,
+            3,
+            1
+          ],
+          15,
+          false
+        ]
+      ],
+      "melds_w": [],
+      "pieces": [
+        [
+          "a5",
+          "W",
+          3,
+          false
+        ],
+        [
+          "b4",
+          "B",
+          1,
+          true
+        ],
+        [
+          "b6",
+          "W",
+          6,
+          false
+        ],
+        [
+          "d4",
+          "B",
+          3,
+          false
+        ],
+        [
+          "d6",
+          "W",
+          5,
+          true
+        ],
+        [
+          "g5",
+          "B",
+          5,
+          true
+        ],
+        [
+          "h4",
+          "B",
+          6,
+          false
+        ]
+      ],
+      "rules_mode": "candidate",
+      "triggering_player": null,
+      "turn": "W",
+      "variant": 1
+    },
+    "score_a": 19,
+    "score_b": 46,
+    "sovereign_in_cycle": false
+  },
+  "rules_mode": "candidate",
+  "sets": 20,
+  "source_fingerprints": {
+    "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+    "benchmark_harness_sha256": "69492ad15f02c66ec7420b6846fbac22217b19def2ee17814649d7928cc985a9",
+    "rules_engine_sha256": "de407e548638d66b61599382c180796f52ee481b9e64d6e06b0e374cb503574f"
+  },
+  "summary": {
+    "aggregate_score_totals": {
+      "A": 0,
+      "B": 0
+    },
+    "capped_sets": 20,
+    "complete_sets": 0,
+    "decisive_win_rate": {
+      "A": 0.0,
+      "B": 0.0
+    },
+    "end_reasons": {
+      "benchmark_repetition_detected": 20
+    },
+    "engine_metrics": {
+      "A": {
+        "capture_points": 130,
+        "crownlines_scored": 10,
+        "decisions": 740,
+        "elapsed_ms": 8148.67646,
+        "final_response_moves": 0,
+        "max_decision_ms": 28.714529,
+        "max_search_nodes": 110,
+        "mean_decision_ms": 11.011724945945945,
+        "mean_root_actions": 6.662162162162162,
+        "mean_search_nodes": 46.66216216216216,
+        "nodes_per_second": 4237.497975223329,
+        "promotions": 30,
+        "quota_triggers": 0,
+        "root_actions": 4930,
+        "search_nodes": 34530,
+        "sovereign_opportunities": 30,
+        "sovereign_refusal_rate": 0.6666666666666666,
+        "sovereign_refusals": 20
+      },
+      "B": {
+        "capture_points": 130,
+        "crownlines_scored": 10,
+        "decisions": 740,
+        "elapsed_ms": 8127.798647,
+        "final_response_moves": 0,
+        "max_decision_ms": 31.171538,
+        "max_search_nodes": 110,
+        "mean_decision_ms": 10.983511685135134,
+        "mean_root_actions": 6.662162162162162,
+        "mean_search_nodes": 46.66216216216216,
+        "nodes_per_second": 4248.382803226204,
+        "promotions": 30,
+        "quota_triggers": 0,
+        "root_actions": 4930,
+        "search_nodes": 34530,
+        "sovereign_opportunities": 30,
+        "sovereign_refusal_rate": 0.6666666666666666,
+        "sovereign_refusals": 20
+      }
+    },
+    "mean_paired_margin_a_minus_b": 0.0,
+    "mean_repetition_cycle_length": 4,
+    "mean_set_margin_a_minus_b": 0.0,
+    "paired_margin_a_minus_b": [],
+    "repetition_cycle_lengths": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "repetition_detected_sets": 20,
+    "repetition_escape_actions": [
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24
+    ],
+    "set_wins": {
+      "A": 0,
+      "B": 0,
+      "draws": 0
+    }
+  }
+}
