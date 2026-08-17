@@ -34,3 +34,13 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
+      - name: Run King utility feature diagnostic
+        run: |
+          PYTHONPATH=. python experiments/diagnose_king_utility.py \
+            --depth 2 \
+            --json benchmarks/stage3_king_utility_diagnostic.json
+      - name: Upload King utility feature diagnostic
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage3-king-utility-diagnostic
+          path: benchmarks/stage3_king_utility_diagnostic.json
