@@ -1,0 +1,117 @@
+{
+  "suite_id": "king-v0.1",
+  "rules_mode": "candidate",
+  "fixture_count": 12,
+  "selection_method": "distinct exact repeated CLSN states sampled from measured 150ms p50/p200 trajectory artifacts for King-rich evaluator diagnostics",
+  "purpose": "Root/evaluator hard-case guardrail. These fixtures are independent positions, not paired Game-1/Game-2 set scenarios.",
+  "fixtures": [
+    {
+      "fixture_id": "full-spread-g1-p200h2h-c4",
+      "description": "Game 1 full-spread repeated state from the 150ms p200 head-to-head; four Kings and a four-ply exact cycle.",
+      "tags": ["game1", "cycle", "cycle-4", "four-kings", "p200", "head-to-head", "full-spread"],
+      "cycle_length": 4,
+      "source": {"workflow_run": 32056116528, "artifact_id": 9296560712, "benchmark": "product-candidate-p200-150ms-head-to-head", "scenario_id": "full-spread"},
+      "clsn": "CLSN1|g=1|r=candidate|t=W|b=10,14|q=-|o=0|e=-|p=a5:W6K,c3:B6K,c5:W1K,g5:B5K|mw=-|mb=-|cw=-|cb=-",
+      "fingerprint": "04cac1470056ea686b3ac2b9f249cff26750c43a0ef70081d28d1ecc39555a53"
+    },
+    {
+      "fixture_id": "high-lattice-g1-p200h2h-c4",
+      "description": "Game 1 high-lattice repeated state with two Kings and already-banked Crownlines.",
+      "tags": ["game1", "cycle", "cycle-4", "two-kings", "p200", "head-to-head", "high-lattice", "melded"],
+      "cycle_length": 4,
+      "source": {"workflow_run": 32056116528, "artifact_id": 9296560712, "benchmark": "product-candidate-p200-150ms-head-to-head", "scenario_id": "high-lattice"},
+      "clsn": "CLSN1|g=1|r=candidate|t=B|b=14,10|q=-|o=0|e=-|p=c3:B4K,c5:B3,f6:W2,g3:W6K,g5:W3|mw=f6.e5.b4:6.2.5:15:0,f6.g5.f4:2.3.6:15:0|mb=-|cw=-|cb=-",
+      "fingerprint": "6113ee767d19e5a48bc8a3aa3cffe5680fbfa68e3e65074b4845274457555b22"
+    },
+    {
+      "fixture_id": "low-lattice-g1-p50-c4",
+      "description": "Game 1 low-lattice p50 repeated state with three Kings and a banked White Crownline.",
+      "tags": ["game1", "cycle", "cycle-4", "three-kings", "p50", "low-lattice", "melded"],
+      "cycle_length": 4,
+      "source": {"workflow_run": 32054333022, "artifact_id": 9296124685, "benchmark": "product-candidate-150ms", "scenario_id": "low-lattice"},
+      "clsn": "CLSN1|g=1|r=candidate|t=B|b=6,13|q=-|o=0|e=-|p=a5:B4,b6:W3,c3:B6K,c5:B5K,f4:W1K,f6:W4|mw=b6.d6.f6:3.1.4:15:0|mb=-|cw=-|cb=-",
+      "fingerprint": "00864b0dadc395d58136e99f9c213e001e17c4b18e5939a55a4a7575e5f8c3d3"
+    },
+    {
+      "fixture_id": "quarter-cross-a-g1-p50-royal-c4",
+      "description": "Game 1 quarter-cross-a p50 repeated state with five Kings and a Royal Crownline already banked.",
+      "tags": ["game1", "cycle", "cycle-4", "five-kings", "p50", "quarter-cross-a", "royal"],
+      "cycle_length": 4,
+      "source": {"workflow_run": 32054333022, "artifact_id": 9296124685, "benchmark": "product-candidate-150ms", "scenario_id": "quarter-cross-a"},
+      "clsn": "CLSN1|g=1|r=candidate|t=B|b=7,10|q=-|o=0|e=-|p=b6:W6K,d4:B3K,e1:B6K,e5:W1K,f6:W4K,h4:B5K|mw=b6.d6.f6:6.1.4:30:1|mb=-|cw=-|cb=-",
+      "fingerprint": "4c2caa75e782423114318ab3a5c0be17428ee2c38e08381cff47b4f6d537a99b"
+    },
+    {
+      "fixture_id": "quarter-cross-a-g1-p200h2h-c4",
+      "description": "Game 1 quarter-cross-a p200 head-to-head repeated state mixing promoted and ordinary pieces near a retired Black line.",
+      "tags": ["game1", "cycle", "cycle-4", "three-kings", "p200", "head-to-head", "quarter-cross-a", "melded"],
+      "cycle_length": 4,
+      "source": {"workflow_run": 32056116528, "artifact_id": 9296560712, "benchmark": "product-candidate-p200-150ms-head-to-head", "scenario_id": "quarter-cross-a"},
+      "clsn": "CLSN1|g=1|r=candidate|t=B|b=3,13|q=-|o=0|e=-|p=a3:B5K,a5:W5,b6:W1K,c5:B4,d4:B6,e3:B3,e5:W2K|mw=-|mb=b4.d4.f4:5.6.1:15:0|cw=-|cb=-",
+      "fingerprint": "fb5f1bd97a2112ac8333ebf8ac64223130581ed07bec37ec0612b648fcdac002"
+    },
+    {
+      "fixture_id": "standard-start-g1-p50-six-kings-c4",
+      "description": "Game 1 standard-start p50 repeated state with six Kings and multiple retired Royal/ordinary lines.",
+      "tags": ["game1", "cycle", "cycle-4", "six-kings", "p50", "standard-start", "royal", "melded"],
+      "cycle_length": 4,
+      "source": {"workflow_run": 32054333022, "artifact_id": 9296124685, "benchmark": "product-candidate-150ms", "scenario_id": "standard-start"},
+      "clsn": "CLSN1|g=1|r=candidate|t=B|b=4,10|q=-|o=0|e=-|p=b4:B6K,b6:B3K,d2:B1,e5:W2K,f6:W6K,g5:W3K,h2:B5,h4:B2K|mw=d6.e5.d4:3.6.2:30:1,f6.g5.f4:6.3.2:30:1|mb=b4.d4.f4:3.1.2:15:0|cw=-|cb=-",
+      "fingerprint": "1a1d0d6595a27d32e9f2e10d5632dc7a2b92dbef9933fc31ee8d010bcf479e0e"
+    },
+    {
+      "fixture_id": "standard-start-g1-p50-three-kings-c4",
+      "description": "Game 1 standard-start p50 repeated state with three Kings and one retired Black line.",
+      "tags": ["game1", "cycle", "cycle-4", "three-kings", "p50", "standard-start", "melded"],
+      "cycle_length": 4,
+      "source": {"workflow_run": 32054333022, "artifact_id": 9296124685, "benchmark": "product-candidate-150ms", "scenario_id": "standard-start"},
+      "clsn": "CLSN1|g=1|r=candidate|t=W|b=4,10|q=-|o=0|e=-|p=a5:W2K,b2:B3K,b6:W6,d4:B1,d6:W3,e3:B2,g3:B6,h4:B5|mw=-|mb=b4.d4.f4:3.1.2:15:0|cw=-|cb=-",
+      "fingerprint": "5ee18c60e260f8620a360ffb1b263c652eb5e067328db2b78f0f5d24fe5e9c46"
+    },
+    {
+      "fixture_id": "standard-start-g1-p200h2h-c4",
+      "description": "Game 1 standard-start p200 head-to-head repeated state with four Kings and mixed promotion progress.",
+      "tags": ["game1", "cycle", "cycle-4", "four-kings", "p200", "head-to-head", "standard-start", "melded"],
+      "cycle_length": 4,
+      "source": {"workflow_run": 32056116528, "artifact_id": 9296560712, "benchmark": "product-candidate-p200-150ms-head-to-head", "scenario_id": "standard-start"},
+      "clsn": "CLSN1|g=1|r=candidate|t=B|b=4,10|q=-|o=0|e=-|p=a5:B3K,b6:W6,c3:B6K,c7:W3K,d4:B1,e3:B2,f4:W2K,h4:B5|mw=-|mb=b4.d4.f4:3.1.2:15:0|cw=-|cb=-",
+      "fingerprint": "b9d16d87215f2762d1e0ad9a324e726ac198fa844df12e3a958c23c13d9670de"
+    },
+    {
+      "fixture_id": "low-lattice-g2-p50-c8",
+      "description": "Game 2 low-lattice p50 repeated state from an eight-ply exact cycle with four Kings and three retired Black lines.",
+      "tags": ["game2", "cycle", "cycle-8", "four-kings", "p50", "low-lattice", "melded"],
+      "cycle_length": 8,
+      "source": {"workflow_run": 32054333022, "artifact_id": 9296124685, "benchmark": "product-candidate-150ms", "scenario_id": "low-lattice"},
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=8,13|q=-|o=0|e=-|p=a4:W5K,b7:W3K,c4:B5,d3:B1,d5:B3K,f5:B4K|mw=-|mb=f5.d5.b5:4.3.5:15:0,g4.e4.c4:4.1.3:15:0,g6.d5.c4:4.3.5:15:0|cw=-|cb=-",
+      "fingerprint": "dafba88ba458da6cff16d38d654d9306b4d3b9c4a55f74a4741f7685ec261c93"
+    },
+    {
+      "fixture_id": "median-line-g2-p50-royal-c4",
+      "description": "Game 2 median-line p50 repeated state with five Kings and five retired White lines, four of them Royal.",
+      "tags": ["game2", "cycle", "cycle-4", "five-kings", "p50", "median-line", "royal", "melded"],
+      "cycle_length": 4,
+      "source": {"workflow_run": 32054333022, "artifact_id": 9296124685, "benchmark": "product-candidate-150ms", "scenario_id": "median-line"},
+      "clsn": "CLSN1|g=2|r=candidate|t=B|b=13,14|q=-|o=0|e=-|p=a2:B2K,a4:B6K,b3:W2K,e6:W4K,f5:W1K|mw=c6.d5.g4:4.2.1:30:1,e6.d5.e4:2.4.1:30:1,f5.d5.b5:1.4.2:30:1,g4.e4.c4:1.2.4:30:1,g6.d5.c4:1.4.2:30:1|mb=-|cw=-|cb=-",
+      "fingerprint": "ccd13ccd2bdc2a8d7ec5c94d3ebec49bb9d1ed95d42bf95a66f1bd8306ad12b5"
+    },
+    {
+      "fixture_id": "quarter-cross-a-g2-p200self-c4",
+      "description": "Game 2 quarter-cross-a p200 self-play repeated state with four Kings and no banked Crownline bonus.",
+      "tags": ["game2", "cycle", "cycle-4", "four-kings", "p200", "self-play", "quarter-cross-a"],
+      "cycle_length": 4,
+      "source": {"workflow_run": 32055444693, "artifact_id": 9296362998, "benchmark": "product-candidate-p200-150ms-selfplay", "scenario_id": "quarter-cross-a"},
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=14,13|q=-|o=0|e=-|p=b3:W2K,b5:B4K,d5:W6K,d7:B3K|mw=-|mb=-|cw=-|cb=-",
+      "fingerprint": "a08546bb9e83282191940a1eeffa909c79d34cfbe3b553be21e872743d728d3c"
+    },
+    {
+      "fixture_id": "quarter-cross-b-g2-p50-c20",
+      "description": "Game 2 quarter-cross-b p50 repeated state from a twenty-ply exact cycle with six Kings and four retired White lines.",
+      "tags": ["game2", "cycle", "cycle-20", "six-kings", "p50", "quarter-cross-b", "royal", "melded", "long-cycle"],
+      "cycle_length": 20,
+      "source": {"workflow_run": 32054333022, "artifact_id": 9296124685, "benchmark": "product-candidate-150ms", "scenario_id": "quarter-cross-b"},
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=14,12|q=-|o=0|e=-|p=a4:B1K,b5:B4K,d5:W2K,e6:W1K,f3:B2K,f5:W6K|mw=e6.d5.e4:1.2.6:15:0,f5.d5.b5:6.1.2:30:1,g6.d5.c4:6.1.2:30:1,g6.e6.c6:6.1.2:15:0|mb=-|cw=-|cb=-",
+      "fingerprint": "f639e60ed9661f14b6a32531e1976edf5523d6c6a6292b8057c993357319e4dc"
+    }
+  ]
+}
