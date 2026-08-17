@@ -1,0 +1,207 @@
+{
+  "rules_mode": "candidate",
+  "scenario_count": 8,
+  "scenarios": [
+    {
+      "description": "Untouched Game 1 starting position; control condition.",
+      "game1": {
+        "clsn": "CLSN1|g=1|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a1:W1,b2:W5,b8:B4,c1:W2,d2:W6,d8:B3,e1:W3,e7:B6,f8:B2,g1:W4,g7:B5,h8:B1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "f35b9dcab92071bf478cfe0b4cba22a7b4c0ebe320fd97db4dc0527da8dfeef0"
+      },
+      "game2": {
+        "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a8:B1,b1:W4,b7:B5,c8:B2,d1:W3,d7:B6,e2:W6,e8:B3,f1:W2,g2:W5,g8:B4,h1:W1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "d833700b096c4745d4163a831bf474643914a69eed75b776d2279abc38f7dfa5"
+      },
+      "provenance_quantiles": [],
+      "scenario_id": "standard-start",
+      "tags": [
+        "control",
+        "early"
+      ]
+    },
+    {
+      "description": "Eight-ply prefix biased toward lower-ranked legal actions.",
+      "game1": {
+        "clsn": "CLSN1|g=1|r=candidate|t=W|b=3,5|q=-|o=0|e=-|p=b2:W1,b8:B4,c1:W2,c5:B6,d2:W6,e1:W3,f8:B2,g1:W4,g7:B5,h8:B1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "1a23f1749ad79e00c57946797f85f7d89c81d7023051cfab5ede5e94372ef568"
+      },
+      "game2": {
+        "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a8:B1,b5:W4,b7:B5,c4:B6,d1:W3,d7:B2,e2:W6,e8:B3,f1:W2,g2:W5,g8:B4,h1:W1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "7f378580a3ec9d61e119e17bc4ddf505a4c6a5d9edd67c379ee70468fd839473"
+      },
+      "provenance_quantiles": [
+        0.0,
+        0.25,
+        0.0,
+        0.25,
+        0.0,
+        0.25,
+        0.0,
+        0.25
+      ],
+      "scenario_id": "low-lattice",
+      "tags": [
+        "early",
+        "low-quantile"
+      ]
+    },
+    {
+      "description": "Eight-ply prefix biased toward higher-ranked legal actions.",
+      "game1": {
+        "clsn": "CLSN1|g=1|r=candidate|t=W|b=5,4|q=-|o=0|e=-|p=a1:W1,b2:W5,b8:B4,c1:W2,d2:W6,d8:B3,e1:W3,e5:B2,e7:B6,h8:B1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "08de36a852d70cb5d245a9285a305d4fadf31f7f45f82fb78efb14aa03abe57b"
+      },
+      "game2": {
+        "clsn": "CLSN1|g=2|r=candidate|t=W|b=4,5|q=-|o=0|e=-|p=a8:B1,b1:W4,b7:B5,c8:B2,d1:W3,e2:W6,e8:B3,f1:W2,f5:B6,g2:W1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "11acc540ee57f0a7440c8ce53655d556b4efcdf3a8eca103fd5ec90b1a2a00ff"
+      },
+      "provenance_quantiles": [
+        1.0,
+        0.75,
+        1.0,
+        0.75,
+        1.0,
+        0.75,
+        1.0,
+        0.75
+      ],
+      "scenario_id": "high-lattice",
+      "tags": [
+        "early",
+        "high-quantile"
+      ]
+    },
+    {
+      "description": "Eight-ply prefix repeatedly selecting the median legal action.",
+      "game1": {
+        "clsn": "CLSN1|g=1|r=candidate|t=W|b=6,6|q=-|o=0|e=-|p=a1:W1,b2:W5,b8:B4,c1:W2,c7:B3,e5:B5,f2:W3,f8:B2,g1:W4,h8:B1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "0665695ac7f04561a5b30fde756627e184deb79d6c79b8d8721ba796d26e77e4"
+      },
+      "game2": {
+        "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a8:B1,b1:W4,b7:B5,c2:W3,c8:B2,d5:W6,f1:W2,f7:B3,g2:W5,g4:B6,g8:B4,h1:W1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "edfa7ad949ff73de6a4fefa460dae0b249ca5112ae080764a8c98a777cebf84d"
+      },
+      "provenance_quantiles": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "scenario_id": "median-line",
+      "tags": [
+        "early",
+        "median"
+      ]
+    },
+    {
+      "description": "Alternating lower/upper quartiles with a two-step crossing rhythm.",
+      "game1": {
+        "clsn": "CLSN1|g=1|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a1:W1,b2:W5,b4:W6,b8:B4,c1:W2,d6:B3,e3:W3,e7:B6,f8:B2,g1:W4,g5:B5,h8:B1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "cc1e6175237bb7dd26f48778629bd4ada7d0695011d730fed9b5b4abb5b3a332"
+      },
+      "game2": {
+        "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a8:B1,b1:W4,c8:B2,d3:W3,d5:B5,d7:B6,e2:W6,e4:W5,e6:B4,e8:B3,f1:W2,h1:W1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "4ae6298f5d6e278ec0f09ced3973a3f621072cf7dde5db31fd53b5a23570c4b0"
+      },
+      "provenance_quantiles": [
+        0.25,
+        0.75,
+        0.75,
+        0.25,
+        0.25,
+        0.75,
+        0.75,
+        0.25
+      ],
+      "scenario_id": "quarter-cross-a",
+      "tags": [
+        "early",
+        "mixed-quantile"
+      ]
+    },
+    {
+      "description": "Seat-neutral complement of quarter-cross-a's selector rhythm.",
+      "game1": {
+        "clsn": "CLSN1|g=1|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a1:W1,b4:W5,b8:B4,c1:W2,d2:W6,d6:B3,e1:W3,e3:W4,e7:B6,f8:B2,g5:B5,h8:B1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "452ab10d71b279441b0d0e674263d854ff4236497338805999d4ed8b8ecdbbbe"
+      },
+      "game2": {
+        "clsn": "CLSN1|g=2|r=candidate|t=W|b=6,5|q=-|o=0|e=-|p=a8:B1,b1:W4,c2:W3,c8:B2,d5:B5,e2:W6,f1:W2,f7:B3,g8:B4,h1:W1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "61f377ffef139605b6db3bccd3f412686a5f681b5d16a2eb9cbc24df776a56ed"
+      },
+      "provenance_quantiles": [
+        0.75,
+        0.25,
+        0.25,
+        0.75,
+        0.75,
+        0.25,
+        0.25,
+        0.75
+      ],
+      "scenario_id": "quarter-cross-b",
+      "tags": [
+        "early",
+        "mixed-quantile"
+      ]
+    },
+    {
+      "description": "Eight-ply prefix spanning extremes, median, and both quartiles.",
+      "game1": {
+        "clsn": "CLSN1|g=1|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a3:W5,b2:W1,b8:B4,c1:W2,c7:B3,d6:B6,e1:W3,f4:W6,f8:B2,g1:W4,g7:B1,h6:B5|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "662bc33feebbd0db05a99477057899f1974700ba62dc059a48dd6f609ef406be"
+      },
+      "game2": {
+        "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a8:B1,b3:W4,c6:B5,c8:B2,d1:W3,e6:B6,e8:B3,f1:W2,g2:W5,g4:W6,g6:B4,h1:W1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "ae906637f64eb0d9c2be28a50a824ee9a3d572c176a067083521707516c73a80"
+      },
+      "provenance_quantiles": [
+        0.0,
+        1.0,
+        0.5,
+        0.25,
+        0.75,
+        1.0,
+        0.0,
+        0.5
+      ],
+      "scenario_id": "full-spread",
+      "tags": [
+        "early",
+        "mixed-quantile"
+      ]
+    },
+    {
+      "description": "Eight-ply mixed selector intended to create a distinct development path.",
+      "game1": {
+        "clsn": "CLSN1|g=1|r=candidate|t=W|b=0,6|q=-|o=0|e=-|p=a1:W1,a7:B4,b2:W5,c1:W2,d4:B6,e1:W3,e7:B3,f8:B2,g7:B5,h2:W4,h8:B1|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "88a7c12032c47cdbe7a4f96fab2ca8bd807ae5959c50c4c61b2613dc90dd6c4c"
+      },
+      "game2": {
+        "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a6:B5,a8:B1,b1:W4,b7:B2,c4:W6,d1:W3,e6:B6,e8:B3,g2:W2,h1:W1,h3:W5,h7:B4|mw=-|mb=-|cw=-|cb=-",
+        "fingerprint": "ebcc75fdea420a8f6b69da0807a9e6f2302c6e05491e66d0fa559d5fdcf5f578"
+      },
+      "provenance_quantiles": [
+        0.5,
+        0.0,
+        1.0,
+        0.5,
+        0.75,
+        0.25,
+        0.5,
+        1.0
+      ],
+      "scenario_id": "weave",
+      "tags": [
+        "early",
+        "mixed-quantile"
+      ]
+    }
+  ],
+  "selection_method": "legal-action-quantile-applied-independently-to-game1-and-game2",
+  "suite_id": "v0.1"
+}
