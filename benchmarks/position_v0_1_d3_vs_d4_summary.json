@@ -1,0 +1,107 @@
+{
+  "benchmark": "Frozen CLSN position suite v0.1: depth 3 vs depth 4",
+  "rules_mode": "candidate",
+  "suite_id": "v0.1",
+  "scenario_count": 8,
+  "frozen_positions": 16,
+  "sets_attempted": 16,
+  "engines": {
+    "A": {"name": "baseline-d3", "depth": 3},
+    "B": {"name": "baseline-d4", "depth": 4}
+  },
+  "interpretation": [
+    "This is the direct comparison needed to complete the pure-depth stage: evaluator, v1.1 rules, CLSN1 fixtures, seat balance, and repetition diagnostic are fixed; only depth changes.",
+    "Only two of eight seat-balanced scenario pairs completed in both legs. Depth 4 won both complete scenario pairs, with paired A-minus-B margins of -46 and -15 when depth 3 is Participant A.",
+    "Eight of sixteen individual sets completed. Depth 4 won seven completed sets and depth 3 won one; the depth-3 set win occurred in quarter-cross-b A-first, but depth 4 won that scenario's paired aggregate.",
+    "Eight sets stopped on exact-state repetition, so half of the attempted sets were diagnostically incomplete. Every detected repetition was again a four-ply cycle with many immediate legal exits.",
+    "Depth 4 used about 4.79 times as many search nodes per decision and about 4.82 times as much wall-clock decision time as depth 3 in this direct run.",
+    "Direct depth-3 vs depth-4 therefore supports a modest strength signal for depth 4 on completed evidence, but at large computational cost and with substantially more incomplete trajectories. More fixed depth is not a repetition remedy.",
+    "The pure-depth stage is complete. The next controlled work should isolate search-engineering changes before adding Crownline-specific evaluation features."
+  ],
+  "summary": {
+    "complete_scenario_pairs": 2,
+    "incomplete_scenario_pairs": 6,
+    "scenario_pair_wins": {"A": 0, "B": 2, "draws": 0},
+    "scenario_pair_margins_a_minus_b": [-46, -15],
+    "mean_paired_margin_a_minus_b": -30.5,
+    "complete_sets": 8,
+    "incomplete_sets": 8,
+    "complete_set_wins": {"A": 1, "B": 7, "draws": 0},
+    "aggregate_score_complete_sets": {"A": 357, "B": 578},
+    "repetition_detected_sets": 8,
+    "repetition_cycle_lengths": [4, 4, 4, 4, 4, 4, 4, 4],
+    "repetition_escape_actions": [27, 16, 26, 17, 24, 21, 29, 21],
+    "normal_final_response_endings": 18
+  },
+  "search_cost": {
+    "depth3": {
+      "decisions": 594,
+      "mean_decision_ms": 33.658211865319856,
+      "mean_search_nodes": 163.84343434343435,
+      "max_decision_ms": 125.211685,
+      "max_search_nodes": 548
+    },
+    "depth4": {
+      "decisions": 594,
+      "mean_decision_ms": 162.1110379579125,
+      "mean_search_nodes": 785.087542087542,
+      "max_decision_ms": 1015.163111,
+      "max_search_nodes": 4183
+    },
+    "depth4_vs_depth3_mean_latency_ratio": 4.816391247680064,
+    "depth4_vs_depth3_mean_nodes_ratio": 4.791695563973316
+  },
+  "events": {
+    "depth3": {
+      "capture_points": 274,
+      "promotions": 29,
+      "crownlines_scored": 4,
+      "sovereign_opportunities": 36,
+      "sovereign_refusals": 30,
+      "quota_triggers": 9,
+      "final_response_moves": 9
+    },
+    "depth4": {
+      "capture_points": 280,
+      "promotions": 32,
+      "crownlines_scored": 16,
+      "sovereign_opportunities": 26,
+      "sovereign_refusals": 17,
+      "quota_triggers": 9,
+      "final_response_moves": 9
+    }
+  },
+  "complete_scenario_pairs": [
+    {"scenario_id": "median-line", "winner": "B", "paired_margin_a_minus_b": -46},
+    {"scenario_id": "quarter-cross-b", "winner": "B", "paired_margin_a_minus_b": -15}
+  ],
+  "complete_sets": [
+    {"scenario_id": "standard-start", "leg": "A-first", "winner": "B", "aggregate_a": 48, "aggregate_b": 78},
+    {"scenario_id": "high-lattice", "leg": "A-first", "winner": "B", "aggregate_a": 52, "aggregate_b": 96},
+    {"scenario_id": "median-line", "leg": "A-first", "winner": "B", "aggregate_a": 46, "aggregate_b": 73},
+    {"scenario_id": "median-line", "leg": "B-first", "winner": "B", "aggregate_a": 45, "aggregate_b": 64},
+    {"scenario_id": "quarter-cross-a", "leg": "B-first", "winner": "B", "aggregate_a": 43, "aggregate_b": 119},
+    {"scenario_id": "quarter-cross-b", "leg": "A-first", "winner": "A", "aggregate_a": 49, "aggregate_b": 42},
+    {"scenario_id": "quarter-cross-b", "leg": "B-first", "winner": "B", "aggregate_a": 37, "aggregate_b": 59},
+    {"scenario_id": "weave", "leg": "B-first", "winner": "B", "aggregate_a": 37, "aggregate_b": 47}
+  ],
+  "repetitions": [
+    {"scenario_id": "standard-start", "leg": "B-first", "game_number": 2, "detected_ply": 62, "score_at_detection": {"A": 12, "B": 34}, "cycle_length": 4, "escape_actions": 27, "sovereign_in_cycle": false, "sovereign_refusals_in_cycle": 0, "cycle_moves": ["d5-c6", "b3-a4", "c6-d5", "a4-b3"]},
+    {"scenario_id": "low-lattice", "leg": "A-first", "game_number": 1, "detected_ply": 55, "score_at_detection": {"A": 53, "B": 22}, "cycle_length": 4, "escape_actions": 16, "sovereign_in_cycle": false, "sovereign_refusals_in_cycle": 0, "cycle_moves": ["b6-a5", "f4-e3", "a5-b6", "e3-f4"]},
+    {"scenario_id": "low-lattice", "leg": "B-first", "game_number": 1, "detected_ply": 42, "score_at_detection": {"A": 47, "B": 8}, "cycle_length": 4, "escape_actions": 26, "sovereign_in_cycle": true, "sovereign_refusals_in_cycle": 1, "cycle_moves": ["b8-c7", "c3-b4", "c7-b8", "b4-c3"]},
+    {"scenario_id": "high-lattice", "leg": "B-first", "game_number": 1, "detected_ply": 54, "score_at_detection": {"A": 41, "B": 23}, "cycle_length": 4, "escape_actions": 17, "sovereign_in_cycle": false, "sovereign_refusals_in_cycle": 0, "cycle_moves": ["a7-b8", "c3-d4", "b8-a7", "d4-c3"]},
+    {"scenario_id": "quarter-cross-a", "leg": "A-first", "game_number": 1, "detected_ply": 54, "score_at_detection": {"A": 17, "B": 51}, "cycle_length": 4, "escape_actions": 24, "sovereign_in_cycle": false, "sovereign_refusals_in_cycle": 0, "cycle_moves": ["a7-b8", "b2-a3", "b8-a7", "a3-b2"]},
+    {"scenario_id": "full-spread", "leg": "A-first", "game_number": 1, "detected_ply": 44, "score_at_detection": {"A": 30, "B": 19}, "cycle_length": 4, "escape_actions": 21, "sovereign_in_cycle": false, "sovereign_refusals_in_cycle": 0, "cycle_moves": ["b8-a7", "a3-b4", "a7-b8", "b4-a3"]},
+    {"scenario_id": "full-spread", "leg": "B-first", "game_number": 1, "detected_ply": 99, "score_at_detection": {"A": 9, "B": 110}, "cycle_length": 4, "escape_actions": 29, "sovereign_in_cycle": true, "sovereign_refusals_in_cycle": 1, "cycle_moves": ["f4-g5", "a3-b4", "g5-f4", "b4-a3"]},
+    {"scenario_id": "weave", "leg": "A-first", "game_number": 2, "detected_ply": 46, "score_at_detection": {"A": 27, "B": 18}, "cycle_length": 4, "escape_actions": 21, "sovereign_in_cycle": true, "sovereign_refusals_in_cycle": 1, "cycle_moves": ["c6-d5", "b3-a4", "d5-c6", "a4-b3"]}
+  ],
+  "source_fingerprints": {
+    "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+    "benchmark_harness_sha256": "69492ad15f02c66ec7420b6846fbac22217b19def2ee17814649d7928cc985a9",
+    "clsn_sha256": "34d6b79f99657982d046a864bda398b2cf3e584d39c1581ab9850383205f6c88",
+    "position_loader_sha256": "38dcbc39b475a0934d9ae70e780aec8bc0e6a4148df314252d74bc15d8b57e04",
+    "position_runner_sha256": "159273df8fa05d8b82782fe88bc79ce0086d6ae7f1a810a1efb63c5ed7d7d08a",
+    "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3",
+    "rules_engine_sha256": "de407e548638d66b61599382c180796f52ee481b9e64d6e06b0e374cb503574f"
+  }
+}
