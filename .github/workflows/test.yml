@@ -34,3 +34,17 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
+      - name: Run 150ms product opponent benchmark
+        run: |
+          PYTHONPATH=. python experiments/benchmark_product_candidate_150ms.py \
+            --budget-ms 150 \
+            --max-depth 4 \
+            --repeat-penalty 50 \
+            --max-game-plies 300 \
+            --repetition-limit 3 \
+            --json benchmarks/product_candidate_150ms.json
+      - name: Upload 150ms product opponent benchmark
+        uses: actions/upload-artifact@v4
+        with:
+          name: product-candidate-150ms
+          path: benchmarks/product_candidate_150ms.json
