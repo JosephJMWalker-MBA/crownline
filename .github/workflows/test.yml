@@ -34,3 +34,16 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
+      - name: Run repeat quota composition benchmark
+        run: |
+          PYTHONPATH=. python experiments/benchmark_repeat_quota_composition.py \
+            --depth 3 \
+            --repeat-penalty 50 \
+            --max-game-plies 300 \
+            --repetition-limit 3 \
+            --json benchmarks/stage3_repeat_quota_composition.json
+      - name: Upload repeat quota composition benchmark
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage3-repeat-quota-composition
+          path: benchmarks/stage3_repeat_quota_composition.json
