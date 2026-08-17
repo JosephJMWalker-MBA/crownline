@@ -34,16 +34,16 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
-      - name: Run repeat-aware policy penalty sweep
+      - name: Run repeat-aware head-to-head benchmark
         run: |
-          PYTHONPATH=. python experiments/benchmark_repeat_penalty_sweep.py \
-            --penalties 0 50 100 200 500 \
+          PYTHONPATH=. python experiments/benchmark_repeat_penalty_head_to_head.py \
             --depth 3 \
+            --repeat-penalty 50 \
             --max-game-plies 300 \
             --repetition-limit 3 \
-            --json benchmarks/stage3_repeat_penalty_sweep.json
-      - name: Upload repeat-aware policy penalty sweep
+            --json benchmarks/stage3_repeat_penalty_p50_head_to_head.json
+      - name: Upload repeat-aware head-to-head benchmark
         uses: actions/upload-artifact@v4
         with:
-          name: stage3-repeat-penalty-sweep
-          path: benchmarks/stage3_repeat_penalty_sweep.json
+          name: stage3-repeat-penalty-p50-head-to-head
+          path: benchmarks/stage3_repeat_penalty_p50_head_to_head.json
