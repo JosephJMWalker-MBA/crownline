@@ -1,0 +1,69 @@
+{
+  "experiment": "Stage 2.4 score-only move ordering",
+  "suite_id": "v0.1",
+  "rules_mode": "candidate",
+  "positions": 16,
+  "hypothesis": "Dropping the expensive mobility term from the move-ordering estimate retains most of static evaluator ordering's alpha-beta node reduction while materially reducing ordering overhead and preserving Baseline A actions.",
+  "interpretation": [
+    "Action equivalence held at every tested frozen position for depths 2, 3, and 4.",
+    "At depth 2 neither ordering strategy can improve pruning below the root. Score-only ordering remained 26.9 percent slower than baseline, though about 9.2 percent faster than full-static ordering.",
+    "At depth 3 score-only ordering exactly matched full-static ordering's 36.2 percent node reduction: 3776 baseline nodes fell to 2409. Removing mobility made it about 11.4 percent faster than full-static ordering, but it was still 65.6 percent slower than baseline overall.",
+    "At depth 4 score-only ordering reduced nodes by 44.0 percent, versus 46.6 percent for full-static ordering. It was about 8.3 percent faster than full-static ordering, but remained 17.0 percent slower than baseline.",
+    "The experiment supports the narrower hypothesis that mobility computation was a meaningful part of ordering overhead, but not the stronger hypothesis that score-only ordering is independently a runtime win.",
+    "The search tree remains strongly order-sensitive. The next clean experiment may add the already-validated structural exact transposition table to score-only ordering and measure its incremental effect; this changes one factor relative to the score-ordered engine while preserving evaluator and move-order policy."
+  ],
+  "depths": [
+    {
+      "depth": 2,
+      "action_equivalence": true,
+      "baseline_nodes": 882,
+      "static_ordered_nodes": 882,
+      "score_ordered_nodes": 882,
+      "score_node_reduction_fraction": 0.0,
+      "baseline_ms": 210.840745,
+      "static_ordered_ms": 294.710009,
+      "score_ordered_ms": 267.723099,
+      "score_over_baseline": 1.2697882423058218,
+      "score_over_static": 0.9084289329311512,
+      "positions_score_reduces_nodes": 0,
+      "positions_score_increases_nodes": 0
+    },
+    {
+      "depth": 3,
+      "action_equivalence": true,
+      "baseline_nodes": 3776,
+      "static_ordered_nodes": 2409,
+      "score_ordered_nodes": 2409,
+      "score_node_reduction_fraction": 0.3620233050847458,
+      "baseline_ms": 974.524495,
+      "static_ordered_ms": 1820.869018,
+      "score_ordered_ms": 1613.390938,
+      "score_over_baseline": 1.6555673523629593,
+      "score_over_static": 0.8860554614587879,
+      "positions_score_reduces_nodes": 14,
+      "positions_score_increases_nodes": 0
+    },
+    {
+      "depth": 4,
+      "action_equivalence": true,
+      "baseline_nodes": 16685,
+      "static_ordered_nodes": 8917,
+      "score_ordered_nodes": 9349,
+      "score_node_reduction_fraction": 0.4396763560083907,
+      "baseline_ms": 4250.601356,
+      "static_ordered_ms": 5423.696563,
+      "score_ordered_ms": 4975.165394,
+      "score_over_baseline": 1.170461536454655,
+      "score_over_static": 0.9173015739745026,
+      "positions_score_reduces_nodes": 16,
+      "positions_score_increases_nodes": 0
+    }
+  ],
+  "source_fingerprints": {
+    "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+    "experiment_sha256": "7949272acce03d7559dd298d9d98ef10b63bd547d3bb2793d9174bd8d0d65c7a",
+    "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3",
+    "score_order_engine_sha256": "55f7d100f40d107755485b1e8a3f54f5ecbe8a2117dabf3485543b2ecb05ae6f",
+    "static_search_engine_sha256": "6428496ca81f3a225ea22d4ed132e75f2be3cf4ba0af9a6cbd4318b1a49d6f2a"
+  }
+}
