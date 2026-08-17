@@ -6,7 +6,7 @@ This directory preserves compact, auditable results from controlled Crownline en
 
 The current baseline engines are deterministic. Repeating the same engine versions from the same exact starting state does **not** create independent samples; it simply reproduces the same trajectory. A seat-balanced pair is therefore the complete evidence unit for one deterministic starting condition.
 
-The original 10-pair depth-2 symmetry run was still useful: it established exact reproducibility. But after that fact was demonstrated, the 10 copies should not be interpreted as `n=10` independent evidence. Future strength claims need a controlled suite of distinct starting conditions/opening scenarios rather than repeated copies of one opening.
+The original 10-pair depth-2 symmetry run was still useful: it established exact reproducibility. But after that fact was demonstrated, the 10 copies should not be interpreted as `n=10` independent evidence. Future strength claims need a controlled suite of distinct starting conditions rather than repeated copies of one opening.
 
 ## Baseline A — depth 2 vs depth 2 repetition diagnostic
 
@@ -93,8 +93,56 @@ So one extra ply materially changed play and produced a complete, decisive set i
 
 The compact evidence is stored in [`depth2_vs_depth3_diagnostic_summary.json`](depth2_vs_depth3_diagnostic_summary.json).
 
+## Why the first opening suite was superseded
+
+The first deterministic opening-suite experiment correctly diversified Game 1, but the ordinary set transition recreated the standard Game 2 start. That meant several apparently different scenarios converged onto the same deterministic Game 2 trajectory. The run remained useful as a harness diagnostic, but its completed-set results are not used as the primary strength evidence.
+
+The fix was architectural rather than statistical: Crownline now has **CLSN1**, a reversible canonical position notation analogous in purpose to chess FEN. The benchmark fixture now freezes the actual Game 1 and Game 2 positions themselves rather than treating an opening-generation procedure as the identity of a scenario.
+
+`position_suite_v0_1.json` contains eight scenario pairs and **16 unique canonical CLSN1 positions** under the v1.1 `candidate` rules. The quantile-generated move prefixes are retained only as provenance.
+
+## Frozen CLSN position suite v0.1 — depth 2 vs depth 3
+
+**Hypothesis changed:** search depth only  
+**Evaluator:** unchanged Baseline A evaluator  
+**Rules:** Crownline v1.1 (`candidate`)  
+**Fixtures:** 8 scenarios × frozen Game 1 + frozen Game 2 = 16 unique CLSN1 positions  
+**Seat balance:** two complete-set legs attempted per scenario
+
+This is the first benchmark whose experimental input matches the actual two-game Crownline competition unit.
+
+Four of the eight scenario pairs completed in both seat-balanced legs. **Depth 3 won all four complete scenario pairs**, with paired A-minus-B margins of `-71`, `-72`, `-81`, and `-47` when depth 2 is Participant A. The mean paired margin was therefore **-67.75**.
+
+Across all 16 attempted sets, **12 sets completed and depth 3 won all 12**. Completed-set aggregate scoring was depth 2 **396** to depth 3 **769**. The other four sets were excluded from competitive scoring because the exact-state repetition diagnostic fired.
+
+The complete scenario pairs were:
+
+| Scenario | Pair winner | A-B paired margin |
+| --- | --- | ---: |
+| `low-lattice` | Depth 3 | -71 |
+| `quarter-cross-a` | Depth 3 | -72 |
+| `quarter-cross-b` | Depth 3 | -81 |
+| `weave` | Depth 3 | -47 |
+
+The four diagnostic stops occurred in `standard-start`, `high-lattice`, `median-line`, and `full-spread`. Every one was again a **four-ply reversible cycle**, with respectively **29, 18, 20, and 22 immediate legal cycle exits**. Only the standard-start cycle contained a Sovereign opportunity/refusal. Repetition is therefore broader than one special v1.1 mechanic and remains an engine-policy problem rather than a forced game state.
+
+Search cost remained consistent with the earlier depth experiment:
+
+| Engine | Mean decision | Mean search nodes | Max decision | Max nodes |
+| --- | ---: | ---: | ---: | ---: |
+| Depth 2 | 8.42 ms | 38.8 | 34.19 ms | 120 |
+| Depth 3 | 39.63 ms | 165.3 | 282.55 ms | 893 |
+
+Depth 3 used about **4.26×** as many search nodes per decision and about **4.71×** the wall-clock decision time.
+
+Other descriptive event counts also moved strongly toward depth 3: 389 vs 238 capture points, 20 vs 7 quota triggers, and 5 vs 3 scored Crownlines. Promotions were exactly even at 33 each. These are trajectory-level descriptors of the frozen suite, not independently randomized population estimates.
+
+The compact auditable evidence is stored in [`position_v0_1_d2_vs_d3_summary.json`](position_v0_1_d2_vs_d3_summary.json). The frozen benchmark inputs are stored in [`position_suite_v0_1.json`](position_suite_v0_1.json).
+
 ## Next measurement milestone
 
-Before making a stronger statistical claim, build a deterministic **scenario/opening suite**. Each scenario should have a stable identifier and canonical starting-state fingerprint, and each engine comparison should use the same suite with seat balance preserved.
+Do **not** change the evaluator yet.
 
-That gives future experiments multiple genuinely distinct trajectories while retaining reproducibility. Once the suite exists, depth 2 vs depth 3 can be rerun across it before changing the evaluator or introducing search-engineering improvements.
+The clean next search-depth question is now **depth 2 vs depth 4 on the exact same frozen CLSN v0.1 suite**. That would complete Stage 1's pure-depth comparison while holding the evaluator, rules, position fixtures, seat balance, and repetition diagnostic fixed.
+
+The important outputs are not only whether depth 4 wins more often, but whether it reduces or changes the four repetition failures and what additional nodes/latency it costs. Only after the depth-4 comparison should Crownline move into isolated search-engineering changes such as move ordering or transposition caching.
