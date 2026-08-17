@@ -1,0 +1,44 @@
+{
+  "experiment": "Stage 2.9 baseline iterative deepening under wall-clock budgets",
+  "suite_id": "v0.1",
+  "rules_mode": "candidate",
+  "positions": 16,
+  "budgets_ms": [50, 150, 500, 1000],
+  "max_depth": 4,
+  "hypothesis": "Iterative deepening can return the deepest fully completed Baseline A search inside a practical wall-clock budget while every completed iteration remains action- and search-tree-equivalent to the corresponding fixed-depth baseline search.",
+  "interpretation": [
+    "All 86 tests passed before the benchmark, including deterministic tests that completed iterative depths preserve Baseline A actions and expanded-node counts and that an incomplete first iteration is discarded rather than treated as authoritative.",
+    "Across all four budgets and all 16 frozen CLSN1 positions, every fully completed iterative depth matched the corresponding fixed-depth Baseline A action and search-node count exactly. No budget required the depth-0 fallback.",
+    "At 50 ms, 14 of 16 positions completed depth 2, one completed depth 3, and one completed depth 4; mean completed depth was 2.19.",
+    "At 150 ms, 15 of 16 positions completed depth 3 and one completed depth 4; mean completed depth was 3.06. This makes roughly 150 ms the first measured budget that delivers depth-3 Baseline A essentially across the whole frozen suite.",
+    "At 500 ms, 14 of 16 positions completed depth 4 and two completed depth 3; the two depth-3 cases were standard-start Game 2 and full-spread Game 2. Mean completed depth was 3.88.",
+    "At 1000 ms, all 16 positions completed depth 4. The slowest full iterative-deepening decision observed was 721.08 ms, so the 1 s budget had substantial headroom on this CI runner.",
+    "Deadline checks behaved as intended: maximum observed overrun was 0.57 ms at the tested budgets. This is a soft Python deadline rather than a hard real-time guarantee, but the current check granularity is sufficiently tight for the experiment.",
+    "The next isolated experiment should run the same budgets and frozen positions with the previously validated CLSN-equivalent structural exact transposition table, preserving the same completed-depth equivalence checks. The question is whether search reuse converts the same wall-clock budgets into reliably deeper completed searches."
+  ],
+  "fixed_reference_calibration": [
+    {"depth": 1, "total_nodes": 111, "total_ms": 27.028316, "mean_ms": 1.68926975, "max_ms": 2.368876},
+    {"depth": 2, "total_nodes": 882, "total_ms": 205.997033, "mean_ms": 12.8748145625, "max_ms": 25.551599},
+    {"depth": 3, "total_nodes": 3776, "total_ms": 977.204493, "mean_ms": 61.0752808125, "max_ms": 115.419768},
+    {"depth": 4, "total_nodes": 16685, "total_ms": 4278.607569, "mean_ms": 267.4129730625, "max_ms": 575.582603}
+  ],
+  "budget_results": [
+    {"budget_ms": 50, "depth_distribution": {"0": 0, "1": 0, "2": 14, "3": 1, "4": 1}, "mean_depth": 2.1875, "max_depth_positions": 1, "timed_out_positions": 15, "mean_elapsed_ms": 47.6788348125, "p95_elapsed_ms": 50.299823, "max_overrun_ms": 0.299823},
+    {"budget_ms": 150, "depth_distribution": {"0": 0, "1": 0, "2": 0, "3": 15, "4": 1}, "mean_depth": 3.0625, "max_depth_positions": 1, "timed_out_positions": 15, "mean_elapsed_ms": 141.4681005, "p95_elapsed_ms": 150.450578, "max_overrun_ms": 0.450578},
+    {"budget_ms": 500, "depth_distribution": {"0": 0, "1": 0, "2": 0, "3": 2, "4": 14}, "mean_depth": 3.875, "max_depth_positions": 14, "timed_out_positions": 2, "mean_elapsed_ms": 330.154277375, "p95_elapsed_ms": 500.566366, "max_overrun_ms": 0.566366},
+    {"budget_ms": 1000, "depth_distribution": {"0": 0, "1": 0, "2": 0, "3": 0, "4": 16}, "mean_depth": 4.0, "max_depth_positions": 16, "timed_out_positions": 0, "mean_elapsed_ms": 344.9850375, "p95_elapsed_ms": 721.081988, "max_overrun_ms": 0.0}
+  ],
+  "artifact": {
+    "workflow_run_id": 32044654966,
+    "artifact_id": 9292592674,
+    "artifact_sha256": "99f5553f829b590c4fa06b530ccd73a2cbc4c9f7504d63e898f304579d69a763"
+  },
+  "source_fingerprints": {
+    "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+    "benchmark_harness_sha256": "69492ad15f02c66ec7420b6846fbac22217b19def2ee17814649d7928cc985a9",
+    "clsn_sha256": "34d6b79f99657982d046a864bda398b2cf3e584d39c1581ab9850383205f6c88",
+    "experiment_sha256": "31ae69503f846bfd4ec3944e775d738f568fc6c8bc90cd84b677b3bee437f27f",
+    "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3",
+    "time_engine_sha256": "6e24b6ca3f62594754d63cfc4a53f36afae06fd0894e5eda049a814b43fc49d2"
+  }
+}
