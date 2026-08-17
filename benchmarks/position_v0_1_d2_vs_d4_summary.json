@@ -1,0 +1,146 @@
+{
+  "benchmark": "Frozen CLSN position suite v0.1: depth 2 vs depth 4",
+  "rules_mode": "candidate",
+  "suite_id": "v0.1",
+  "scenario_count": 8,
+  "frozen_positions": 16,
+  "sets_attempted": 16,
+  "engines": {
+    "A": {"name": "baseline-d2", "depth": 2},
+    "B": {"name": "baseline-d4", "depth": 4}
+  },
+  "interpretation": [
+    "This keeps the evaluator, v1.1 rules, frozen CLSN1 fixtures, seat balance, and repetition diagnostic unchanged; only search depth differs.",
+    "Four of eight seat-balanced scenario pairs completed in both legs; depth 4 won all four complete scenario pairs.",
+    "Eleven of sixteen individual sets completed; depth 4 won all eleven complete sets.",
+    "Five sets stopped on exact-state repetition, one more than in the depth-2 vs depth-3 run. Greater depth therefore did not monotonically reduce the reversible-cycle pathology.",
+    "The identity of the completed scenario pairs changed substantially: depth 4 completed standard-start, low-lattice, high-lattice, and median-line, while quarter-cross-a, quarter-cross-b, full-spread, and weave contained repetition stops.",
+    "Depth 4 used about 17.62 times as many search nodes and 18.88 times as much wall-clock decision time as depth 2 in this run.",
+    "The pure-depth stage now shows that more lookahead increases computational cost sharply and changes which trajectories repeat, but depth alone is not a sufficient repetition remedy."
+  ],
+  "summary": {
+    "complete_scenario_pairs": 4,
+    "incomplete_scenario_pairs": 4,
+    "scenario_pair_wins": {"A": 0, "B": 4, "draws": 0},
+    "scenario_pair_margins_a_minus_b": [-59, -51, -91, -73],
+    "mean_paired_margin_a_minus_b": -68.5,
+    "complete_sets": 11,
+    "incomplete_sets": 5,
+    "complete_set_wins": {"A": 0, "B": 11, "draws": 0},
+    "aggregate_score_complete_sets": {"A": 347, "B": 735},
+    "repetition_detected_sets": 5,
+    "repetition_cycle_lengths": [4, 4, 4, 4, 4],
+    "repetition_escape_actions": [21, 26, 20, 23, 15],
+    "normal_final_response_endings": 24
+  },
+  "search_cost": {
+    "depth2": {
+      "decisions": 586,
+      "mean_decision_ms": 8.911141767918089,
+      "mean_search_nodes": 40.10580204778157,
+      "max_decision_ms": 28.00424,
+      "max_search_nodes": 111
+    },
+    "depth4": {
+      "decisions": 577,
+      "mean_decision_ms": 168.232304932409,
+      "mean_search_nodes": 706.7313691507799,
+      "max_decision_ms": 1566.921879,
+      "max_search_nodes": 6038
+    },
+    "depth4_vs_depth2_mean_latency_ratio": 18.878872013694057,
+    "depth4_vs_depth2_mean_nodes_ratio": 17.6216739989089
+  },
+  "events": {
+    "depth2": {
+      "capture_points": 229,
+      "promotions": 25,
+      "crownlines_scored": 3,
+      "sovereign_opportunities": 8,
+      "sovereign_refusals": 4,
+      "quota_triggers": 2,
+      "final_response_moves": 22
+    },
+    "depth4": {
+      "capture_points": 403,
+      "promotions": 31,
+      "crownlines_scored": 7,
+      "sovereign_opportunities": 42,
+      "sovereign_refusals": 17,
+      "quota_triggers": 22,
+      "final_response_moves": 2
+    }
+  },
+  "complete_scenario_pairs": [
+    {"scenario_id": "standard-start", "winner": "B", "paired_margin_a_minus_b": -59},
+    {"scenario_id": "low-lattice", "winner": "B", "paired_margin_a_minus_b": -51},
+    {"scenario_id": "high-lattice", "winner": "B", "paired_margin_a_minus_b": -91},
+    {"scenario_id": "median-line", "winner": "B", "paired_margin_a_minus_b": -73}
+  ],
+  "repetitions": [
+    {
+      "scenario_id": "quarter-cross-a",
+      "leg": "B-first",
+      "game_number": 1,
+      "detected_ply": 103,
+      "score_at_detection": {"A": 71, "B": 27},
+      "cycle_length": 4,
+      "escape_actions": 21,
+      "sovereign_in_cycle": true,
+      "sovereign_refusals_in_cycle": 1
+    },
+    {
+      "scenario_id": "quarter-cross-b",
+      "leg": "A-first",
+      "game_number": 1,
+      "detected_ply": 84,
+      "score_at_detection": {"A": 26, "B": 43},
+      "cycle_length": 4,
+      "escape_actions": 26,
+      "sovereign_in_cycle": false,
+      "sovereign_refusals_in_cycle": 0
+    },
+    {
+      "scenario_id": "full-spread",
+      "leg": "B-first",
+      "game_number": 2,
+      "detected_ply": 46,
+      "score_at_detection": {"A": 10, "B": 58},
+      "cycle_length": 4,
+      "escape_actions": 20,
+      "sovereign_in_cycle": false,
+      "sovereign_refusals_in_cycle": 0
+    },
+    {
+      "scenario_id": "weave",
+      "leg": "A-first",
+      "game_number": 2,
+      "detected_ply": 72,
+      "score_at_detection": {"A": 26, "B": 24},
+      "cycle_length": 4,
+      "escape_actions": 23,
+      "sovereign_in_cycle": false,
+      "sovereign_refusals_in_cycle": 0
+    },
+    {
+      "scenario_id": "weave",
+      "leg": "B-first",
+      "game_number": 1,
+      "detected_ply": 50,
+      "score_at_detection": {"A": 48, "B": 25},
+      "cycle_length": 4,
+      "escape_actions": 15,
+      "sovereign_in_cycle": false,
+      "sovereign_refusals_in_cycle": 0
+    }
+  ],
+  "source_fingerprints": {
+    "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+    "benchmark_harness_sha256": "69492ad15f02c66ec7420b6846fbac22217b19def2ee17814649d7928cc985a9",
+    "clsn_sha256": "34d6b79f99657982d046a864bda398b2cf3e584d39c1581ab9850383205f6c88",
+    "position_loader_sha256": "38dcbc39b475a0934d9ae70e780aec8bc0e6a4148df314252d74bc15d8b57e04",
+    "position_runner_sha256": "159273df8fa05d8b82782fe88bc79ce0086d6ae7f1a810a1efb63c5ed7d7d08a",
+    "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3",
+    "rules_engine_sha256": "de407e548638d66b61599382c180796f52ee481b9e64d6e06b0e374cb503574f"
+  }
+}
