@@ -34,3 +34,13 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
+      - name: Run delta-equivalent ordering benchmark
+        run: |
+          PYTHONPATH=. python experiments/benchmark_delta_ordering.py \
+            --depths 2 3 4 \
+            --json benchmarks/delta_ordering_v0_1.json
+      - name: Upload delta-equivalent ordering benchmark
+        uses: actions/upload-artifact@v4
+        with:
+          name: delta-ordering-v0-1
+          path: benchmarks/delta_ordering_v0_1.json
