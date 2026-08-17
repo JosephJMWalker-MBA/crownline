@@ -34,3 +34,13 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
+      - name: Run score-order plus TT benchmark
+        run: |
+          PYTHONPATH=. python experiments/benchmark_ordering_plus_tt.py \
+            --depths 2 3 4 \
+            --json benchmarks/ordering_plus_tt_v0_1.json
+      - name: Upload score-order plus TT benchmark
+        uses: actions/upload-artifact@v4
+        with:
+          name: ordering-plus-tt-v0-1
+          path: benchmarks/ordering_plus_tt_v0_1.json
