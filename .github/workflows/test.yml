@@ -34,14 +34,16 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
-      - name: Run Stage 3 Crownline-pressure diagnostic
+      - name: Run Crownline-pressure full-trajectory benchmark
         run: |
-          PYTHONPATH=. python experiments/benchmark_line_pressure_diagnostic.py \
-            --weights 0 10 25 50 100 200 \
+          PYTHONPATH=. python experiments/benchmark_line_pressure_trajectory.py \
             --depth 3 \
-            --json benchmarks/stage3_line_pressure_diagnostic.json
-      - name: Upload Stage 3 Crownline-pressure diagnostic
+            --pressure-weight 200 \
+            --max-game-plies 300 \
+            --repetition-limit 3 \
+            --json benchmarks/stage3_line_pressure_trajectory.json
+      - name: Upload Crownline-pressure full-trajectory benchmark
         uses: actions/upload-artifact@v4
         with:
-          name: stage3-line-pressure-diagnostic
-          path: benchmarks/stage3_line_pressure_diagnostic.json
+          name: stage3-line-pressure-trajectory
+          path: benchmarks/stage3_line_pressure_trajectory.json
