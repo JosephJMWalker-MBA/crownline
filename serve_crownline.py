@@ -16,7 +16,10 @@ HOST = "127.0.0.1"
 PORT = 8765
 
 _lock = Lock()
-_session = new_set(first_game_white="A")
+# Browser play now launches into the v1.1 candidate profile. The v1.0 rules
+# remain available as a selectable legacy/official profile; this only changes
+# the interactive launch default, not the underlying rules definitions.
+_session = new_set(first_game_white="A", rules_mode="candidate")
 
 _SUPERSCRIPT = {1: "¹", 2: "²", 3: "³"}
 _LINE_NAMES = (
