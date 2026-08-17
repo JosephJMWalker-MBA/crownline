@@ -1,0 +1,83 @@
+{
+  "experiment": "Stage 2.1 exact transposition cache efficiency",
+  "suite_id": "v0.1",
+  "rules_mode": "candidate",
+  "positions": 16,
+  "hypothesis": "Exact transposition caching reduces expanded search work without changing Baseline A's chosen action.",
+  "cache_policy": "Per-decision cache keyed by canonical CLSN1 + white participant + searching participant + remaining depth. Only fully searched exact values are cached; alpha-beta cutoff bounds are not cached.",
+  "interpretation": [
+    "Action equivalence held at every tested frozen position for depths 2, 3, and 4.",
+    "Depth 2 exposed no transpositions in this 16-position decision suite, so caching added overhead without saving search work.",
+    "At depth 3 the cache reduced expanded nodes by 16.9 percent, with cache hits in 15 of 16 positions, but total wall-clock time increased by about 25.2 percent.",
+    "At depth 4 the cache reduced expanded nodes by 28.6 percent, with cache hits in 15 of 16 positions, but total wall-clock time still increased by about 17.0 percent.",
+    "The algorithmic hypothesis is therefore supported for search work but not yet for runtime efficiency. Serializing full CLSN1 text at every transposition probe is too expensive to make the first implementation faster.",
+    "The next isolated hypothesis should keep the exact same cache semantics and test a structural key representation that is logically equivalent to CLSN1 state identity without materializing the canonical text string at every search node."
+  ],
+  "depths": [
+    {
+      "depth": 2,
+      "action_equivalence": true,
+      "baseline_nodes": 882,
+      "tt_expanded_nodes": 882,
+      "tt_cache_hits": 0,
+      "tt_hit_rate": 0.0,
+      "expanded_node_reduction_fraction": 0.0,
+      "baseline_ms": 188.723937,
+      "tt_ms": 244.094516,
+      "latency_ratio_tt_over_baseline": 1.2933945734716206,
+      "positions_with_cache_hits": 0
+    },
+    {
+      "depth": 3,
+      "action_equivalence": true,
+      "baseline_nodes": 3776,
+      "tt_expanded_nodes": 3139,
+      "tt_cache_hits": 637,
+      "tt_hit_rate": 0.1686970338983051,
+      "expanded_node_reduction_fraction": 0.16869703389830504,
+      "baseline_ms": 880.30031,
+      "tt_ms": 1102.005672,
+      "latency_ratio_tt_over_baseline": 1.2518519640189607,
+      "positions_with_cache_hits": 15
+    },
+    {
+      "depth": 4,
+      "action_equivalence": true,
+      "baseline_nodes": 16685,
+      "tt_expanded_nodes": 11921,
+      "tt_cache_hits": 3740,
+      "tt_hit_rate": 0.2388097822616691,
+      "expanded_node_reduction_fraction": 0.285525921486365,
+      "baseline_ms": 3832.112251,
+      "tt_ms": 4482.041476,
+      "latency_ratio_tt_over_baseline": 1.1696007795258083,
+      "positions_with_cache_hits": 15
+    }
+  ],
+  "notable_positions": {
+    "depth3_largest_reduction": {
+      "scenario_id": "full-spread",
+      "game_number": 2,
+      "baseline_nodes": 404,
+      "tt_expanded_nodes": 306,
+      "tt_cache_hits": 98,
+      "expanded_node_reduction_fraction": 0.24257425742574257
+    },
+    "depth4_largest_reduction": {
+      "scenario_id": "standard-start",
+      "game_number": 2,
+      "baseline_nodes": 1608,
+      "tt_expanded_nodes": 1055,
+      "tt_cache_hits": 432,
+      "expanded_node_reduction_fraction": 0.3439054726368159
+    }
+  },
+  "source_fingerprints": {
+    "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+    "benchmark_harness_sha256": "69492ad15f02c66ec7420b6846fbac22217b19def2ee17814649d7928cc985a9",
+    "clsn_sha256": "34d6b79f99657982d046a864bda398b2cf3e584d39c1581ab9850383205f6c88",
+    "experiment_sha256": "4dc9c747763884cb42896bc49940b944c50b1db78927e57c3e532b7977ed8d08",
+    "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3",
+    "tt_engine_sha256": "e011479a8baf546887b528d51f6ee81570fcf40f9df002ceedf3afb758279aaa"
+  }
+}
