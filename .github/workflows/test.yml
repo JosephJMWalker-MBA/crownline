@@ -34,14 +34,16 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
-      - name: Run Stage 3 board-value weighting experiment
+      - name: Run Stage 3 full-trajectory evaluator benchmark
         run: |
-          PYTHONPATH=. python experiments/benchmark_board_value_weight.py \
-            --weights 1.0 0.75 0.5 0.25 0.0 \
-            --depths 2 3 4 \
-            --json benchmarks/stage3_board_value_weight.json
-      - name: Upload Stage 3 board-value weighting experiment
+          PYTHONPATH=. python experiments/benchmark_stage3_board_weight_trajectory.py \
+            --depth 3 \
+            --board-weight 0.25 \
+            --max-game-plies 300 \
+            --repetition-limit 3 \
+            --json benchmarks/stage3_board_value_trajectory.json
+      - name: Upload Stage 3 full-trajectory evaluator benchmark
         uses: actions/upload-artifact@v4
         with:
-          name: stage3-board-value-weight
-          path: benchmarks/stage3_board_value_weight.json
+          name: stage3-board-value-trajectory
+          path: benchmarks/stage3_board_value_trajectory.json
