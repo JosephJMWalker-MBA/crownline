@@ -34,16 +34,3 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
-      - name: Run promotion proximity trajectory benchmark
-        run: |
-          PYTHONPATH=. python experiments/benchmark_promotion_proximity_trajectory.py \
-            --depth 3 \
-            --promotion-weight 25 \
-            --max-game-plies 300 \
-            --repetition-limit 3 \
-            --json benchmarks/stage3_promotion_proximity_trajectory_w25.json
-      - name: Upload promotion proximity trajectory benchmark
-        uses: actions/upload-artifact@v4
-        with:
-          name: stage3-promotion-proximity-trajectory-w25
-          path: benchmarks/stage3_promotion_proximity_trajectory_w25.json
