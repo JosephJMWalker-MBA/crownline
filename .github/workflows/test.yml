@@ -34,16 +34,16 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
-      - name: Run Crownline-pressure weight 100 trajectory
+      - name: Run repeat-aware policy penalty sweep
         run: |
-          PYTHONPATH=. python experiments/benchmark_line_pressure_trajectory.py \
+          PYTHONPATH=. python experiments/benchmark_repeat_penalty_sweep.py \
+            --penalties 0 50 100 200 500 \
             --depth 3 \
-            --pressure-weight 100 \
             --max-game-plies 300 \
             --repetition-limit 3 \
-            --json benchmarks/stage3_line_pressure_trajectory_w100.json
-      - name: Upload Crownline-pressure weight 100 trajectory
+            --json benchmarks/stage3_repeat_penalty_sweep.json
+      - name: Upload repeat-aware policy penalty sweep
         uses: actions/upload-artifact@v4
         with:
-          name: stage3-line-pressure-trajectory-w100
-          path: benchmarks/stage3_line_pressure_trajectory_w100.json
+          name: stage3-repeat-penalty-sweep
+          path: benchmarks/stage3_repeat_penalty_sweep.json
