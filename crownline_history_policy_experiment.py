@@ -5,7 +5,7 @@ from math import inf
 from time import perf_counter_ns
 from typing import Optional
 
-from crownline_ai import _actions, _search
+from crownline_ai import _actions
 from crownline_benchmark import EngineDecision
 from crownline_game import Line
 from crownline_rules import Participant
@@ -84,9 +84,9 @@ class RepeatAwareEngine:
         repeat_candidates = 0
         search_nodes = [0]
 
-        # Count baseline recursive nodes without changing crownline_ai._search.
-        # The local wrapper mirrors the benchmark instrumentation while keeping
-        # this experimental engine self-contained.
+        # `crownline_ai._search` recursively resolves the module global, so a
+        # temporary wrapper counts every visited node while preserving the exact
+        # Baseline A implementation and restoring it immediately afterward.
         import crownline_ai
 
         original = crownline_ai._search
@@ -99,7 +99,13 @@ class RepeatAwareEngine:
         try:
             for move, meld_line in actions:
                 child = state.apply_move(move, meld_line=meld_line)
-                value = _search(child, participant, max(0, self.depth - 1), -inf, inf)
+                value = crownline_ai._search(
+                    child,
+                    participant,
+                    max(0, self.depth - 1),
+                    -inf,
+                    inf,
+                )
                 fingerprint = clsn_fingerprint(child.current_game)
                 repeat_count = self._produced_afterstates.get(fingerprint, 0)
                 if repeat_count:
