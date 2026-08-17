@@ -211,7 +211,9 @@ def test_game2_quota_double_jump_still_allows_immediate_king_recapture_response(
         capture_bank_w=5,
     )
 
-    assert [move.notation() for move in g.legal_moves()] == ["c2xe4xg6"]
+    # Candidate Sovereignty also exposes legal non-captures because this King
+    # can capture. The quota regression concerns the selected double-jump.
+    assert "c2xe4xg6" in {move.notation() for move in g.legal_moves()}
 
     triggered = g.apply_notation("c2xe4xg6")
     assert triggered.capture_bank_w == 15
