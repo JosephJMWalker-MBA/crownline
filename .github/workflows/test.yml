@@ -34,3 +34,13 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
+      - name: Run score-only move-ordering benchmark
+        run: |
+          PYTHONPATH=. python experiments/benchmark_score_only_ordering.py \
+            --depths 2 3 4 \
+            --json benchmarks/score_only_ordering_v0_1.json
+      - name: Upload score-only move-ordering benchmark
+        uses: actions/upload-artifact@v4
+        with:
+          name: score-only-ordering-v0-1
+          path: benchmarks/score_only_ordering_v0_1.json
