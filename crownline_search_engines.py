@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from math import inf
 from time import perf_counter_ns
-from typing import Optional
+from typing import Callable, Hashable, Optional
 
 from crownline_ai import _actions, _evaluate
 from crownline_benchmark import EngineDecision
@@ -31,20 +31,78 @@ class TranspositionSearchStats:
         return self.cache_hits / self.probes if self.probes else 0.0
 
 
-TTKey = tuple[str, str, Participant, int]
+TTKey = Hashable
+KeyBuilder = Callable[[CrownlineSet, Participant, int], TTKey]
 
 
 def _tt_key(state: CrownlineSet, participant: Participant, depth: int) -> TTKey:
-    """Key one exact search value by canonical position and perspective.
-
-    CLSN1 identifies the game position. `white_participant` is separate because
-    CLSN intentionally describes colors rather than the surrounding set's
-    Participant A/B mapping. The searching participant and remaining depth are
-    also part of minimax value identity.
-    """
+    """Reference key using canonical CLSN1 text plus search perspective."""
 
     return (
         serialize_clsn(state.current_game),
+        state.white_participant,
+        participant,
+        depth,
+    )
+
+
+def _structural_game_identity(state: CrownlineSet) -> tuple:
+    """Return the same future-relevant facts encoded by CLSN1 without text I/O.
+
+    This is deliberately an *internal search key*, not a replacement for CLSN1.
+    CLSN remains the reversible external notation and benchmark-fixture format.
+    The structural tuple exists only to test whether avoiding repeated string
+    materialization makes exact transposition caching computationally worthwhile.
+    """
+
+    game = state.current_game
+    pieces = tuple(
+        sorted(
+            (
+                position[0],
+                position[1],
+                piece.owner,
+                piece.value,
+                bool(piece.king),
+            )
+            for position, piece in game.board.items()
+        )
+    )
+
+    def meld_identity(meld) -> tuple:
+        return (
+            tuple(meld.line),
+            tuple(meld.piece_ids),
+            meld.points,
+            bool(meld.royal),
+        )
+
+    return (
+        game.variant.number,
+        game.rules_mode,
+        game.turn,
+        game.capture_bank_w,
+        game.capture_bank_b,
+        game.triggering_player,
+        bool(game.game_over),
+        game.end_reason,
+        pieces,
+        tuple(sorted(meld_identity(meld) for meld in game.melds_w)),
+        tuple(sorted(meld_identity(meld) for meld in game.melds_b)),
+        tuple(sorted(game.cooldowns_w)),
+        tuple(sorted(game.cooldowns_b)),
+    )
+
+
+def _structural_tt_key(
+    state: CrownlineSet,
+    participant: Participant,
+    depth: int,
+) -> TTKey:
+    """CLSN-equivalent structural key without serializing canonical text."""
+
+    return (
+        _structural_game_identity(state),
         state.white_participant,
         participant,
         depth,
@@ -59,21 +117,21 @@ def _search_exact_tt(
     beta: float,
     cache: dict[TTKey, float],
     stats: TranspositionSearchStats,
+    key_builder: KeyBuilder,
 ) -> float:
     """Alpha-beta search with a conservative exact-value transposition table.
 
     Only nodes that are fully searched are inserted. A node that terminates via
     alpha-beta cutoff returns the same bound the baseline search would return,
     but that bound is deliberately *not* stored as an exact value. This keeps
-    the first transposition experiment semantics-preserving without introducing
+    transposition experiments semantics-preserving without introducing
     LOWER/UPPER bound bookkeeping.
     """
 
-    key = _tt_key(state, participant, depth)
-    cached = cache.get(key)
-    if cached is not None:
+    key = key_builder(state, participant, depth)
+    if key in cache:
         stats.cache_hits += 1
-        return cached
+        return cache[key]
 
     stats.expanded_nodes += 1
     game = state.current_game
@@ -107,6 +165,7 @@ def _search_exact_tt(
                     beta,
                     cache,
                     stats,
+                    key_builder,
                 ),
             )
             alpha = max(alpha, value)
@@ -128,6 +187,7 @@ def _search_exact_tt(
                     beta,
                     cache,
                     stats,
+                    key_builder,
                 ),
             )
             beta = min(beta, value)
@@ -142,14 +202,13 @@ def _search_exact_tt(
     return value
 
 
-def choose_computer_action_exact_tt(
+def _choose_exact_tt(
     state: CrownlineSet,
-    participant: Participant = "B",
+    participant: Participant,
     *,
-    depth: int = 2,
+    depth: int,
+    key_builder: KeyBuilder,
 ) -> tuple[str, Optional[Line], TranspositionSearchStats]:
-    """Choose exactly the Baseline A policy while reusing exact search states."""
-
     if depth < 1 or depth > 4:
         raise ValueError("Transposition search depth must be between 1 and 4")
     if state.set_over:
@@ -177,6 +236,7 @@ def choose_computer_action_exact_tt(
             inf,
             cache,
             stats,
+            key_builder,
         )
         line_key = "-".join(meld_line) if meld_line else ""
         ranked.append((value, move.notation(), line_key, meld_line))
@@ -189,10 +249,40 @@ def choose_computer_action_exact_tt(
     return best[1], best[3], stats
 
 
-@dataclass
-class ExactTTBaselineEngine:
-    """Benchmark adapter for Baseline A + exact transposition caching."""
+def choose_computer_action_exact_tt(
+    state: CrownlineSet,
+    participant: Participant = "B",
+    *,
+    depth: int = 2,
+) -> tuple[str, Optional[Line], TranspositionSearchStats]:
+    """Choose Baseline A's policy using canonical CLSN1 text as the TT key."""
 
+    return _choose_exact_tt(
+        state,
+        participant,
+        depth=depth,
+        key_builder=_tt_key,
+    )
+
+
+def choose_computer_action_structural_tt(
+    state: CrownlineSet,
+    participant: Participant = "B",
+    *,
+    depth: int = 2,
+) -> tuple[str, Optional[Line], TranspositionSearchStats]:
+    """Choose the same policy using the CLSN-equivalent structural TT key."""
+
+    return _choose_exact_tt(
+        state,
+        participant,
+        depth=depth,
+        key_builder=_structural_tt_key,
+    )
+
+
+@dataclass
+class _ExactTTAdapter:
     name: str
     depth: int = 2
     total_cache_hits: int = 0
@@ -202,16 +292,19 @@ class ExactTTBaselineEngine:
 
     def __post_init__(self) -> None:
         if self.depth < 1 or self.depth > 4:
-            raise ValueError("ExactTTBaselineEngine depth must be between 1 and 4")
+            raise ValueError("Transposition engine depth must be between 1 and 4")
+
+    def _choose_with_stats(
+        self,
+        state: CrownlineSet,
+        participant: Participant,
+    ) -> tuple[str, Optional[Line], TranspositionSearchStats]:
+        raise NotImplementedError
 
     def choose(self, state: CrownlineSet, participant: Participant) -> EngineDecision:
         root_actions = len(_actions(state))
         started = perf_counter_ns()
-        notation, meld_line, stats = choose_computer_action_exact_tt(
-            state,
-            participant=participant,
-            depth=self.depth,
-        )
+        notation, meld_line, stats = self._choose_with_stats(state, participant)
         elapsed_ms = (perf_counter_ns() - started) / 1_000_000.0
 
         self.total_cache_hits += stats.cache_hits
@@ -219,13 +312,42 @@ class ExactTTBaselineEngine:
         self.total_exact_entries += stats.exact_entries
         self.total_cutoff_nodes += stats.cutoff_nodes
 
-        # Baseline benchmark `search_nodes` counts every node that must actually
-        # be evaluated/searched. A cache hit avoids that expansion, so TT reports
-        # expanded nodes here and exposes hit counts separately on the engine.
         return EngineDecision(
             notation=notation,
             meld_line=meld_line,
             elapsed_ms=elapsed_ms,
             search_nodes=stats.expanded_nodes,
             root_actions=root_actions,
+        )
+
+
+@dataclass
+class ExactTTBaselineEngine(_ExactTTAdapter):
+    """Baseline A + exact TT keyed by canonical CLSN1 text."""
+
+    def _choose_with_stats(
+        self,
+        state: CrownlineSet,
+        participant: Participant,
+    ) -> tuple[str, Optional[Line], TranspositionSearchStats]:
+        return choose_computer_action_exact_tt(
+            state,
+            participant=participant,
+            depth=self.depth,
+        )
+
+
+@dataclass
+class ExactStructuralTTBaselineEngine(_ExactTTAdapter):
+    """Baseline A + exact TT keyed by a CLSN-equivalent structural tuple."""
+
+    def _choose_with_stats(
+        self,
+        state: CrownlineSet,
+        participant: Participant,
+    ) -> tuple[str, Optional[Line], TranspositionSearchStats]:
+        return choose_computer_action_structural_tt(
+            state,
+            participant=participant,
+            depth=self.depth,
         )
