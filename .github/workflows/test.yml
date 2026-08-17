@@ -34,13 +34,14 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
-      - name: Run King utility feature diagnostic
+      - name: Run promotion proximity root diagnostic
         run: |
-          PYTHONPATH=. python experiments/diagnose_king_utility.py \
-            --depth 2 \
-            --json benchmarks/stage3_king_utility_diagnostic.json
-      - name: Upload King utility feature diagnostic
+          PYTHONPATH=. python experiments/benchmark_promotion_proximity_diagnostic.py \
+            --weights 0 25 50 100 200 400 \
+            --root-depth 3 \
+            --json benchmarks/stage3_promotion_proximity_diagnostic.json
+      - name: Upload promotion proximity root diagnostic
         uses: actions/upload-artifact@v4
         with:
-          name: stage3-king-utility-diagnostic
-          path: benchmarks/stage3_king_utility_diagnostic.json
+          name: stage3-promotion-proximity-diagnostic
+          path: benchmarks/stage3_promotion_proximity_diagnostic.json
