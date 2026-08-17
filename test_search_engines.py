@@ -3,6 +3,7 @@ from crownline_position_suite import position_suite
 from crownline_search_engines import (
     ExactStructuralTTBaselineEngine,
     ExactTTBaselineEngine,
+    StaticOrderedBaselineEngine,
     TranspositionSearchStats,
     _structural_tt_key,
     _tt_key,
@@ -37,6 +38,25 @@ def test_exact_tt_matches_baseline_actions_across_frozen_suite_at_depths_1_to_3(
                 )
                 assert tt_decision.root_actions == baseline_decision.root_actions
                 assert tt_decision.search_nodes >= 0
+
+
+def test_static_ordering_matches_baseline_actions_across_frozen_suite_at_depths_1_to_3():
+    for depth in (1, 2, 3):
+        baseline = BaselineEngine(f"baseline-d{depth}", depth=depth)
+        ordered = StaticOrderedBaselineEngine(f"ordered-d{depth}", depth=depth)
+        for scenario in position_suite():
+            for fixture in (scenario.game1, scenario.game2):
+                state = _state_for_fixture(fixture)
+                participant = state.participant_for_color(state.current_game.turn)
+
+                baseline_decision = baseline.choose(state, participant)
+                ordered_decision = ordered.choose(state, participant)
+
+                assert (ordered_decision.notation, ordered_decision.meld_line) == (
+                    baseline_decision.notation,
+                    baseline_decision.meld_line,
+                )
+                assert ordered_decision.root_actions == baseline_decision.root_actions
 
 
 def test_structural_tt_matches_clsn_tt_actions_and_search_counts_at_depth3():
