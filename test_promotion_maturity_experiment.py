@@ -33,7 +33,7 @@ def test_piece_maturity_is_monotonic_and_continuous_through_crowning():
 
     assert piece_promotion_maturity(Piece("W", 1, king=True), 8) == 1.0
     assert piece_promotion_maturity(Piece("B", 1, king=True), 1) == 1.0
-    assert 1.0 - white_values[-1] == 1 / 7
+    assert abs((1.0 - white_values[-1]) - (1 / 7)) < 1e-12
 
 
 def test_king_maturity_remains_realized_endpoint_away_from_crown_rank():
