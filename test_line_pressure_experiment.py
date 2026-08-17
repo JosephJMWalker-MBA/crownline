@@ -1,3 +1,5 @@
+from dataclasses import replace
+
 import crownline_ai
 
 from crownline_line_pressure_experiment import (
@@ -7,6 +9,7 @@ from crownline_line_pressure_experiment import (
 )
 from crownline_position_suite import position_suite
 from crownline_set import CrownlineSet
+from crownline_state_notation import parse_clsn
 
 
 def _state_for_fixture(fixture) -> CrownlineSet:
@@ -47,18 +50,19 @@ def test_zero_pressure_weight_preserves_depth3_policy():
 
 
 def test_retired_lines_do_not_contribute_pressure():
-    # The frozen suite contains scored lines in several positions. Pressure must
-    # never count a player's retired geometry as future construction capacity.
-    found = False
-    for scenario in position_suite():
-        for fixture in (scenario.game1, scenario.game2):
-            game = fixture.game()
-            for player in ("W", "B"):
-                if game.retired_lines(player):
-                    found = True
-                    value = crownline_pressure_units(game, player)
-                    assert value >= 0
-    assert found
+    # Use a preserved v1.1 state whose Black b4-d4-f4 geometry has already
+    # scored. If that meld is removed from history, the same two Black pieces
+    # form a live open pair and must increase geometric pressure.
+    game = parse_clsn(
+        "CLSN1|g=1|r=candidate|t=W|b=6,7|q=-|o=0|e=-|"
+        "p=a5:W3,b4:B1K,b6:W6,d4:B3,d6:W5K,g5:B5K,h4:B6|"
+        "mw=-|mb=b4.d4.f4:5.3.1:15:0|cw=-|cb=-"
+    )
+    assert ("b4", "d4", "f4") in game.retired_lines("B")
+    retired_pressure = crownline_pressure_units(game, "B")
+    unretired = replace(game, melds_b=())
+    live_pressure = crownline_pressure_units(unretired, "B")
+    assert live_pressure == retired_pressure + 4
 
 
 def test_negative_pressure_weight_is_rejected():
