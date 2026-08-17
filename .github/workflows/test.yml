@@ -34,3 +34,10 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
+      - name: Generate paired CLSN suite fixture
+        run: python experiments/generate_position_suite_v0_1.py > benchmarks/position_suite_v0_1_generated.json
+      - name: Upload paired CLSN suite fixture
+        uses: actions/upload-artifact@v4
+        with:
+          name: position-suite-v0-1-generated
+          path: benchmarks/position_suite_v0_1_generated.json
