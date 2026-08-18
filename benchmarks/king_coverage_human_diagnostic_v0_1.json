@@ -1,0 +1,1942 @@
+{
+  "depth": 3,
+  "experiment": "king-unretired-line-coverage-human-diagnostic",
+  "hypothesis": "Strategically successful Crownline-construction moves preserve or create more King memberships across still-unretired Crownline geometries than the current evaluator's preferred move. A small nonterminal weight on that exact coverage margin may move search toward successful construction trajectories without bundling threat, cooldown, capture-safety, or reachability features.",
+  "maturity_weight": 10.0,
+  "reports": [
+    {
+      "coverage_weight": 0.0,
+      "fixtures": [
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2xd4",
+            "value": 4000.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-01",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8xe6",
+            "value": -12000.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-02",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "h5xf3",
+            "value": -711.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-03",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d6-c7",
+            "value": 14878.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-04",
+          "observed_matches_ai_best": false,
+          "observed_rank": 9,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e4-d5",
+            "value": 12937.714285714286
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-05",
+          "observed_matches_ai_best": false,
+          "observed_rank": 6,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d4-e5",
+            "value": -108.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-06",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 3
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2-c3",
+            "value": 3724.5714285714284
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-07",
+          "observed_matches_ai_best": false,
+          "observed_rank": 7,
+          "root_action_count": 11
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b5-c6",
+            "value": 793.4285714285714
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score39",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 5
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c6-d7",
+            "value": 2796.1428571428573
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score49",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 7
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g6",
+            "value": 4308.571428571428
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score59",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g4",
+            "value": 5404.428571428572
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score67",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c4-d3",
+            "value": -8645.857142857143
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score125",
+          "observed_matches_ai_best": false,
+          "observed_rank": 4,
+          "root_action_count": 12
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": -5142.0
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score187",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 10
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g4",
+            "value": -2136.0
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score217",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8-d7",
+            "value": 2809.714285714286
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-01",
+          "observed_matches_ai_best": false,
+          "observed_rank": 5,
+          "root_action_count": 15
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": 6934.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-02",
+          "observed_matches_ai_best": false,
+          "observed_rank": 16,
+          "root_action_count": 17
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8-d7",
+            "value": 8748.285714285714
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-03",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 16
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": 14548.42857142857
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-04",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 10
+        },
+        {
+          "ai_best": {
+            "meld_line": [
+              "c6",
+              "d5",
+              "g4"
+            ],
+            "notation": "f5-g4",
+            "value": 17869.428571428572
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-05",
+          "observed_matches_ai_best": false,
+          "observed_rank": 3,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": [
+              "g6",
+              "d5",
+              "c4"
+            ],
+            "notation": "e4-d5",
+            "value": 21573.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-06",
+          "observed_matches_ai_best": false,
+          "observed_rank": 3,
+          "root_action_count": 16
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c4-b5",
+            "value": 23080.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-07",
+          "observed_matches_ai_best": false,
+          "observed_rank": 8,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b5-c4",
+            "value": 22972.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-08",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 16
+        }
+      ],
+      "summary": {
+        "buckets": {
+          "bot-crownline-construction": {
+            "ai_best_matches": 5,
+            "fixture_count": 7,
+            "mean_rank": 1.5714285714285714,
+            "median_rank": 1,
+            "top3": 6
+          },
+          "human-royal-sweep-preparation": {
+            "ai_best_matches": 2,
+            "fixture_count": 8,
+            "mean_rank": 4.875,
+            "median_rank": 3.0,
+            "top3": 5
+          },
+          "human-tactical-error": {
+            "ai_best_matches": 3,
+            "fixture_count": 7,
+            "mean_rank": 3.857142857142857,
+            "median_rank": 2,
+            "top3": 4
+          }
+        },
+        "changed_fixture_ids_vs_w0": [],
+        "root_action_changes_vs_w0": 0,
+        "strategic_positive": {
+          "ai_best_matches": 7,
+          "fixture_count": 15,
+          "mean_rank": 3.3333333333333335,
+          "median_rank": 2,
+          "top3": 11
+        },
+        "tactical_error": {
+          "ai_best_matches": 3,
+          "fixture_count": 7,
+          "mean_rank": 3.857142857142857,
+          "median_rank": 2,
+          "top3": 4
+        }
+      }
+    },
+    {
+      "coverage_weight": 5.0,
+      "fixtures": [
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2xd4",
+            "value": 4000.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-01",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8xe6",
+            "value": -12000.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-02",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "h5xf3",
+            "value": -711.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-03",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d6-c7",
+            "value": 14893.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-04",
+          "observed_matches_ai_best": false,
+          "observed_rank": 9,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e4-d5",
+            "value": 12957.714285714286
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-05",
+          "observed_matches_ai_best": false,
+          "observed_rank": 6,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d4-e5",
+            "value": -108.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-06",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 3
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2-c3",
+            "value": 3744.5714285714284
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-07",
+          "observed_matches_ai_best": false,
+          "observed_rank": 7,
+          "root_action_count": 11
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b5-c6",
+            "value": 793.4285714285714
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score39",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 5
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c6-d7",
+            "value": 2816.1428571428573
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score49",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 7
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g6",
+            "value": 4303.571428571428
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score59",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g4",
+            "value": 5409.428571428572
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score67",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c4-d3",
+            "value": -8625.857142857143
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score125",
+          "observed_matches_ai_best": false,
+          "observed_rank": 4,
+          "root_action_count": 12
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": -5112.0
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score187",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 10
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g4",
+            "value": -2106.0
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score217",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8-d7",
+            "value": 2804.714285714286
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-01",
+          "observed_matches_ai_best": false,
+          "observed_rank": 5,
+          "root_action_count": 15
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": 6944.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-02",
+          "observed_matches_ai_best": false,
+          "observed_rank": 16,
+          "root_action_count": 17
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e8-d7",
+            "value": 8779.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-03",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 16
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": 14558.42857142857
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-04",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 10
+        },
+        {
+          "ai_best": {
+            "meld_line": [
+              "c6",
+              "d5",
+              "g4"
+            ],
+            "notation": "f5-g4",
+            "value": 17874.428571428572
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-05",
+          "observed_matches_ai_best": false,
+          "observed_rank": 3,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": [
+              "g6",
+              "d5",
+              "c4"
+            ],
+            "notation": "e4-d5",
+            "value": 21574.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-06",
+          "observed_matches_ai_best": false,
+          "observed_rank": 3,
+          "root_action_count": 16
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c4-b5",
+            "value": 23075.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-07",
+          "observed_matches_ai_best": false,
+          "observed_rank": 8,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d7-e6",
+            "value": 22982.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-08",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 16
+        }
+      ],
+      "summary": {
+        "buckets": {
+          "bot-crownline-construction": {
+            "ai_best_matches": 5,
+            "fixture_count": 7,
+            "mean_rank": 1.5714285714285714,
+            "median_rank": 1,
+            "top3": 6
+          },
+          "human-royal-sweep-preparation": {
+            "ai_best_matches": 2,
+            "fixture_count": 8,
+            "mean_rank": 4.875,
+            "median_rank": 3.0,
+            "top3": 5
+          },
+          "human-tactical-error": {
+            "ai_best_matches": 3,
+            "fixture_count": 7,
+            "mean_rank": 3.857142857142857,
+            "median_rank": 2,
+            "top3": 4
+          }
+        },
+        "changed_fixture_ids_vs_w0": [
+          "human-royal-sweep-03",
+          "human-royal-sweep-08"
+        ],
+        "root_action_changes_vs_w0": 2,
+        "strategic_positive": {
+          "ai_best_matches": 7,
+          "fixture_count": 15,
+          "mean_rank": 3.3333333333333335,
+          "median_rank": 2,
+          "top3": 11
+        },
+        "tactical_error": {
+          "ai_best_matches": 3,
+          "fixture_count": 7,
+          "mean_rank": 3.857142857142857,
+          "median_rank": 2,
+          "top3": 4
+        }
+      }
+    },
+    {
+      "coverage_weight": 10.0,
+      "fixtures": [
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2xd4",
+            "value": 4000.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-01",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8xe6",
+            "value": -12000.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-02",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "h5xf3",
+            "value": -711.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-03",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d6-c7",
+            "value": 14908.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-04",
+          "observed_matches_ai_best": false,
+          "observed_rank": 9,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e4-d5",
+            "value": 12972.714285714286
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-05",
+          "observed_matches_ai_best": false,
+          "observed_rank": 6,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d4-e5",
+            "value": -108.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-06",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 3
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2-c3",
+            "value": 3764.5714285714284
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-07",
+          "observed_matches_ai_best": false,
+          "observed_rank": 7,
+          "root_action_count": 11
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b5-c6",
+            "value": 793.4285714285714
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score39",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 5
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c6-d7",
+            "value": 2836.1428571428573
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score49",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 7
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g6",
+            "value": 4298.571428571428
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score59",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g4",
+            "value": 5414.428571428572
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score67",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c4-d3",
+            "value": -8605.857142857143
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score125",
+          "observed_matches_ai_best": false,
+          "observed_rank": 4,
+          "root_action_count": 12
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": -5082.0
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score187",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 10
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g4",
+            "value": -2076.0
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score217",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8-d7",
+            "value": 2799.714285714286
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-01",
+          "observed_matches_ai_best": false,
+          "observed_rank": 5,
+          "root_action_count": 15
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": 6954.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-02",
+          "observed_matches_ai_best": false,
+          "observed_rank": 16,
+          "root_action_count": 17
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e8-d7",
+            "value": 8814.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-03",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 16
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": 14568.42857142857
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-04",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 10
+        },
+        {
+          "ai_best": {
+            "meld_line": [
+              "c6",
+              "d5",
+              "g4"
+            ],
+            "notation": "f5-g4",
+            "value": 17879.428571428572
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-05",
+          "observed_matches_ai_best": false,
+          "observed_rank": 3,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": [
+              "g6",
+              "d5",
+              "c4"
+            ],
+            "notation": "e4-d5",
+            "value": 21564.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-06",
+          "observed_matches_ai_best": false,
+          "observed_rank": 3,
+          "root_action_count": 16
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c4-b5",
+            "value": 23070.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-07",
+          "observed_matches_ai_best": false,
+          "observed_rank": 8,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d7-e6",
+            "value": 22992.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-08",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 16
+        }
+      ],
+      "summary": {
+        "buckets": {
+          "bot-crownline-construction": {
+            "ai_best_matches": 5,
+            "fixture_count": 7,
+            "mean_rank": 1.5714285714285714,
+            "median_rank": 1,
+            "top3": 6
+          },
+          "human-royal-sweep-preparation": {
+            "ai_best_matches": 2,
+            "fixture_count": 8,
+            "mean_rank": 4.875,
+            "median_rank": 3.0,
+            "top3": 5
+          },
+          "human-tactical-error": {
+            "ai_best_matches": 3,
+            "fixture_count": 7,
+            "mean_rank": 3.857142857142857,
+            "median_rank": 2,
+            "top3": 4
+          }
+        },
+        "changed_fixture_ids_vs_w0": [
+          "human-royal-sweep-03",
+          "human-royal-sweep-08"
+        ],
+        "root_action_changes_vs_w0": 2,
+        "strategic_positive": {
+          "ai_best_matches": 7,
+          "fixture_count": 15,
+          "mean_rank": 3.3333333333333335,
+          "median_rank": 2,
+          "top3": 11
+        },
+        "tactical_error": {
+          "ai_best_matches": 3,
+          "fixture_count": 7,
+          "mean_rank": 3.857142857142857,
+          "median_rank": 2,
+          "top3": 4
+        }
+      }
+    },
+    {
+      "coverage_weight": 20.0,
+      "fixtures": [
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2xd4",
+            "value": 4000.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-01",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8xe6",
+            "value": -12000.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-02",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "h5xf3",
+            "value": -711.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-03",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d6-c7",
+            "value": 14938.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-04",
+          "observed_matches_ai_best": false,
+          "observed_rank": 9,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e4-d5",
+            "value": 12992.714285714286
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-05",
+          "observed_matches_ai_best": false,
+          "observed_rank": 6,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d4-e5",
+            "value": -108.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-06",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 3
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2-c3",
+            "value": 3804.5714285714284
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-07",
+          "observed_matches_ai_best": false,
+          "observed_rank": 7,
+          "root_action_count": 11
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b5-c6",
+            "value": 793.4285714285714
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score39",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 5
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c6-d7",
+            "value": 2876.1428571428573
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score49",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 7
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g6",
+            "value": 4288.571428571428
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score59",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g4",
+            "value": 5424.428571428572
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score67",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c4-d3",
+            "value": -8565.857142857143
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score125",
+          "observed_matches_ai_best": false,
+          "observed_rank": 4,
+          "root_action_count": 12
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": -5022.0
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score187",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 10
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g4",
+            "value": -2016.0
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score217",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8-d7",
+            "value": 2789.714285714286
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-01",
+          "observed_matches_ai_best": false,
+          "observed_rank": 5,
+          "root_action_count": 15
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": 6974.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-02",
+          "observed_matches_ai_best": false,
+          "observed_rank": 16,
+          "root_action_count": 17
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e8-d7",
+            "value": 8884.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-03",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 16
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": 14588.42857142857
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-04",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 10
+        },
+        {
+          "ai_best": {
+            "meld_line": [
+              "c6",
+              "d5",
+              "g4"
+            ],
+            "notation": "f5-g4",
+            "value": 17889.428571428572
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-05",
+          "observed_matches_ai_best": false,
+          "observed_rank": 3,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": [
+              "g6",
+              "d5",
+              "c4"
+            ],
+            "notation": "e4-d5",
+            "value": 21544.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-06",
+          "observed_matches_ai_best": false,
+          "observed_rank": 3,
+          "root_action_count": 16
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c4-b5",
+            "value": 23060.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-07",
+          "observed_matches_ai_best": false,
+          "observed_rank": 8,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d7-e6",
+            "value": 23012.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-08",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 16
+        }
+      ],
+      "summary": {
+        "buckets": {
+          "bot-crownline-construction": {
+            "ai_best_matches": 5,
+            "fixture_count": 7,
+            "mean_rank": 1.5714285714285714,
+            "median_rank": 1,
+            "top3": 6
+          },
+          "human-royal-sweep-preparation": {
+            "ai_best_matches": 2,
+            "fixture_count": 8,
+            "mean_rank": 4.875,
+            "median_rank": 3.0,
+            "top3": 5
+          },
+          "human-tactical-error": {
+            "ai_best_matches": 3,
+            "fixture_count": 7,
+            "mean_rank": 3.857142857142857,
+            "median_rank": 2,
+            "top3": 4
+          }
+        },
+        "changed_fixture_ids_vs_w0": [
+          "human-royal-sweep-03",
+          "human-royal-sweep-08"
+        ],
+        "root_action_changes_vs_w0": 2,
+        "strategic_positive": {
+          "ai_best_matches": 7,
+          "fixture_count": 15,
+          "mean_rank": 3.3333333333333335,
+          "median_rank": 2,
+          "top3": 11
+        },
+        "tactical_error": {
+          "ai_best_matches": 3,
+          "fixture_count": 7,
+          "mean_rank": 3.857142857142857,
+          "median_rank": 2,
+          "top3": 4
+        }
+      }
+    },
+    {
+      "coverage_weight": 40.0,
+      "fixtures": [
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2xd4",
+            "value": 4000.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-01",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8xe6",
+            "value": -12000.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-02",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "h5xf3",
+            "value": -711.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-03",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d6-c7",
+            "value": 14998.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-04",
+          "observed_matches_ai_best": false,
+          "observed_rank": 9,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e4-d5",
+            "value": 13032.714285714286
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-05",
+          "observed_matches_ai_best": false,
+          "observed_rank": 6,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d4-e5",
+            "value": -108.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-06",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 3
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2-c3",
+            "value": 3884.5714285714284
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-07",
+          "observed_matches_ai_best": false,
+          "observed_rank": 7,
+          "root_action_count": 11
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b5-c6",
+            "value": 793.4285714285714
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score39",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 5
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c6-d7",
+            "value": 2956.1428571428573
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score49",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 7
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g6",
+            "value": 4268.571428571428
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score59",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g4",
+            "value": 5444.428571428572
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score67",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c4-d3",
+            "value": -8485.857142857143
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score125",
+          "observed_matches_ai_best": false,
+          "observed_rank": 4,
+          "root_action_count": 12
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": -4902.0
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score187",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 10
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g4",
+            "value": -1896.0
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score217",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8-d7",
+            "value": 2769.714285714286
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-01",
+          "observed_matches_ai_best": false,
+          "observed_rank": 5,
+          "root_action_count": 15
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": 7014.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-02",
+          "observed_matches_ai_best": false,
+          "observed_rank": 15,
+          "root_action_count": 17
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e8-d7",
+            "value": 9024.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-03",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 16
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": 14628.42857142857
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-04",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 10
+        },
+        {
+          "ai_best": {
+            "meld_line": [
+              "c6",
+              "d5",
+              "g4"
+            ],
+            "notation": "f5-g4",
+            "value": 17909.428571428572
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-05",
+          "observed_matches_ai_best": false,
+          "observed_rank": 3,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": [
+              "g6",
+              "d5",
+              "c4"
+            ],
+            "notation": "e4-d5",
+            "value": 21504.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-06",
+          "observed_matches_ai_best": false,
+          "observed_rank": 3,
+          "root_action_count": 16
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c4-b5",
+            "value": 23040.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-07",
+          "observed_matches_ai_best": false,
+          "observed_rank": 8,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d7-e6",
+            "value": 23052.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-08",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 16
+        }
+      ],
+      "summary": {
+        "buckets": {
+          "bot-crownline-construction": {
+            "ai_best_matches": 5,
+            "fixture_count": 7,
+            "mean_rank": 1.5714285714285714,
+            "median_rank": 1,
+            "top3": 6
+          },
+          "human-royal-sweep-preparation": {
+            "ai_best_matches": 2,
+            "fixture_count": 8,
+            "mean_rank": 4.75,
+            "median_rank": 3.0,
+            "top3": 5
+          },
+          "human-tactical-error": {
+            "ai_best_matches": 3,
+            "fixture_count": 7,
+            "mean_rank": 3.857142857142857,
+            "median_rank": 2,
+            "top3": 4
+          }
+        },
+        "changed_fixture_ids_vs_w0": [
+          "human-royal-sweep-03",
+          "human-royal-sweep-08"
+        ],
+        "root_action_changes_vs_w0": 2,
+        "strategic_positive": {
+          "ai_best_matches": 7,
+          "fixture_count": 15,
+          "mean_rank": 3.2666666666666666,
+          "median_rank": 2,
+          "top3": 11
+        },
+        "tactical_error": {
+          "ai_best_matches": 3,
+          "fixture_count": 7,
+          "mean_rank": 3.857142857142857,
+          "median_rank": 2,
+          "top3": 4
+        }
+      }
+    },
+    {
+      "coverage_weight": 80.0,
+      "fixtures": [
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2xd4",
+            "value": 4000.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-01",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8xe6",
+            "value": -12000.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-02",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "h5xf3",
+            "value": -711.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-03",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 1
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d6-c7",
+            "value": 15118.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-04",
+          "observed_matches_ai_best": false,
+          "observed_rank": 9,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e4-d5",
+            "value": 13112.714285714286
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-05",
+          "observed_matches_ai_best": false,
+          "observed_rank": 6,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d4-e5",
+            "value": -108.0
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-06",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 3
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2-c3",
+            "value": 4044.5714285714284
+          },
+          "bucket": "human-tactical-error",
+          "fixture_id": "tactical-double-jump-07",
+          "observed_matches_ai_best": false,
+          "observed_rank": 9,
+          "root_action_count": 11
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b5-c6",
+            "value": 793.4285714285714
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score39",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 5
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c6-d7",
+            "value": 3116.1428571428573
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score49",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 7
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g6",
+            "value": 4228.571428571428
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score59",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g4",
+            "value": 5484.428571428572
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s3-g2-score67",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c4-d3",
+            "value": -8325.857142857143
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score125",
+          "observed_matches_ai_best": false,
+          "observed_rank": 4,
+          "root_action_count": 12
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": -4662.0
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score187",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 10
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f5-g4",
+            "value": -1656.0
+          },
+          "bucket": "bot-crownline-construction",
+          "fixture_id": "bot-build-s1-g2-score217",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8-d7",
+            "value": 2768.285714285714
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-01",
+          "observed_matches_ai_best": false,
+          "observed_rank": 5,
+          "root_action_count": 15
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": 7094.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-02",
+          "observed_matches_ai_best": false,
+          "observed_rank": 13,
+          "root_action_count": 17
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e8-d7",
+            "value": 9304.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-03",
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 16
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "g6-f5",
+            "value": 14708.42857142857
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-04",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 10
+        },
+        {
+          "ai_best": {
+            "meld_line": [
+              "c6",
+              "d5",
+              "g4"
+            ],
+            "notation": "f5-g4",
+            "value": 17949.428571428572
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-05",
+          "observed_matches_ai_best": false,
+          "observed_rank": 3,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": [
+              "g6",
+              "d5",
+              "c4"
+            ],
+            "notation": "e4-d5",
+            "value": 21464.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-06",
+          "observed_matches_ai_best": false,
+          "observed_rank": 3,
+          "root_action_count": 16
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c4-b5",
+            "value": 23000.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-07",
+          "observed_matches_ai_best": false,
+          "observed_rank": 8,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d7-e6",
+            "value": 23132.0
+          },
+          "bucket": "human-royal-sweep-preparation",
+          "fixture_id": "human-royal-sweep-08",
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 16
+        }
+      ],
+      "summary": {
+        "buckets": {
+          "bot-crownline-construction": {
+            "ai_best_matches": 5,
+            "fixture_count": 7,
+            "mean_rank": 1.5714285714285714,
+            "median_rank": 1,
+            "top3": 6
+          },
+          "human-royal-sweep-preparation": {
+            "ai_best_matches": 2,
+            "fixture_count": 8,
+            "mean_rank": 4.5,
+            "median_rank": 3.0,
+            "top3": 5
+          },
+          "human-tactical-error": {
+            "ai_best_matches": 3,
+            "fixture_count": 7,
+            "mean_rank": 4.142857142857143,
+            "median_rank": 2,
+            "top3": 4
+          }
+        },
+        "changed_fixture_ids_vs_w0": [
+          "human-royal-sweep-03",
+          "human-royal-sweep-08"
+        ],
+        "root_action_changes_vs_w0": 2,
+        "strategic_positive": {
+          "ai_best_matches": 7,
+          "fixture_count": 15,
+          "mean_rank": 3.1333333333333333,
+          "median_rank": 2,
+          "top3": 11
+        },
+        "tactical_error": {
+          "ai_best_matches": 3,
+          "fixture_count": 7,
+          "mean_rank": 4.142857142857143,
+          "median_rank": 2,
+          "top3": 4
+        }
+      }
+    }
+  ],
+  "rules_mode": "candidate",
+  "schema_version": 1,
+  "suite_id": "human-v0.1",
+  "weights": [
+    0.0,
+    5.0,
+    10.0,
+    20.0,
+    40.0,
+    80.0
+  ]
+}
