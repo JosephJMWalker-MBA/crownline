@@ -1,0 +1,190 @@
+{
+  "schema": "crownline.human-decision-fixtures",
+  "schema_version": 1,
+  "bucket": "bot-crownline-construction",
+  "fixture_count": 7,
+  "fixtures": [
+    {
+      "fixture_id": "bot-build-s3-g2-score39",
+      "bucket": "bot-crownline-construction",
+      "source": "crownline-play-record-2026-08-18T14-05-50-636Z.json",
+      "set_sequence": 3,
+      "game_number": 2,
+      "move_index": 35,
+      "first_game_white": "A",
+      "participant": "B",
+      "color": "W",
+      "controller": "computer",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,2|q=-|o=0|e=-|p=a6:B5,a8:B1,b5:W3,c4:W6,c8:B2,d1:B3K,d7:W4,e6:W5,f1:B6K,g4:B4,h1:W1|mw=-|mb=-|cw=-|cb=-",
+      "fingerprint": "af7be6455a88a5bbd629846fa787714620becc84328231249c05f44bd6505bd3",
+      "observed_action": {
+        "notation": "d7-e8",
+        "meld_line": null
+      },
+      "annotation": {
+        "target_score_move_index": 39,
+        "target_score_action": "d7-c6",
+        "target_line": ["c6", "b5", "c4"],
+        "target_points": 15,
+        "target_royal": false,
+        "own_turns_before_score": 2
+      }
+    },
+    {
+      "fixture_id": "bot-build-s3-g2-score49",
+      "bucket": "bot-crownline-construction",
+      "source": "crownline-play-record-2026-08-18T14-05-50-636Z.json",
+      "set_sequence": 3,
+      "game_number": 2,
+      "move_index": 45,
+      "first_game_white": "A",
+      "participant": "B",
+      "color": "W",
+      "controller": "computer",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,2|q=-|o=0|e=-|p=a6:B5,a8:B1,b3:B3K,c4:W6,c6:W3,c8:B2,d1:B4K,d5:W4K,e6:W5,f1:B6K,h1:W1|mw=c6.b5.c4:4.3.6:15:0|mb=-|cw=3:1,4:1,6:1|cb=-",
+      "fingerprint": "47db9ae92183c4709f81bba764ddbb3231793b159fe46d254e7d6a1e8af22d6c",
+      "observed_action": {
+        "notation": "c6-d7",
+        "meld_line": null
+      },
+      "annotation": {
+        "target_score_move_index": 49,
+        "target_score_action": "c4-d5",
+        "target_line": ["e6", "d5", "e4"],
+        "target_points": 15,
+        "target_royal": false,
+        "own_turns_before_score": 2
+      }
+    },
+    {
+      "fixture_id": "bot-build-s3-g2-score59",
+      "bucket": "bot-crownline-construction",
+      "source": "crownline-play-record-2026-08-18T14-05-50-636Z.json",
+      "set_sequence": 3,
+      "game_number": 2,
+      "move_index": 55,
+      "first_game_white": "A",
+      "participant": "B",
+      "color": "W",
+      "controller": "computer",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,2|q=-|o=0|e=-|p=a4:B5,a8:B1,c4:B3K,c8:B2,d1:B4K,d5:W6,e6:W5,e8:W3K,f1:B6K,f5:W4K,h1:W1|mw=c6.b5.c4:4.3.6:15:0,e6.d5.e4:5.6.4:15:0|mb=-|cw=4:1,5:1,6:1|cb=-",
+      "fingerprint": "446f3a43058d2a3186ed8f99fe0941b14a596dfa8011a60b1d4f6550b6650666",
+      "observed_action": {
+        "notation": "f5-g6",
+        "meld_line": null
+      },
+      "annotation": {
+        "target_score_move_index": 59,
+        "target_score_action": "d7-c6",
+        "target_line": ["g6", "e6", "c6"],
+        "target_points": 15,
+        "target_royal": false,
+        "own_turns_before_score": 2
+      }
+    },
+    {
+      "fixture_id": "bot-build-s3-g2-score67",
+      "bucket": "bot-crownline-construction",
+      "source": "crownline-play-record-2026-08-18T14-05-50-636Z.json",
+      "set_sequence": 3,
+      "game_number": 2,
+      "move_index": 63,
+      "first_game_white": "A",
+      "participant": "B",
+      "color": "W",
+      "controller": "computer",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,2|q=-|o=0|e=-|p=a8:B1,b1:B5K,b7:B2,c4:B3K,c6:W3K,d1:B4K,d5:W6,e6:W5,f1:B6K,f5:W4K,h1:W1|mw=c6.b5.c4:4.3.6:15:0,e6.d5.e4:5.6.4:15:0,g6.e6.c6:4.5.3:15:0|mb=-|cw=3:2,4:2,5:2|cb=-",
+      "fingerprint": "869b46791f30d3e202dca308f67d414123828c806abd708c34905dc4fe58eba0",
+      "observed_action": {
+        "notation": "f5-g4",
+        "meld_line": null
+      },
+      "annotation": {
+        "target_score_move_index": 67,
+        "target_score_action": "b5-c6",
+        "target_line": ["c6", "d5", "g4"],
+        "target_points": 15,
+        "target_royal": false,
+        "own_turns_before_score": 2
+      }
+    },
+    {
+      "fixture_id": "bot-build-s1-g2-score125",
+      "bucket": "bot-crownline-construction",
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "set_sequence": 1,
+      "game_number": 2,
+      "move_index": 121,
+      "first_game_white": "A",
+      "participant": "B",
+      "color": "W",
+      "controller": "computer",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=10,12|q=-|o=0|e=-|p=a4:B3K,a6:B5,c4:W4K,c6:W3K,e6:W2K,f3:B6K,g6:B1K|mw=-|mb=c6.b5.c4:1.3.4:15:0,c6.d5.g4:2.6.1:15:0,f5.d5.b5:1.6.3:30:1,g4.e4.c4:1.6.4:30:1|cw=-|cb=-",
+      "fingerprint": "e96574ad28c0bde81b7ab2888722e378159bad1e5c621c3d7521f220fe092d69",
+      "observed_action": {
+        "notation": "c6-d5",
+        "meld_line": null
+      },
+      "annotation": {
+        "target_score_move_index": 125,
+        "target_score_action": "c4-d5",
+        "target_line": ["e6", "d5", "e4"],
+        "target_points": 30,
+        "target_royal": true,
+        "own_turns_before_score": 2
+      }
+    },
+    {
+      "fixture_id": "bot-build-s1-g2-score187",
+      "bucket": "bot-crownline-construction",
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "set_sequence": 1,
+      "game_number": 2,
+      "move_index": 183,
+      "first_game_white": "A",
+      "participant": "B",
+      "color": "W",
+      "controller": "computer",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=10,12|q=-|o=0|e=-|p=a4:B3K,b5:B5K,c2:B1K,d5:W4K,e6:W2K,g6:W3K,h3:B6K|mw=e6.d5.e4:2.4.3:30:1|mb=c6.b5.c4:1.3.4:15:0,c6.d5.g4:2.6.1:15:0,f5.d5.b5:1.6.3:30:1,g4.e4.c4:1.6.4:30:1|cw=-|cb=-",
+      "fingerprint": "0a1986554c8f3228b81aa90ed5b6fa9e0b2ef7a433f590e1078d70003df83791",
+      "observed_action": {
+        "notation": "g6-f5",
+        "meld_line": null
+      },
+      "annotation": {
+        "target_score_move_index": 187,
+        "target_score_action": "d5-c6",
+        "target_line": ["g6", "e6", "c6"],
+        "target_points": 30,
+        "target_royal": true,
+        "own_turns_before_score": 2
+      }
+    },
+    {
+      "fixture_id": "bot-build-s1-g2-score217",
+      "bucket": "bot-crownline-construction",
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "set_sequence": 1,
+      "game_number": 2,
+      "move_index": 213,
+      "first_game_white": "A",
+      "participant": "B",
+      "color": "W",
+      "controller": "computer",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=10,12|q=-|o=0|e=-|p=a4:B3K,a6:B1K,b7:B5K,c2:B6K,d5:W4K,e6:W2K,f5:W3K|mw=e6.d5.e4:2.4.3:30:1,g6.e6.c6:3.2.4:30:1|mb=c6.b5.c4:1.3.4:15:0,c6.d5.g4:2.6.1:15:0,f5.d5.b5:1.6.3:30:1,g4.e4.c4:1.6.4:30:1|cw=-|cb=-",
+      "fingerprint": "bf1c634d3ed96f582dfad4d6f37d7006ea5e5ac0a55d9a4c13fe06cb496ebc5d",
+      "observed_action": {
+        "notation": "f5-g4",
+        "meld_line": null
+      },
+      "annotation": {
+        "target_score_move_index": 217,
+        "target_score_action": "d7-c6",
+        "target_line": ["c6", "d5", "g4"],
+        "target_points": 30,
+        "target_royal": true,
+        "own_turns_before_score": 2
+      }
+    }
+  ]
+}
