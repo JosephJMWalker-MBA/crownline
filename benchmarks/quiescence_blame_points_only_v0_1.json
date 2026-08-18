@@ -1,0 +1,405 @@
+{
+  "depth": 3,
+  "experiment": "mandatory-capture-quiescence-blame-points-only",
+  "maturity_weight": 10.0,
+  "qdepths": [
+    0,
+    1
+  ],
+  "reports": [
+    {
+      "fixtures": [
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f8-e7",
+            "value": 3320.285714285714
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "upstream-blame",
+            "plies_before_punishment": 3,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 13,
+              "move_index": 56,
+              "notation": "e3xc5xa7"
+            }
+          },
+          "fixture_id": "tactical-double-jump-01",
+          "observed": {
+            "meld_line": null,
+            "notation": "f8-e7"
+          },
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8-d7",
+            "value": -511.0
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "upstream-blame",
+            "plies_before_punishment": 3,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 8,
+              "move_index": 45,
+              "notation": "f7xd5xb3"
+            }
+          },
+          "fixture_id": "tactical-double-jump-02",
+          "observed": {
+            "meld_line": null,
+            "notation": "g2-f3"
+          },
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8-b7",
+            "value": 398.0
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "upstream-blame",
+            "plies_before_punishment": 3,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 5,
+              "move_index": 21,
+              "notation": "g2xe4xc6"
+            }
+          },
+          "fixture_id": "tactical-double-jump-03",
+          "observed": {
+            "meld_line": null,
+            "notation": "e8-f7"
+          },
+          "observed_matches_ai_best": false,
+          "observed_rank": 4,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d6-c7",
+            "value": 14878.0
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "immediate-move-blame",
+            "plies_before_punishment": 1,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 12,
+              "move_index": 140,
+              "notation": "a5xc3xe1"
+            }
+          },
+          "fixture_id": "tactical-double-jump-04",
+          "observed": {
+            "meld_line": null,
+            "notation": "c3-d2"
+          },
+          "observed_matches_ai_best": false,
+          "observed_rank": 9,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e4-d5",
+            "value": 12937.714285714286
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "immediate-move-blame",
+            "plies_before_punishment": 1,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 10,
+              "move_index": 107,
+              "notation": "b7xd5xb3"
+            }
+          },
+          "fixture_id": "tactical-double-jump-05",
+          "observed": {
+            "meld_line": null,
+            "notation": "e4-f5"
+          },
+          "observed_matches_ai_best": false,
+          "observed_rank": 6,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c3-d4",
+            "value": -99.57142857142857
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "upstream-blame",
+            "plies_before_punishment": 3,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 5,
+              "move_index": 32,
+              "notation": "b6xd4xb2"
+            }
+          },
+          "fixture_id": "tactical-double-jump-06",
+          "observed": {
+            "meld_line": null,
+            "notation": "e3-d4"
+          },
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 4
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2-c3",
+            "value": 3724.5714285714284
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "immediate-move-blame",
+            "plies_before_punishment": 1,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 11,
+              "move_index": 56,
+              "notation": "e5xc7xa5"
+            }
+          },
+          "fixture_id": "tactical-double-jump-07",
+          "observed": {
+            "meld_line": null,
+            "notation": "f6-g5"
+          },
+          "observed_matches_ai_best": false,
+          "observed_rank": 7,
+          "root_action_count": 11
+        }
+      ],
+      "qdepth": 0,
+      "summary": {
+        "bad_move_ai_best_matches": 1,
+        "bad_move_top3": 3,
+        "changed_fixture_ids_vs_q0": [],
+        "fixture_count": 7,
+        "mean_bad_move_rank": 4.428571428571429,
+        "root_action_changes_vs_q0": 0
+      }
+    },
+    {
+      "fixtures": [
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "f8-e7",
+            "value": 3320.285714285714
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "upstream-blame",
+            "plies_before_punishment": 3,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 13,
+              "move_index": 56,
+              "notation": "e3xc5xa7"
+            }
+          },
+          "fixture_id": "tactical-double-jump-01",
+          "observed": {
+            "meld_line": null,
+            "notation": "f8-e7"
+          },
+          "observed_matches_ai_best": true,
+          "observed_rank": 1,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c8-d7",
+            "value": -617.4285714285714
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "upstream-blame",
+            "plies_before_punishment": 3,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 8,
+              "move_index": 45,
+              "notation": "f7xd5xb3"
+            }
+          },
+          "fixture_id": "tactical-double-jump-02",
+          "observed": {
+            "meld_line": null,
+            "notation": "g2-f3"
+          },
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e6-f5",
+            "value": -204.0
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "upstream-blame",
+            "plies_before_punishment": 3,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 5,
+              "move_index": 21,
+              "notation": "g2xe4xc6"
+            }
+          },
+          "fixture_id": "tactical-double-jump-03",
+          "observed": {
+            "meld_line": null,
+            "notation": "e8-f7"
+          },
+          "observed_matches_ai_best": false,
+          "observed_rank": 4,
+          "root_action_count": 8
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "d6-c7",
+            "value": 14878.0
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "immediate-move-blame",
+            "plies_before_punishment": 1,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 12,
+              "move_index": 140,
+              "notation": "a5xc3xe1"
+            }
+          },
+          "fixture_id": "tactical-double-jump-04",
+          "observed": {
+            "meld_line": null,
+            "notation": "c3-d2"
+          },
+          "observed_matches_ai_best": false,
+          "observed_rank": 9,
+          "root_action_count": 9
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "e4-d5",
+            "value": 12937.714285714286
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "immediate-move-blame",
+            "plies_before_punishment": 1,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 10,
+              "move_index": 107,
+              "notation": "b7xd5xb3"
+            }
+          },
+          "fixture_id": "tactical-double-jump-05",
+          "observed": {
+            "meld_line": null,
+            "notation": "e4-f5"
+          },
+          "observed_matches_ai_best": false,
+          "observed_rank": 6,
+          "root_action_count": 13
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "c3-d4",
+            "value": -105.14285714285714
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "upstream-blame",
+            "plies_before_punishment": 3,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 5,
+              "move_index": 32,
+              "notation": "b6xd4xb2"
+            }
+          },
+          "fixture_id": "tactical-double-jump-06",
+          "observed": {
+            "meld_line": null,
+            "notation": "e3-d4"
+          },
+          "observed_matches_ai_best": false,
+          "observed_rank": 2,
+          "root_action_count": 4
+        },
+        {
+          "ai_best": {
+            "meld_line": null,
+            "notation": "b2-c3",
+            "value": 3724.5714285714284
+          },
+          "bucket": "human-tactical-blame-point",
+          "context": {
+            "classification": "immediate-move-blame",
+            "plies_before_punishment": 1,
+            "punishment": {
+              "capture_legs": 2,
+              "capture_points": 11,
+              "move_index": 56,
+              "notation": "e5xc7xa5"
+            }
+          },
+          "fixture_id": "tactical-double-jump-07",
+          "observed": {
+            "meld_line": null,
+            "notation": "f6-g5"
+          },
+          "observed_matches_ai_best": false,
+          "observed_rank": 7,
+          "root_action_count": 11
+        }
+      ],
+      "qdepth": 1,
+      "summary": {
+        "bad_move_ai_best_matches": 1,
+        "bad_move_top3": 3,
+        "changed_fixture_ids_vs_q0": [
+          "tactical-double-jump-03"
+        ],
+        "fixture_count": 7,
+        "mean_bad_move_rank": 4.428571428571429,
+        "root_action_changes_vs_q0": 1
+      }
+    }
+  ],
+  "rules_mode": "candidate",
+  "schema_version": 1
+}
