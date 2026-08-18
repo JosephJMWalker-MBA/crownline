@@ -1,0 +1,1370 @@
+{
+  "budget_ms": 150.0,
+  "control": {
+    "completed_depth_counts": {
+      "3": 90,
+      "4": 6
+    },
+    "decisions": 96,
+    "fixtures": [
+      {
+        "action_counts": {
+          "b2-c3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "full-spread:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.08136133333335,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b3-c4": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "full-spread:game2",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.14532733333334,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b2-c3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "high-lattice:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.168412,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "e2-d3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "high-lattice:game2",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.13740166666668,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b2-c3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "low-lattice:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.20904433333334,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "e2-d3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "low-lattice:game2",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.10621483333333,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b2-c3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "median-line:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.24586266666665,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "g2-h3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "median-line:game2",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.09223683333335,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "e3-d4": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "quarter-cross-a:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.2185785,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "e4xc6": 6
+        },
+        "completed_depth_counts": {
+          "4": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "quarter-cross-a:game2",
+        "mean_completed_depth": 4,
+        "mean_elapsed_ms": 12.242305166666666,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "e3-f4": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "quarter-cross-b:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.0805875,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "c2-b3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "quarter-cross-b:game2",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.40342466666667,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b2-c3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "standard-start:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.1135155,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "e2-d3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "standard-start:game2",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.18656083333332,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b2-c3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "weave:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.203408,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "h3-g4": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "weave:game2",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.16195616666667,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      }
+    ],
+    "full_depth_rate": 0.0625,
+    "mean_completed_depth": 3.0625,
+    "mean_elapsed_ms": 141.54976233333335,
+    "mean_expanded_nodes": 470.34375,
+    "positions": 16,
+    "positions_with_action_variation": 0,
+    "positions_with_depth_variation": 0
+  },
+  "cross_engine": {
+    "pairs": [
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "standard-start:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "standard-start:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "standard-start:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "standard-start:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "standard-start:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "standard-start:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "standard-start:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "standard-start:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "standard-start:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "standard-start:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "standard-start:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "standard-start:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "low-lattice:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "low-lattice:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "low-lattice:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "low-lattice:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "low-lattice:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "low-lattice:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "low-lattice:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "low-lattice:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "low-lattice:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "low-lattice:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "low-lattice:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "low-lattice:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "high-lattice:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "high-lattice:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "high-lattice:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "high-lattice:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "high-lattice:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "high-lattice:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "high-lattice:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "high-lattice:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "high-lattice:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "high-lattice:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "high-lattice:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "e2-d3",
+        "control_depth": 3,
+        "fixture_id": "high-lattice:game2",
+        "maturity_action": "e2-d3",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "median-line:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "median-line:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "median-line:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "median-line:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "median-line:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "median-line:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "g2-h3",
+        "control_depth": 3,
+        "fixture_id": "median-line:game2",
+        "maturity_action": "g2-h3",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "g2-h3",
+        "control_depth": 3,
+        "fixture_id": "median-line:game2",
+        "maturity_action": "g2-h3",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "g2-h3",
+        "control_depth": 3,
+        "fixture_id": "median-line:game2",
+        "maturity_action": "g2-h3",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "g2-h3",
+        "control_depth": 3,
+        "fixture_id": "median-line:game2",
+        "maturity_action": "g2-h3",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "g2-h3",
+        "control_depth": 3,
+        "fixture_id": "median-line:game2",
+        "maturity_action": "g2-h3",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "g2-h3",
+        "control_depth": 3,
+        "fixture_id": "median-line:game2",
+        "maturity_action": "g2-h3",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "e3-d4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a:game1",
+        "maturity_action": "e3-d4",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "e3-d4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a:game1",
+        "maturity_action": "e3-d4",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "e3-d4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a:game1",
+        "maturity_action": "e3-d4",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "e3-d4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a:game1",
+        "maturity_action": "e3-d4",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "e3-d4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a:game1",
+        "maturity_action": "e3-d4",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "e3-d4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a:game1",
+        "maturity_action": "e3-d4",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "e4xc6",
+        "control_depth": 4,
+        "fixture_id": "quarter-cross-a:game2",
+        "maturity_action": "e4xc6",
+        "maturity_depth": 4,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "e4xc6",
+        "control_depth": 4,
+        "fixture_id": "quarter-cross-a:game2",
+        "maturity_action": "e4xc6",
+        "maturity_depth": 4,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "e4xc6",
+        "control_depth": 4,
+        "fixture_id": "quarter-cross-a:game2",
+        "maturity_action": "e4xc6",
+        "maturity_depth": 4,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "e4xc6",
+        "control_depth": 4,
+        "fixture_id": "quarter-cross-a:game2",
+        "maturity_action": "e4xc6",
+        "maturity_depth": 4,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "e4xc6",
+        "control_depth": 4,
+        "fixture_id": "quarter-cross-a:game2",
+        "maturity_action": "e4xc6",
+        "maturity_depth": 4,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "e4xc6",
+        "control_depth": 4,
+        "fixture_id": "quarter-cross-a:game2",
+        "maturity_action": "e4xc6",
+        "maturity_depth": 4,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "e3-f4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b:game1",
+        "maturity_action": "e3-f4",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "e3-f4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b:game1",
+        "maturity_action": "e3-f4",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "e3-f4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b:game1",
+        "maturity_action": "e3-f4",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "e3-f4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b:game1",
+        "maturity_action": "e3-f4",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "e3-f4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b:game1",
+        "maturity_action": "e3-f4",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "e3-f4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b:game1",
+        "maturity_action": "e3-f4",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "c2-b3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b:game2",
+        "maturity_action": "c2-b3",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "c2-b3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b:game2",
+        "maturity_action": "c2-b3",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "c2-b3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b:game2",
+        "maturity_action": "c2-b3",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "c2-b3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b:game2",
+        "maturity_action": "c2-b3",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "c2-b3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b:game2",
+        "maturity_action": "c2-b3",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "c2-b3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b:game2",
+        "maturity_action": "c2-b3",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "full-spread:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "full-spread:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "full-spread:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "full-spread:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "full-spread:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "full-spread:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "full-spread:game2",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "full-spread:game2",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "full-spread:game2",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "full-spread:game2",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "full-spread:game2",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "full-spread:game2",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 2,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "weave:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "weave:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "weave:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "weave:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "weave:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "b2-c3",
+        "control_depth": 3,
+        "fixture_id": "weave:game1",
+        "maturity_action": "b2-c3",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "h3-g4",
+        "control_depth": 3,
+        "fixture_id": "weave:game2",
+        "maturity_action": "h3-g4",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "h3-g4",
+        "control_depth": 3,
+        "fixture_id": "weave:game2",
+        "maturity_action": "h3-g4",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "h3-g4",
+        "control_depth": 3,
+        "fixture_id": "weave:game2",
+        "maturity_action": "h3-g4",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "h3-g4",
+        "control_depth": 3,
+        "fixture_id": "weave:game2",
+        "maturity_action": "h3-g4",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "h3-g4",
+        "control_depth": 3,
+        "fixture_id": "weave:game2",
+        "maturity_action": "h3-g4",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "h3-g4",
+        "control_depth": 3,
+        "fixture_id": "weave:game2",
+        "maturity_action": "h3-g4",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      }
+    ],
+    "same_action_count": 96,
+    "same_action_rate": 1.0,
+    "same_rep_decisions": 96
+  },
+  "experiment": "stage3-150ms-wall-clock-stability-audit",
+  "hypothesis": "Wall-clock iterative deepening is deadline-sensitive rather than trajectory-deterministic. Repeating the exact same frozen CLSN roots should quantify how often runtime jitter changes completed depth or the selected action, and whether the maturity evaluator materially changes that sensitivity.",
+  "maturity": {
+    "completed_depth_counts": {
+      "2": 1,
+      "3": 89,
+      "4": 6
+    },
+    "decisions": 96,
+    "fixtures": [
+      {
+        "action_counts": {
+          "b2-c3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "full-spread:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.19309216666667,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b3-c4": 6
+        },
+        "completed_depth_counts": {
+          "2": 1,
+          "3": 5
+        },
+        "decision_count": 6,
+        "fixture_id": "full-spread:game2",
+        "mean_completed_depth": 2.8333333333333335,
+        "mean_elapsed_ms": 150.2213185,
+        "unique_actions": 1,
+        "unique_completed_depths": 2
+      },
+      {
+        "action_counts": {
+          "b2-c3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "high-lattice:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.1491915,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "e2-d3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "high-lattice:game2",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.0791945,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b2-c3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "low-lattice:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.16926483333333,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "e2-d3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "low-lattice:game2",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.08211283333333,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b2-c3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "median-line:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.18115166666666,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "g2-h3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "median-line:game2",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.13630583333332,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "e3-d4": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "quarter-cross-a:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.205694,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "e4xc6": 6
+        },
+        "completed_depth_counts": {
+          "4": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "quarter-cross-a:game2",
+        "mean_completed_depth": 4,
+        "mean_elapsed_ms": 12.275606166666666,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "e3-f4": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "quarter-cross-b:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.27752366666667,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "c2-b3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "quarter-cross-b:game2",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.093023,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b2-c3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "standard-start:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.17791366666665,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "e2-d3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "standard-start:game2",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.20520766666667,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b2-c3": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "weave:game1",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.118379,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "h3-g4": 6
+        },
+        "completed_depth_counts": {
+          "3": 6
+        },
+        "decision_count": 6,
+        "fixture_id": "weave:game2",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.05175133333333,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      }
+    ],
+    "full_depth_rate": 0.0625,
+    "mean_completed_depth": 3.0520833333333335,
+    "mean_elapsed_ms": 141.53854564583332,
+    "mean_expanded_nodes": 458.125,
+    "positions": 16,
+    "positions_with_action_variation": 0,
+    "positions_with_depth_variation": 1
+  },
+  "maturity_weight": 10.0,
+  "max_depth": 4,
+  "position_count": 16,
+  "repeats": 6,
+  "rules_mode": "candidate",
+  "schema_version": 1,
+  "source_fingerprints": {
+    "experiment_sha256": "b0f1f0f8624d07dbda7a89b43cc6a1101498e5c0f41a78256e14d20a6ea48fe5",
+    "maturity_time_engine_sha256": "df1072fb956a15b01d1ba7a694de6ca909c359ac0bd52e32aa21e142568fc338",
+    "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3",
+    "stage2_tt_time_engine_sha256": "6495017b31458ce3ef5884c4b828420be54d538f79307008b7df5b207bcf1e62"
+  }
+}
