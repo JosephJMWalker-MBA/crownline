@@ -52,7 +52,7 @@ jobs:
       - name: Run mandatory capture quiescence human diagnostic
         run: |
           PYTHONPATH=. python experiments/benchmark_mandatory_capture_quiescence_human.py \
-            --qdepths 0 1 2 4 \
+            --qdepths 0 1 2 \
             --depth 3 \
             --maturity-weight 10 \
             --json benchmarks/mandatory_capture_quiescence_human_v0_1.json
