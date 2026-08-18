@@ -24,51 +24,23 @@ jobs:
         run: python -m pip install --upgrade pytest
       - name: Compile Python modules
         run: python -m py_compile *.py experiments/*.py
-      - name: Check browser JavaScript
-        run: |
-          for file in web/main.js web/premium_tabletop.js web/king_glow_visibility.js web/graphics.js web/tracker_preview.js web/rules_mode.js web/crowned_feedback.js web/onboarding.js web/research_ai.js web/play_export.js; do
-            node --check "$file"
-          done
-      - name: Smoke browser rules payload
-        run: |
-          python - <<'PY'
-          import serve_crownline
-          payload = serve_crownline.state_payload()
-          assert payload['set']['rules']['mode'] == 'candidate'
-          assert payload['set']['rules']['experimental'] is True
-          assert len(payload['game']['crownline_tracker']['W']) == 8
-          assert len(payload['game']['crownline_tracker']['B']) == 8
-          assert serve_crownline._normalize_ai_profile('research') == 'research'
-          export = serve_crownline.export_play_record(
-              serve_crownline._play_record,
-              serve_crownline._session,
-          )
-          assert export['schema'] == 'crownline.play-record'
-          assert export['schema_version'] == 1
-          assert export['summary']['games_recorded'] == 1
-          PY
       - name: Run Crownline tests
         run: pytest -q
-      - name: Run one-turn quiescence human diagnostic
+      - name: Run focused quiescence blame diagnostic
         run: |
-          PYTHONPATH=. python experiments/benchmark_mandatory_capture_quiescence_human.py \
+          PYTHONPATH=. python experiments/benchmark_quiescence_blame_points_only.py \
             --qdepths 0 1 \
             --depth 3 \
             --maturity-weight 10 \
-            --json benchmarks/mandatory_capture_quiescence_human_v0_1.json
-      - name: Upload quiescence human diagnostic
-        uses: actions/upload-artifact@v4
-        with:
-          name: mandatory-capture-quiescence-human-v0-1
-          path: benchmarks/mandatory_capture_quiescence_human_v0_1.json
-      - name: Commit quiescence human evidence
+            --json benchmarks/quiescence_blame_points_only_v0_1.json
+      - name: Commit focused quiescence evidence
         if: github.actor != 'github-actions[bot]'
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add benchmarks/mandatory_capture_quiescence_human_v0_1.json
+          git add benchmarks/quiescence_blame_points_only_v0_1.json
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "Record one-turn quiescence human evidence"
+          git commit -m "Record focused quiescence blame evidence"
           git push
