@@ -53,7 +53,7 @@ jobs:
         run: |
           PYTHONPATH=. python experiments/benchmark_tactical_blame_horizon_bounded.py \
             --min-legs 2 \
-            --max-horizon-after-root 4 \
+            --max-horizon-after-root 2 \
             --json benchmarks/tactical_blame_horizon_bounded_v0_1.json
       - name: Upload bounded tactical blame diagnostic
         uses: actions/upload-artifact@v4
