@@ -32,12 +32,7 @@ def _action_key(notation: str, line: Optional[Line]) -> tuple[str, str]:
 
 
 def _capture_exposure(state) -> dict[str, int]:
-    """Immediate capture opportunity handed to the next player.
-
-    This is intentionally local. It does not claim that every available capture
-    is strategically good; it only measures the largest compound capture that
-    becomes immediately legal after the candidate action.
-    """
+    """Measure the largest immediately legal reply capture after a root action."""
 
     game = state.current_game
     if game.game_over:
@@ -66,13 +61,7 @@ def _capture_exposure(state) -> dict[str, int]:
 
 
 def _geometry_snapshot(game, player: Player) -> dict[str, int]:
-    """Descriptive Crownline-network features; none are evaluator weights.
-
-    Counts are restricted to the player's unretired geometries. A two-of-three
-    line is a structural proxy only: it does not assert that the missing node is
-    reachable next turn. The ready variant additionally requires the two present
-    identities to be off cooldown and at least one to be a King.
-    """
+    """Return descriptive unretired-line network features, not evaluator weights."""
 
     retired = game.retired_lines(player)
     cooldowns = game.cooldowns(player)
@@ -289,6 +278,12 @@ def _bucket_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
     return summary
 
 
+def _sha256(path: Path) -> str:
+    import hashlib
+
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
 def run(*, depth: int = 3, maturity_weight: float = 10.0) -> dict[str, Any]:
     if depth < 1 or depth > 4:
         raise ValueError("depth must be between 1 and 4")
@@ -317,9 +312,9 @@ def run(*, depth: int = 3, maturity_weight: float = 10.0) -> dict[str, Any]:
         "maturity_weight": maturity_weight,
         "methodology": {
             "search": "deterministic fixed-depth alpha-beta with promotion maturity; no repeat-history policy",
-            "observed_moves_are_labels": false,
+            "observed_moves_are_labels": False,
             "capture_exposure": "largest immediately legal reply capture after each root action",
-            "geometry_features": "descriptive unretired-line network proxies only; no evaluator weights changed"
+            "geometry_features": "descriptive unretired-line network proxies only; no evaluator weights changed",
         },
         "source_fingerprints": {
             "suite_manifest_sha256": _sha256(HUMAN_SUITE_PATH),
@@ -334,12 +329,6 @@ def run(*, depth: int = 3, maturity_weight: float = 10.0) -> dict[str, Any]:
         },
         "fixtures": records,
     }
-
-
-def _sha256(path: Path) -> str:
-    import hashlib
-
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def _parse_args() -> argparse.Namespace:
