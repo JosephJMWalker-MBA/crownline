@@ -10,6 +10,13 @@ from urllib.parse import urlparse
 from crownline import MeldChoiceRequired, coord_to_alg, new_set, rules_mode_label
 from crownline_ai import choose_computer_action
 from crownline_maturity_product_candidate import RepeatAwareMaturityStructuralTTOpponent
+from crownline_play_record import (
+    export_play_record,
+    new_play_record,
+    record_advance,
+    record_move,
+    record_new_set,
+)
 
 ROOT = Path(__file__).resolve().parent
 WEB_ROOT = ROOT / "web"
@@ -21,6 +28,7 @@ _lock = Lock()
 # remain available as a selectable legacy/official profile; this only changes
 # the interactive launch default, not the underlying rules definitions.
 _session = new_set(first_game_white="A", rules_mode="candidate")
+_play_record = new_play_record(_session)
 
 # Research opponents are intentionally long-lived. The p200 policy is based on
 # exact afterstates produced earlier in the same game, so recreating this object
@@ -287,6 +295,10 @@ class Handler(BaseHTTPRequestHandler):
             with _lock:
                 self._send_json(200, state_payload())
             return
+        if path == "/api/export":
+            with _lock:
+                self._send_json(200, export_play_record(_play_record, _session))
+            return
 
         relative = "index.html" if path == "/" else path.lstrip("/")
         target = (WEB_ROOT / relative).resolve()
@@ -317,12 +329,22 @@ class Handler(BaseHTTPRequestHandler):
                         raise ValueError("move is required")
                     meld_line = body.get("meld_line")
                     meld_line = tuple(meld_line) if meld_line else None
-                    before = _session.current_game
+                    before_set = _session
+                    before = before_set.current_game
                     move = before.move_from_notation(notation)
                     feedback = _feedback_before_move(before, move)
                     before_melds = len(before.melds(before.turn))
                     mover = before.turn
-                    _session = _session.apply_move(move, meld_line=meld_line)
+                    after_set = before_set.apply_move(move, meld_line=meld_line)
+                    record_move(
+                        _play_record,
+                        before_set,
+                        after_set,
+                        move,
+                        meld_line=meld_line,
+                        controller="human",
+                    )
+                    _session = after_set
                     payload = state_payload()
                     after = _session.current_game
                     feedback["meld_scored"] = len(after.melds(mover)) > before_melds
@@ -338,18 +360,29 @@ class Handler(BaseHTTPRequestHandler):
                     if depth < 1 or depth > 4:
                         raise ValueError("depth must be between 1 and 4")
                     profile = _normalize_ai_profile(body.get("profile"))
+                    before_set = _session
                     notation, meld_line, ai_evidence = _choose_computer_move(
-                        _session,
+                        before_set,
                         participant=participant,
                         profile=profile,
                         depth=depth,
                     )
-                    before = _session.current_game
+                    before = before_set.current_game
                     move = before.move_from_notation(notation)
                     feedback = _feedback_before_move(before, move)
                     before_melds = len(before.melds(before.turn))
                     mover = before.turn
-                    _session = _session.apply_move(move, meld_line=meld_line)
+                    after_set = before_set.apply_move(move, meld_line=meld_line)
+                    record_move(
+                        _play_record,
+                        before_set,
+                        after_set,
+                        move,
+                        meld_line=meld_line,
+                        controller="computer",
+                        ai_evidence=ai_evidence,
+                    )
+                    _session = after_set
                     payload = state_payload()
                     after = _session.current_game
                     feedback["meld_scored"] = len(after.melds(mover)) > before_melds
@@ -364,7 +397,10 @@ class Handler(BaseHTTPRequestHandler):
                     return
 
                 if path == "/api/advance":
-                    _session = _session.advance_game()
+                    before_set = _session
+                    after_set = before_set.advance_game()
+                    record_advance(_play_record, before_set, after_set)
+                    _session = after_set
                     self._send_json(200, state_payload())
                     return
 
@@ -372,6 +408,7 @@ class Handler(BaseHTTPRequestHandler):
                     first = body.get("first_game_white", "A")
                     rules_mode = body.get("rules_mode", _session.rules_mode)
                     _session = new_set(first_game_white=first, rules_mode=rules_mode)
+                    record_new_set(_play_record, _session, opened_reason="reset")
                     self._send_json(200, state_payload())
                     return
 
@@ -380,6 +417,7 @@ class Handler(BaseHTTPRequestHandler):
                     if not next_first:
                         raise ValueError("first_game_white is required")
                     _session = _session.continue_tied_set(next_first)
+                    record_new_set(_play_record, _session, opened_reason="continuation")
                     self._send_json(200, state_payload())
                     return
 
