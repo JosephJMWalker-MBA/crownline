@@ -23,7 +23,7 @@ jobs:
         run: python -m py_compile *.py experiments/*.py
       - name: Check browser JavaScript
         run: |
-          for file in web/main.js web/premium_tabletop.js web/king_glow_visibility.js web/graphics.js web/tracker_preview.js web/rules_mode.js web/crowned_feedback.js web/onboarding.js web/research_ai.js; do
+          for file in web/main.js web/premium_tabletop.js web/king_glow_visibility.js web/graphics.js web/tracker_preview.js web/rules_mode.js web/crowned_feedback.js web/onboarding.js web/research_ai.js web/play_export.js; do
             node --check "$file"
           done
       - name: Smoke browser rules payload
@@ -36,6 +36,13 @@ jobs:
           assert len(payload['game']['crownline_tracker']['W']) == 8
           assert len(payload['game']['crownline_tracker']['B']) == 8
           assert serve_crownline._normalize_ai_profile('research') == 'research'
+          export = serve_crownline.export_play_record(
+              serve_crownline._play_record,
+              serve_crownline._session,
+          )
+          assert export['schema'] == 'crownline.play-record'
+          assert export['schema_version'] == 1
+          assert export['summary']['games_recorded'] == 1
           PY
       - name: Run Crownline tests
         run: pytest -q
