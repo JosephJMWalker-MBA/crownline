@@ -1,0 +1,1260 @@
+{
+  "budget_ms": 150.0,
+  "control": {
+    "completed_depth_counts": {
+      "2": 8,
+      "3": 80,
+      "4": 8
+    },
+    "decisions": 96,
+    "fixtures": [
+      {
+        "action_counts": {
+          "a5-b6": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "full-spread-g1-p200h2h-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.10845525,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "c3-b4": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "high-lattice-g1-p200h2h-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.038369875,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "c3-d4": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "low-lattice-g1-p50-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.18095725,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "a4-b5": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "low-lattice-g2-p50-c8",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.492156375,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "a2-b1": 8
+        },
+        "completed_depth_counts": {
+          "4": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "median-line-g2-p50-royal-c4",
+        "mean_completed_depth": 4,
+        "mean_elapsed_ms": 97.35188775,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "a3-b2": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "quarter-cross-a-g1-p200h2h-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.15622762499999,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "d4-e3": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "quarter-cross-a-g1-p50-royal-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.190127,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b3-c4": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "quarter-cross-a-g2-p200self-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.109826,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "f5-g4": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "quarter-cross-b-g2-p50-c20",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.329271125,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "a5-b4": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "standard-start-g1-p200h2h-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.162554875,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b4-a5": 8
+        },
+        "completed_depth_counts": {
+          "2": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "standard-start-g1-p50-six-kings-c4",
+        "mean_completed_depth": 2,
+        "mean_elapsed_ms": 150.467565125,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "a5-b4": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "standard-start-g1-p50-three-kings-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.083903375,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      }
+    ],
+    "full_depth_rate": 0.08333333333333333,
+    "mean_completed_depth": 3,
+    "mean_elapsed_ms": 145.80594180208334,
+    "mean_expanded_nodes": 508.75,
+    "positions": 12,
+    "positions_with_action_variation": 0,
+    "positions_with_depth_variation": 0
+  },
+  "cross_engine": {
+    "fixtures_with_policy_difference": [
+      "standard-start-g1-p200h2h-c4"
+    ],
+    "pairs": [
+      {
+        "control_action": "a5-b6",
+        "control_depth": 3,
+        "fixture_id": "full-spread-g1-p200h2h-c4",
+        "maturity_action": "a5-b6",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b6",
+        "control_depth": 3,
+        "fixture_id": "full-spread-g1-p200h2h-c4",
+        "maturity_action": "a5-b6",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b6",
+        "control_depth": 3,
+        "fixture_id": "full-spread-g1-p200h2h-c4",
+        "maturity_action": "a5-b6",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b6",
+        "control_depth": 3,
+        "fixture_id": "full-spread-g1-p200h2h-c4",
+        "maturity_action": "a5-b6",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b6",
+        "control_depth": 3,
+        "fixture_id": "full-spread-g1-p200h2h-c4",
+        "maturity_action": "a5-b6",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b6",
+        "control_depth": 3,
+        "fixture_id": "full-spread-g1-p200h2h-c4",
+        "maturity_action": "a5-b6",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b6",
+        "control_depth": 3,
+        "fixture_id": "full-spread-g1-p200h2h-c4",
+        "maturity_action": "a5-b6",
+        "maturity_depth": 3,
+        "repeat": 7,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b6",
+        "control_depth": 3,
+        "fixture_id": "full-spread-g1-p200h2h-c4",
+        "maturity_action": "a5-b6",
+        "maturity_depth": 3,
+        "repeat": 8,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-b4",
+        "control_depth": 3,
+        "fixture_id": "high-lattice-g1-p200h2h-c4",
+        "maturity_action": "c3-b4",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-b4",
+        "control_depth": 3,
+        "fixture_id": "high-lattice-g1-p200h2h-c4",
+        "maturity_action": "c3-b4",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-b4",
+        "control_depth": 3,
+        "fixture_id": "high-lattice-g1-p200h2h-c4",
+        "maturity_action": "c3-b4",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-b4",
+        "control_depth": 3,
+        "fixture_id": "high-lattice-g1-p200h2h-c4",
+        "maturity_action": "c3-b4",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-b4",
+        "control_depth": 3,
+        "fixture_id": "high-lattice-g1-p200h2h-c4",
+        "maturity_action": "c3-b4",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-b4",
+        "control_depth": 3,
+        "fixture_id": "high-lattice-g1-p200h2h-c4",
+        "maturity_action": "c3-b4",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-b4",
+        "control_depth": 3,
+        "fixture_id": "high-lattice-g1-p200h2h-c4",
+        "maturity_action": "c3-b4",
+        "maturity_depth": 3,
+        "repeat": 7,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-b4",
+        "control_depth": 3,
+        "fixture_id": "high-lattice-g1-p200h2h-c4",
+        "maturity_action": "c3-b4",
+        "maturity_depth": 3,
+        "repeat": 8,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-d4",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g1-p50-c4",
+        "maturity_action": "c3-d4",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-d4",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g1-p50-c4",
+        "maturity_action": "c3-d4",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-d4",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g1-p50-c4",
+        "maturity_action": "c3-d4",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-d4",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g1-p50-c4",
+        "maturity_action": "c3-d4",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-d4",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g1-p50-c4",
+        "maturity_action": "c3-d4",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-d4",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g1-p50-c4",
+        "maturity_action": "c3-d4",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-d4",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g1-p50-c4",
+        "maturity_action": "c3-d4",
+        "maturity_depth": 3,
+        "repeat": 7,
+        "same_action": true
+      },
+      {
+        "control_action": "c3-d4",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g1-p50-c4",
+        "maturity_action": "c3-d4",
+        "maturity_depth": 3,
+        "repeat": 8,
+        "same_action": true
+      },
+      {
+        "control_action": "d4-e3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p50-royal-c4",
+        "maturity_action": "d4-e3",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "d4-e3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p50-royal-c4",
+        "maturity_action": "d4-e3",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "d4-e3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p50-royal-c4",
+        "maturity_action": "d4-e3",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "d4-e3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p50-royal-c4",
+        "maturity_action": "d4-e3",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "d4-e3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p50-royal-c4",
+        "maturity_action": "d4-e3",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "d4-e3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p50-royal-c4",
+        "maturity_action": "d4-e3",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "d4-e3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p50-royal-c4",
+        "maturity_action": "d4-e3",
+        "maturity_depth": 3,
+        "repeat": 7,
+        "same_action": true
+      },
+      {
+        "control_action": "d4-e3",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p50-royal-c4",
+        "maturity_action": "d4-e3",
+        "maturity_depth": 3,
+        "repeat": 8,
+        "same_action": true
+      },
+      {
+        "control_action": "a3-b2",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p200h2h-c4",
+        "maturity_action": "a3-b2",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "a3-b2",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p200h2h-c4",
+        "maturity_action": "a3-b2",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "a3-b2",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p200h2h-c4",
+        "maturity_action": "a3-b2",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "a3-b2",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p200h2h-c4",
+        "maturity_action": "a3-b2",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "a3-b2",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p200h2h-c4",
+        "maturity_action": "a3-b2",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "a3-b2",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p200h2h-c4",
+        "maturity_action": "a3-b2",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "a3-b2",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p200h2h-c4",
+        "maturity_action": "a3-b2",
+        "maturity_depth": 3,
+        "repeat": 7,
+        "same_action": true
+      },
+      {
+        "control_action": "a3-b2",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g1-p200h2h-c4",
+        "maturity_action": "a3-b2",
+        "maturity_depth": 3,
+        "repeat": 8,
+        "same_action": true
+      },
+      {
+        "control_action": "b4-a5",
+        "control_depth": 2,
+        "fixture_id": "standard-start-g1-p50-six-kings-c4",
+        "maturity_action": "b4-a5",
+        "maturity_depth": 2,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "b4-a5",
+        "control_depth": 2,
+        "fixture_id": "standard-start-g1-p50-six-kings-c4",
+        "maturity_action": "b4-a5",
+        "maturity_depth": 2,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "b4-a5",
+        "control_depth": 2,
+        "fixture_id": "standard-start-g1-p50-six-kings-c4",
+        "maturity_action": "b4-a5",
+        "maturity_depth": 2,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "b4-a5",
+        "control_depth": 2,
+        "fixture_id": "standard-start-g1-p50-six-kings-c4",
+        "maturity_action": "b4-a5",
+        "maturity_depth": 2,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "b4-a5",
+        "control_depth": 2,
+        "fixture_id": "standard-start-g1-p50-six-kings-c4",
+        "maturity_action": "b4-a5",
+        "maturity_depth": 2,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "b4-a5",
+        "control_depth": 2,
+        "fixture_id": "standard-start-g1-p50-six-kings-c4",
+        "maturity_action": "b4-a5",
+        "maturity_depth": 2,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "b4-a5",
+        "control_depth": 2,
+        "fixture_id": "standard-start-g1-p50-six-kings-c4",
+        "maturity_action": "b4-a5",
+        "maturity_depth": 2,
+        "repeat": 7,
+        "same_action": true
+      },
+      {
+        "control_action": "b4-a5",
+        "control_depth": 2,
+        "fixture_id": "standard-start-g1-p50-six-kings-c4",
+        "maturity_action": "b4-a5",
+        "maturity_depth": 2,
+        "repeat": 8,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p50-three-kings-c4",
+        "maturity_action": "a5-b4",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p50-three-kings-c4",
+        "maturity_action": "a5-b4",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p50-three-kings-c4",
+        "maturity_action": "a5-b4",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p50-three-kings-c4",
+        "maturity_action": "a5-b4",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p50-three-kings-c4",
+        "maturity_action": "a5-b4",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p50-three-kings-c4",
+        "maturity_action": "a5-b4",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p50-three-kings-c4",
+        "maturity_action": "a5-b4",
+        "maturity_depth": 3,
+        "repeat": 7,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p50-three-kings-c4",
+        "maturity_action": "a5-b4",
+        "maturity_depth": 3,
+        "repeat": 8,
+        "same_action": true
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p200h2h-c4",
+        "maturity_action": "e3-d2",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": false
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p200h2h-c4",
+        "maturity_action": "e3-d2",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": false
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p200h2h-c4",
+        "maturity_action": "e3-d2",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": false
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p200h2h-c4",
+        "maturity_action": "e3-d2",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": false
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p200h2h-c4",
+        "maturity_action": "e3-d2",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": false
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p200h2h-c4",
+        "maturity_action": "e3-d2",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": false
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p200h2h-c4",
+        "maturity_action": "e3-d2",
+        "maturity_depth": 3,
+        "repeat": 7,
+        "same_action": false
+      },
+      {
+        "control_action": "a5-b4",
+        "control_depth": 3,
+        "fixture_id": "standard-start-g1-p200h2h-c4",
+        "maturity_action": "e3-d2",
+        "maturity_depth": 3,
+        "repeat": 8,
+        "same_action": false
+      },
+      {
+        "control_action": "a4-b5",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g2-p50-c8",
+        "maturity_action": "a4-b5",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "a4-b5",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g2-p50-c8",
+        "maturity_action": "a4-b5",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "a4-b5",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g2-p50-c8",
+        "maturity_action": "a4-b5",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "a4-b5",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g2-p50-c8",
+        "maturity_action": "a4-b5",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "a4-b5",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g2-p50-c8",
+        "maturity_action": "a4-b5",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "a4-b5",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g2-p50-c8",
+        "maturity_action": "a4-b5",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "a4-b5",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g2-p50-c8",
+        "maturity_action": "a4-b5",
+        "maturity_depth": 3,
+        "repeat": 7,
+        "same_action": true
+      },
+      {
+        "control_action": "a4-b5",
+        "control_depth": 3,
+        "fixture_id": "low-lattice-g2-p50-c8",
+        "maturity_action": "a4-b5",
+        "maturity_depth": 3,
+        "repeat": 8,
+        "same_action": true
+      },
+      {
+        "control_action": "a2-b1",
+        "control_depth": 4,
+        "fixture_id": "median-line-g2-p50-royal-c4",
+        "maturity_action": "a2-b1",
+        "maturity_depth": 4,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "a2-b1",
+        "control_depth": 4,
+        "fixture_id": "median-line-g2-p50-royal-c4",
+        "maturity_action": "a2-b1",
+        "maturity_depth": 4,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "a2-b1",
+        "control_depth": 4,
+        "fixture_id": "median-line-g2-p50-royal-c4",
+        "maturity_action": "a2-b1",
+        "maturity_depth": 4,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "a2-b1",
+        "control_depth": 4,
+        "fixture_id": "median-line-g2-p50-royal-c4",
+        "maturity_action": "a2-b1",
+        "maturity_depth": 4,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "a2-b1",
+        "control_depth": 4,
+        "fixture_id": "median-line-g2-p50-royal-c4",
+        "maturity_action": "a2-b1",
+        "maturity_depth": 4,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "a2-b1",
+        "control_depth": 4,
+        "fixture_id": "median-line-g2-p50-royal-c4",
+        "maturity_action": "a2-b1",
+        "maturity_depth": 4,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "a2-b1",
+        "control_depth": 4,
+        "fixture_id": "median-line-g2-p50-royal-c4",
+        "maturity_action": "a2-b1",
+        "maturity_depth": 4,
+        "repeat": 7,
+        "same_action": true
+      },
+      {
+        "control_action": "a2-b1",
+        "control_depth": 4,
+        "fixture_id": "median-line-g2-p50-royal-c4",
+        "maturity_action": "a2-b1",
+        "maturity_depth": 4,
+        "repeat": 8,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g2-p200self-c4",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g2-p200self-c4",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g2-p200self-c4",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g2-p200self-c4",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g2-p200self-c4",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g2-p200self-c4",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g2-p200self-c4",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 3,
+        "repeat": 7,
+        "same_action": true
+      },
+      {
+        "control_action": "b3-c4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-a-g2-p200self-c4",
+        "maturity_action": "b3-c4",
+        "maturity_depth": 3,
+        "repeat": 8,
+        "same_action": true
+      },
+      {
+        "control_action": "f5-g4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b-g2-p50-c20",
+        "maturity_action": "f5-g4",
+        "maturity_depth": 3,
+        "repeat": 1,
+        "same_action": true
+      },
+      {
+        "control_action": "f5-g4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b-g2-p50-c20",
+        "maturity_action": "f5-g4",
+        "maturity_depth": 3,
+        "repeat": 2,
+        "same_action": true
+      },
+      {
+        "control_action": "f5-g4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b-g2-p50-c20",
+        "maturity_action": "f5-g4",
+        "maturity_depth": 3,
+        "repeat": 3,
+        "same_action": true
+      },
+      {
+        "control_action": "f5-g4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b-g2-p50-c20",
+        "maturity_action": "f5-g4",
+        "maturity_depth": 3,
+        "repeat": 4,
+        "same_action": true
+      },
+      {
+        "control_action": "f5-g4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b-g2-p50-c20",
+        "maturity_action": "f5-g4",
+        "maturity_depth": 3,
+        "repeat": 5,
+        "same_action": true
+      },
+      {
+        "control_action": "f5-g4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b-g2-p50-c20",
+        "maturity_action": "f5-g4",
+        "maturity_depth": 3,
+        "repeat": 6,
+        "same_action": true
+      },
+      {
+        "control_action": "f5-g4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b-g2-p50-c20",
+        "maturity_action": "f5-g4",
+        "maturity_depth": 3,
+        "repeat": 7,
+        "same_action": true
+      },
+      {
+        "control_action": "f5-g4",
+        "control_depth": 3,
+        "fixture_id": "quarter-cross-b-g2-p50-c20",
+        "maturity_action": "f5-g4",
+        "maturity_depth": 3,
+        "repeat": 8,
+        "same_action": true
+      }
+    ],
+    "same_action_count": 88,
+    "same_action_rate": 0.9166666666666666,
+    "same_rep_decisions": 96
+  },
+  "experiment": "stage3-150ms-king-hard-case-wall-clock-stability-audit",
+  "hypothesis": "The King hard-case suite is where promotion maturity can actually affect policy. Repeated 150 ms decisions should distinguish a stable strategic policy difference from a deadline-boundary artifact before maturity is composed with repetition memory.",
+  "maturity": {
+    "completed_depth_counts": {
+      "2": 8,
+      "3": 80,
+      "4": 8
+    },
+    "decisions": 96,
+    "fixtures": [
+      {
+        "action_counts": {
+          "a5-b6": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "full-spread-g1-p200h2h-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.1051265,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "c3-b4": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "high-lattice-g1-p200h2h-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.085529375,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "c3-d4": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "low-lattice-g1-p50-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.10589475,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "a4-b5": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "low-lattice-g2-p50-c8",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.12206237499998,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "a2-b1": 8
+        },
+        "completed_depth_counts": {
+          "4": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "median-line-g2-p50-royal-c4",
+        "mean_completed_depth": 4,
+        "mean_elapsed_ms": 97.7946945,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "a3-b2": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "quarter-cross-a-g1-p200h2h-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.0485505,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "d4-e3": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "quarter-cross-a-g1-p50-royal-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.466171,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b3-c4": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "quarter-cross-a-g2-p200self-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.46753975000001,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "f5-g4": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "quarter-cross-b-g2-p50-c20",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.200348125,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "e3-d2": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "standard-start-g1-p200h2h-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.195206125,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "b4-a5": 8
+        },
+        "completed_depth_counts": {
+          "2": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "standard-start-g1-p50-six-kings-c4",
+        "mean_completed_depth": 2,
+        "mean_elapsed_ms": 150.0696755,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      },
+      {
+        "action_counts": {
+          "a5-b4": 8
+        },
+        "completed_depth_counts": {
+          "3": 8
+        },
+        "decision_count": 8,
+        "fixture_id": "standard-start-g1-p50-three-kings-c4",
+        "mean_completed_depth": 3,
+        "mean_elapsed_ms": 150.18807325,
+        "unique_actions": 1,
+        "unique_completed_depths": 1
+      }
+    ],
+    "full_depth_rate": 0.08333333333333333,
+    "mean_completed_depth": 3,
+    "mean_elapsed_ms": 145.8207393125,
+    "mean_expanded_nodes": 502.8645833333333,
+    "positions": 12,
+    "positions_with_action_variation": 0,
+    "positions_with_depth_variation": 0
+  },
+  "maturity_weight": 10.0,
+  "max_depth": 4,
+  "position_count": 12,
+  "repeats": 8,
+  "rules_mode": "candidate",
+  "schema_version": 1,
+  "source_fingerprints": {
+    "base_stability_audit_sha256": "b0f1f0f8624d07dbda7a89b43cc6a1101498e5c0f41a78256e14d20a6ea48fe5",
+    "experiment_sha256": "f6104c766acc95e91f706d04dbb182ff6c828dc0ff2ddf0f7d4ae7141f0a7845",
+    "king_position_suite_sha256": "2524e5a1526bb2f49343dafa7f3c623a764f5f22ac3dc72c0274aeed6c1560b7"
+  }
+}
