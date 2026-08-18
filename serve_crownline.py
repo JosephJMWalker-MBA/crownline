@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 
 from crownline import MeldChoiceRequired, coord_to_alg, new_set, rules_mode_label
 from crownline_ai import choose_computer_action
+from crownline_maturity_product_candidate import RepeatAwareMaturityStructuralTTOpponent
 
 ROOT = Path(__file__).resolve().parent
 WEB_ROOT = ROOT / "web"
@@ -20,6 +21,21 @@ _lock = Lock()
 # remain available as a selectable legacy/official profile; this only changes
 # the interactive launch default, not the underlying rules definitions.
 _session = new_set(first_game_white="A", rules_mode="candidate")
+
+# Research opponents are intentionally long-lived. The p200 policy is based on
+# exact afterstates produced earlier in the same game, so recreating this object
+# on every HTTP request would silently erase the measured trajectory behavior.
+# The engine itself clears memory when a new game/scenario is detected.
+_RESEARCH_OPPONENTS = {
+    participant: RepeatAwareMaturityStructuralTTOpponent(
+        name=f"research-strong-{participant}",
+        budget_ms=150.0,
+        max_depth=4,
+        repeat_penalty=200.0,
+        maturity_weight=10.0,
+    )
+    for participant in ("A", "B")
+}
 
 _SUPERSCRIPT = {1: "¹", 2: "²", 3: "³"}
 _LINE_NAMES = (
@@ -100,6 +116,58 @@ def _feedback_before_move(game, move):
             _diagnostic_dict(item)
             for item in game.crowned_meld_diagnostics_after(move)
         ],
+    }
+
+
+def _normalize_ai_profile(value) -> str:
+    profile = "baseline" if value is None else str(value).strip().lower()
+    aliases = {
+        "computer": "baseline",
+        "standard": "baseline",
+        "strong": "research",
+        "research-strong": "research",
+    }
+    profile = aliases.get(profile, profile)
+    if profile not in ("baseline", "research"):
+        raise ValueError("profile must be 'baseline' or 'research'")
+    return profile
+
+
+def _choose_computer_move(crownline_set, *, participant, profile, depth):
+    """Choose an action and return transport-safe evidence about the AI used."""
+
+    normalized = _normalize_ai_profile(profile)
+    if normalized == "baseline":
+        notation, meld_line = choose_computer_action(
+            crownline_set,
+            participant=participant,
+            depth=depth,
+        )
+        return notation, meld_line, {
+            "profile": "baseline",
+            "label": f"Baseline A · depth {depth}",
+            "depth": depth,
+        }
+
+    if crownline_set.rules_mode != "candidate":
+        raise ValueError("Research / Strong AI is validated only for Crownline v1.1")
+
+    engine = _RESEARCH_OPPONENTS[participant]
+    notation, meld_line, stats = engine.choose_with_stats(crownline_set, participant)
+    return notation, meld_line, {
+        "profile": "research",
+        "label": "Research / Strong · 150 ms",
+        "budget_ms": engine.budget_ms,
+        "max_depth": engine.max_depth,
+        "repeat_penalty": engine.repeat_penalty,
+        "maturity_weight": engine.maturity_weight,
+        "elapsed_ms": stats.search.elapsed_ms,
+        "completed_depth": stats.search.completed_depth,
+        "attempted_depth": stats.search.attempted_depth,
+        "timed_out": stats.search.timed_out,
+        "search_nodes": stats.search.total_expanded_nodes,
+        "repeat_candidates_at_root": stats.repeat_candidates_at_root,
+        "selected_repeat_count": stats.selected_repeat_count,
     }
 
 
@@ -269,9 +337,11 @@ class Handler(BaseHTTPRequestHandler):
                     depth = int(body.get("depth", 2))
                     if depth < 1 or depth > 4:
                         raise ValueError("depth must be between 1 and 4")
-                    notation, meld_line = choose_computer_action(
+                    profile = _normalize_ai_profile(body.get("profile"))
+                    notation, meld_line, ai_evidence = _choose_computer_move(
                         _session,
                         participant=participant,
+                        profile=profile,
                         depth=depth,
                     )
                     before = _session.current_game
@@ -288,6 +358,7 @@ class Handler(BaseHTTPRequestHandler):
                         "participant": participant,
                         "move": notation,
                         "meld_line": list(meld_line) if meld_line else None,
+                        **ai_evidence,
                     }
                     self._send_json(200, payload)
                     return
