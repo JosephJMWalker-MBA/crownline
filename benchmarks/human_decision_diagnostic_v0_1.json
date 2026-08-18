@@ -1,0 +1,5463 @@
+{
+  "depth": 3,
+  "experiment": "human-decision-diagnostic",
+  "fixtures": [
+    {
+      "ai_best_action": {
+        "after_fingerprint": "876875ba98a21276d56c8c65123a41c0dd4023da879246d5a854dcbcee183f82",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 13
+        },
+        "geometry": {
+          "king_line_membership_units": 6,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 8,
+          "occupied_unretired_lines": 7,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "b2xd4",
+        "rank": 1,
+        "score_delta": 10,
+        "search_value": 4000.0,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "observed_reply": "e3xc5xa7",
+        "observed_reply_capture_legs": 2,
+        "observed_reply_capture_points": 13,
+        "recognized_pattern": "compound-capture exposure"
+      },
+      "bucket": "human-tactical-error",
+      "clsn": "CLSN1|g=1|r=candidate|t=W|b=12,5|q=-|o=0|e=-|p=b2:W1,b6:W6K,c1:W2,c3:B3,e3:B6K,e7:W3K,f6:W4K|mw=-|mb=-|cw=-|cb=-",
+      "color": "W",
+      "controller": "human",
+      "fingerprint": "26b5c69a3f500f6cd28f8c73f3080a5cd0cc8b653a5f5c141a6d44d99eed56c2",
+      "fixture_id": "tactical-double-jump-01",
+      "game_number": 1,
+      "move_index": 55,
+      "observed_action": {
+        "after_fingerprint": "876875ba98a21276d56c8c65123a41c0dd4023da879246d5a854dcbcee183f82",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 13
+        },
+        "geometry": {
+          "king_line_membership_units": 6,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 8,
+          "occupied_unretired_lines": 7,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "b2xd4",
+        "rank": 1,
+        "score_delta": 10,
+        "search_value": 4000.0,
+        "value_gap_from_best": 0.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 0,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": true,
+      "participant": "A",
+      "root_action_count": 1,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "876875ba98a21276d56c8c65123a41c0dd4023da879246d5a854dcbcee183f82",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 13
+        },
+        "geometry": {
+          "king_line_membership_units": 6,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 8,
+          "occupied_unretired_lines": 7,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "b2xd4",
+        "rank": 1,
+        "score_delta": 10,
+        "search_value": 4000.0,
+        "value_gap_from_best": 0.0
+      },
+      "set_sequence": 1,
+      "source": "crownline-play-record-2026-08-18T14-05-50-636Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "876875ba98a21276d56c8c65123a41c0dd4023da879246d5a854dcbcee183f82",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 13
+          },
+          "geometry": {
+            "king_line_membership_units": 6,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 8,
+            "occupied_unretired_lines": 7,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "b2xd4",
+          "rank": 1,
+          "score_delta": 10,
+          "search_value": 4000.0,
+          "value_gap_from_best": 0.0
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "beab520070700759c447bbf151edfaf12d138b231f5cffc065b18bca7da1476f",
+        "capture_exposure": {
+          "capture_option_count": 2,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 8
+        },
+        "geometry": {
+          "king_line_membership_units": 3,
+          "king_piece_count": 2,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c8xe6",
+        "rank": 1,
+        "score_delta": 13,
+        "search_value": -12000.0,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "observed_reply": "f7xd5xb3",
+        "observed_reply_capture_legs": 2,
+        "observed_reply_capture_points": 8,
+        "recognized_pattern": "compound-capture exposure"
+      },
+      "bucket": "human-tactical-error",
+      "clsn": "CLSN1|g=2|r=candidate|t=B|b=11,3|q=-|o=0|e=-|p=a6:W3,b5:W4,b7:B1,c4:B3K,c8:B2,d7:W5,f3:B4K,f7:W6K|mw=-|mb=-|cw=-|cb=-",
+      "color": "B",
+      "controller": "human",
+      "fingerprint": "9f7d3e61175f111b09c277aeced1692c1d4f45d9423f3c7581a0863574b4f867",
+      "fixture_id": "tactical-double-jump-02",
+      "game_number": 2,
+      "move_index": 44,
+      "observed_action": {
+        "after_fingerprint": "beab520070700759c447bbf151edfaf12d138b231f5cffc065b18bca7da1476f",
+        "capture_exposure": {
+          "capture_option_count": 2,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 8
+        },
+        "geometry": {
+          "king_line_membership_units": 3,
+          "king_piece_count": 2,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c8xe6",
+        "rank": 1,
+        "score_delta": 13,
+        "search_value": -12000.0,
+        "value_gap_from_best": 0.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 0,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": true,
+      "participant": "A",
+      "root_action_count": 1,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "beab520070700759c447bbf151edfaf12d138b231f5cffc065b18bca7da1476f",
+        "capture_exposure": {
+          "capture_option_count": 2,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 8
+        },
+        "geometry": {
+          "king_line_membership_units": 3,
+          "king_piece_count": 2,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c8xe6",
+        "rank": 1,
+        "score_delta": 13,
+        "search_value": -12000.0,
+        "value_gap_from_best": 0.0
+      },
+      "set_sequence": 1,
+      "source": "crownline-play-record-2026-08-18T14-05-50-636Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "beab520070700759c447bbf151edfaf12d138b231f5cffc065b18bca7da1476f",
+          "capture_exposure": {
+            "capture_option_count": 2,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 8
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c8xe6",
+          "rank": 1,
+          "score_delta": 13,
+          "search_value": -12000.0,
+          "value_gap_from_best": 0.0
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "009f484cc4ff0caeebef6d41314f7b23afea582184c23ca9392222d6525681ff",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 5
+        },
+        "geometry": {
+          "king_line_membership_units": 0,
+          "king_piece_count": 0,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 6,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "h5xf3",
+        "rank": 1,
+        "score_delta": 1,
+        "search_value": -711.0,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "observed_reply": "g2xe4xc6",
+        "observed_reply_capture_legs": 2,
+        "observed_reply_capture_points": 5,
+        "recognized_pattern": "compound-capture exposure"
+      },
+      "bucket": "human-tactical-error",
+      "clsn": "CLSN1|g=2|r=candidate|t=B|b=0,0|q=-|o=0|e=-|p=a4:W4,a6:B5,b3:W3,c4:W6,c8:B2,d5:B1,e6:B6,f7:B3,g2:W5,g4:W2,h1:W1,h5:B4|mw=-|mb=-|cw=-|cb=-",
+      "color": "B",
+      "controller": "human",
+      "fingerprint": "8f2a5de59c1785a51d821efc458f412ea790a326a1419b2ce780ca84ecc92a56",
+      "fixture_id": "tactical-double-jump-03",
+      "game_number": 2,
+      "move_index": 20,
+      "observed_action": {
+        "after_fingerprint": "009f484cc4ff0caeebef6d41314f7b23afea582184c23ca9392222d6525681ff",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 5
+        },
+        "geometry": {
+          "king_line_membership_units": 0,
+          "king_piece_count": 0,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 6,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "h5xf3",
+        "rank": 1,
+        "score_delta": 1,
+        "search_value": -711.0,
+        "value_gap_from_best": 0.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 0,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": true,
+      "participant": "A",
+      "root_action_count": 1,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "009f484cc4ff0caeebef6d41314f7b23afea582184c23ca9392222d6525681ff",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 5
+        },
+        "geometry": {
+          "king_line_membership_units": 0,
+          "king_piece_count": 0,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 6,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "h5xf3",
+        "rank": 1,
+        "score_delta": 1,
+        "search_value": -711.0,
+        "value_gap_from_best": 0.0
+      },
+      "set_sequence": 2,
+      "source": "crownline-play-record-2026-08-18T14-05-50-636Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "009f484cc4ff0caeebef6d41314f7b23afea582184c23ca9392222d6525681ff",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 5
+          },
+          "geometry": {
+            "king_line_membership_units": 0,
+            "king_piece_count": 0,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 6,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "h5xf3",
+          "rank": 1,
+          "score_delta": 1,
+          "search_value": -711.0,
+          "value_gap_from_best": 0.0
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "acd71efd4e0d6f80096d6ee0d6ea8f9cf5aa1550982dcbbd8bc13d9873c5f762",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 5,
+          "king_piece_count": 6,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 3,
+          "scored_lines": 4,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 4
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "d6-c7",
+        "rank": 1,
+        "score_delta": 1,
+        "search_value": 14878.0,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "observed_reply": "a5xc3xe1",
+        "observed_reply_capture_legs": 2,
+        "observed_reply_capture_points": 12,
+        "recognized_pattern": "compound-capture exposure"
+      },
+      "bucket": "human-tactical-error",
+      "clsn": "CLSN1|g=1|r=candidate|t=W|b=10,0|q=-|o=0|e=-|p=a5:B6K,b4:W1K,c3:W5K,c5:W3K,d4:W6K,d6:W2K,e5:W4K,g5:B5K|mw=b4.d4.f4:1.6.4:30:1,b6.d6.f6:3.2.6:15:0,d6.e5.d4:1.6.5:30:1,f6.e5.b4:4.6.1:30:1|mb=-|cw=1:1,4:1,6:1|cb=-",
+      "color": "W",
+      "controller": "human",
+      "fingerprint": "5df10bcf79916f30b4def4e8ee5b7e4c56f184ebc65bdb7fd573397efb1fd182",
+      "fixture_id": "tactical-double-jump-04",
+      "game_number": 1,
+      "move_index": 139,
+      "observed_action": {
+        "after_fingerprint": "1a51e25f393d23414730f78c614a401d2c71542209dc48425be431ae4b4dc75d",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 12
+        },
+        "geometry": {
+          "king_line_membership_units": 5,
+          "king_piece_count": 6,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 3,
+          "scored_lines": 4,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 4
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c3-d2",
+        "rank": 9,
+        "score_delta": -1,
+        "search_value": 11846.0,
+        "value_gap_from_best": 3032.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 0,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": false,
+      "observed_matches_ai_best": false,
+      "participant": "A",
+      "root_action_count": 9,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "947f67b070aacfcfb83246228ae2bef12d89f08182c38fcdf13a5212a51129fc",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 4,
+          "king_piece_count": 6,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 4,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 3,
+          "scored_lines": 4,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 4
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "b4-a3",
+        "rank": 3,
+        "score_delta": -1,
+        "search_value": 13668.0,
+        "value_gap_from_best": 1210.0
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T14-05-50-636Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "acd71efd4e0d6f80096d6ee0d6ea8f9cf5aa1550982dcbbd8bc13d9873c5f762",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 5,
+            "king_piece_count": 6,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 3,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "d6-c7",
+          "rank": 1,
+          "score_delta": 1,
+          "search_value": 14878.0,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "7cbab1b171eef3a4f34d3b59a3017dc1e1f4b7edf806a049dda2d0390d72f2b5",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 5,
+            "king_piece_count": 6,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 3,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "d6-e7",
+          "rank": 2,
+          "score_delta": 1,
+          "search_value": 13869.0,
+          "value_gap_from_best": 1009.0
+        },
+        {
+          "after_fingerprint": "947f67b070aacfcfb83246228ae2bef12d89f08182c38fcdf13a5212a51129fc",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 6,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 4,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 3,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "b4-a3",
+          "rank": 3,
+          "score_delta": -1,
+          "search_value": 13668.0,
+          "value_gap_from_best": 1210.0
+        },
+        {
+          "after_fingerprint": "35b76b381f37d726fcbf2a63c18fc3a00157be96e1fd5e36f9d1bbe580d91634",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 6
+          },
+          "geometry": {
+            "king_line_membership_units": 5,
+            "king_piece_count": 6,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 3,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c5-b6",
+          "rank": 4,
+          "score_delta": 5,
+          "search_value": 13668.0,
+          "value_gap_from_best": 1210.0
+        },
+        {
+          "after_fingerprint": "37bda40a368a0f97f8e7b7e24954666c949957c49d594208e780c683d0583234",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 8
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 6,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 4,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 3,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e5-f6",
+          "rank": 5,
+          "score_delta": 1,
+          "search_value": 13371.0,
+          "value_gap_from_best": 1507.0
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "31cb1da2c15dc1e159d97b915db70947c6b255355acba97105559fd38b0aaca6",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 4,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 4,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 2,
+          "scored_lines": 4,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 4
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "e4-d5",
+        "rank": 1,
+        "score_delta": 4,
+        "search_value": 12937.714285714286,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "observed_reply": "b7xd5xb3",
+        "observed_reply_capture_legs": 2,
+        "observed_reply_capture_points": 10,
+        "recognized_pattern": "compound-capture exposure"
+      },
+      "bucket": "human-tactical-error",
+      "clsn": "CLSN1|g=2|r=candidate|t=B|b=0,12|q=-|o=0|e=-|p=a6:B5,b5:B3K,b7:W4K,c4:B4K,c6:B2,d7:W3K,e4:B6K,e6:W2K,g4:B1K|mw=-|mb=c6.b5.c4:1.3.4:15:0,c6.d5.g4:2.6.1:15:0,f5.d5.b5:1.6.3:30:1,g4.e4.c4:1.6.4:30:1|cw=-|cb=-",
+      "color": "B",
+      "controller": "human",
+      "fingerprint": "2c2e1aef8e00b1b5a41292e38f1b74b411c69dde4190e33ded027fc2844d78d6",
+      "fixture_id": "tactical-double-jump-05",
+      "game_number": 2,
+      "move_index": 106,
+      "observed_action": {
+        "after_fingerprint": "8e22d54690fd3e1bb2502930d0eb8d946821ef866e0ffa280f75d859669f6426",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 10
+        },
+        "geometry": {
+          "king_line_membership_units": 3,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 4,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 2,
+          "scored_lines": 4,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 4
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "e4-f5",
+        "rank": 6,
+        "score_delta": 6,
+        "search_value": 10225.857142857143,
+        "value_gap_from_best": 2711.857142857143
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": -1,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": -1,
+        "occupied_unretired_lines": -1,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": false,
+      "observed_matches_ai_best": false,
+      "participant": "A",
+      "root_action_count": 13,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "3f31742ea83fe6c6863c3c36d430e6cf9ff448fbd69bcb9be968eac2134cfcf9",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 3,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 2,
+          "scored_lines": 4,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 4
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c6-d5",
+        "rank": 2,
+        "score_delta": 1,
+        "search_value": 11943.142857142857,
+        "value_gap_from_best": 994.5714285714294
+      },
+      "set_sequence": 1,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "31cb1da2c15dc1e159d97b915db70947c6b255355acba97105559fd38b0aaca6",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 2,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e4-d5",
+          "rank": 1,
+          "score_delta": 4,
+          "search_value": 12937.714285714286,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "3f31742ea83fe6c6863c3c36d430e6cf9ff448fbd69bcb9be968eac2134cfcf9",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 2,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c6-d5",
+          "rank": 2,
+          "score_delta": 1,
+          "search_value": 11943.142857142857,
+          "value_gap_from_best": 994.5714285714294
+        },
+        {
+          "after_fingerprint": "01242e06047f0a3214a440c2235e644549c915176bb046678ddb7d2ca64a1617",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 3,
+            "max_reply_capture_points": 16
+          },
+          "geometry": {
+            "king_line_membership_units": 2,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 3,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 2,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c4-b3",
+          "rank": 3,
+          "score_delta": -5,
+          "search_value": 11639.714285714286,
+          "value_gap_from_best": 1298.0
+        },
+        {
+          "after_fingerprint": "72b7ae5777e097a9040dc45f4e32a63d7a4d5e10db3ab7bc4cfe57ea6fc77599",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 3,
+            "max_reply_capture_points": 16
+          },
+          "geometry": {
+            "king_line_membership_units": 2,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 3,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 2,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c4-d3",
+          "rank": 4,
+          "score_delta": -5,
+          "search_value": 11639.714285714286,
+          "value_gap_from_best": 1298.0
+        },
+        {
+          "after_fingerprint": "08035b1081721d45df6b93b3b1348aded38580ac053183daa026266fe01cc569",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 8
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 2,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c4-d5",
+          "rank": 5,
+          "score_delta": -3,
+          "search_value": 11140.714285714286,
+          "value_gap_from_best": 1797.0
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "69a6275126ee7451452600e4223a25875c126019e698e6aabdabb174044ba7fb",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 5
+        },
+        "geometry": {
+          "king_line_membership_units": 0,
+          "king_piece_count": 0,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 7,
+          "occupied_unretired_lines": 6,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "d4-e5",
+        "rank": 1,
+        "score_delta": -4,
+        "search_value": -108.0,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "observed_reply": "b6xd4xb2",
+        "observed_reply_capture_legs": 2,
+        "observed_reply_capture_points": 5,
+        "recognized_pattern": "compound-capture exposure"
+      },
+      "bucket": "human-tactical-error",
+      "clsn": "CLSN1|g=1|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a3:W1,a5:W5,b4:W6,b6:B4,c3:W2,c7:B3,d2:B2K,d4:W3,f6:B6,g5:B5,g7:B1,h4:W4|mw=-|mb=-|cw=-|cb=-",
+      "color": "W",
+      "controller": "human",
+      "fingerprint": "10f7675ba9978e25b1fc745909a7dc7500bb83e6182819934498bd384f74becc",
+      "fixture_id": "tactical-double-jump-06",
+      "game_number": 1,
+      "move_index": 31,
+      "observed_action": {
+        "after_fingerprint": "f53dc81ab1d61e45e18730efdde28fc80ce030ec1833cc5b6fe35c16b6d1622b",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 5
+        },
+        "geometry": {
+          "king_line_membership_units": 0,
+          "king_piece_count": 0,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 4,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "d4-c5",
+        "rank": 2,
+        "score_delta": -6,
+        "search_value": -711.0,
+        "value_gap_from_best": 603.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": -2,
+        "occupied_unretired_lines": -2,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": false,
+      "participant": "A",
+      "root_action_count": 3,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "f53dc81ab1d61e45e18730efdde28fc80ce030ec1833cc5b6fe35c16b6d1622b",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 5
+        },
+        "geometry": {
+          "king_line_membership_units": 0,
+          "king_piece_count": 0,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 4,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "d4-c5",
+        "rank": 2,
+        "score_delta": -6,
+        "search_value": -711.0,
+        "value_gap_from_best": 603.0
+      },
+      "set_sequence": 2,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "69a6275126ee7451452600e4223a25875c126019e698e6aabdabb174044ba7fb",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 5
+          },
+          "geometry": {
+            "king_line_membership_units": 0,
+            "king_piece_count": 0,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 7,
+            "occupied_unretired_lines": 6,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "d4-e5",
+          "rank": 1,
+          "score_delta": -4,
+          "search_value": -108.0,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "f53dc81ab1d61e45e18730efdde28fc80ce030ec1833cc5b6fe35c16b6d1622b",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 5
+          },
+          "geometry": {
+            "king_line_membership_units": 0,
+            "king_piece_count": 0,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "d4-c5",
+          "rank": 2,
+          "score_delta": -6,
+          "search_value": -711.0,
+          "value_gap_from_best": 603.0
+        },
+        {
+          "after_fingerprint": "e96c1e628e6ef2be0a7e07382bf933795a497ca70e4b9a58332c2005494e8f1f",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 8
+          },
+          "geometry": {
+            "king_line_membership_units": 0,
+            "king_piece_count": 0,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 4,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "b4-c5",
+          "rank": 3,
+          "score_delta": -1,
+          "search_value": -2819.285714285714,
+          "value_gap_from_best": 2711.285714285714
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "b45886e1f221336e9ffb44c750cc0e12d8bc7516c9e799b1fb95492af2ede61b",
+        "capture_exposure": {
+          "capture_option_count": 3,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 11
+        },
+        "geometry": {
+          "king_line_membership_units": 4,
+          "king_piece_count": 2,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 1,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 7
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "b2-c3",
+        "rank": 1,
+        "score_delta": 1,
+        "search_value": 3724.5714285714284,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "observed_reply": "e5xc7xa5",
+        "observed_reply_capture_legs": 2,
+        "observed_reply_capture_points": 11,
+        "recognized_pattern": "compound-capture exposure"
+      },
+      "bucket": "human-tactical-error",
+      "clsn": "CLSN1|g=1|r=candidate|t=W|b=12,11|q=-|o=0|e=-|p=b2:W1,b6:W4K,d4:B6,d6:W3,e5:B3K,f6:W2K|mw=b6.d6.f6:4.3.2:15:0|mb=-|cw=2:2,3:2,4:2|cb=-",
+      "color": "W",
+      "controller": "human",
+      "fingerprint": "29f1566b2b9ca4e074a9ec0c256ef0626fb72734953c1f4a731ec496a09f7cd0",
+      "fixture_id": "tactical-double-jump-07",
+      "game_number": 1,
+      "move_index": 55,
+      "observed_action": {
+        "after_fingerprint": "f1e2e7bf90c2fe4b346d3d625973aacf5f340c8d882f6d8230c926b2337672bb",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 11
+        },
+        "geometry": {
+          "king_line_membership_units": 4,
+          "king_piece_count": 2,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 1,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 7
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "f6-g5",
+        "rank": 7,
+        "score_delta": 1,
+        "search_value": 2000.0,
+        "value_gap_from_best": 1724.5714285714284
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 0,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": false,
+      "observed_matches_ai_best": false,
+      "participant": "A",
+      "root_action_count": 11,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "42b75524f035a7dbbb90ee290aa8e7fa20c81aeae391d3a770b9657ce60c2491",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 1,
+          "max_reply_capture_points": 4
+        },
+        "geometry": {
+          "king_line_membership_units": 2,
+          "king_piece_count": 2,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 3,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 1,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 7
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "b6-c7",
+        "rank": 5,
+        "score_delta": -6,
+        "search_value": 2214.8571428571427,
+        "value_gap_from_best": 1509.7142857142858
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "b45886e1f221336e9ffb44c750cc0e12d8bc7516c9e799b1fb95492af2ede61b",
+          "capture_exposure": {
+            "capture_option_count": 3,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 11
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "b2-c3",
+          "rank": 1,
+          "score_delta": 1,
+          "search_value": 3724.5714285714284,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "faa94fc3e635a82c0088f966e4879d4296d3f7d358fca914e8842c6fe9b031d2",
+          "capture_exposure": {
+            "capture_option_count": 2,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 4
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "b6-c5",
+          "rank": 2,
+          "score_delta": -5,
+          "search_value": 2815.4285714285716,
+          "value_gap_from_best": 909.1428571428569
+        },
+        {
+          "after_fingerprint": "0117dc95c1419f0651f2994bdc82f98ea726bd40d946011ceca6767863c6f046",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 4
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 4,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "d6-c7",
+          "rank": 3,
+          "score_delta": 1,
+          "search_value": 2422.714285714286,
+          "value_gap_from_best": 1301.8571428571427
+        },
+        {
+          "after_fingerprint": "74687c9a3aa342603bd028e1e15d2cc410df72e0be3ed74e05f61b77e9a29c8c",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 4
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 4,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "d6-e7",
+          "rank": 4,
+          "score_delta": 1,
+          "search_value": 2422.714285714286,
+          "value_gap_from_best": 1301.8571428571427
+        },
+        {
+          "after_fingerprint": "42b75524f035a7dbbb90ee290aa8e7fa20c81aeae391d3a770b9657ce60c2491",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 4
+          },
+          "geometry": {
+            "king_line_membership_units": 2,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 3,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "b6-c7",
+          "rank": 5,
+          "score_delta": -6,
+          "search_value": 2214.8571428571427,
+          "value_gap_from_best": 1509.7142857142858
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "a771970d9d5ff06956ac3f55a38e64ce2456935dd4a33f2b5bb8532c20eaafe5",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 0,
+          "king_piece_count": 0,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 8,
+          "occupied_unretired_lines": 6,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "b5-c6",
+        "rank": 1,
+        "score_delta": 1,
+        "search_value": 793.4285714285714,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "target_line": [
+          "c6",
+          "b5",
+          "c4"
+        ],
+        "target_points": 15,
+        "target_royal": false,
+        "target_score_action": "d7-c6",
+        "target_score_move_index": 39
+      },
+      "bucket": "bot-crownline-construction",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,2|q=-|o=0|e=-|p=a6:B5,a8:B1,b5:W3,c4:W6,c8:B2,d1:B3K,d7:W4,e6:W5,f1:B6K,g4:B4,h1:W1|mw=-|mb=-|cw=-|cb=-",
+      "color": "W",
+      "controller": "computer",
+      "fingerprint": "af7be6455a88a5bbd629846fa787714620becc84328231249c05f44bd6505bd3",
+      "fixture_id": "bot-build-s3-g2-score39",
+      "game_number": 2,
+      "move_index": 35,
+      "observed_action": {
+        "after_fingerprint": "e4de8fbea01142a8832d1756262b42d1bd9e370928db3eba6d03b4c15f4fab45",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 0,
+          "king_piece_count": 1,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 7,
+          "occupied_unretired_lines": 6,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "d7-e8",
+        "rank": 2,
+        "score_delta": -1,
+        "search_value": 689.0,
+        "value_gap_from_best": 104.42857142857144
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": -1,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": -1
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": false,
+      "participant": "B",
+      "root_action_count": 5,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "a771970d9d5ff06956ac3f55a38e64ce2456935dd4a33f2b5bb8532c20eaafe5",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 0,
+          "king_piece_count": 0,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 8,
+          "occupied_unretired_lines": 6,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "b5-c6",
+        "rank": 1,
+        "score_delta": 1,
+        "search_value": 793.4285714285714,
+        "value_gap_from_best": 0.0
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T14-05-50-636Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "a771970d9d5ff06956ac3f55a38e64ce2456935dd4a33f2b5bb8532c20eaafe5",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 0,
+            "king_piece_count": 0,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 8,
+            "occupied_unretired_lines": 6,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "b5-c6",
+          "rank": 1,
+          "score_delta": 1,
+          "search_value": 793.4285714285714,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "e4de8fbea01142a8832d1756262b42d1bd9e370928db3eba6d03b4c15f4fab45",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 0,
+            "king_piece_count": 1,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 7,
+            "occupied_unretired_lines": 6,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "d7-e8",
+          "rank": 2,
+          "score_delta": -1,
+          "search_value": 689.0,
+          "value_gap_from_best": 104.42857142857144
+        },
+        {
+          "after_fingerprint": "8559bfe430c54845b145483f2b82d794c7013c7a933688f3cc49ecb4a215ed8a",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 1
+          },
+          "geometry": {
+            "king_line_membership_units": 0,
+            "king_piece_count": 0,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 7,
+            "occupied_unretired_lines": 6,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "h1-g2",
+          "rank": 3,
+          "score_delta": 1,
+          "search_value": 491.57142857142856,
+          "value_gap_from_best": 301.8571428571429
+        },
+        {
+          "after_fingerprint": "0f0c1826cafc2dce2902a6e912a8da3152bc8f84b8d94062b6950a08dc2d8fbf",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 3
+          },
+          "geometry": {
+            "king_line_membership_units": 0,
+            "king_piece_count": 0,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 8,
+            "occupied_unretired_lines": 6,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c4-d5",
+          "rank": 4,
+          "score_delta": -3,
+          "search_value": -518.5714285714286,
+          "value_gap_from_best": 1312.0
+        },
+        {
+          "after_fingerprint": "0aa42c472c675832dc810ce79516dca28cea9ce6610713123fa40da105f6f30f",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 4
+          },
+          "geometry": {
+            "king_line_membership_units": 0,
+            "king_piece_count": 0,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e6-f7",
+          "rank": 5,
+          "score_delta": -7,
+          "search_value": -1220.4285714285713,
+          "value_gap_from_best": 2013.8571428571427
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "bfaf998f5d8646af031c98b18b806f41cc44d246f2b03a429f79d79a5f7e3059",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 4,
+          "king_piece_count": 1,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 8,
+          "occupied_unretired_lines": 6,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 0,
+          "scored_lines": 1,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 7
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c6-d7",
+        "rank": 1,
+        "score_delta": -2,
+        "search_value": 2796.1428571428573,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "target_line": [
+          "e6",
+          "d5",
+          "e4"
+        ],
+        "target_points": 15,
+        "target_royal": false,
+        "target_score_action": "c4-d5",
+        "target_score_move_index": 49
+      },
+      "bucket": "bot-crownline-construction",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,2|q=-|o=0|e=-|p=a6:B5,a8:B1,b3:B3K,c4:W6,c6:W3,c8:B2,d1:B4K,d5:W4K,e6:W5,f1:B6K,h1:W1|mw=c6.b5.c4:4.3.6:15:0|mb=-|cw=3:1,4:1,6:1|cb=-",
+      "color": "W",
+      "controller": "computer",
+      "fingerprint": "47db9ae92183c4709f81bba764ddbb3231793b159fe46d254e7d6a1e8af22d6c",
+      "fixture_id": "bot-build-s3-g2-score49",
+      "game_number": 2,
+      "move_index": 45,
+      "observed_action": {
+        "after_fingerprint": "bfaf998f5d8646af031c98b18b806f41cc44d246f2b03a429f79d79a5f7e3059",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 4,
+          "king_piece_count": 1,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 8,
+          "occupied_unretired_lines": 6,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 0,
+          "scored_lines": 1,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 7
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c6-d7",
+        "rank": 1,
+        "score_delta": -2,
+        "search_value": 2796.1428571428573,
+        "value_gap_from_best": 0.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 0,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": true,
+      "participant": "B",
+      "root_action_count": 7,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "bfaf998f5d8646af031c98b18b806f41cc44d246f2b03a429f79d79a5f7e3059",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 4,
+          "king_piece_count": 1,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 8,
+          "occupied_unretired_lines": 6,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 0,
+          "scored_lines": 1,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 7
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c6-d7",
+        "rank": 1,
+        "score_delta": -2,
+        "search_value": 2796.1428571428573,
+        "value_gap_from_best": 0.0
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T14-05-50-636Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "bfaf998f5d8646af031c98b18b806f41cc44d246f2b03a429f79d79a5f7e3059",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 1,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 8,
+            "occupied_unretired_lines": 6,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 0,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c6-d7",
+          "rank": 1,
+          "score_delta": -2,
+          "search_value": 2796.1428571428573,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "065b55ed6a4fdaf5be9d120213f22f02049cb770eacb085de985b39755d3745e",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 1
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 1,
+            "king_supported_two_of_three_lines": 3,
+            "line_membership_units": 10,
+            "occupied_unretired_lines": 6,
+            "ready_king_supported_two_of_three_lines": 3,
+            "royal_lines": 0,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 4,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "h1-g2",
+          "rank": 2,
+          "score_delta": 1,
+          "search_value": 2404.1428571428573,
+          "value_gap_from_best": 392.0
+        },
+        {
+          "after_fingerprint": "9505b9230c1cc279c2f52c29af4c4a1902e818492e04216b59bd96dc3ebc35e8",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 1,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 8,
+            "occupied_unretired_lines": 6,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 0,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e6-f7",
+          "rank": 3,
+          "score_delta": -7,
+          "search_value": 2198.0,
+          "value_gap_from_best": 598.1428571428573
+        },
+        {
+          "after_fingerprint": "f7279d213e2c8df71d4fcb7ad09601d7865516cf79187d908b5a0d1f409bbcaf",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 5
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 1,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 8,
+            "occupied_unretired_lines": 6,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 0,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e6-d7",
+          "rank": 4,
+          "score_delta": -7,
+          "search_value": 1586.5714285714287,
+          "value_gap_from_best": 1209.5714285714287
+        },
+        {
+          "after_fingerprint": "3e1108295a86c180d5099b66d7f07316219bdd44be2b47172259ea6fc16a34f6",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 6
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 1,
+            "king_supported_two_of_three_lines": 3,
+            "line_membership_units": 9,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 3,
+            "royal_lines": 0,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 4,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c4-b5",
+          "rank": 5,
+          "score_delta": -5,
+          "search_value": 1187.0,
+          "value_gap_from_best": 1609.1428571428573
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "fae380ccf3021be3df7f83d5b021ea6a399de5986db669a0f124a109e3d8a7f8",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 3,
+          "king_piece_count": 2,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 7,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 0,
+          "scored_lines": 2,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 6
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "f5-g6",
+        "rank": 1,
+        "score_delta": -5,
+        "search_value": 4308.571428571428,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "target_line": [
+          "g6",
+          "e6",
+          "c6"
+        ],
+        "target_points": 15,
+        "target_royal": false,
+        "target_score_action": "d7-c6",
+        "target_score_move_index": 59
+      },
+      "bucket": "bot-crownline-construction",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,2|q=-|o=0|e=-|p=a4:B5,a8:B1,c4:B3K,c8:B2,d1:B4K,d5:W6,e6:W5,e8:W3K,f1:B6K,f5:W4K,h1:W1|mw=c6.b5.c4:4.3.6:15:0,e6.d5.e4:5.6.4:15:0|mb=-|cw=4:1,5:1,6:1|cb=-",
+      "color": "W",
+      "controller": "computer",
+      "fingerprint": "446f3a43058d2a3186ed8f99fe0941b14a596dfa8011a60b1d4f6550b6650666",
+      "fixture_id": "bot-build-s3-g2-score59",
+      "game_number": 2,
+      "move_index": 55,
+      "observed_action": {
+        "after_fingerprint": "fae380ccf3021be3df7f83d5b021ea6a399de5986db669a0f124a109e3d8a7f8",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 3,
+          "king_piece_count": 2,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 7,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 0,
+          "scored_lines": 2,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 6
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "f5-g6",
+        "rank": 1,
+        "score_delta": -5,
+        "search_value": 4308.571428571428,
+        "value_gap_from_best": 0.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 0,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": true,
+      "participant": "B",
+      "root_action_count": 9,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "bd7f98bcfe365d408056fb3b13615a8e8f72534959e3bf81014d4b36e38e737e",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 2,
+          "king_piece_count": 2,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 4,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 2,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 6
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "d5-c6",
+        "rank": 8,
+        "score_delta": -1,
+        "search_value": 2907.4285714285716,
+        "value_gap_from_best": 1401.1428571428569
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T14-05-50-636Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "fae380ccf3021be3df7f83d5b021ea6a399de5986db669a0f124a109e3d8a7f8",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 7,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 0,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "f5-g6",
+          "rank": 1,
+          "score_delta": -5,
+          "search_value": 4308.571428571428,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "4e59dbd006c5c708e2b0e458cc864fa7b0de31b85b4d185e2ced934eb85ffae5",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 2,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 6,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 0,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e8-d7",
+          "rank": 2,
+          "score_delta": 1,
+          "search_value": 3700.1428571428573,
+          "value_gap_from_best": 608.4285714285711
+        },
+        {
+          "after_fingerprint": "b34f5266055992d8d25ee7d503d67bb6f69fd5b898f5e667a5ee518967a68543",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 7,
+            "occupied_unretired_lines": 6,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 0,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "f5-g4",
+          "rank": 3,
+          "score_delta": -1,
+          "search_value": 3401.5714285714284,
+          "value_gap_from_best": 907.0
+        },
+        {
+          "after_fingerprint": "eb571067e90268ec3690207f7073f8a13783beb81dbf44ab421c9fee872981aa",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 1,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "f5-e4",
+          "rank": 4,
+          "score_delta": -6,
+          "search_value": 3400.1428571428573,
+          "value_gap_from_best": 908.4285714285711
+        },
+        {
+          "after_fingerprint": "2b278dc948e80eec30451d6fcb558c25cea079acce3a25a16696b9d7ad9cd7b6",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 1
+          },
+          "geometry": {
+            "king_line_membership_units": 2,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 6,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 0,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "h1-g2",
+          "rank": 5,
+          "score_delta": 1,
+          "search_value": 3203.1428571428573,
+          "value_gap_from_best": 1105.428571428571
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "bf5ac2b1bb1b3d077b77625995143d246abf8e24c82666d298507e756dcb443c",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 4,
+          "king_piece_count": 2,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 7,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 3,
+          "three_owned_unretired_lines": 1,
+          "two_of_three_lines": 0,
+          "unretired_lines": 5
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "f5-g4",
+        "rank": 1,
+        "score_delta": -1,
+        "search_value": 5404.428571428572,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "target_line": [
+          "c6",
+          "d5",
+          "g4"
+        ],
+        "target_points": 15,
+        "target_royal": false,
+        "target_score_action": "b5-c6",
+        "target_score_move_index": 67
+      },
+      "bucket": "bot-crownline-construction",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=0,2|q=-|o=0|e=-|p=a8:B1,b1:B5K,b7:B2,c4:B3K,c6:W3K,d1:B4K,d5:W6,e6:W5,f1:B6K,f5:W4K,h1:W1|mw=c6.b5.c4:4.3.6:15:0,e6.d5.e4:5.6.4:15:0,g6.e6.c6:4.5.3:15:0|mb=-|cw=3:2,4:2,5:2|cb=-",
+      "color": "W",
+      "controller": "computer",
+      "fingerprint": "869b46791f30d3e202dca308f67d414123828c806abd708c34905dc4fe58eba0",
+      "fixture_id": "bot-build-s3-g2-score67",
+      "game_number": 2,
+      "move_index": 63,
+      "observed_action": {
+        "after_fingerprint": "bf5ac2b1bb1b3d077b77625995143d246abf8e24c82666d298507e756dcb443c",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 4,
+          "king_piece_count": 2,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 7,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 3,
+          "three_owned_unretired_lines": 1,
+          "two_of_three_lines": 0,
+          "unretired_lines": 5
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "f5-g4",
+        "rank": 1,
+        "score_delta": -1,
+        "search_value": 5404.428571428572,
+        "value_gap_from_best": 0.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 0,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": true,
+      "participant": "B",
+      "root_action_count": 8,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "0ee2aa7014611ad07c1abcd6d1333355e5bb3a53982ff96e01105b34576ff88c",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 2,
+          "king_piece_count": 2,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 4,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 3,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 5
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c6-d7",
+        "rank": 2,
+        "score_delta": -2,
+        "search_value": 5403.0,
+        "value_gap_from_best": 1.4285714285715585
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T14-05-50-636Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "bf5ac2b1bb1b3d077b77625995143d246abf8e24c82666d298507e756dcb443c",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 7,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 3,
+            "three_owned_unretired_lines": 1,
+            "two_of_three_lines": 0,
+            "unretired_lines": 5
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "f5-g4",
+          "rank": 1,
+          "score_delta": -1,
+          "search_value": 5404.428571428572,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "0ee2aa7014611ad07c1abcd6d1333355e5bb3a53982ff96e01105b34576ff88c",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 2,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 3,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 5
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c6-d7",
+          "rank": 2,
+          "score_delta": -2,
+          "search_value": 5403.0,
+          "value_gap_from_best": 1.4285714285715585
+        },
+        {
+          "after_fingerprint": "aea4583ff6a6fe6e32a3752969089fc4ba7234cf09f59e58837429a073dd5f53",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 2,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 3,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 5
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "f5-e4",
+          "rank": 3,
+          "score_delta": -6,
+          "search_value": 5403.0,
+          "value_gap_from_best": 1.4285714285715585
+        },
+        {
+          "after_fingerprint": "2cffe44958bdc04b341e94e92f5a1e11786d3d80e9f0f8eab57112124220c854",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 6,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 3,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 5
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "f5-g6",
+          "rank": 4,
+          "score_delta": -5,
+          "search_value": 5403.0,
+          "value_gap_from_best": 1.4285714285715585
+        },
+        {
+          "after_fingerprint": "b426271330c646e6f5e2ea7f202fd59bafc1dff1a1672c47c5f85817953e56e9",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 6
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 2,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 6,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 3,
+            "three_owned_unretired_lines": 1,
+            "two_of_three_lines": 0,
+            "unretired_lines": 5
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c6-b5",
+          "rank": 5,
+          "score_delta": -1,
+          "search_value": 5098.857142857143,
+          "value_gap_from_best": 305.57142857142844
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "23497d2ce1ae03ee18c91ef3801dd88c853c536a994292579e6bc0808e77707e",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 5,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 4,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c4-d3",
+        "rank": 1,
+        "score_delta": -5,
+        "search_value": -8645.857142857143,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "target_line": [
+          "e6",
+          "d5",
+          "e4"
+        ],
+        "target_points": 30,
+        "target_royal": true,
+        "target_score_action": "c4-d5",
+        "target_score_move_index": 125
+      },
+      "bucket": "bot-crownline-construction",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=10,12|q=-|o=0|e=-|p=a4:B3K,a6:B5,c4:W4K,c6:W3K,e6:W2K,f3:B6K,g6:B1K|mw=-|mb=c6.b5.c4:1.3.4:15:0,c6.d5.g4:2.6.1:15:0,f5.d5.b5:1.6.3:30:1,g4.e4.c4:1.6.4:30:1|cw=-|cb=-",
+      "color": "W",
+      "controller": "computer",
+      "fingerprint": "e96574ad28c0bde81b7ab2888722e378159bad1e5c621c3d7521f220fe092d69",
+      "fixture_id": "bot-build-s1-g2-score125",
+      "game_number": 2,
+      "move_index": 121,
+      "observed_action": {
+        "after_fingerprint": "d204661f309d4331418d1b821b9d0bd6433e16af5c4554bf3e31ba7c8d217236",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 9,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 9,
+          "occupied_unretired_lines": 7,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c6-d5",
+        "rank": 4,
+        "score_delta": 1,
+        "search_value": -8645.857142857143,
+        "value_gap_from_best": 0.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 4,
+        "king_supported_two_of_three_lines": 1,
+        "line_membership_units": 4,
+        "occupied_unretired_lines": 3,
+        "ready_king_supported_two_of_three_lines": 1,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 1
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": false,
+      "participant": "B",
+      "root_action_count": 12,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "23497d2ce1ae03ee18c91ef3801dd88c853c536a994292579e6bc0808e77707e",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 5,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 4,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c4-d3",
+        "rank": 1,
+        "score_delta": -5,
+        "search_value": -8645.857142857143,
+        "value_gap_from_best": 0.0
+      },
+      "set_sequence": 1,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "23497d2ce1ae03ee18c91ef3801dd88c853c536a994292579e6bc0808e77707e",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 5,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c4-d3",
+          "rank": 1,
+          "score_delta": -5,
+          "search_value": -8645.857142857143,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "868a0d022ad78a4724506dc7b9415890d77f2cac753515c9dd31ad18466cdcd5",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 9,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 3,
+            "line_membership_units": 9,
+            "occupied_unretired_lines": 6,
+            "ready_king_supported_two_of_three_lines": 3,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 3,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c4-d5",
+          "rank": 2,
+          "score_delta": -3,
+          "search_value": -8645.857142857143,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "92299925f3719fdc536a8ad41038511e5c47497629c2133f16e39c368688256f",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 5,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c6-b7",
+          "rank": 3,
+          "score_delta": -2,
+          "search_value": -8645.857142857143,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "d204661f309d4331418d1b821b9d0bd6433e16af5c4554bf3e31ba7c8d217236",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 9,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 9,
+            "occupied_unretired_lines": 7,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c6-d5",
+          "rank": 4,
+          "score_delta": 1,
+          "search_value": -8645.857142857143,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "93d37c97ede69013945143287d4a25d13cde33cdff45cf55e6d10f0f769c3eac",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 5,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c6-d7",
+          "rank": 5,
+          "score_delta": -2,
+          "search_value": -8645.857142857143,
+          "value_gap_from_best": 0.0
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "098c44a5877646ea372c97f89551d41013ed0ae6f9af77c7ae3402f402256c1c",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 6,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 6,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 1,
+          "scored_lines": 1,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 7
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "g6-f5",
+        "rank": 1,
+        "score_delta": 5,
+        "search_value": -5142.0,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "target_line": [
+          "g6",
+          "e6",
+          "c6"
+        ],
+        "target_points": 30,
+        "target_royal": true,
+        "target_score_action": "d5-c6",
+        "target_score_move_index": 187
+      },
+      "bucket": "bot-crownline-construction",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=10,12|q=-|o=0|e=-|p=a4:B3K,b5:B5K,c2:B1K,d5:W4K,e6:W2K,g6:W3K,h3:B6K|mw=e6.d5.e4:2.4.3:30:1|mb=c6.b5.c4:1.3.4:15:0,c6.d5.g4:2.6.1:15:0,f5.d5.b5:1.6.3:30:1,g4.e4.c4:1.6.4:30:1|cw=-|cb=-",
+      "color": "W",
+      "controller": "computer",
+      "fingerprint": "0a1986554c8f3228b81aa90ed5b6fa9e0b2ef7a433f590e1078d70003df83791",
+      "fixture_id": "bot-build-s1-g2-score187",
+      "game_number": 2,
+      "move_index": 183,
+      "observed_action": {
+        "after_fingerprint": "098c44a5877646ea372c97f89551d41013ed0ae6f9af77c7ae3402f402256c1c",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 6,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 6,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 1,
+          "scored_lines": 1,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 7
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "g6-f5",
+        "rank": 1,
+        "score_delta": 5,
+        "search_value": -5142.0,
+        "value_gap_from_best": 0.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 0,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": true,
+      "participant": "B",
+      "root_action_count": 10,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "47d2f5e10455a718a9b818a1c07b6bdae324b31301a6ea6e6b0ac2c094a1ae25",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 5,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 4,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 1,
+          "scored_lines": 1,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 7
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "d5-e4",
+        "rank": 6,
+        "score_delta": -4,
+        "search_value": -6146.0,
+        "value_gap_from_best": 1004.0
+      },
+      "set_sequence": 1,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "098c44a5877646ea372c97f89551d41013ed0ae6f9af77c7ae3402f402256c1c",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 6,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 6,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 1,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g6-f5",
+          "rank": 1,
+          "score_delta": 5,
+          "search_value": -5142.0,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "faf3fca55d777b310c22dbeb1a7cdbd7da20a08e533f4127dc420a66554a7bd6",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 4,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 1,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g6-h5",
+          "rank": 2,
+          "score_delta": 2,
+          "search_value": -5442.0,
+          "value_gap_from_best": 300.0
+        },
+        {
+          "after_fingerprint": "e7282b50867620e8a675045b04a529ca468bb1bb08dc0ba82e3a3242af7bcbf9",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 8,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 3,
+            "line_membership_units": 8,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 3,
+            "royal_lines": 1,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 3,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e6-f5",
+          "rank": 3,
+          "score_delta": -2,
+          "search_value": -5744.0,
+          "value_gap_from_best": 602.0
+        },
+        {
+          "after_fingerprint": "da21b124b66f8a58792b4a22faff34bda48da67b50e6b38cbfb948abb60433b4",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 4,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 1,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g6-f7",
+          "rank": 4,
+          "score_delta": 0,
+          "search_value": -5846.0,
+          "value_gap_from_best": 704.0
+        },
+        {
+          "after_fingerprint": "df356624549df49e5067313bdcffc7f8e0decd4eb58a91a87a8018dc964ff208",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 4,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 1,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g6-h7",
+          "rank": 5,
+          "score_delta": 0,
+          "search_value": -5846.0,
+          "value_gap_from_best": 704.0
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "2b7942011b5369dded1186fa5e70b316e1dc3af950b53f8fb2ce856c18b1ab92",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 6,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 6,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 2,
+          "scored_lines": 2,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 6
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "f5-g4",
+        "rank": 1,
+        "score_delta": -1,
+        "search_value": -2136.0,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "target_line": [
+          "c6",
+          "d5",
+          "g4"
+        ],
+        "target_points": 30,
+        "target_royal": true,
+        "target_score_action": "d7-c6",
+        "target_score_move_index": 217
+      },
+      "bucket": "bot-crownline-construction",
+      "clsn": "CLSN1|g=2|r=candidate|t=W|b=10,12|q=-|o=0|e=-|p=a4:B3K,a6:B1K,b7:B5K,c2:B6K,d5:W4K,e6:W2K,f5:W3K|mw=e6.d5.e4:2.4.3:30:1,g6.e6.c6:3.2.4:30:1|mb=c6.b5.c4:1.3.4:15:0,c6.d5.g4:2.6.1:15:0,f5.d5.b5:1.6.3:30:1,g4.e4.c4:1.6.4:30:1|cw=-|cb=-",
+      "color": "W",
+      "controller": "computer",
+      "fingerprint": "bf1c634d3ed96f582dfad4d6f37d7006ea5e5ac0a55d9a4c13fe06cb496ebc5d",
+      "fixture_id": "bot-build-s1-g2-score217",
+      "game_number": 2,
+      "move_index": 213,
+      "observed_action": {
+        "after_fingerprint": "2b7942011b5369dded1186fa5e70b316e1dc3af950b53f8fb2ce856c18b1ab92",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 6,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 6,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 2,
+          "scored_lines": 2,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 6
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "f5-g4",
+        "rank": 1,
+        "score_delta": -1,
+        "search_value": -2136.0,
+        "value_gap_from_best": 0.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 0,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": true,
+      "participant": "B",
+      "root_action_count": 8,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "5f3db3629ab379ab165fbd9ee251c7b52f11f469cd4bee916bbe33510f05f9c9",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 5,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 2,
+          "scored_lines": 2,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 6
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "d5-c4",
+        "rank": 2,
+        "score_delta": 3,
+        "search_value": -2238.0,
+        "value_gap_from_best": 102.0
+      },
+      "set_sequence": 1,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "2b7942011b5369dded1186fa5e70b316e1dc3af950b53f8fb2ce856c18b1ab92",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 6,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 6,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 2,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "f5-g4",
+          "rank": 1,
+          "score_delta": -1,
+          "search_value": -2136.0,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "5f3db3629ab379ab165fbd9ee251c7b52f11f469cd4bee916bbe33510f05f9c9",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 5,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 2,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "d5-c4",
+          "rank": 2,
+          "score_delta": 3,
+          "search_value": -2238.0,
+          "value_gap_from_best": 102.0
+        },
+        {
+          "after_fingerprint": "586e49c9027fee43e59fe1af205835ef74db3f43a1849adead827d33031a97c7",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 4,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 2,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "f5-e4",
+          "rank": 3,
+          "score_delta": -6,
+          "search_value": -2334.0,
+          "value_gap_from_best": 198.0
+        },
+        {
+          "after_fingerprint": "dcb4d02b3e809ddcf8b070252f6db270351c4b4001a3f216fcc59aa6e364b8e1",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 5,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 2,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e6-d7",
+          "rank": 4,
+          "score_delta": -7,
+          "search_value": -2336.0,
+          "value_gap_from_best": 200.0
+        },
+        {
+          "after_fingerprint": "b40ab1cf3c835f0ee87796631c212b379f9a3506e52261739b9a61d3663b7832",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 5,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 2,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e6-f7",
+          "rank": 5,
+          "score_delta": -7,
+          "search_value": -2336.0,
+          "value_gap_from_best": 200.0
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "0df593e9b2b2a79beb23c87af3ceeda6d0ee6815918e4c8ecf8dc7c1861943e0",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 3,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 3,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c8-d7",
+        "rank": 1,
+        "score_delta": 1,
+        "search_value": 2809.714285714286,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "sweep_order": 1,
+        "target_line": [
+          "g4",
+          "e4",
+          "c4"
+        ],
+        "target_points": 30,
+        "target_royal": true,
+        "target_score_action": "b3-c4",
+        "target_score_move_index": 60
+      },
+      "bucket": "human-royal-sweep-preparation",
+      "clsn": "CLSN1|g=2|r=candidate|t=B|b=3,14|q=-|o=0|e=-|p=a6:B5,b3:B6K,c8:B2,d5:W5K,e2:B1K,f7:W2,g4:B4K|mw=-|mb=-|cw=-|cb=-",
+      "color": "B",
+      "controller": "human",
+      "fingerprint": "92c7ead0b089069ba74d82526a5b10939afd7ed5a8fe20129b24605bd9b2688b",
+      "fixture_id": "human-royal-sweep-01",
+      "game_number": 2,
+      "move_index": 56,
+      "observed_action": {
+        "after_fingerprint": "16a44f8cddee6c56cfdf4051e537eb1a30f9a453842c72d36577fdc6dd70356b",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 3,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 3,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "e2-d3",
+        "rank": 5,
+        "score_delta": 1,
+        "search_value": 2109.285714285714,
+        "value_gap_from_best": 700.4285714285716
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 0,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": false,
+      "participant": "A",
+      "root_action_count": 15,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "c60f7d56194f406697ace1be5fcbbe789fdb39d52ad423ae3d588c7289f42acd",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 3,
+          "king_piece_count": 3,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 0,
+          "scored_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 8
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "a6-b5",
+        "rank": 7,
+        "score_delta": 0,
+        "search_value": 2012.142857142857,
+        "value_gap_from_best": 797.5714285714287
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "0df593e9b2b2a79beb23c87af3ceeda6d0ee6815918e4c8ecf8dc7c1861943e0",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 3,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c8-d7",
+          "rank": 1,
+          "score_delta": 1,
+          "search_value": 2809.714285714286,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "764b25f0323a85429478ff27acb11d3991a14ded336778bab62fe03a38e4fca9",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 2,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 2,
+            "occupied_unretired_lines": 2,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g4-f5",
+          "rank": 2,
+          "score_delta": 1,
+          "search_value": 2606.8571428571427,
+          "value_gap_from_best": 202.85714285714312
+        },
+        {
+          "after_fingerprint": "51a5da643c463f4b3a65f75ab6920b439b70227eb867dfb41d8cca74d8bd0017",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 12
+          },
+          "geometry": {
+            "king_line_membership_units": 6,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 6,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "b3-c4",
+          "rank": 3,
+          "score_delta": 5,
+          "search_value": 2110.714285714286,
+          "value_gap_from_best": 699.0
+        },
+        {
+          "after_fingerprint": "15036954d8b62bc8e8adac310d67731e3b83400323425ce8ad42d7b07c72703d",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 3,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c8-b7",
+          "rank": 4,
+          "score_delta": 1,
+          "search_value": 2110.714285714286,
+          "value_gap_from_best": 699.0
+        },
+        {
+          "after_fingerprint": "16a44f8cddee6c56cfdf4051e537eb1a30f9a453842c72d36577fdc6dd70356b",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 3,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 3,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 0,
+            "scored_lines": 0,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 8
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e2-d3",
+          "rank": 5,
+          "score_delta": 1,
+          "search_value": 2109.285714285714,
+          "value_gap_from_best": 700.4285714285716
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "352299837ddeb2e0f14f7ebd23dec04974bb4b68f396d20912f2f330f7a8e08f",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 22
+        },
+        "geometry": {
+          "king_line_membership_units": 6,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 6,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 1,
+          "scored_lines": 1,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 7
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "g6-f5",
+        "rank": 1,
+        "score_delta": 5,
+        "search_value": 6934.0,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "sweep_order": 2,
+        "target_line": [
+          "g6",
+          "f5",
+          "g4"
+        ],
+        "target_points": 30,
+        "target_royal": true,
+        "target_score_action": "e4-f5",
+        "target_score_move_index": 82
+      },
+      "bucket": "human-royal-sweep-preparation",
+      "clsn": "CLSN1|g=2|r=candidate|t=B|b=3,14|q=-|o=0|e=-|p=c2:B5K,c4:B6K,c8:B2,d5:W2K,e6:W5K,g4:B4K,g6:B1K|mw=-|mb=g4.e4.c4:4.1.6:30:1|cw=-|cb=-",
+      "color": "B",
+      "controller": "human",
+      "fingerprint": "95d0ad4d9f09d3507f5c4e6a5eb24fba61098a3289ce909a64bd42d59aef7f6b",
+      "fixture_id": "human-royal-sweep-02",
+      "game_number": 2,
+      "move_index": 78,
+      "observed_action": {
+        "after_fingerprint": "84bba767063f4a14f926d52e237d7d6624cf4fe555bc708c3f2cebe50652a4f2",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 5,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 4,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 1,
+          "scored_lines": 1,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 7
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c4-d3",
+        "rank": 16,
+        "score_delta": -5,
+        "search_value": 4721.0,
+        "value_gap_from_best": 2213.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": -1,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": -1,
+        "occupied_unretired_lines": -1,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": false,
+      "participant": "A",
+      "root_action_count": 17,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "053a35c18769ecc97cb17934a7d996680f1821b530893a2b0537914d057e930d",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 7,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 7,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 1,
+          "scored_lines": 1,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 7
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c2-b3",
+        "rank": 5,
+        "score_delta": 1,
+        "search_value": 5321.0,
+        "value_gap_from_best": 1613.0
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "352299837ddeb2e0f14f7ebd23dec04974bb4b68f396d20912f2f330f7a8e08f",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 22
+          },
+          "geometry": {
+            "king_line_membership_units": 6,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 6,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 1,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g6-f5",
+          "rank": 1,
+          "score_delta": 5,
+          "search_value": 6934.0,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "9e3a7de9182f6237bcb43b6e4c1cfe48b3124b3756ebd10393901c23ddbc47a4",
+          "capture_exposure": {
+            "capture_option_count": 2,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 22
+          },
+          "geometry": {
+            "king_line_membership_units": 7,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 7,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 1,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c8-d7",
+          "rank": 2,
+          "score_delta": 1,
+          "search_value": 6136.0,
+          "value_gap_from_best": 798.0
+        },
+        {
+          "after_fingerprint": "00c20fa9a0db4c717ed99fe3905b42490ccc58f485eeaa4c691d620c1bfec7ad",
+          "capture_exposure": {
+            "capture_option_count": 2,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 22
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 4,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 1,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g6-f7",
+          "rank": 3,
+          "score_delta": 0,
+          "search_value": 6026.0,
+          "value_gap_from_best": 908.0
+        },
+        {
+          "after_fingerprint": "08dbed8359696dc33fdcbf9b02ebe3b06ea0dc13a35e59078dd1bf365c5e4eba",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 22
+          },
+          "geometry": {
+            "king_line_membership_units": 7,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 7,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 1,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c8-b7",
+          "rank": 4,
+          "score_delta": 1,
+          "search_value": 5622.428571428572,
+          "value_gap_from_best": 1311.5714285714284
+        },
+        {
+          "after_fingerprint": "053a35c18769ecc97cb17934a7d996680f1821b530893a2b0537914d057e930d",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 7,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 7,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 1,
+            "scored_lines": 1,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 7
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c2-b3",
+          "rank": 5,
+          "score_delta": 1,
+          "search_value": 5321.0,
+          "value_gap_from_best": 1613.0
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "ea7669bef699dc4810f6930b90c67736d3541db3fec964d94bccacb60cd57f68",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 5,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 2,
+          "scored_lines": 2,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 6
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c8-d7",
+        "rank": 1,
+        "score_delta": 1,
+        "search_value": 8748.285714285714,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "sweep_order": 3,
+        "target_line": [
+          "g6",
+          "e6",
+          "c6"
+        ],
+        "target_points": 30,
+        "target_royal": true,
+        "target_score_action": "d5-c6",
+        "target_score_move_index": 114
+      },
+      "bucket": "human-royal-sweep-preparation",
+      "clsn": "CLSN1|g=2|r=candidate|t=B|b=3,14|q=-|o=0|e=-|p=b3:W5K,c6:W2K,c8:B2,e4:B5K,e6:B1K,e8:B6K,g6:B4K|mw=-|mb=g4.e4.c4:4.1.6:30:1,g6.f5.g4:1.6.4:30:1|cw=-|cb=-",
+      "color": "B",
+      "controller": "human",
+      "fingerprint": "8a4414d9360e1571a1048991f91186832bf3a549d037bd95d0d5dc92f2e4b8f1",
+      "fixture_id": "human-royal-sweep-03",
+      "game_number": 2,
+      "move_index": 110,
+      "observed_action": {
+        "after_fingerprint": "ea7669bef699dc4810f6930b90c67736d3541db3fec964d94bccacb60cd57f68",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 5,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 2,
+          "scored_lines": 2,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 6
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c8-d7",
+        "rank": 1,
+        "score_delta": 1,
+        "search_value": 8748.285714285714,
+        "value_gap_from_best": 0.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 0,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": true,
+      "participant": "A",
+      "root_action_count": 16,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "ea7669bef699dc4810f6930b90c67736d3541db3fec964d94bccacb60cd57f68",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 5,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 5,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 2,
+          "scored_lines": 2,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 6
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c8-d7",
+        "rank": 1,
+        "score_delta": 1,
+        "search_value": 8748.285714285714,
+        "value_gap_from_best": 0.0
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "ea7669bef699dc4810f6930b90c67736d3541db3fec964d94bccacb60cd57f68",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 5,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 2,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c8-d7",
+          "rank": 1,
+          "score_delta": 1,
+          "search_value": 8748.285714285714,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "ac774d0cb574279b77298c1595a218a4270d7cfb3407383ea34cc61b20f557a0",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 12
+          },
+          "geometry": {
+            "king_line_membership_units": 5,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 2,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e8-d7",
+          "rank": 2,
+          "score_delta": 1,
+          "search_value": 8744.0,
+          "value_gap_from_best": 4.285714285713766
+        },
+        {
+          "after_fingerprint": "367b13dab0c21ee4e430cab1fa27a96675caa39a0542eafd5da16dd95791dd5a",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 2
+          },
+          "geometry": {
+            "king_line_membership_units": 5,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 2,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c8-b7",
+          "rank": 3,
+          "score_delta": 1,
+          "search_value": 8431.0,
+          "value_gap_from_best": 317.28571428571377
+        },
+        {
+          "after_fingerprint": "55e11099fb2f7de57ee1b0f86db7f8c3b2cefb1e494de5c87380cc59ccb82ff7",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 4,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 2,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e4-d3",
+          "rank": 4,
+          "score_delta": 2,
+          "search_value": 8430.0,
+          "value_gap_from_best": 318.28571428571377
+        },
+        {
+          "after_fingerprint": "18e4e95bf9f264fb219079ca768a83c02335450a502fe0707955b7f97ad54aad",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 4,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 2,
+            "scored_lines": 2,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 6
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g6-f5",
+          "rank": 5,
+          "score_delta": 5,
+          "search_value": 8229.0,
+          "value_gap_from_best": 519.2857142857138
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "a30361830b5fc3ff6a9a62531fcf69c33194de2fec6ec70dd5449532e7f63ba7",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 8,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 3,
+          "line_membership_units": 8,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 3,
+          "royal_lines": 3,
+          "scored_lines": 3,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 3,
+          "unretired_lines": 5
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "g6-f5",
+        "rank": 1,
+        "score_delta": 5,
+        "search_value": 14548.42857142857,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "sweep_order": 4,
+        "target_line": [
+          "e6",
+          "d5",
+          "e4"
+        ],
+        "target_points": 30,
+        "target_royal": true,
+        "target_score_action": "c6-d5",
+        "target_score_move_index": 130
+      },
+      "bucket": "human-royal-sweep-preparation",
+      "clsn": "CLSN1|g=2|r=candidate|t=B|b=3,14|q=-|o=0|e=-|p=a4:W5K,c6:B5K,d3:W2K,d5:B4K,d7:B2,e6:B1K,g6:B6K|mw=-|mb=g4.e4.c4:4.1.6:30:1,g6.e6.c6:4.1.5:30:1,g6.f5.g4:1.6.4:30:1|cw=-|cb=-",
+      "color": "B",
+      "controller": "human",
+      "fingerprint": "10b4d4304b894b721072bf59d3515339044c2021f3a36ce62922b3bd704c655d",
+      "fixture_id": "human-royal-sweep-04",
+      "game_number": 2,
+      "move_index": 126,
+      "observed_action": {
+        "after_fingerprint": "a30361830b5fc3ff6a9a62531fcf69c33194de2fec6ec70dd5449532e7f63ba7",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 8,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 3,
+          "line_membership_units": 8,
+          "occupied_unretired_lines": 5,
+          "ready_king_supported_two_of_three_lines": 3,
+          "royal_lines": 3,
+          "scored_lines": 3,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 3,
+          "unretired_lines": 5
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "g6-f5",
+        "rank": 1,
+        "score_delta": 5,
+        "search_value": 14548.42857142857,
+        "value_gap_from_best": 0.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 0,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 0,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": true,
+      "participant": "A",
+      "root_action_count": 10,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "eb46e979d8a2e092a52ac9b8abfbfaaeeffbef4485ce24eaa1327be1bdea9afc",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 6,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 2,
+          "line_membership_units": 6,
+          "occupied_unretired_lines": 4,
+          "ready_king_supported_two_of_three_lines": 2,
+          "royal_lines": 3,
+          "scored_lines": 3,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 2,
+          "unretired_lines": 5
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c6-b7",
+        "rank": 8,
+        "score_delta": -2,
+        "search_value": 11953.42857142857,
+        "value_gap_from_best": 2595.0
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "a30361830b5fc3ff6a9a62531fcf69c33194de2fec6ec70dd5449532e7f63ba7",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 8,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 3,
+            "line_membership_units": 8,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 3,
+            "royal_lines": 3,
+            "scored_lines": 3,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 3,
+            "unretired_lines": 5
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g6-f5",
+          "rank": 1,
+          "score_delta": 5,
+          "search_value": 14548.42857142857,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "daa72a5b472107052cf17676b0c8a54920a5923bae3b6554931e955cc7e97ec8",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 7,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 7,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 3,
+            "scored_lines": 3,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 5
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g6-h5",
+          "rank": 2,
+          "score_delta": 2,
+          "search_value": 14548.42857142857,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "a6fcea6af3defb587810e06f602d74ff006bc905fb812a16d7d452bd86e55cb1",
+          "capture_exposure": {
+            "capture_option_count": 2,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 18
+          },
+          "geometry": {
+            "king_line_membership_units": 8,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 3,
+            "line_membership_units": 8,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 3,
+            "royal_lines": 3,
+            "scored_lines": 3,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 3,
+            "unretired_lines": 5
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c6-b5",
+          "rank": 3,
+          "score_delta": -1,
+          "search_value": 14547.42857142857,
+          "value_gap_from_best": 1.0
+        },
+        {
+          "after_fingerprint": "a88a6759823c7d99d25105372b8dfc9441eef01e54c798826766fdccf09e6556",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 20
+          },
+          "geometry": {
+            "king_line_membership_units": 5,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 5,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 3,
+            "scored_lines": 3,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 5
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "d5-e4",
+          "rank": 4,
+          "score_delta": -4,
+          "search_value": 13848.42857142857,
+          "value_gap_from_best": 700.0
+        },
+        {
+          "after_fingerprint": "ba15f0412e20cb271decf9cbb9dc25acb04c0888dfa860a2f667e72e97b92929",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 8,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 3,
+            "line_membership_units": 8,
+            "occupied_unretired_lines": 5,
+            "ready_king_supported_two_of_three_lines": 3,
+            "royal_lines": 3,
+            "scored_lines": 3,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 3,
+            "unretired_lines": 5
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e6-f5",
+          "rank": 5,
+          "score_delta": -2,
+          "search_value": 13847.42857142857,
+          "value_gap_from_best": 701.0
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "b5b187bf4b3495d5a2a6d6f86c013973301ef6206535c6de7c82ab44266abf72",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 3,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 3,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 5,
+          "scored_lines": 5,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 3
+        },
+        "meld_bonus_delta": 30,
+        "meld_line": [
+          "c6",
+          "d5",
+          "g4"
+        ],
+        "notation": "f5-g4",
+        "rank": 1,
+        "score_delta": 29,
+        "search_value": 17869.428571428572,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "sweep_order": 5,
+        "target_line": [
+          "c6",
+          "d5",
+          "g4"
+        ],
+        "target_points": 30,
+        "target_royal": true,
+        "target_score_action": "h5-g4",
+        "target_score_move_index": 142
+      },
+      "bucket": "human-royal-sweep-preparation",
+      "clsn": "CLSN1|g=2|r=candidate|t=B|b=3,14|q=-|o=0|e=-|p=a4:W5K,b5:W2K,c6:B5K,d5:B4K,d7:B2,f5:B6K,f7:B1K|mw=-|mb=e6.d5.e4:1.5.4:30:1,g4.e4.c4:4.1.6:30:1,g6.e6.c6:4.1.5:30:1,g6.f5.g4:1.6.4:30:1|cw=-|cb=-",
+      "color": "B",
+      "controller": "human",
+      "fingerprint": "c17af9fd7264ae065a9c98de31a20078969d5e609a1442c32c99ca24a72b1412",
+      "fixture_id": "human-royal-sweep-05",
+      "game_number": 2,
+      "move_index": 138,
+      "observed_action": {
+        "after_fingerprint": "205ecbf1b7df8a88b0751698cf4f3dbc6db9dcb05c438faca57bc5414412fed1",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 7,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 3,
+          "line_membership_units": 7,
+          "occupied_unretired_lines": 4,
+          "ready_king_supported_two_of_three_lines": 3,
+          "royal_lines": 4,
+          "scored_lines": 4,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 3,
+          "unretired_lines": 4
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "f7-g6",
+        "rank": 3,
+        "score_delta": 0,
+        "search_value": 16855.428571428572,
+        "value_gap_from_best": 1014.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 4,
+        "king_supported_two_of_three_lines": 3,
+        "line_membership_units": 4,
+        "occupied_unretired_lines": 1,
+        "ready_king_supported_two_of_three_lines": 3,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 3
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": false,
+      "participant": "A",
+      "root_action_count": 13,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "bbc38ecc40c1ce4ddc1cd95d76c02f7227e143f60e44c93d4bda1b75a4e784b3",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 4,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 4,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 4,
+          "scored_lines": 4,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 4
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c6-b7",
+        "rank": 7,
+        "score_delta": -2,
+        "search_value": 14761.42857142857,
+        "value_gap_from_best": 3108.000000000002
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "b5b187bf4b3495d5a2a6d6f86c013973301ef6206535c6de7c82ab44266abf72",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 3,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 5,
+            "scored_lines": 5,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 3
+          },
+          "meld_bonus_delta": 30,
+          "meld_line": [
+            "c6",
+            "d5",
+            "g4"
+          ],
+          "notation": "f5-g4",
+          "rank": 1,
+          "score_delta": 29,
+          "search_value": 17869.428571428572,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "27a817664efd3d40362327f83e084dbc6cf07d7a49672d0e614827e3e42d319d",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 6,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 6,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 4,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "f7-e6",
+          "rank": 2,
+          "score_delta": 7,
+          "search_value": 17556.428571428572,
+          "value_gap_from_best": 313.0
+        },
+        {
+          "after_fingerprint": "205ecbf1b7df8a88b0751698cf4f3dbc6db9dcb05c438faca57bc5414412fed1",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 7,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 3,
+            "line_membership_units": 7,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 3,
+            "royal_lines": 4,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 3,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "f7-g6",
+          "rank": 3,
+          "score_delta": 0,
+          "search_value": 16855.428571428572,
+          "value_gap_from_best": 1014.0
+        },
+        {
+          "after_fingerprint": "987110fd3702fda34f2cdd8fbfa26f8a7767d7f7e11a7bdb15442e402b853b65",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 6,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 6,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 4,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "f7-e8",
+          "rank": 4,
+          "score_delta": -1,
+          "search_value": 16755.428571428572,
+          "value_gap_from_best": 1114.0
+        },
+        {
+          "after_fingerprint": "95aa92b76e8b2fd84a143e1023cb913d0e98caffc3b851daf7bf621fe14369ac",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 6,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 2,
+            "line_membership_units": 6,
+            "occupied_unretired_lines": 4,
+            "ready_king_supported_two_of_three_lines": 2,
+            "royal_lines": 4,
+            "scored_lines": 4,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 2,
+            "unretired_lines": 4
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "f7-g8",
+          "rank": 5,
+          "score_delta": -1,
+          "search_value": 16755.428571428572,
+          "value_gap_from_best": 1114.0
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "e21eb6cc2345167360511675ab0b5cadec0679e5ff2ffb8ca34fe2f5dd8e0f33",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 14
+        },
+        "geometry": {
+          "king_line_membership_units": 2,
+          "king_piece_count": 5,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 2,
+          "occupied_unretired_lines": 2,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 6,
+          "scored_lines": 6,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 2
+        },
+        "meld_bonus_delta": 30,
+        "meld_line": [
+          "g6",
+          "d5",
+          "c4"
+        ],
+        "notation": "e4-d5",
+        "rank": 1,
+        "score_delta": 34,
+        "search_value": 21573.0,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "sweep_order": 6,
+        "target_line": [
+          "g6",
+          "d5",
+          "c4"
+        ],
+        "target_points": 30,
+        "target_royal": true,
+        "target_score_action": "e6-d5",
+        "target_score_move_index": 200
+      },
+      "bucket": "human-royal-sweep-preparation",
+      "clsn": "CLSN1|g=2|r=candidate|t=B|b=3,14|q=-|o=0|e=-|p=a2:W5K,c4:B4K,c6:W2K,d3:B2K,e4:B5K,g4:B6K,g6:B1K|mw=-|mb=c6.d5.g4:5.4.1:30:1,e6.d5.e4:1.5.4:30:1,g4.e4.c4:4.1.6:30:1,g6.e6.c6:4.1.5:30:1,g6.f5.g4:1.6.4:30:1|cw=-|cb=-",
+      "color": "B",
+      "controller": "human",
+      "fingerprint": "5e0df692a8cbc0ed2b003d2b9636162489935c7f882f9b3f34081e98edf1b58e",
+      "fixture_id": "human-royal-sweep-06",
+      "game_number": 2,
+      "move_index": 196,
+      "observed_action": {
+        "after_fingerprint": "edd8a8a66da895e261560397537ac2e4313d29aa3a429f47f142568190436945",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 4,
+          "king_piece_count": 5,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 4,
+          "occupied_unretired_lines": 3,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 5,
+          "scored_lines": 5,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 3
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "g4-f5",
+        "rank": 3,
+        "score_delta": 1,
+        "search_value": 18778.0,
+        "value_gap_from_best": 2795.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 2,
+        "king_supported_two_of_three_lines": 1,
+        "line_membership_units": 2,
+        "occupied_unretired_lines": 1,
+        "ready_king_supported_two_of_three_lines": 1,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 1
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": false,
+      "participant": "A",
+      "root_action_count": 16,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "fdc0e4841e17e7126aa71b88c66eaeffbcebc81aa3d00e3520a6fa292bdf78ee",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 3,
+          "king_piece_count": 5,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 3,
+          "occupied_unretired_lines": 2,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 5,
+          "scored_lines": 5,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 3
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c4-d5",
+        "rank": 2,
+        "score_delta": -3,
+        "search_value": 20672.0,
+        "value_gap_from_best": 901.0
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "e21eb6cc2345167360511675ab0b5cadec0679e5ff2ffb8ca34fe2f5dd8e0f33",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 14
+          },
+          "geometry": {
+            "king_line_membership_units": 2,
+            "king_piece_count": 5,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 2,
+            "occupied_unretired_lines": 2,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 6,
+            "scored_lines": 6,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 2
+          },
+          "meld_bonus_delta": 30,
+          "meld_line": [
+            "g6",
+            "d5",
+            "c4"
+          ],
+          "notation": "e4-d5",
+          "rank": 1,
+          "score_delta": 34,
+          "search_value": 21573.0,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "fdc0e4841e17e7126aa71b88c66eaeffbcebc81aa3d00e3520a6fa292bdf78ee",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 5,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 3,
+            "occupied_unretired_lines": 2,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 5,
+            "scored_lines": 5,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 3
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c4-d5",
+          "rank": 2,
+          "score_delta": -3,
+          "search_value": 20672.0,
+          "value_gap_from_best": 901.0
+        },
+        {
+          "after_fingerprint": "edd8a8a66da895e261560397537ac2e4313d29aa3a429f47f142568190436945",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 4,
+            "king_piece_count": 5,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 4,
+            "occupied_unretired_lines": 3,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 5,
+            "scored_lines": 5,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 3
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g4-f5",
+          "rank": 3,
+          "score_delta": 1,
+          "search_value": 18778.0,
+          "value_gap_from_best": 2795.0
+        },
+        {
+          "after_fingerprint": "2aaafa629e04361b14c04094b57f302497c7979b8b3f04f137962b789318414a",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 5,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 3,
+            "occupied_unretired_lines": 2,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 5,
+            "scored_lines": 5,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 3
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "d3-c2",
+          "rank": 4,
+          "score_delta": -1,
+          "search_value": 18578.0,
+          "value_gap_from_best": 2995.0
+        },
+        {
+          "after_fingerprint": "6a4e1cf4b80b14126ba611e097ecce239cbc4e70e75a3204bd9529f4c7b63b77",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 5,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 3,
+            "occupied_unretired_lines": 2,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 5,
+            "scored_lines": 5,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 3
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "d3-e2",
+          "rank": 5,
+          "score_delta": -1,
+          "search_value": 18578.0,
+          "value_gap_from_best": 2995.0
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "b9c3e99ce6e32728c777c64ea2542041b7802fdef08c682f21b6fe2ee9b24ac9",
+        "capture_exposure": {
+          "capture_option_count": 2,
+          "max_reply_capture_legs": 2,
+          "max_reply_capture_points": 16
+        },
+        "geometry": {
+          "king_line_membership_units": 3,
+          "king_piece_count": 5,
+          "king_supported_two_of_three_lines": 1,
+          "line_membership_units": 3,
+          "occupied_unretired_lines": 2,
+          "ready_king_supported_two_of_three_lines": 1,
+          "royal_lines": 6,
+          "scored_lines": 6,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 1,
+          "unretired_lines": 2
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "c4-b5",
+        "rank": 1,
+        "score_delta": -5,
+        "search_value": 23080.0,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "sweep_order": 7,
+        "target_line": [
+          "c6",
+          "b5",
+          "c4"
+        ],
+        "target_points": 30,
+        "target_royal": true,
+        "target_score_action": "d5-c6",
+        "target_score_move_index": 210
+      },
+      "bucket": "human-royal-sweep-preparation",
+      "clsn": "CLSN1|g=2|r=candidate|t=B|b=3,14|q=-|o=0|e=-|p=a2:W5K,b3:B2K,c4:B4K,d5:B6K,d7:W2K,e4:B5K,g6:B1K|mw=-|mb=c6.d5.g4:5.4.1:30:1,e6.d5.e4:1.5.4:30:1,g4.e4.c4:4.1.6:30:1,g6.d5.c4:1.6.4:30:1,g6.e6.c6:4.1.5:30:1,g6.f5.g4:1.6.4:30:1|cw=-|cb=1:1,4:1,6:1",
+      "color": "B",
+      "controller": "human",
+      "fingerprint": "6ef5a60e48e7ccfc0cd09fa94c9812440c045ae62d810df91a84fff2f760ff48",
+      "fixture_id": "human-royal-sweep-07",
+      "game_number": 2,
+      "move_index": 206,
+      "observed_action": {
+        "after_fingerprint": "68bbeb7105541dbb6575404b5a5f77a0800d188bd57b1a0abc4395c84fc640c9",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 2,
+          "king_piece_count": 5,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 2,
+          "occupied_unretired_lines": 2,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 6,
+          "scored_lines": 6,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 2
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "b3-a4",
+        "rank": 8,
+        "score_delta": 1,
+        "search_value": 21086.0,
+        "value_gap_from_best": 1994.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": -1,
+        "king_supported_two_of_three_lines": -1,
+        "line_membership_units": -1,
+        "occupied_unretired_lines": 0,
+        "ready_king_supported_two_of_three_lines": -1,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": -1
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": false,
+      "participant": "A",
+      "root_action_count": 13,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "68bbeb7105541dbb6575404b5a5f77a0800d188bd57b1a0abc4395c84fc640c9",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 2,
+          "king_piece_count": 5,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 2,
+          "occupied_unretired_lines": 2,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 6,
+          "scored_lines": 6,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 2
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "b3-a4",
+        "rank": 8,
+        "score_delta": 1,
+        "search_value": 21086.0,
+        "value_gap_from_best": 1994.0
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "b9c3e99ce6e32728c777c64ea2542041b7802fdef08c682f21b6fe2ee9b24ac9",
+          "capture_exposure": {
+            "capture_option_count": 2,
+            "max_reply_capture_legs": 2,
+            "max_reply_capture_points": 16
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 5,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 3,
+            "occupied_unretired_lines": 2,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 6,
+            "scored_lines": 6,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 2
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "c4-b5",
+          "rank": 1,
+          "score_delta": -5,
+          "search_value": 23080.0,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "94f4b4e1a2e904543b760e23500ea90620519e088c5bca918430a5612a6b6605",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 5,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 3,
+            "occupied_unretired_lines": 2,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 6,
+            "scored_lines": 6,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 2
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e4-f5",
+          "rank": 2,
+          "score_delta": 6,
+          "search_value": 23080.0,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "2a6daf604353c255bb3bc766c68460702d17039f411eeb6c6b4a17bdc5446bfe",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 3,
+            "king_piece_count": 5,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 3,
+            "occupied_unretired_lines": 2,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 6,
+            "scored_lines": 6,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 2
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g6-f5",
+          "rank": 3,
+          "score_delta": 5,
+          "search_value": 22980.0,
+          "value_gap_from_best": 100.0
+        },
+        {
+          "after_fingerprint": "e246aabb8d4b378b2e65887642671764400c05e35304348f30dd983f521102da",
+          "capture_exposure": {
+            "capture_option_count": 2,
+            "max_reply_capture_legs": 3,
+            "max_reply_capture_points": 30
+          },
+          "geometry": {
+            "king_line_membership_units": 1,
+            "king_piece_count": 5,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 1,
+            "occupied_unretired_lines": 1,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 6,
+            "scored_lines": 6,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 2
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "d5-e6",
+          "rank": 4,
+          "score_delta": 4,
+          "search_value": 21473.0,
+          "value_gap_from_best": 1607.0
+        },
+        {
+          "after_fingerprint": "9ee85a9525b3c8cfd8fe4ba3a9e84dd37facaa9d1068b53b2dc58a929e525b4d",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 2,
+            "king_piece_count": 5,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 2,
+            "occupied_unretired_lines": 2,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 6,
+            "scored_lines": 6,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 2
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "e4-d3",
+          "rank": 5,
+          "score_delta": 2,
+          "search_value": 21187.0,
+          "value_gap_from_best": 1893.0
+        }
+      ]
+    },
+    {
+      "ai_best_action": {
+        "after_fingerprint": "82242fd45e876c67bc73527ee1e1b8cf9dc94be8740965513ed9053fb03c7340",
+        "capture_exposure": {
+          "capture_option_count": 1,
+          "max_reply_capture_legs": 1,
+          "max_reply_capture_points": 4
+        },
+        "geometry": {
+          "king_line_membership_units": 0,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 0,
+          "occupied_unretired_lines": 0,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 7,
+          "scored_lines": 7,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 1
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "b5-c4",
+        "rank": 1,
+        "score_delta": 5,
+        "search_value": 22972.0,
+        "value_gap_from_best": 0.0
+      },
+      "annotation": {
+        "own_turns_before_score": 2,
+        "sweep_order": 8,
+        "target_line": [
+          "f5",
+          "d5",
+          "b5"
+        ],
+        "target_points": 30,
+        "target_royal": true,
+        "target_score_action": "g6-f5",
+        "target_score_move_index": 224
+      },
+      "bucket": "human-royal-sweep-preparation",
+      "clsn": "CLSN1|g=2|r=candidate|t=B|b=11,14|q=-|o=0|e=-|p=a2:W5K,b3:W2K,b5:B2K,d7:B6K,f3:B5K,g6:B1K|mw=-|mb=c6.b5.c4:6.2.4:30:1,c6.d5.g4:5.4.1:30:1,e6.d5.e4:1.5.4:30:1,g4.e4.c4:4.1.6:30:1,g6.d5.c4:1.6.4:30:1,g6.e6.c6:4.1.5:30:1,g6.f5.g4:1.6.4:30:1|cw=-|cb=-",
+      "color": "B",
+      "controller": "human",
+      "fingerprint": "647b397bc5055daa3d2c72fc35f83fb2f22f6a3f99ed0285ac9e700c013a4897",
+      "fixture_id": "human-royal-sweep-08",
+      "game_number": 2,
+      "move_index": 220,
+      "observed_action": {
+        "after_fingerprint": "96d267e37d8f4b3764f0dc594f80a096bc134edee84ea3ac4fcb8028480b61b2",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 1,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 1,
+          "occupied_unretired_lines": 1,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 7,
+          "scored_lines": 7,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 1
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "d7-e6",
+        "rank": 2,
+        "score_delta": 7,
+        "search_value": 22972.0,
+        "value_gap_from_best": 0.0
+      },
+      "observed_geometry_minus_ai_best": {
+        "king_line_membership_units": 1,
+        "king_supported_two_of_three_lines": 0,
+        "line_membership_units": 1,
+        "occupied_unretired_lines": 1,
+        "ready_king_supported_two_of_three_lines": 0,
+        "three_owned_unretired_lines": 0,
+        "two_of_three_lines": 0
+      },
+      "observed_is_safest_immediate_capture_action": true,
+      "observed_matches_ai_best": false,
+      "participant": "A",
+      "root_action_count": 16,
+      "safest_immediate_capture_action": {
+        "after_fingerprint": "d8c9a2089466dcdd8c8da3212844c720d42d24f31f24d6ab4815ec4f9cda3047",
+        "capture_exposure": {
+          "capture_option_count": 0,
+          "max_reply_capture_legs": 0,
+          "max_reply_capture_points": 0
+        },
+        "geometry": {
+          "king_line_membership_units": 0,
+          "king_piece_count": 4,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": 0,
+          "occupied_unretired_lines": 0,
+          "ready_king_supported_two_of_three_lines": 0,
+          "royal_lines": 7,
+          "scored_lines": 7,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0,
+          "unretired_lines": 1
+        },
+        "meld_bonus_delta": 0,
+        "meld_line": null,
+        "notation": "b5-a4",
+        "rank": 14,
+        "score_delta": 1,
+        "search_value": 22170.0,
+        "value_gap_from_best": 802.0
+      },
+      "set_sequence": 3,
+      "source": "crownline-play-record-2026-08-18T16-47-30-483Z.json",
+      "top_actions": [
+        {
+          "after_fingerprint": "82242fd45e876c67bc73527ee1e1b8cf9dc94be8740965513ed9053fb03c7340",
+          "capture_exposure": {
+            "capture_option_count": 1,
+            "max_reply_capture_legs": 1,
+            "max_reply_capture_points": 4
+          },
+          "geometry": {
+            "king_line_membership_units": 0,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 0,
+            "occupied_unretired_lines": 0,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 7,
+            "scored_lines": 7,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 1
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "b5-c4",
+          "rank": 1,
+          "score_delta": 5,
+          "search_value": 22972.0,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "96d267e37d8f4b3764f0dc594f80a096bc134edee84ea3ac4fcb8028480b61b2",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 1,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 1,
+            "occupied_unretired_lines": 1,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 7,
+            "scored_lines": 7,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 1
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "d7-e6",
+          "rank": 2,
+          "score_delta": 7,
+          "search_value": 22972.0,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "1ddab5b6f7080952deeba3f2a78092385b66febdffaf98fc0bac976a7b763694",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 2,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 1,
+            "line_membership_units": 2,
+            "occupied_unretired_lines": 1,
+            "ready_king_supported_two_of_three_lines": 1,
+            "royal_lines": 7,
+            "scored_lines": 7,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 1,
+            "unretired_lines": 1
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g6-f5",
+          "rank": 3,
+          "score_delta": 5,
+          "search_value": 22972.0,
+          "value_gap_from_best": 0.0
+        },
+        {
+          "after_fingerprint": "411bee9c4bdd05484d9746bfbe0d8e38c8ba6af2bea54dfd6225fe0b120d7f9b",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 1,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 1,
+            "occupied_unretired_lines": 1,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 7,
+            "scored_lines": 7,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 1
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "f3-g4",
+          "rank": 4,
+          "score_delta": 3,
+          "search_value": 22772.0,
+          "value_gap_from_best": 200.0
+        },
+        {
+          "after_fingerprint": "60fe50f815200a63c715240d588a7f73ac094c60927194ea2559d8b39c0811a0",
+          "capture_exposure": {
+            "capture_option_count": 0,
+            "max_reply_capture_legs": 0,
+            "max_reply_capture_points": 0
+          },
+          "geometry": {
+            "king_line_membership_units": 1,
+            "king_piece_count": 4,
+            "king_supported_two_of_three_lines": 0,
+            "line_membership_units": 1,
+            "occupied_unretired_lines": 1,
+            "ready_king_supported_two_of_three_lines": 0,
+            "royal_lines": 7,
+            "scored_lines": 7,
+            "three_owned_unretired_lines": 0,
+            "two_of_three_lines": 0,
+            "unretired_lines": 1
+          },
+          "meld_bonus_delta": 0,
+          "meld_line": null,
+          "notation": "g6-h5",
+          "rank": 5,
+          "score_delta": 2,
+          "search_value": 22672.0,
+          "value_gap_from_best": 300.0
+        }
+      ]
+    }
+  ],
+  "maturity_weight": 10.0,
+  "methodology": {
+    "capture_exposure": "largest immediately legal reply capture after each root action",
+    "geometry_features": "descriptive unretired-line network proxies only; no evaluator weights changed",
+    "observed_moves_are_labels": false,
+    "search": "deterministic fixed-depth alpha-beta with promotion maturity; no repeat-history policy"
+  },
+  "rules_mode": "candidate",
+  "schema_version": 1,
+  "source_fingerprints": {
+    "bot_build_fixtures_sha256": "87f8b71c90bdc8876048f4db068c49c19be08e4b343b0141d58d0bda69bb9a74",
+    "royal_sweep_fixtures_sha256": "e53556010a70b2ee20f8c8d484a65fffadca4f8cb04081d09f8078d7b3940f8b",
+    "suite_manifest_sha256": "5e12087de71400a84c36c6d70f433ea20ea3b0ed5892b3b07b117a5d94443937",
+    "tactical_fixtures_sha256": "0e3c27151d167ce34cc6bb3206efd04dc61b9eedf40b4321d0b11161ec537fed"
+  },
+  "suite_id": "human-v0.1",
+  "summary": {
+    "bucket_counts": {
+      "bot-crownline-construction": 7,
+      "human-royal-sweep-preparation": 8,
+      "human-tactical-error": 7
+    },
+    "buckets": {
+      "bot-crownline-construction": {
+        "fixture_count": 7,
+        "mean_observed_geometry_minus_ai_best": {
+          "king_line_membership_units": 0.5714285714285714,
+          "king_supported_two_of_three_lines": 0.14285714285714285,
+          "line_membership_units": 0.42857142857142855,
+          "occupied_unretired_lines": 0.42857142857142855,
+          "ready_king_supported_two_of_three_lines": 0.14285714285714285,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0
+        },
+        "mean_observed_rank": 1.5714285714285714,
+        "mean_root_action_count": 8.428571428571429,
+        "median_observed_rank": 1,
+        "observed_matches_ai_best": 5,
+        "observed_top3": 6
+      },
+      "human-royal-sweep-preparation": {
+        "fixture_count": 8,
+        "mean_observed_geometry_minus_ai_best": {
+          "king_line_membership_units": 0.625,
+          "king_supported_two_of_three_lines": 0.375,
+          "line_membership_units": 0.625,
+          "occupied_unretired_lines": 0.25,
+          "ready_king_supported_two_of_three_lines": 0.375,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0.375
+        },
+        "mean_observed_rank": 4.875,
+        "mean_root_action_count": 14.5,
+        "median_observed_rank": 3.0,
+        "observed_matches_ai_best": 2,
+        "observed_top3": 5
+      },
+      "human-tactical-error": {
+        "fixture_count": 7,
+        "mean_observed_geometry_minus_ai_best": {
+          "king_line_membership_units": -0.14285714285714285,
+          "king_supported_two_of_three_lines": 0,
+          "line_membership_units": -0.42857142857142855,
+          "occupied_unretired_lines": -0.42857142857142855,
+          "ready_king_supported_two_of_three_lines": 0,
+          "three_owned_unretired_lines": 0,
+          "two_of_three_lines": 0
+        },
+        "mean_observed_max_reply_capture_points": 9.142857142857142,
+        "mean_observed_rank": 3.857142857142857,
+        "mean_root_action_count": 5.571428571428571,
+        "mean_safest_max_reply_capture_points": 5,
+        "median_observed_rank": 2,
+        "observed_matches_ai_best": 3,
+        "observed_safest_immediate_capture": 4,
+        "observed_top3": 4,
+        "recognized_errors_with_safer_legal_action": 3
+      }
+    },
+    "fixture_count": 22
+  }
+}
