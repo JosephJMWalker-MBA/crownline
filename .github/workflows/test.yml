@@ -37,27 +37,28 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
-      - name: Run promotion maturity trajectory benchmark
+      - name: Run 150ms promotion maturity transfer benchmark
         run: |
-          PYTHONPATH=. python experiments/benchmark_promotion_maturity_trajectory.py \
-            --depth 3 \
+          PYTHONPATH=. python experiments/benchmark_maturity_transfer_150ms.py \
+            --budget-ms 150 \
+            --max-depth 4 \
             --maturity-weight 10 \
             --max-game-plies 300 \
             --repetition-limit 3 \
-            --json benchmarks/stage3_promotion_maturity_trajectory.json
-      - name: Upload promotion maturity trajectory benchmark
+            --json benchmarks/stage3_maturity_transfer_150ms.json
+      - name: Upload 150ms promotion maturity transfer benchmark
         uses: actions/upload-artifact@v4
         with:
-          name: stage3-promotion-maturity-trajectory
-          path: benchmarks/stage3_promotion_maturity_trajectory.json
-      - name: Commit promotion maturity trajectory evidence
+          name: stage3-maturity-transfer-150ms
+          path: benchmarks/stage3_maturity_transfer_150ms.json
+      - name: Commit 150ms maturity transfer evidence
         if: github.actor != 'github-actions[bot]'
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add benchmarks/stage3_promotion_maturity_trajectory.json
+          git add benchmarks/stage3_maturity_transfer_150ms.json
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "Record promotion maturity trajectory evidence"
+          git commit -m "Record 150ms promotion maturity transfer evidence"
           git push
