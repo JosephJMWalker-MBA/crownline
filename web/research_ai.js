@@ -38,6 +38,13 @@
   });
   opponent.addEventListener('change', refreshProfileAvailability);
   rulesMode.addEventListener('change', () => setTimeout(refreshProfileAvailability, 0));
+
+  // This script is intentionally loaded as a classic script before main.js's
+  // deferred module executes. main.js restores the saved opponent mode from
+  // localStorage, which does not emit a change event. Re-check once the page is
+  // fully loaded so a previously saved Computer opponent cannot leave this
+  // selector incorrectly disabled at Baseline A.
+  window.addEventListener('load', refreshProfileAvailability, { once: true });
   refreshProfileAvailability();
 
   // main.js remains authoritative for when the computer moves. This small
