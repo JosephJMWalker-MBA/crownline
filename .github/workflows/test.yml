@@ -35,8 +35,8 @@ jobs:
             pytest -q
             echo "pytest_status=$?"
             echo '=== focused quiescence ==='
-            timeout 120s env PYTHONPATH=. python experiments/benchmark_quiescence_blame_points_only.py \
-              --qdepths 0 1 \
+            timeout 180s env PYTHONPATH=. python experiments/benchmark_quiescence_blame_points_only.py \
+              --qdepths 0 1 2 \
               --depth 3 \
               --maturity-weight 10 \
               --json benchmarks/quiescence_blame_points_only_v0_1.json
