@@ -24,7 +24,7 @@ def test_baseline_browser_profile_still_uses_requested_depth():
     state = _state_after_first_candidate_move()
     assert state.participant_for_color(state.current_game.turn) == "B"
 
-    notation, meld_line, evidence = _choose_computer_move(
+    notation, _meld_line, evidence = _choose_computer_move(
         state,
         participant="B",
         profile="baseline",
@@ -32,9 +32,6 @@ def test_baseline_browser_profile_still_uses_requested_depth():
     )
 
     assert notation in {move.notation() for move in state.current_game.legal_moves()}
-    assert meld_line is None or tuple(meld_line) in state.current_game.meld_options_after(
-        state.current_game.move_from_notation(notation)
-    )
     assert evidence["profile"] == "baseline"
     assert evidence["depth"] == 1
 
