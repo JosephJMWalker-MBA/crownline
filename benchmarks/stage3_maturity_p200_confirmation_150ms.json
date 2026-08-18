@@ -1,0 +1,2717 @@
+{
+  "budget_ms": 150.0,
+  "experiment": "stage3-p200-plus-promotion-maturity-150ms-reversed-role-confirmation",
+  "hypothesis": "The first direct 150 ms composition run favored p200+maturity w10 in all five complete scenario pairs (four wins, one draw). Reversing engine assignment to Participants A/B while retaining each scenario's normal seat-balanced legs should preserve the direction of the paired result if the advantage is not an assignment or one-run timing artifact.",
+  "matchup": {
+    "engine_a": {
+      "budget_ms": 150.0,
+      "decisions": 1141,
+      "decisions_with_repeat_candidate": 118,
+      "depth": null,
+      "maturity_weight": 10.0,
+      "max_depth": 4,
+      "mean_completed_depth": 3.283085013146363,
+      "name": "p200-maturity",
+      "participant": "A",
+      "repeat_candidates_seen": 131,
+      "repeat_penalty": 200.0,
+      "repeated_action_selected": 22,
+      "timed_out_decisions": 749,
+      "type": "RepeatAwareMaturityStructuralTTOpponent"
+    },
+    "engine_b": {
+      "budget_ms": 150.0,
+      "decisions": 1139,
+      "decisions_with_repeat_candidate": 82,
+      "depth": null,
+      "maturity_weight": 0.0,
+      "max_depth": 4,
+      "mean_completed_depth": 3.3784021071115014,
+      "name": "p200-control",
+      "participant": "B",
+      "repeat_candidates_seen": 90,
+      "repeat_penalty": 200.0,
+      "repeated_action_selected": 27,
+      "timed_out_decisions": 690,
+      "type": "RepeatAwareStructuralTTOpponent"
+    },
+    "name": "p200-plus-maturity-vs-p200-control-reversed-role-confirmation",
+    "report": {
+      "deterministic": true,
+      "engine_a": {
+        "depth": null,
+        "name": "p200-maturity",
+        "participant": "A",
+        "type": "RepeatAwareMaturityStructuralTTOpponent"
+      },
+      "engine_b": {
+        "depth": null,
+        "name": "p200-control",
+        "participant": "B",
+        "type": "RepeatAwareStructuralTTOpponent"
+      },
+      "max_game_plies": 300,
+      "repetition_limit": 3,
+      "rules_mode": "candidate",
+      "scenario_count": 8,
+      "scenarios": [
+        {
+          "description": "Untouched Game 1 starting position; control condition.",
+          "game1_clsn": "CLSN1|g=1|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a1:W1,b2:W5,b8:B4,c1:W2,d2:W6,d8:B3,e1:W3,e7:B6,f8:B2,g1:W4,g7:B5,h8:B1|mw=-|mb=-|cw=-|cb=-",
+          "game1_fingerprint": "f35b9dcab92071bf478cfe0b4cba22a7b4c0ebe320fd97db4dc0527da8dfeef0",
+          "game2_clsn": "CLSN1|g=2|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a8:B1,b1:W4,b7:B5,c8:B2,d1:W3,d7:B6,e2:W6,e8:B3,f1:W2,g2:W5,g8:B4,h1:W1|mw=-|mb=-|cw=-|cb=-",
+          "game2_fingerprint": "d833700b096c4745d4163a831bf474643914a69eed75b776d2279abc38f7dfa5",
+          "pair_complete": false,
+          "pair_winner": null,
+          "paired_margin_a_minus_b": null,
+          "scenario_id": "standard-start",
+          "sets": [
+            {
+              "aggregate_a": 0,
+              "aggregate_b": 0,
+              "capped_game": 1,
+              "complete": false,
+              "first_game_white": "A",
+              "games": [
+                {
+                  "black_participant": "B",
+                  "black_score": 47,
+                  "capture_bank_b": 10,
+                  "capture_bank_w": 4,
+                  "complete": false,
+                  "end_reason": "benchmark_repetition_detected",
+                  "game_number": 1,
+                  "melds_b": 1,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 4,
+                    "crownlines_scored": 0,
+                    "decisions": 42,
+                    "elapsed_ms": 5405.794817999999,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 152.015857,
+                    "max_search_nodes": 630,
+                    "promotions": 3,
+                    "quota_triggers": 0,
+                    "root_actions": 228,
+                    "search_nodes": 20065,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 10,
+                    "crownlines_scored": 1,
+                    "decisions": 41,
+                    "elapsed_ms": 5167.2452699999985,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.3961,
+                    "max_search_nodes": 658,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 291,
+                    "search_nodes": 19460,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 83,
+                  "repetition": {
+                    "cycle_length": 4,
+                    "cycle_moves": [
+                      {
+                        "color": "B",
+                        "meld_line": null,
+                        "notation": "c3-d2",
+                        "participant": "B",
+                        "ply": 80,
+                        "sovereign_opportunity": false,
+                        "sovereign_refusal": false,
+                        "state_after": "eb74f34028731d1482b9e421c3e5485b51dcbc1430a902c08133c07de967bed8",
+                        "state_before": "928f78730b0702f19e05f34c10e37eb8e96b7175357ae52fddd0636788d4af8f"
+                      },
+                      {
+                        "color": "W",
+                        "meld_line": null,
+                        "notation": "c7-b6",
+                        "participant": "A",
+                        "ply": 81,
+                        "sovereign_opportunity": false,
+                        "sovereign_refusal": false,
+                        "state_after": "a254c3d9dd3b11777171d9c56f33947770bc8c7db663f7a1c9be139b542957b0",
+                        "state_before": "eb74f34028731d1482b9e421c3e5485b51dcbc1430a902c08133c07de967bed8"
+                      },
+                      {
+                        "color": "B",
+                        "meld_line": null,
+                        "notation": "d2-c3",
+                        "participant": "B",
+                        "ply": 82,
+                        "sovereign_opportunity": false,
+                        "sovereign_refusal": false,
+                        "state_after": "996e51f68c145d698d43df8e332533471d6fa87a67ca7ef106e1cd8bae3d20a5",
+                        "state_before": "a254c3d9dd3b11777171d9c56f33947770bc8c7db663f7a1c9be139b542957b0"
+                      },
+                      {
+                        "color": "W",
+                        "meld_line": null,
+                        "notation": "b6-c7",
+                        "participant": "A",
+                        "ply": 83,
+                        "sovereign_opportunity": false,
+                        "sovereign_refusal": false,
+                        "state_after": "928f78730b0702f19e05f34c10e37eb8e96b7175357ae52fddd0636788d4af8f",
+                        "state_before": "996e51f68c145d698d43df8e332533471d6fa87a67ca7ef106e1cd8bae3d20a5"
+                      }
+                    ],
+                    "detected_ply": 83,
+                    "escape_action_examples": [
+                      "ply 79: c3-b2",
+                      "ply 79: c3-b4",
+                      "ply 79: c5-b4",
+                      "ply 79: c5-b6",
+                      "ply 79: c5-d6",
+                      "ply 79: d4-e3",
+                      "ply 79: g3-f2",
+                      "ply 79: g3-h2",
+                      "ply 80: a5-b4",
+                      "ply 80: a5-b6",
+                      "ply 80: a7-b6",
+                      "ply 80: a7-b8"
+                    ],
+                    "escape_actions": 26,
+                    "escape_opportunities": [
+                      {
+                        "color": "B",
+                        "escape_action_examples": [
+                          "c3-b2",
+                          "c3-b4",
+                          "c5-b4",
+                          "c5-b6",
+                          "c5-d6",
+                          "d4-e3",
+                          "g3-f2",
+                          "g3-h2"
+                        ],
+                        "escape_actions": 8,
+                        "legal_actions": 9,
+                        "participant": "B",
+                        "ply": 79
+                      },
+                      {
+                        "color": "W",
+                        "escape_action_examples": [
+                          "a5-b4",
+                          "a5-b6",
+                          "a7-b6",
+                          "a7-b8",
+                          "c7-b8",
+                          "c7-d6",
+                          "c7-d8"
+                        ],
+                        "escape_actions": 7,
+                        "legal_actions": 8,
+                        "participant": "A",
+                        "ply": 80
+                      },
+                      {
+                        "color": "B",
+                        "escape_action_examples": [
+                          "c5-b4",
+                          "c5-d6",
+                          "d2-c1",
+                          "d2-e1",
+                          "d2-e3",
+                          "d4-c3",
+                          "d4-e3",
+                          "g3-f2"
+                        ],
+                        "escape_actions": 9,
+                        "legal_actions": 10,
+                        "participant": "B",
+                        "ply": 81
+                      },
+                      {
+                        "color": "W",
+                        "escape_action_examples": [
+                          "a5-b4",
+                          "a7-b8"
+                        ],
+                        "escape_actions": 2,
+                        "legal_actions": 3,
+                        "participant": "A",
+                        "ply": 82
+                      }
+                    ],
+                    "fingerprint": "928f78730b0702f19e05f34c10e37eb8e96b7175357ae52fddd0636788d4af8f",
+                    "first_repeat_observed": {
+                      "fingerprint": "928f78730b0702f19e05f34c10e37eb8e96b7175357ae52fddd0636788d4af8f",
+                      "first_seen_ply": 75,
+                      "repeated_ply": 79
+                    },
+                    "first_repeat_ply": 79,
+                    "first_seen_ply": 75,
+                    "occurrence_count": 3,
+                    "positions_with_escape_actions": 4,
+                    "previous_seen_ply": 79,
+                    "repeated_state": {
+                      "capture_bank_b": 10,
+                      "capture_bank_w": 4,
+                      "cooldowns_b": [],
+                      "cooldowns_w": [],
+                      "end_reason": null,
+                      "game_over": false,
+                      "melds_b": [
+                        [
+                          [
+                            "b4",
+                            "d4",
+                            "f4"
+                          ],
+                          [
+                            3,
+                            1,
+                            2
+                          ],
+                          15,
+                          false
+                        ]
+                      ],
+                      "melds_w": [],
+                      "pieces": [
+                        [
+                          "a5",
+                          "W",
+                          2,
+                          true
+                        ],
+                        [
+                          "a7",
+                          "W",
+                          3,
+                          true
+                        ],
+                        [
+                          "c3",
+                          "B",
+                          2,
+                          true
+                        ],
+                        [
+                          "c5",
+                          "B",
+                          3,
+                          true
+                        ],
+                        [
+                          "c7",
+                          "W",
+                          6,
+                          true
+                        ],
+                        [
+                          "d4",
+                          "B",
+                          1,
+                          false
+                        ],
+                        [
+                          "g3",
+                          "B",
+                          6,
+                          false
+                        ],
+                        [
+                          "h4",
+                          "B",
+                          5,
+                          false
+                        ]
+                      ],
+                      "rules_mode": "candidate",
+                      "triggering_player": null,
+                      "turn": "B",
+                      "variant": 1
+                    },
+                    "sovereign_in_cycle": false,
+                    "sovereign_refusals_in_cycle": 0
+                  },
+                  "score_a": 12,
+                  "score_b": 47,
+                  "white_participant": "A",
+                  "white_score": 12,
+                  "winner": null
+                }
+              ],
+              "leg": "A-first",
+              "pair_index": 1,
+              "winner": null
+            },
+            {
+              "aggregate_a": 79,
+              "aggregate_b": 88,
+              "capped_game": null,
+              "complete": true,
+              "first_game_white": "B",
+              "games": [
+                {
+                  "black_participant": "A",
+                  "black_score": 35,
+                  "capture_bank_b": 10,
+                  "capture_bank_w": 16,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 1,
+                  "melds_w": 1,
+                  "metrics_a": {
+                    "capture_points": 10,
+                    "crownlines_scored": 1,
+                    "decisions": 59,
+                    "elapsed_ms": 7738.299882,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.933511,
+                    "max_search_nodes": 641,
+                    "promotions": 5,
+                    "quota_triggers": 0,
+                    "root_actions": 458,
+                    "search_nodes": 27477,
+                    "sovereign_opportunities": 3,
+                    "sovereign_refusals": 3
+                  },
+                  "metrics_b": {
+                    "capture_points": 16,
+                    "crownlines_scored": 1,
+                    "decisions": 59,
+                    "elapsed_ms": 7865.9554610000005,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.861283,
+                    "max_search_nodes": 655,
+                    "promotions": 3,
+                    "quota_triggers": 1,
+                    "root_actions": 368,
+                    "search_nodes": 28393,
+                    "sovereign_opportunities": 6,
+                    "sovereign_refusals": 3
+                  },
+                  "plies": 118,
+                  "repetition": null,
+                  "score_a": 35,
+                  "score_b": 59,
+                  "white_participant": "B",
+                  "white_score": 59,
+                  "winner": "B"
+                },
+                {
+                  "black_participant": "B",
+                  "black_score": 29,
+                  "capture_bank_b": 24,
+                  "capture_bank_w": 14,
+                  "complete": true,
+                  "end_reason": "immobilization",
+                  "game_number": 2,
+                  "melds_b": 0,
+                  "melds_w": 2,
+                  "metrics_a": {
+                    "capture_points": 14,
+                    "crownlines_scored": 2,
+                    "decisions": 38,
+                    "elapsed_ms": 3978.324277999999,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.359564,
+                    "max_search_nodes": 686,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 237,
+                    "search_nodes": 16134,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 24,
+                    "crownlines_scored": 0,
+                    "decisions": 38,
+                    "elapsed_ms": 3424.2323490000003,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.301371,
+                    "max_search_nodes": 727,
+                    "promotions": 2,
+                    "quota_triggers": 1,
+                    "root_actions": 180,
+                    "search_nodes": 14323,
+                    "sovereign_opportunities": 3,
+                    "sovereign_refusals": 2
+                  },
+                  "plies": 76,
+                  "repetition": null,
+                  "score_a": 44,
+                  "score_b": 29,
+                  "white_participant": "A",
+                  "white_score": 44,
+                  "winner": "A"
+                }
+              ],
+              "leg": "B-first",
+              "pair_index": 1,
+              "winner": "B"
+            }
+          ],
+          "tags": [
+            "control",
+            "early"
+          ]
+        },
+        {
+          "description": "Eight-ply prefix biased toward lower-ranked legal actions.",
+          "game1_clsn": "CLSN1|g=1|r=candidate|t=W|b=3,5|q=-|o=0|e=-|p=b2:W1,b8:B4,c1:W2,c5:B6,d2:W6,e1:W3,f8:B2,g1:W4,g7:B5,h8:B1|mw=-|mb=-|cw=-|cb=-",
+          "game1_fingerprint": "1a23f1749ad79e00c57946797f85f7d89c81d7023051cfab5ede5e94372ef568",
+          "game2_clsn": "CLSN1|g=2|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a8:B1,b5:W4,b7:B5,c4:B6,d1:W3,d7:B2,e2:W6,e8:B3,f1:W2,g2:W5,g8:B4,h1:W1|mw=-|mb=-|cw=-|cb=-",
+          "game2_fingerprint": "7f378580a3ec9d61e119e17bc4ddf505a4c6a5d9edd67c379ee70468fd839473",
+          "pair_complete": true,
+          "pair_winner": "A",
+          "paired_margin_a_minus_b": 4,
+          "scenario_id": "low-lattice",
+          "sets": [
+            {
+              "aggregate_a": 71,
+              "aggregate_b": 53,
+              "capped_game": null,
+              "complete": true,
+              "first_game_white": "A",
+              "games": [
+                {
+                  "black_participant": "B",
+                  "black_score": 21,
+                  "capture_bank_b": 14,
+                  "capture_bank_w": 20,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 0,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 17,
+                    "crownlines_scored": 0,
+                    "decisions": 28,
+                    "elapsed_ms": 3405.1005590000004,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.466122,
+                    "max_search_nodes": 695,
+                    "promotions": 2,
+                    "quota_triggers": 1,
+                    "root_actions": 185,
+                    "search_nodes": 14441,
+                    "sovereign_opportunities": 1,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 9,
+                    "crownlines_scored": 0,
+                    "decisions": 28,
+                    "elapsed_ms": 3039.407878,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.403445,
+                    "max_search_nodes": 725,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 160,
+                    "search_nodes": 13181,
+                    "sovereign_opportunities": 2,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 56,
+                  "repetition": null,
+                  "score_a": 27,
+                  "score_b": 21,
+                  "white_participant": "A",
+                  "white_score": 27,
+                  "winner": "A"
+                },
+                {
+                  "black_participant": "A",
+                  "black_score": 44,
+                  "capture_bank_b": 13,
+                  "capture_bank_w": 27,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 2,
+                  "melds_b": 2,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 13,
+                    "crownlines_scored": 2,
+                    "decisions": 36,
+                    "elapsed_ms": 3692.0937490000015,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.490559,
+                    "max_search_nodes": 663,
+                    "promotions": 3,
+                    "quota_triggers": 0,
+                    "root_actions": 243,
+                    "search_nodes": 15264,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 27,
+                    "crownlines_scored": 0,
+                    "decisions": 36,
+                    "elapsed_ms": 3638.1530289999987,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.500139,
+                    "max_search_nodes": 595,
+                    "promotions": 2,
+                    "quota_triggers": 1,
+                    "root_actions": 191,
+                    "search_nodes": 15044,
+                    "sovereign_opportunities": 8,
+                    "sovereign_refusals": 6
+                  },
+                  "plies": 72,
+                  "repetition": null,
+                  "score_a": 44,
+                  "score_b": 32,
+                  "white_participant": "B",
+                  "white_score": 32,
+                  "winner": "A"
+                }
+              ],
+              "leg": "A-first",
+              "pair_index": 2,
+              "winner": "A"
+            },
+            {
+              "aggregate_a": 40,
+              "aggregate_b": 54,
+              "capped_game": null,
+              "complete": true,
+              "first_game_white": "B",
+              "games": [
+                {
+                  "black_participant": "A",
+                  "black_score": 24,
+                  "capture_bank_b": 15,
+                  "capture_bank_w": 13,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 0,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 10,
+                    "crownlines_scored": 0,
+                    "decisions": 19,
+                    "elapsed_ms": 2356.3640299999997,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.266215,
+                    "max_search_nodes": 675,
+                    "promotions": 1,
+                    "quota_triggers": 1,
+                    "root_actions": 127,
+                    "search_nodes": 9995,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 10,
+                    "crownlines_scored": 0,
+                    "decisions": 20,
+                    "elapsed_ms": 2464.7899309999993,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.289037,
+                    "max_search_nodes": 702,
+                    "promotions": 1,
+                    "quota_triggers": 0,
+                    "root_actions": 122,
+                    "search_nodes": 10463,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 39,
+                  "repetition": null,
+                  "score_a": 24,
+                  "score_b": 27,
+                  "white_participant": "B",
+                  "white_score": 27,
+                  "winner": "B"
+                },
+                {
+                  "black_participant": "B",
+                  "black_score": 27,
+                  "capture_bank_b": 23,
+                  "capture_bank_w": 13,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 2,
+                  "melds_b": 0,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 13,
+                    "crownlines_scored": 0,
+                    "decisions": 24,
+                    "elapsed_ms": 1514.0536720000002,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.045182,
+                    "max_search_nodes": 691,
+                    "promotions": 1,
+                    "quota_triggers": 0,
+                    "root_actions": 117,
+                    "search_nodes": 7403,
+                    "sovereign_opportunities": 1,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 23,
+                    "crownlines_scored": 0,
+                    "decisions": 23,
+                    "elapsed_ms": 1463.2282289999996,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.208871,
+                    "max_search_nodes": 693,
+                    "promotions": 1,
+                    "quota_triggers": 1,
+                    "root_actions": 120,
+                    "search_nodes": 7539,
+                    "sovereign_opportunities": 2,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 47,
+                  "repetition": null,
+                  "score_a": 16,
+                  "score_b": 27,
+                  "white_participant": "A",
+                  "white_score": 16,
+                  "winner": "B"
+                }
+              ],
+              "leg": "B-first",
+              "pair_index": 2,
+              "winner": "B"
+            }
+          ],
+          "tags": [
+            "early",
+            "low-quantile"
+          ]
+        },
+        {
+          "description": "Eight-ply prefix biased toward higher-ranked legal actions.",
+          "game1_clsn": "CLSN1|g=1|r=candidate|t=W|b=5,4|q=-|o=0|e=-|p=a1:W1,b2:W5,b8:B4,c1:W2,d2:W6,d8:B3,e1:W3,e5:B2,e7:B6,h8:B1|mw=-|mb=-|cw=-|cb=-",
+          "game1_fingerprint": "08de36a852d70cb5d245a9285a305d4fadf31f7f45f82fb78efb14aa03abe57b",
+          "game2_clsn": "CLSN1|g=2|r=candidate|t=W|b=4,5|q=-|o=0|e=-|p=a8:B1,b1:W4,b7:B5,c8:B2,d1:W3,e2:W6,e8:B3,f1:W2,f5:B6,g2:W1|mw=-|mb=-|cw=-|cb=-",
+          "game2_fingerprint": "11acc540ee57f0a7440c8ce53655d556b4efcdf3a8eca103fd5ec90b1a2a00ff",
+          "pair_complete": true,
+          "pair_winner": "A",
+          "paired_margin_a_minus_b": 41,
+          "scenario_id": "high-lattice",
+          "sets": [
+            {
+              "aggregate_a": 101,
+              "aggregate_b": 27,
+              "capped_game": null,
+              "complete": true,
+              "first_game_white": "A",
+              "games": [
+                {
+                  "black_participant": "B",
+                  "black_score": 22,
+                  "capture_bank_b": 13,
+                  "capture_bank_w": 23,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 0,
+                  "melds_w": 2,
+                  "metrics_a": {
+                    "capture_points": 18,
+                    "crownlines_scored": 2,
+                    "decisions": 31,
+                    "elapsed_ms": 4060.639723,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.28342,
+                    "max_search_nodes": 664,
+                    "promotions": 2,
+                    "quota_triggers": 1,
+                    "root_actions": 199,
+                    "search_nodes": 16376,
+                    "sovereign_opportunities": 2,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 9,
+                    "crownlines_scored": 0,
+                    "decisions": 31,
+                    "elapsed_ms": 3864.244517,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.498578,
+                    "max_search_nodes": 649,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 188,
+                    "search_nodes": 15901,
+                    "sovereign_opportunities": 2,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 62,
+                  "repetition": null,
+                  "score_a": 57,
+                  "score_b": 22,
+                  "white_participant": "A",
+                  "white_score": 57,
+                  "winner": "A"
+                },
+                {
+                  "black_participant": "A",
+                  "black_score": 44,
+                  "capture_bank_b": 20,
+                  "capture_bank_w": 4,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 2,
+                  "melds_b": 0,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 15,
+                    "crownlines_scored": 0,
+                    "decisions": 15,
+                    "elapsed_ms": 1323.3384660000002,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.076274,
+                    "max_search_nodes": 628,
+                    "promotions": 1,
+                    "quota_triggers": 1,
+                    "root_actions": 89,
+                    "search_nodes": 5910,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 0,
+                    "crownlines_scored": 0,
+                    "decisions": 16,
+                    "elapsed_ms": 1423.4150399999996,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.294951,
+                    "max_search_nodes": 626,
+                    "promotions": 1,
+                    "quota_triggers": 0,
+                    "root_actions": 87,
+                    "search_nodes": 6228,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 31,
+                  "repetition": null,
+                  "score_a": 44,
+                  "score_b": 5,
+                  "white_participant": "B",
+                  "white_score": 5,
+                  "winner": "A"
+                }
+              ],
+              "leg": "A-first",
+              "pair_index": 3,
+              "winner": "A"
+            },
+            {
+              "aggregate_a": 34,
+              "aggregate_b": 67,
+              "capped_game": null,
+              "complete": true,
+              "first_game_white": "B",
+              "games": [
+                {
+                  "black_participant": "A",
+                  "black_score": 29,
+                  "capture_bank_b": 10,
+                  "capture_bank_w": 16,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 0,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 6,
+                    "crownlines_scored": 0,
+                    "decisions": 25,
+                    "elapsed_ms": 2725.651332,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.324799,
+                    "max_search_nodes": 632,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 174,
+                    "search_nodes": 11419,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 11,
+                    "crownlines_scored": 0,
+                    "decisions": 25,
+                    "elapsed_ms": 2890.610461,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.122127,
+                    "max_search_nodes": 655,
+                    "promotions": 1,
+                    "quota_triggers": 1,
+                    "root_actions": 132,
+                    "search_nodes": 12148,
+                    "sovereign_opportunities": 2,
+                    "sovereign_refusals": 1
+                  },
+                  "plies": 50,
+                  "repetition": null,
+                  "score_a": 29,
+                  "score_b": 23,
+                  "white_participant": "B",
+                  "white_score": 23,
+                  "winner": "A"
+                },
+                {
+                  "black_participant": "B",
+                  "black_score": 44,
+                  "capture_bank_b": 20,
+                  "capture_bank_w": 4,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 2,
+                  "melds_b": 0,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 0,
+                    "crownlines_scored": 0,
+                    "decisions": 16,
+                    "elapsed_ms": 1440.375878,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.127045,
+                    "max_search_nodes": 611,
+                    "promotions": 1,
+                    "quota_triggers": 0,
+                    "root_actions": 87,
+                    "search_nodes": 6185,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 15,
+                    "crownlines_scored": 0,
+                    "decisions": 15,
+                    "elapsed_ms": 1312.9876430000002,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.348501,
+                    "max_search_nodes": 648,
+                    "promotions": 1,
+                    "quota_triggers": 1,
+                    "root_actions": 89,
+                    "search_nodes": 5985,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 31,
+                  "repetition": null,
+                  "score_a": 5,
+                  "score_b": 44,
+                  "white_participant": "A",
+                  "white_score": 5,
+                  "winner": "B"
+                }
+              ],
+              "leg": "B-first",
+              "pair_index": 3,
+              "winner": "B"
+            }
+          ],
+          "tags": [
+            "early",
+            "high-quantile"
+          ]
+        },
+        {
+          "description": "Eight-ply prefix repeatedly selecting the median legal action.",
+          "game1_clsn": "CLSN1|g=1|r=candidate|t=W|b=6,6|q=-|o=0|e=-|p=a1:W1,b2:W5,b8:B4,c1:W2,c7:B3,e5:B5,f2:W3,f8:B2,g1:W4,h8:B1|mw=-|mb=-|cw=-|cb=-",
+          "game1_fingerprint": "0665695ac7f04561a5b30fde756627e184deb79d6c79b8d8721ba796d26e77e4",
+          "game2_clsn": "CLSN1|g=2|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a8:B1,b1:W4,b7:B5,c2:W3,c8:B2,d5:W6,f1:W2,f7:B3,g2:W5,g4:B6,g8:B4,h1:W1|mw=-|mb=-|cw=-|cb=-",
+          "game2_fingerprint": "edfa7ad949ff73de6a4fefa460dae0b249ca5112ae080764a8c98a777cebf84d",
+          "pair_complete": true,
+          "pair_winner": "DRAW",
+          "paired_margin_a_minus_b": 0,
+          "scenario_id": "median-line",
+          "sets": [
+            {
+              "aggregate_a": 61,
+              "aggregate_b": 246,
+              "capped_game": null,
+              "complete": true,
+              "first_game_white": "A",
+              "games": [
+                {
+                  "black_participant": "B",
+                  "black_score": 53,
+                  "capture_bank_b": 14,
+                  "capture_bank_w": 21,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 2,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 15,
+                    "crownlines_scored": 0,
+                    "decisions": 32,
+                    "elapsed_ms": 4431.479632,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.347101,
+                    "max_search_nodes": 666,
+                    "promotions": 3,
+                    "quota_triggers": 1,
+                    "root_actions": 195,
+                    "search_nodes": 17183,
+                    "sovereign_opportunities": 3,
+                    "sovereign_refusals": 2
+                  },
+                  "metrics_b": {
+                    "capture_points": 8,
+                    "crownlines_scored": 2,
+                    "decisions": 32,
+                    "elapsed_ms": 4309.014501999999,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.315693,
+                    "max_search_nodes": 677,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 229,
+                    "search_nodes": 17332,
+                    "sovereign_opportunities": 1,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 64,
+                  "repetition": null,
+                  "score_a": 26,
+                  "score_b": 53,
+                  "white_participant": "A",
+                  "white_score": 26,
+                  "winner": "B"
+                },
+                {
+                  "black_participant": "A",
+                  "black_score": 35,
+                  "capture_bank_b": 28,
+                  "capture_bank_w": 13,
+                  "complete": true,
+                  "end_reason": "immobilization",
+                  "game_number": 2,
+                  "melds_b": 0,
+                  "melds_w": 6,
+                  "metrics_a": {
+                    "capture_points": 28,
+                    "crownlines_scored": 0,
+                    "decisions": 72,
+                    "elapsed_ms": 9177.901732,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 152.367385,
+                    "max_search_nodes": 633,
+                    "promotions": 2,
+                    "quota_triggers": 1,
+                    "root_actions": 343,
+                    "search_nodes": 34398,
+                    "sovereign_opportunities": 13,
+                    "sovereign_refusals": 12
+                  },
+                  "metrics_b": {
+                    "capture_points": 13,
+                    "crownlines_scored": 6,
+                    "decisions": 72,
+                    "elapsed_ms": 9461.390207,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.859614,
+                    "max_search_nodes": 653,
+                    "promotions": 3,
+                    "quota_triggers": 0,
+                    "root_actions": 622,
+                    "search_nodes": 36031,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 144,
+                  "repetition": null,
+                  "score_a": 35,
+                  "score_b": 193,
+                  "white_participant": "B",
+                  "white_score": 193,
+                  "winner": "B"
+                }
+              ],
+              "leg": "A-first",
+              "pair_index": 4,
+              "winner": "B"
+            },
+            {
+              "aggregate_a": 246,
+              "aggregate_b": 61,
+              "capped_game": null,
+              "complete": true,
+              "first_game_white": "B",
+              "games": [
+                {
+                  "black_participant": "A",
+                  "black_score": 53,
+                  "capture_bank_b": 14,
+                  "capture_bank_w": 21,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 2,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 8,
+                    "crownlines_scored": 2,
+                    "decisions": 32,
+                    "elapsed_ms": 4350.1048359999995,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 152.239683,
+                    "max_search_nodes": 668,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 227,
+                    "search_nodes": 17200,
+                    "sovereign_opportunities": 1,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 15,
+                    "crownlines_scored": 0,
+                    "decisions": 32,
+                    "elapsed_ms": 4384.0099900000005,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.329563,
+                    "max_search_nodes": 687,
+                    "promotions": 3,
+                    "quota_triggers": 1,
+                    "root_actions": 192,
+                    "search_nodes": 17373,
+                    "sovereign_opportunities": 2,
+                    "sovereign_refusals": 1
+                  },
+                  "plies": 64,
+                  "repetition": null,
+                  "score_a": 53,
+                  "score_b": 26,
+                  "white_participant": "B",
+                  "white_score": 26,
+                  "winner": "A"
+                },
+                {
+                  "black_participant": "B",
+                  "black_score": 35,
+                  "capture_bank_b": 28,
+                  "capture_bank_w": 13,
+                  "complete": true,
+                  "end_reason": "immobilization",
+                  "game_number": 2,
+                  "melds_b": 0,
+                  "melds_w": 6,
+                  "metrics_a": {
+                    "capture_points": 13,
+                    "crownlines_scored": 6,
+                    "decisions": 72,
+                    "elapsed_ms": 9492.885470999998,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.753788,
+                    "max_search_nodes": 623,
+                    "promotions": 3,
+                    "quota_triggers": 0,
+                    "root_actions": 622,
+                    "search_nodes": 35672,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 28,
+                    "crownlines_scored": 0,
+                    "decisions": 72,
+                    "elapsed_ms": 9120.891292999999,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 151.824836,
+                    "max_search_nodes": 666,
+                    "promotions": 2,
+                    "quota_triggers": 1,
+                    "root_actions": 343,
+                    "search_nodes": 34619,
+                    "sovereign_opportunities": 13,
+                    "sovereign_refusals": 12
+                  },
+                  "plies": 144,
+                  "repetition": null,
+                  "score_a": 193,
+                  "score_b": 35,
+                  "white_participant": "A",
+                  "white_score": 193,
+                  "winner": "A"
+                }
+              ],
+              "leg": "B-first",
+              "pair_index": 4,
+              "winner": "A"
+            }
+          ],
+          "tags": [
+            "early",
+            "median"
+          ]
+        },
+        {
+          "description": "Alternating lower/upper quartiles with a two-step crossing rhythm.",
+          "game1_clsn": "CLSN1|g=1|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a1:W1,b2:W5,b4:W6,b8:B4,c1:W2,d6:B3,e3:W3,e7:B6,f8:B2,g1:W4,g5:B5,h8:B1|mw=-|mb=-|cw=-|cb=-",
+          "game1_fingerprint": "cc1e6175237bb7dd26f48778629bd4ada7d0695011d730fed9b5b4abb5b3a332",
+          "game2_clsn": "CLSN1|g=2|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a8:B1,b1:W4,c8:B2,d3:W3,d5:B5,d7:B6,e2:W6,e4:W5,e6:B4,e8:B3,f1:W2,h1:W1|mw=-|mb=-|cw=-|cb=-",
+          "game2_fingerprint": "4ae6298f5d6e278ec0f09ced3973a3f621072cf7dde5db31fd53b5a23570c4b0",
+          "pair_complete": false,
+          "pair_winner": null,
+          "paired_margin_a_minus_b": null,
+          "scenario_id": "quarter-cross-a",
+          "sets": [
+            {
+              "aggregate_a": 208,
+              "aggregate_b": 21,
+              "capped_game": 2,
+              "complete": false,
+              "first_game_white": "A",
+              "games": [
+                {
+                  "black_participant": "B",
+                  "black_score": 21,
+                  "capture_bank_b": 18,
+                  "capture_bank_w": 13,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 0,
+                  "melds_w": 6,
+                  "metrics_a": {
+                    "capture_points": 13,
+                    "crownlines_scored": 6,
+                    "decisions": 86,
+                    "elapsed_ms": 12234.727169999996,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.625446,
+                    "max_search_nodes": 684,
+                    "promotions": 3,
+                    "quota_triggers": 0,
+                    "root_actions": 785,
+                    "search_nodes": 43543,
+                    "sovereign_opportunities": 1,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 18,
+                    "crownlines_scored": 0,
+                    "decisions": 85,
+                    "elapsed_ms": 12073.265664999999,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.674815,
+                    "max_search_nodes": 604,
+                    "promotions": 3,
+                    "quota_triggers": 1,
+                    "root_actions": 523,
+                    "search_nodes": 44292,
+                    "sovereign_opportunities": 27,
+                    "sovereign_refusals": 24
+                  },
+                  "plies": 171,
+                  "repetition": null,
+                  "score_a": 208,
+                  "score_b": 21,
+                  "white_participant": "A",
+                  "white_score": 208,
+                  "winner": "A"
+                },
+                {
+                  "black_participant": "A",
+                  "black_score": 18,
+                  "capture_bank_b": 13,
+                  "capture_bank_w": 14,
+                  "complete": false,
+                  "end_reason": "benchmark_repetition_detected",
+                  "game_number": 2,
+                  "melds_b": 0,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 13,
+                    "crownlines_scored": 0,
+                    "decisions": 57,
+                    "elapsed_ms": 6672.3042730000025,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.422967,
+                    "max_search_nodes": 631,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 337,
+                    "search_nodes": 27093,
+                    "sovereign_opportunities": 5,
+                    "sovereign_refusals": 4
+                  },
+                  "metrics_b": {
+                    "capture_points": 14,
+                    "crownlines_scored": 0,
+                    "decisions": 57,
+                    "elapsed_ms": 6531.8117459999985,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.440732,
+                    "max_search_nodes": 637,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 328,
+                    "search_nodes": 26835,
+                    "sovereign_opportunities": 1,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 114,
+                  "repetition": {
+                    "cycle_length": 4,
+                    "cycle_moves": [
+                      {
+                        "color": "W",
+                        "meld_line": null,
+                        "notation": "b3-a4",
+                        "participant": "B",
+                        "ply": 111,
+                        "sovereign_opportunity": false,
+                        "sovereign_refusal": false,
+                        "state_after": "e11796d083be455620c85866ac515c95500392d6d5eb11edb98b8e89f9bfe15a",
+                        "state_before": "a08546bb9e83282191940a1eeffa909c79d34cfbe3b553be21e872743d728d3c"
+                      },
+                      {
+                        "color": "B",
+                        "meld_line": null,
+                        "notation": "b5-a6",
+                        "participant": "A",
+                        "ply": 112,
+                        "sovereign_opportunity": false,
+                        "sovereign_refusal": false,
+                        "state_after": "4b125e19d607c5dd350419f15b0e5d80a68e8484a71041638382745873090eba",
+                        "state_before": "e11796d083be455620c85866ac515c95500392d6d5eb11edb98b8e89f9bfe15a"
+                      },
+                      {
+                        "color": "W",
+                        "meld_line": null,
+                        "notation": "a4-b3",
+                        "participant": "B",
+                        "ply": 113,
+                        "sovereign_opportunity": false,
+                        "sovereign_refusal": false,
+                        "state_after": "82c9d091360a33d4b08fd64c66b8eb051ba87cacc389966ca2199c0c055aeebd",
+                        "state_before": "4b125e19d607c5dd350419f15b0e5d80a68e8484a71041638382745873090eba"
+                      },
+                      {
+                        "color": "B",
+                        "meld_line": null,
+                        "notation": "a6-b5",
+                        "participant": "A",
+                        "ply": 114,
+                        "sovereign_opportunity": false,
+                        "sovereign_refusal": false,
+                        "state_after": "a08546bb9e83282191940a1eeffa909c79d34cfbe3b553be21e872743d728d3c",
+                        "state_before": "82c9d091360a33d4b08fd64c66b8eb051ba87cacc389966ca2199c0c055aeebd"
+                      }
+                    ],
+                    "detected_ply": 114,
+                    "escape_action_examples": [
+                      "ply 110: b3-a2",
+                      "ply 110: b3-c2",
+                      "ply 110: b3-c4",
+                      "ply 110: d5-c4",
+                      "ply 110: d5-c6",
+                      "ply 110: d5-e4",
+                      "ply 110: d5-e6",
+                      "ply 111: b5-c4",
+                      "ply 111: b5-c6",
+                      "ply 111: d7-c6",
+                      "ply 111: d7-c8",
+                      "ply 111: d7-e6"
+                    ],
+                    "escape_actions": 23,
+                    "escape_opportunities": [
+                      {
+                        "color": "W",
+                        "escape_action_examples": [
+                          "b3-a2",
+                          "b3-c2",
+                          "b3-c4",
+                          "d5-c4",
+                          "d5-c6",
+                          "d5-e4",
+                          "d5-e6"
+                        ],
+                        "escape_actions": 7,
+                        "legal_actions": 8,
+                        "participant": "B",
+                        "ply": 110
+                      },
+                      {
+                        "color": "B",
+                        "escape_action_examples": [
+                          "b5-c4",
+                          "b5-c6",
+                          "d7-c6",
+                          "d7-c8",
+                          "d7-e6",
+                          "d7-e8"
+                        ],
+                        "escape_actions": 6,
+                        "legal_actions": 7,
+                        "participant": "A",
+                        "ply": 111
+                      },
+                      {
+                        "color": "W",
+                        "escape_action_examples": [
+                          "a4-b5",
+                          "d5-c4",
+                          "d5-c6",
+                          "d5-e4",
+                          "d5-e6"
+                        ],
+                        "escape_actions": 5,
+                        "legal_actions": 6,
+                        "participant": "B",
+                        "ply": 112
+                      },
+                      {
+                        "color": "B",
+                        "escape_action_examples": [
+                          "a6-b7",
+                          "d7-c6",
+                          "d7-c8",
+                          "d7-e6",
+                          "d7-e8"
+                        ],
+                        "escape_actions": 5,
+                        "legal_actions": 6,
+                        "participant": "A",
+                        "ply": 113
+                      }
+                    ],
+                    "fingerprint": "a08546bb9e83282191940a1eeffa909c79d34cfbe3b553be21e872743d728d3c",
+                    "first_repeat_observed": {
+                      "fingerprint": "091738f105f64d3c906dff5bb56631a317b69fbb5d74c687fe6a441e4ee7dce8",
+                      "first_seen_ply": 39,
+                      "repeated_ply": 47
+                    },
+                    "first_repeat_ply": 110,
+                    "first_seen_ply": 106,
+                    "occurrence_count": 3,
+                    "positions_with_escape_actions": 4,
+                    "previous_seen_ply": 110,
+                    "repeated_state": {
+                      "capture_bank_b": 13,
+                      "capture_bank_w": 14,
+                      "cooldowns_b": [],
+                      "cooldowns_w": [],
+                      "end_reason": null,
+                      "game_over": false,
+                      "melds_b": [],
+                      "melds_w": [],
+                      "pieces": [
+                        [
+                          "b3",
+                          "W",
+                          2,
+                          true
+                        ],
+                        [
+                          "b5",
+                          "B",
+                          4,
+                          true
+                        ],
+                        [
+                          "d5",
+                          "W",
+                          6,
+                          true
+                        ],
+                        [
+                          "d7",
+                          "B",
+                          3,
+                          true
+                        ]
+                      ],
+                      "rules_mode": "candidate",
+                      "triggering_player": null,
+                      "turn": "W",
+                      "variant": 2
+                    },
+                    "sovereign_in_cycle": false,
+                    "sovereign_refusals_in_cycle": 0
+                  },
+                  "score_a": 18,
+                  "score_b": 22,
+                  "white_participant": "B",
+                  "white_score": 22,
+                  "winner": null
+                }
+              ],
+              "leg": "A-first",
+              "pair_index": 5,
+              "winner": null
+            },
+            {
+              "aggregate_a": 96,
+              "aggregate_b": 29,
+              "capped_game": null,
+              "complete": true,
+              "first_game_white": "B",
+              "games": [
+                {
+                  "black_participant": "A",
+                  "black_score": 71,
+                  "capture_bank_b": 15,
+                  "capture_bank_w": 0,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 2,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 15,
+                    "crownlines_scored": 2,
+                    "decisions": 25,
+                    "elapsed_ms": 3059.7429079999997,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.407845,
+                    "max_search_nodes": 626,
+                    "promotions": 2,
+                    "quota_triggers": 1,
+                    "root_actions": 180,
+                    "search_nodes": 11515,
+                    "sovereign_opportunities": 1,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 0,
+                    "crownlines_scored": 0,
+                    "decisions": 26,
+                    "elapsed_ms": 2877.688255,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.451137,
+                    "max_search_nodes": 590,
+                    "promotions": 1,
+                    "quota_triggers": 0,
+                    "root_actions": 136,
+                    "search_nodes": 11013,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 51,
+                  "repetition": null,
+                  "score_a": 71,
+                  "score_b": 8,
+                  "white_participant": "B",
+                  "white_score": 8,
+                  "winner": "A"
+                },
+                {
+                  "black_participant": "B",
+                  "black_score": 21,
+                  "capture_bank_b": 17,
+                  "capture_bank_w": 14,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 2,
+                  "melds_b": 0,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 14,
+                    "crownlines_scored": 0,
+                    "decisions": 32,
+                    "elapsed_ms": 2866.659461999999,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.160123,
+                    "max_search_nodes": 613,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 181,
+                    "search_nodes": 11972,
+                    "sovereign_opportunities": 1,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 17,
+                    "crownlines_scored": 0,
+                    "decisions": 31,
+                    "elapsed_ms": 2731.941467,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.492875,
+                    "max_search_nodes": 615,
+                    "promotions": 2,
+                    "quota_triggers": 1,
+                    "root_actions": 159,
+                    "search_nodes": 11644,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 63,
+                  "repetition": null,
+                  "score_a": 25,
+                  "score_b": 21,
+                  "white_participant": "A",
+                  "white_score": 25,
+                  "winner": "A"
+                }
+              ],
+              "leg": "B-first",
+              "pair_index": 5,
+              "winner": "A"
+            }
+          ],
+          "tags": [
+            "early",
+            "mixed-quantile"
+          ]
+        },
+        {
+          "description": "Seat-neutral complement of quarter-cross-a's selector rhythm.",
+          "game1_clsn": "CLSN1|g=1|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a1:W1,b4:W5,b8:B4,c1:W2,d2:W6,d6:B3,e1:W3,e3:W4,e7:B6,f8:B2,g5:B5,h8:B1|mw=-|mb=-|cw=-|cb=-",
+          "game1_fingerprint": "452ab10d71b279441b0d0e674263d854ff4236497338805999d4ed8b8ecdbbbe",
+          "game2_clsn": "CLSN1|g=2|r=candidate|t=W|b=6,5|q=-|o=0|e=-|p=a8:B1,b1:W4,c2:W3,c8:B2,d5:B5,e2:W6,f1:W2,f7:B3,g8:B4,h1:W1|mw=-|mb=-|cw=-|cb=-",
+          "game2_fingerprint": "61f377ffef139605b6db3bccd3f412686a5f681b5d16a2eb9cbc24df776a56ed",
+          "pair_complete": true,
+          "pair_winner": "A",
+          "paired_margin_a_minus_b": 105,
+          "scenario_id": "quarter-cross-b",
+          "sets": [
+            {
+              "aggregate_a": 48,
+              "aggregate_b": 49,
+              "capped_game": null,
+              "complete": true,
+              "first_game_white": "A",
+              "games": [
+                {
+                  "black_participant": "B",
+                  "black_score": 21,
+                  "capture_bank_b": 15,
+                  "capture_bank_w": 8,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 0,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 8,
+                    "crownlines_scored": 0,
+                    "decisions": 4,
+                    "elapsed_ms": 189.41783500000003,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.143367,
+                    "max_search_nodes": 535,
+                    "promotions": 0,
+                    "quota_triggers": 0,
+                    "root_actions": 15,
+                    "search_nodes": 713,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 15,
+                    "crownlines_scored": 0,
+                    "decisions": 3,
+                    "elapsed_ms": 165.63265400000003,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.067438,
+                    "max_search_nodes": 618,
+                    "promotions": 0,
+                    "quota_triggers": 1,
+                    "root_actions": 9,
+                    "search_nodes": 703,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 7,
+                  "repetition": null,
+                  "score_a": 12,
+                  "score_b": 21,
+                  "white_participant": "A",
+                  "white_score": 12,
+                  "winner": "B"
+                },
+                {
+                  "black_participant": "A",
+                  "black_score": 36,
+                  "capture_bank_b": 13,
+                  "capture_bank_w": 18,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 2,
+                  "melds_b": 1,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 8,
+                    "crownlines_scored": 1,
+                    "decisions": 44,
+                    "elapsed_ms": 5656.4285230000005,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.386666,
+                    "max_search_nodes": 698,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 302,
+                    "search_nodes": 23163,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 12,
+                    "crownlines_scored": 0,
+                    "decisions": 44,
+                    "elapsed_ms": 5464.166499000002,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.38932,
+                    "max_search_nodes": 661,
+                    "promotions": 2,
+                    "quota_triggers": 1,
+                    "root_actions": 269,
+                    "search_nodes": 22341,
+                    "sovereign_opportunities": 5,
+                    "sovereign_refusals": 3
+                  },
+                  "plies": 88,
+                  "repetition": null,
+                  "score_a": 36,
+                  "score_b": 28,
+                  "white_participant": "B",
+                  "white_score": 28,
+                  "winner": "A"
+                }
+              ],
+              "leg": "A-first",
+              "pair_index": 6,
+              "winner": "B"
+            },
+            {
+              "aggregate_a": 140,
+              "aggregate_b": 34,
+              "capped_game": null,
+              "complete": true,
+              "first_game_white": "B",
+              "games": [
+                {
+                  "black_participant": "A",
+                  "black_score": 21,
+                  "capture_bank_b": 15,
+                  "capture_bank_w": 8,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 0,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 15,
+                    "crownlines_scored": 0,
+                    "decisions": 3,
+                    "elapsed_ms": 166.314718,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.090293,
+                    "max_search_nodes": 605,
+                    "promotions": 0,
+                    "quota_triggers": 1,
+                    "root_actions": 9,
+                    "search_nodes": 690,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 8,
+                    "crownlines_scored": 0,
+                    "decisions": 4,
+                    "elapsed_ms": 188.32592400000001,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.087531,
+                    "max_search_nodes": 551,
+                    "promotions": 0,
+                    "quota_triggers": 0,
+                    "root_actions": 15,
+                    "search_nodes": 729,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 7,
+                  "repetition": null,
+                  "score_a": 21,
+                  "score_b": 12,
+                  "white_participant": "B",
+                  "white_score": 12,
+                  "winner": "A"
+                },
+                {
+                  "black_participant": "B",
+                  "black_score": 22,
+                  "capture_bank_b": 12,
+                  "capture_bank_w": 16,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 2,
+                  "melds_b": 0,
+                  "melds_w": 4,
+                  "metrics_a": {
+                    "capture_points": 10,
+                    "crownlines_scored": 4,
+                    "decisions": 88,
+                    "elapsed_ms": 11932.321869,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 151.146422,
+                    "max_search_nodes": 598,
+                    "promotions": 3,
+                    "quota_triggers": 1,
+                    "root_actions": 702,
+                    "search_nodes": 42489,
+                    "sovereign_opportunities": 3,
+                    "sovereign_refusals": 1
+                  },
+                  "metrics_b": {
+                    "capture_points": 7,
+                    "crownlines_scored": 0,
+                    "decisions": 88,
+                    "elapsed_ms": 12048.841317000002,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 151.571862,
+                    "max_search_nodes": 710,
+                    "promotions": 3,
+                    "quota_triggers": 0,
+                    "root_actions": 584,
+                    "search_nodes": 44240,
+                    "sovereign_opportunities": 37,
+                    "sovereign_refusals": 37
+                  },
+                  "plies": 176,
+                  "repetition": null,
+                  "score_a": 119,
+                  "score_b": 22,
+                  "white_participant": "A",
+                  "white_score": 119,
+                  "winner": "A"
+                }
+              ],
+              "leg": "B-first",
+              "pair_index": 6,
+              "winner": "A"
+            }
+          ],
+          "tags": [
+            "early",
+            "mixed-quantile"
+          ]
+        },
+        {
+          "description": "Eight-ply prefix spanning extremes, median, and both quartiles.",
+          "game1_clsn": "CLSN1|g=1|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a3:W5,b2:W1,b8:B4,c1:W2,c7:B3,d6:B6,e1:W3,f4:W6,f8:B2,g1:W4,g7:B1,h6:B5|mw=-|mb=-|cw=-|cb=-",
+          "game1_fingerprint": "662bc33feebbd0db05a99477057899f1974700ba62dc059a48dd6f609ef406be",
+          "game2_clsn": "CLSN1|g=2|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a8:B1,b3:W4,c6:B5,c8:B2,d1:W3,e6:B6,e8:B3,f1:W2,g2:W5,g4:W6,g6:B4,h1:W1|mw=-|mb=-|cw=-|cb=-",
+          "game2_fingerprint": "ae906637f64eb0d9c2be28a50a824ee9a3d572c176a067083521707516c73a80",
+          "pair_complete": false,
+          "pair_winner": null,
+          "paired_margin_a_minus_b": null,
+          "scenario_id": "full-spread",
+          "sets": [
+            {
+              "aggregate_a": 0,
+              "aggregate_b": 0,
+              "capped_game": 1,
+              "complete": false,
+              "first_game_white": "A",
+              "games": [
+                {
+                  "black_participant": "B",
+                  "black_score": 12,
+                  "capture_bank_b": 7,
+                  "capture_bank_w": 12,
+                  "complete": false,
+                  "end_reason": "benchmark_repetition_detected",
+                  "game_number": 1,
+                  "melds_b": 0,
+                  "melds_w": 6,
+                  "metrics_a": {
+                    "capture_points": 12,
+                    "crownlines_scored": 6,
+                    "decisions": 76,
+                    "elapsed_ms": 11019.558012,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.91193,
+                    "max_search_nodes": 650,
+                    "promotions": 3,
+                    "quota_triggers": 0,
+                    "root_actions": 756,
+                    "search_nodes": 38178,
+                    "sovereign_opportunities": 2,
+                    "sovereign_refusals": 1
+                  },
+                  "metrics_b": {
+                    "capture_points": 7,
+                    "crownlines_scored": 0,
+                    "decisions": 75,
+                    "elapsed_ms": 10536.504517000001,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.84794,
+                    "max_search_nodes": 682,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 400,
+                    "search_nodes": 37604,
+                    "sovereign_opportunities": 25,
+                    "sovereign_refusals": 25
+                  },
+                  "plies": 151,
+                  "repetition": {
+                    "cycle_length": 4,
+                    "cycle_moves": [
+                      {
+                        "color": "B",
+                        "meld_line": null,
+                        "notation": "c1-d2",
+                        "participant": "B",
+                        "ply": 148,
+                        "sovereign_opportunity": true,
+                        "sovereign_refusal": true,
+                        "state_after": "1b8f2ccf2f17b0a3572c330c7ce430eb770aaccc932ab495b0cc086e8ec3288f",
+                        "state_before": "4bfe2961e27300ce1aebfe3b03581772ff31c5cef7ca9d32020c3ec89797898a"
+                      },
+                      {
+                        "color": "W",
+                        "meld_line": null,
+                        "notation": "b4-c5",
+                        "participant": "A",
+                        "ply": 149,
+                        "sovereign_opportunity": false,
+                        "sovereign_refusal": false,
+                        "state_after": "326fd484d4205d96011eb31e8947c6f465b1ea9a26e284b3c1a05122de608b37",
+                        "state_before": "1b8f2ccf2f17b0a3572c330c7ce430eb770aaccc932ab495b0cc086e8ec3288f"
+                      },
+                      {
+                        "color": "B",
+                        "meld_line": null,
+                        "notation": "d2-c1",
+                        "participant": "B",
+                        "ply": 150,
+                        "sovereign_opportunity": false,
+                        "sovereign_refusal": false,
+                        "state_after": "1f2f72c3910c8f91603e1fe86383648fb35764ce31f8e8579168218e8ac19ef8",
+                        "state_before": "326fd484d4205d96011eb31e8947c6f465b1ea9a26e284b3c1a05122de608b37"
+                      },
+                      {
+                        "color": "W",
+                        "meld_line": null,
+                        "notation": "c5-b4",
+                        "participant": "A",
+                        "ply": 151,
+                        "sovereign_opportunity": false,
+                        "sovereign_refusal": false,
+                        "state_after": "4bfe2961e27300ce1aebfe3b03581772ff31c5cef7ca9d32020c3ec89797898a",
+                        "state_before": "1f2f72c3910c8f91603e1fe86383648fb35764ce31f8e8579168218e8ac19ef8"
+                      }
+                    ],
+                    "detected_ply": 151,
+                    "escape_action_examples": [
+                      "ply 147: a5-b6",
+                      "ply 147: a5xc3xe5xg7",
+                      "ply 147: c1-b2",
+                      "ply 148: b4-a3",
+                      "ply 148: b4-c3",
+                      "ply 148: d4-c3",
+                      "ply 148: d4-c5",
+                      "ply 148: d4-e3",
+                      "ply 148: d4-e5",
+                      "ply 148: f6-e7",
+                      "ply 148: f6-g7",
+                      "ply 149: a5-b4"
+                    ],
+                    "escape_actions": 29,
+                    "escape_opportunities": [
+                      {
+                        "color": "B",
+                        "escape_action_examples": [
+                          "a5-b6",
+                          "a5xc3xe5xg7",
+                          "c1-b2"
+                        ],
+                        "escape_actions": 3,
+                        "legal_actions": 4,
+                        "participant": "B",
+                        "ply": 147
+                      },
+                      {
+                        "color": "W",
+                        "escape_action_examples": [
+                          "b4-a3",
+                          "b4-c3",
+                          "d4-c3",
+                          "d4-c5",
+                          "d4-e3",
+                          "d4-e5",
+                          "f6-e7",
+                          "f6-g7"
+                        ],
+                        "escape_actions": 11,
+                        "legal_actions": 12,
+                        "participant": "A",
+                        "ply": 148
+                      },
+                      {
+                        "color": "B",
+                        "escape_action_examples": [
+                          "a5-b4",
+                          "a5-b6",
+                          "d2-c3",
+                          "d2-e1",
+                          "d2-e3"
+                        ],
+                        "escape_actions": 5,
+                        "legal_actions": 6,
+                        "participant": "B",
+                        "ply": 149
+                      },
+                      {
+                        "color": "W",
+                        "escape_action_examples": [
+                          "c5-b6",
+                          "c5-d6",
+                          "d4-c3",
+                          "d4-e3",
+                          "d4-e5",
+                          "f6-e7",
+                          "f6-g7",
+                          "g5-f4"
+                        ],
+                        "escape_actions": 10,
+                        "legal_actions": 11,
+                        "participant": "A",
+                        "ply": 150
+                      }
+                    ],
+                    "fingerprint": "4bfe2961e27300ce1aebfe3b03581772ff31c5cef7ca9d32020c3ec89797898a",
+                    "first_repeat_observed": {
+                      "fingerprint": "21e3aec106502f7657fdecfdc88aeb941a3aaa28685205f54215001c03fa9d32",
+                      "first_seen_ply": 69,
+                      "repeated_ply": 73
+                    },
+                    "first_repeat_ply": 147,
+                    "first_seen_ply": 143,
+                    "occurrence_count": 3,
+                    "positions_with_escape_actions": 4,
+                    "previous_seen_ply": 147,
+                    "repeated_state": {
+                      "capture_bank_b": 7,
+                      "capture_bank_w": 12,
+                      "cooldowns_b": [],
+                      "cooldowns_w": [],
+                      "end_reason": null,
+                      "game_over": false,
+                      "melds_b": [],
+                      "melds_w": [
+                        [
+                          [
+                            "b6",
+                            "d6",
+                            "f6"
+                          ],
+                          [
+                            6,
+                            1,
+                            4
+                          ],
+                          15,
+                          false
+                        ],
+                        [
+                          [
+                            "b6",
+                            "e5",
+                            "f4"
+                          ],
+                          [
+                            1,
+                            6,
+                            4
+                          ],
+                          15,
+                          false
+                        ],
+                        [
+                          [
+                            "c5",
+                            "e5",
+                            "g5"
+                          ],
+                          [
+                            6,
+                            4,
+                            3
+                          ],
+                          15,
+                          false
+                        ],
+                        [
+                          [
+                            "d6",
+                            "e5",
+                            "d4"
+                          ],
+                          [
+                            6,
+                            4,
+                            1
+                          ],
+                          30,
+                          true
+                        ],
+                        [
+                          [
+                            "f6",
+                            "e5",
+                            "b4"
+                          ],
+                          [
+                            3,
+                            1,
+                            6
+                          ],
+                          15,
+                          false
+                        ],
+                        [
+                          [
+                            "f6",
+                            "g5",
+                            "f4"
+                          ],
+                          [
+                            4,
+                            3,
+                            1
+                          ],
+                          15,
+                          false
+                        ]
+                      ],
+                      "pieces": [
+                        [
+                          "a5",
+                          "B",
+                          6,
+                          true
+                        ],
+                        [
+                          "b4",
+                          "W",
+                          6,
+                          true
+                        ],
+                        [
+                          "c1",
+                          "B",
+                          3,
+                          true
+                        ],
+                        [
+                          "d4",
+                          "W",
+                          1,
+                          true
+                        ],
+                        [
+                          "f6",
+                          "W",
+                          3,
+                          false
+                        ],
+                        [
+                          "g5",
+                          "W",
+                          4,
+                          true
+                        ]
+                      ],
+                      "rules_mode": "candidate",
+                      "triggering_player": null,
+                      "turn": "B",
+                      "variant": 1
+                    },
+                    "sovereign_in_cycle": true,
+                    "sovereign_refusals_in_cycle": 1
+                  },
+                  "score_a": 143,
+                  "score_b": 12,
+                  "white_participant": "A",
+                  "white_score": 143,
+                  "winner": null
+                }
+              ],
+              "leg": "A-first",
+              "pair_index": 7,
+              "winner": null
+            },
+            {
+              "aggregate_a": 97,
+              "aggregate_b": 30,
+              "capped_game": null,
+              "complete": true,
+              "first_game_white": "B",
+              "games": [
+                {
+                  "black_participant": "A",
+                  "black_score": 21,
+                  "capture_bank_b": 16,
+                  "capture_bank_w": 10,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 0,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 16,
+                    "crownlines_scored": 0,
+                    "decisions": 31,
+                    "elapsed_ms": 4037.0196540000006,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.322999,
+                    "max_search_nodes": 662,
+                    "promotions": 2,
+                    "quota_triggers": 1,
+                    "root_actions": 200,
+                    "search_nodes": 16677,
+                    "sovereign_opportunities": 1,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 10,
+                    "crownlines_scored": 0,
+                    "decisions": 32,
+                    "elapsed_ms": 3988.0720119999987,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.436542,
+                    "max_search_nodes": 643,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 183,
+                    "search_nodes": 16380,
+                    "sovereign_opportunities": 1,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 63,
+                  "repetition": null,
+                  "score_a": 21,
+                  "score_b": 18,
+                  "white_participant": "B",
+                  "white_score": 18,
+                  "winner": "A"
+                },
+                {
+                  "black_participant": "B",
+                  "black_score": 12,
+                  "capture_bank_b": 10,
+                  "capture_bank_w": 22,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 2,
+                  "melds_b": 0,
+                  "melds_w": 3,
+                  "metrics_a": {
+                    "capture_points": 22,
+                    "crownlines_scored": 3,
+                    "decisions": 60,
+                    "elapsed_ms": 8031.160884999999,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 151.533473,
+                    "max_search_nodes": 655,
+                    "promotions": 2,
+                    "quota_triggers": 1,
+                    "root_actions": 451,
+                    "search_nodes": 29482,
+                    "sovereign_opportunities": 3,
+                    "sovereign_refusals": 1
+                  },
+                  "metrics_b": {
+                    "capture_points": 10,
+                    "crownlines_scored": 0,
+                    "decisions": 60,
+                    "elapsed_ms": 7947.234742,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.584428,
+                    "max_search_nodes": 741,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 379,
+                    "search_nodes": 30044,
+                    "sovereign_opportunities": 25,
+                    "sovereign_refusals": 25
+                  },
+                  "plies": 120,
+                  "repetition": null,
+                  "score_a": 76,
+                  "score_b": 12,
+                  "white_participant": "A",
+                  "white_score": 76,
+                  "winner": "A"
+                }
+              ],
+              "leg": "B-first",
+              "pair_index": 7,
+              "winner": "A"
+            }
+          ],
+          "tags": [
+            "early",
+            "mixed-quantile"
+          ]
+        },
+        {
+          "description": "Eight-ply mixed selector intended to create a distinct development path.",
+          "game1_clsn": "CLSN1|g=1|r=candidate|t=W|b=0,6|q=-|o=0|e=-|p=a1:W1,a7:B4,b2:W5,c1:W2,d4:B6,e1:W3,e7:B3,f8:B2,g7:B5,h2:W4,h8:B1|mw=-|mb=-|cw=-|cb=-",
+          "game1_fingerprint": "88a7c12032c47cdbe7a4f96fab2ca8bd807ae5959c50c4c61b2613dc90dd6c4c",
+          "game2_clsn": "CLSN1|g=2|r=candidate|t=W|b=0,0|q=-|o=0|e=-|p=a6:B5,a8:B1,b1:W4,b7:B2,c4:W6,d1:W3,e6:B6,e8:B3,g2:W2,h1:W1,h3:W5,h7:B4|mw=-|mb=-|cw=-|cb=-",
+          "game2_fingerprint": "ebcc75fdea420a8f6b69da0807a9e6f2302c6e05491e66d0fa559d5fdcf5f578",
+          "pair_complete": true,
+          "pair_winner": "A",
+          "paired_margin_a_minus_b": 46,
+          "scenario_id": "weave",
+          "sets": [
+            {
+              "aggregate_a": 72,
+              "aggregate_b": 65,
+              "capped_game": null,
+              "complete": true,
+              "first_game_white": "A",
+              "games": [
+                {
+                  "black_participant": "B",
+                  "black_score": 31,
+                  "capture_bank_b": 18,
+                  "capture_bank_w": 10,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 0,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 10,
+                    "crownlines_scored": 0,
+                    "decisions": 12,
+                    "elapsed_ms": 656.3112099999998,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.281056,
+                    "max_search_nodes": 614,
+                    "promotions": 0,
+                    "quota_triggers": 0,
+                    "root_actions": 46,
+                    "search_nodes": 2983,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 12,
+                    "crownlines_scored": 0,
+                    "decisions": 11,
+                    "elapsed_ms": 583.057776,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.020692,
+                    "max_search_nodes": 610,
+                    "promotions": 0,
+                    "quota_triggers": 1,
+                    "root_actions": 46,
+                    "search_nodes": 2824,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 23,
+                  "repetition": null,
+                  "score_a": 12,
+                  "score_b": 31,
+                  "white_participant": "A",
+                  "white_score": 12,
+                  "winner": "B"
+                },
+                {
+                  "black_participant": "A",
+                  "black_score": 60,
+                  "capture_bank_b": 15,
+                  "capture_bank_w": 7,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 2,
+                  "melds_b": 1,
+                  "melds_w": 1,
+                  "metrics_a": {
+                    "capture_points": 15,
+                    "crownlines_scored": 1,
+                    "decisions": 43,
+                    "elapsed_ms": 6082.800981,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.561851,
+                    "max_search_nodes": 659,
+                    "promotions": 3,
+                    "quota_triggers": 1,
+                    "root_actions": 342,
+                    "search_nodes": 22072,
+                    "sovereign_opportunities": 10,
+                    "sovereign_refusals": 9
+                  },
+                  "metrics_b": {
+                    "capture_points": 7,
+                    "crownlines_scored": 1,
+                    "decisions": 44,
+                    "elapsed_ms": 6010.88913,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 152.532508,
+                    "max_search_nodes": 627,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 293,
+                    "search_nodes": 22138,
+                    "sovereign_opportunities": 1,
+                    "sovereign_refusals": 1
+                  },
+                  "plies": 87,
+                  "repetition": null,
+                  "score_a": 60,
+                  "score_b": 34,
+                  "white_participant": "B",
+                  "white_score": 34,
+                  "winner": "A"
+                }
+              ],
+              "leg": "A-first",
+              "pair_index": 8,
+              "winner": "A"
+            },
+            {
+              "aggregate_a": 79,
+              "aggregate_b": 40,
+              "capped_game": null,
+              "complete": true,
+              "first_game_white": "B",
+              "games": [
+                {
+                  "black_participant": "A",
+                  "black_score": 31,
+                  "capture_bank_b": 18,
+                  "capture_bank_w": 10,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 1,
+                  "melds_b": 0,
+                  "melds_w": 0,
+                  "metrics_a": {
+                    "capture_points": 12,
+                    "crownlines_scored": 0,
+                    "decisions": 11,
+                    "elapsed_ms": 586.9324650000001,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.095839,
+                    "max_search_nodes": 600,
+                    "promotions": 0,
+                    "quota_triggers": 1,
+                    "root_actions": 46,
+                    "search_nodes": 2816,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "metrics_b": {
+                    "capture_points": 10,
+                    "crownlines_scored": 0,
+                    "decisions": 12,
+                    "elapsed_ms": 647.1467899999999,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.101801,
+                    "max_search_nodes": 629,
+                    "promotions": 0,
+                    "quota_triggers": 0,
+                    "root_actions": 46,
+                    "search_nodes": 2987,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 23,
+                  "repetition": null,
+                  "score_a": 31,
+                  "score_b": 12,
+                  "white_participant": "B",
+                  "white_score": 12,
+                  "winner": "A"
+                },
+                {
+                  "black_participant": "B",
+                  "black_score": 28,
+                  "capture_bank_b": 23,
+                  "capture_bank_w": 8,
+                  "complete": true,
+                  "end_reason": "final_response_completed",
+                  "game_number": 2,
+                  "melds_b": 0,
+                  "melds_w": 2,
+                  "metrics_a": {
+                    "capture_points": 8,
+                    "crownlines_scored": 2,
+                    "decisions": 28,
+                    "elapsed_ms": 3534.088716000001,
+                    "final_response_moves": 1,
+                    "max_decision_ms": 150.326428,
+                    "max_search_nodes": 613,
+                    "promotions": 2,
+                    "quota_triggers": 0,
+                    "root_actions": 172,
+                    "search_nodes": 13462,
+                    "sovereign_opportunities": 3,
+                    "sovereign_refusals": 2
+                  },
+                  "metrics_b": {
+                    "capture_points": 23,
+                    "crownlines_scored": 0,
+                    "decisions": 27,
+                    "elapsed_ms": 3511.1924159999994,
+                    "final_response_moves": 0,
+                    "max_decision_ms": 150.377347,
+                    "max_search_nodes": 668,
+                    "promotions": 2,
+                    "quota_triggers": 1,
+                    "root_actions": 163,
+                    "search_nodes": 13826,
+                    "sovereign_opportunities": 0,
+                    "sovereign_refusals": 0
+                  },
+                  "plies": 55,
+                  "repetition": null,
+                  "score_a": 48,
+                  "score_b": 28,
+                  "white_participant": "A",
+                  "white_score": 48,
+                  "winner": "A"
+                }
+              ],
+              "leg": "B-first",
+              "pair_index": 8,
+              "winner": "A"
+            }
+          ],
+          "tags": [
+            "early",
+            "mixed-quantile"
+          ]
+        }
+      ],
+      "schema_version": 1,
+      "sets_per_scenario": 2,
+      "source_fingerprints": {
+        "baseline_ai_sha256": "b99b73e725cd60e2ef7da7ac61c656e6c4e064d0a52c4ebb88ad78d37b11ffca",
+        "benchmark_harness_sha256": "69492ad15f02c66ec7420b6846fbac22217b19def2ee17814649d7928cc985a9",
+        "clsn_sha256": "34d6b79f99657982d046a864bda398b2cf3e584d39c1581ab9850383205f6c88",
+        "position_loader_sha256": "38dcbc39b475a0934d9ae70e780aec8bc0e6a4148df314252d74bc15d8b57e04",
+        "position_runner_sha256": "159273df8fa05d8b82782fe88bc79ce0086d6ae7f1a810a1efb63c5ed7d7d08a",
+        "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3",
+        "rules_engine_sha256": "de407e548638d66b61599382c180796f52ee481b9e64d6e06b0e374cb503574f"
+      },
+      "suite_id": "v0.1",
+      "summary": {
+        "aggregate_score_totals": {
+          "A": 1164,
+          "B": 843
+        },
+        "capped_sets": 3,
+        "complete_scenario_pairs": 5,
+        "complete_sets": 13,
+        "decisive_win_rate": {
+          "A": 0.6153846153846154,
+          "B": 0.38461538461538464
+        },
+        "distinct_game1_fingerprints": 8,
+        "distinct_game2_fingerprints": 8,
+        "distinct_position_fingerprints": 16,
+        "end_reasons": {
+          "benchmark_repetition_detected": 3,
+          "final_response_completed": 24,
+          "immobilization": 3
+        },
+        "engine_metrics": {
+          "A": {
+            "capture_points": 375,
+            "crownlines_scored": 40,
+            "decisions": 1141,
+            "elapsed_ms": 141818.19673899998,
+            "final_response_moves": 12,
+            "max_decision_ms": 152.367385,
+            "max_search_nodes": 698,
+            "mean_decision_ms": 124.2928981060473,
+            "mean_root_actions": 7.059596844872918,
+            "mean_search_nodes": 474.99561787905344,
+            "nodes_per_second": 3821.582931261164,
+            "promotions": 59,
+            "quota_triggers": 13,
+            "root_actions": 8055,
+            "search_nodes": 541970,
+            "sovereign_opportunities": 54,
+            "sovereign_refusal_rate": 0.6481481481481481,
+            "sovereign_refusals": 35
+          },
+          "B": {
+            "capture_points": 388,
+            "crownlines_scored": 11,
+            "decisions": 1139,
+            "elapsed_ms": 139135.34671,
+            "final_response_moves": 12,
+            "max_decision_ms": 152.532508,
+            "max_search_nodes": 741,
+            "mean_decision_ms": 122.1557038718174,
+            "mean_root_actions": 6.011413520632133,
+            "mean_search_nodes": 475.5223880597015,
+            "nodes_per_second": 3892.756318269715,
+            "promotions": 51,
+            "quota_triggers": 14,
+            "root_actions": 6847,
+            "search_nodes": 541620,
+            "sovereign_opportunities": 163,
+            "sovereign_refusal_rate": 0.8588957055214724,
+            "sovereign_refusals": 140
+          }
+        },
+        "incomplete_scenario_pairs": 3,
+        "mean_paired_margin_a_minus_b": 39.2,
+        "mean_repetition_cycle_length": 4,
+        "mean_set_margin_a_minus_b": 24.692307692307693,
+        "paired_margin_a_minus_b": [
+          4,
+          41,
+          0,
+          105,
+          46
+        ],
+        "repetition_cycle_lengths": [
+          4,
+          4,
+          4
+        ],
+        "repetition_detected_sets": 3,
+        "repetition_escape_actions": [
+          26,
+          23,
+          29
+        ],
+        "scenario_count": 8,
+        "scenario_pair_margins_a_minus_b": [
+          4,
+          41,
+          0,
+          105,
+          46
+        ],
+        "scenario_pair_wins": {
+          "A": 4,
+          "B": 0,
+          "draws": 1
+        },
+        "set_wins": {
+          "A": 8,
+          "B": 5,
+          "draws": 0
+        }
+      }
+    },
+    "summary": {
+      "aggregate_score_totals": {
+        "A": 1164,
+        "B": 843
+      },
+      "complete_scenario_pairs": 5,
+      "complete_sets": 13,
+      "end_reasons": {
+        "benchmark_repetition_detected": 3,
+        "final_response_completed": 24,
+        "immobilization": 3
+      },
+      "engine_metrics": {
+        "A": {
+          "capture_points": 375,
+          "crownlines_scored": 40,
+          "decisions": 1141,
+          "elapsed_ms": 141818.19673899998,
+          "final_response_moves": 12,
+          "max_decision_ms": 152.367385,
+          "max_search_nodes": 698,
+          "mean_decision_ms": 124.2928981060473,
+          "mean_root_actions": 7.059596844872918,
+          "mean_search_nodes": 474.99561787905344,
+          "nodes_per_second": 3821.582931261164,
+          "promotions": 59,
+          "quota_triggers": 13,
+          "root_actions": 8055,
+          "search_nodes": 541970,
+          "sovereign_opportunities": 54,
+          "sovereign_refusal_rate": 0.6481481481481481,
+          "sovereign_refusals": 35
+        },
+        "B": {
+          "capture_points": 388,
+          "crownlines_scored": 11,
+          "decisions": 1139,
+          "elapsed_ms": 139135.34671,
+          "final_response_moves": 12,
+          "max_decision_ms": 152.532508,
+          "max_search_nodes": 741,
+          "mean_decision_ms": 122.1557038718174,
+          "mean_root_actions": 6.011413520632133,
+          "mean_search_nodes": 475.5223880597015,
+          "nodes_per_second": 3892.756318269715,
+          "promotions": 51,
+          "quota_triggers": 14,
+          "root_actions": 6847,
+          "search_nodes": 541620,
+          "sovereign_opportunities": 163,
+          "sovereign_refusal_rate": 0.8588957055214724,
+          "sovereign_refusals": 140
+        }
+      },
+      "incomplete_scenario_pairs": 3,
+      "mean_paired_margin_a_minus_b": 39.2,
+      "mean_set_margin_a_minus_b": 24.692307692307693,
+      "repetition_cycle_lengths": [
+        4,
+        4,
+        4
+      ],
+      "repetition_escape_actions": [
+        26,
+        23,
+        29
+      ],
+      "repetition_stops": 3,
+      "scenario_pair_margins_a_minus_b": [
+        4,
+        41,
+        0,
+        105,
+        46
+      ],
+      "scenario_pair_wins": {
+        "A": 4,
+        "B": 0,
+        "draws": 1
+      },
+      "set_wins": {
+        "A": 8,
+        "B": 5,
+        "draws": 0
+      }
+    }
+  },
+  "maturity_weight": 10.0,
+  "max_depth": 4,
+  "max_game_plies": 300,
+  "repeat_penalty": 200.0,
+  "repetition_limit": 3,
+  "rules_mode": "candidate",
+  "runtime_semantics": "wall-clock-deadline-sensitive",
+  "schema_version": 1,
+  "source_fingerprints": {
+    "composition_benchmark_sha256": "653fdd540b6ae6c33abb89e88a637586152fac48f9da13c5a3db43e35f20dc3d",
+    "confirmation_sha256": "82b0b3571147bd237c52f8a7b2a732341ef3f2b2ec83fe86c7d5840be22741a0",
+    "position_suite_sha256": "8c2b86f582f26c69d037ee9a319e9b1dad32a64f68a611570ba01ff412cee2a3"
+  },
+  "suite_id": "v0.1"
+}
