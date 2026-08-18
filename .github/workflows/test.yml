@@ -9,6 +9,9 @@ concurrency:
   group: crownline-tests-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -46,3 +49,24 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
+      - name: Run tactical blame horizon diagnostic
+        run: |
+          PYTHONPATH=. python experiments/benchmark_tactical_blame_horizon.py \
+            --min-legs 2 \
+            --json benchmarks/tactical_blame_horizon_v0_1.json
+      - name: Upload tactical blame horizon diagnostic
+        uses: actions/upload-artifact@v4
+        with:
+          name: tactical-blame-horizon-v0-1
+          path: benchmarks/tactical_blame_horizon_v0_1.json
+      - name: Commit tactical blame horizon evidence
+        if: github.actor != 'github-actions[bot]'
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add benchmarks/tactical_blame_horizon_v0_1.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Record tactical blame horizon evidence"
+          git push
