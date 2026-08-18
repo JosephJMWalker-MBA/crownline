@@ -1,0 +1,664 @@
+{
+  "experiment": "human-tactical-blame-horizon-bounded",
+  "max_horizon_after_root": 2,
+  "methodology": {
+    "analyzed_anchors": "only frozen human decisions whose observed punishment is within the configured post-root horizon",
+    "interpretation": "bounded tactical safety diagnosis, not proof of optimal play or causal uniqueness",
+    "opponent_policy": "choose any legal continuation that forces a compound capture",
+    "protected_policy": "choose any legal continuation that avoids a compound capture",
+    "purpose": "locate an earlier avoidable decision without exploding the full game tree"
+  },
+  "min_capture_legs": 2,
+  "rules_mode": "candidate",
+  "schema_version": 1,
+  "suite_id": "human-tactical-blame-v0.1",
+  "summary": {
+    "blame_found": 7,
+    "classifications": {
+      "immediate-move-blame": 3,
+      "upstream-blame": 4
+    },
+    "window_count": 7
+  },
+  "windows": [
+    {
+      "anchors": [
+        {
+          "blame_candidate": true,
+          "forcing_action_count": 7,
+          "horizon_after_root": 2,
+          "move_index": 53,
+          "observed_action": {
+            "forced_compound_within_horizon": true,
+            "meld_line": null,
+            "notation": "f8-e7",
+            "searched_states": 5
+          },
+          "observed_action_forces_compound_risk": true,
+          "plies_to_observed_punishment": 3,
+          "root_action_count": 13,
+          "safe_alternative_count": 6,
+          "safe_alternative_examples": [
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b2-a3",
+              "searched_states": 11
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b2-c3",
+              "searched_states": 3
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b6-a5",
+              "searched_states": 13
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b6-a7",
+              "searched_states": 13
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b6-c5",
+              "searched_states": 13
+            }
+          ],
+          "total_searched_states": 97
+        },
+        {
+          "blame_candidate": false,
+          "forcing_action_count": 1,
+          "horizon_after_root": 0,
+          "move_index": 55,
+          "observed_action": {
+            "forced_compound_within_horizon": true,
+            "meld_line": null,
+            "notation": "b2xd4",
+            "searched_states": 1
+          },
+          "observed_action_forces_compound_risk": true,
+          "plies_to_observed_punishment": 1,
+          "root_action_count": 1,
+          "safe_alternative_count": 0,
+          "safe_alternative_examples": [],
+          "total_searched_states": 1
+        }
+      ],
+      "classification": "upstream-blame",
+      "earliest_blame_move_index": 53,
+      "earliest_blame_plies_before_punishment": 3,
+      "fixture_id": "tactical-double-jump-01",
+      "oldest_analyzed_move_index": 53,
+      "oldest_frozen_move_index": 49,
+      "punishment": {
+        "capture_legs": 2,
+        "capture_points": 13,
+        "move_index": 56,
+        "notation": "e3xc5xa7"
+      },
+      "target_move_index": 55
+    },
+    {
+      "anchors": [
+        {
+          "blame_candidate": true,
+          "forcing_action_count": 4,
+          "horizon_after_root": 2,
+          "move_index": 42,
+          "observed_action": {
+            "forced_compound_within_horizon": true,
+            "meld_line": null,
+            "notation": "g2-f3",
+            "searched_states": 5
+          },
+          "observed_action_forces_compound_risk": true,
+          "plies_to_observed_punishment": 3,
+          "root_action_count": 9,
+          "safe_alternative_count": 5,
+          "safe_alternative_examples": [
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b7-c6",
+              "searched_states": 3
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "c4-b3",
+              "searched_states": 11
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "c4-d3",
+              "searched_states": 11
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "c4-d5",
+              "searched_states": 11
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "c8-d7",
+              "searched_states": 5
+            }
+          ],
+          "total_searched_states": 61
+        },
+        {
+          "blame_candidate": false,
+          "forcing_action_count": 1,
+          "horizon_after_root": 0,
+          "move_index": 44,
+          "observed_action": {
+            "forced_compound_within_horizon": true,
+            "meld_line": null,
+            "notation": "c8xe6",
+            "searched_states": 1
+          },
+          "observed_action_forces_compound_risk": true,
+          "plies_to_observed_punishment": 1,
+          "root_action_count": 1,
+          "safe_alternative_count": 0,
+          "safe_alternative_examples": [],
+          "total_searched_states": 1
+        }
+      ],
+      "classification": "upstream-blame",
+      "earliest_blame_move_index": 42,
+      "earliest_blame_plies_before_punishment": 3,
+      "fixture_id": "tactical-double-jump-02",
+      "oldest_analyzed_move_index": 42,
+      "oldest_frozen_move_index": 38,
+      "punishment": {
+        "capture_legs": 2,
+        "capture_points": 8,
+        "move_index": 45,
+        "notation": "f7xd5xb3"
+      },
+      "target_move_index": 44
+    },
+    {
+      "anchors": [
+        {
+          "blame_candidate": true,
+          "forcing_action_count": 5,
+          "horizon_after_root": 2,
+          "move_index": 18,
+          "observed_action": {
+            "forced_compound_within_horizon": true,
+            "meld_line": null,
+            "notation": "e8-f7",
+            "searched_states": 9
+          },
+          "observed_action_forces_compound_risk": true,
+          "plies_to_observed_punishment": 3,
+          "root_action_count": 8,
+          "safe_alternative_count": 3,
+          "safe_alternative_examples": [
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "a6-b5",
+              "searched_states": 5
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "e6-f5",
+              "searched_states": 3
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "h5-g4",
+              "searched_states": 3
+            }
+          ],
+          "total_searched_states": 49
+        },
+        {
+          "blame_candidate": false,
+          "forcing_action_count": 1,
+          "horizon_after_root": 0,
+          "move_index": 20,
+          "observed_action": {
+            "forced_compound_within_horizon": true,
+            "meld_line": null,
+            "notation": "h5xf3",
+            "searched_states": 1
+          },
+          "observed_action_forces_compound_risk": true,
+          "plies_to_observed_punishment": 1,
+          "root_action_count": 1,
+          "safe_alternative_count": 0,
+          "safe_alternative_examples": [],
+          "total_searched_states": 1
+        }
+      ],
+      "classification": "upstream-blame",
+      "earliest_blame_move_index": 18,
+      "earliest_blame_plies_before_punishment": 3,
+      "fixture_id": "tactical-double-jump-03",
+      "oldest_analyzed_move_index": 18,
+      "oldest_frozen_move_index": 14,
+      "punishment": {
+        "capture_legs": 2,
+        "capture_points": 5,
+        "move_index": 21,
+        "notation": "g2xe4xc6"
+      },
+      "target_move_index": 20
+    },
+    {
+      "anchors": [
+        {
+          "blame_candidate": false,
+          "forcing_action_count": 4,
+          "horizon_after_root": 2,
+          "move_index": 137,
+          "observed_action": {
+            "forced_compound_within_horizon": false,
+            "meld_line": null,
+            "notation": "f4-e5",
+            "searched_states": 9
+          },
+          "observed_action_forces_compound_risk": false,
+          "plies_to_observed_punishment": 3,
+          "root_action_count": 13,
+          "safe_alternative_count": 9,
+          "safe_alternative_examples": [
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b4-a3",
+              "searched_states": 13
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "d4-e3",
+              "searched_states": 15
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "d6-c7",
+              "searched_states": 11
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "d6-e5",
+              "searched_states": 9
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "d6-e7",
+              "searched_states": 11
+            }
+          ],
+          "total_searched_states": 105
+        },
+        {
+          "blame_candidate": true,
+          "forcing_action_count": 2,
+          "horizon_after_root": 0,
+          "move_index": 139,
+          "observed_action": {
+            "forced_compound_within_horizon": true,
+            "meld_line": null,
+            "notation": "c3-d2",
+            "searched_states": 1
+          },
+          "observed_action_forces_compound_risk": true,
+          "plies_to_observed_punishment": 1,
+          "root_action_count": 9,
+          "safe_alternative_count": 7,
+          "safe_alternative_examples": [
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b4-a3",
+              "searched_states": 1
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "c5-b6",
+              "searched_states": 1
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "d4-e3",
+              "searched_states": 1
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "d6-c7",
+              "searched_states": 1
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "d6-e7",
+              "searched_states": 1
+            }
+          ],
+          "total_searched_states": 9
+        }
+      ],
+      "classification": "immediate-move-blame",
+      "earliest_blame_move_index": 139,
+      "earliest_blame_plies_before_punishment": 1,
+      "fixture_id": "tactical-double-jump-04",
+      "oldest_analyzed_move_index": 137,
+      "oldest_frozen_move_index": 133,
+      "punishment": {
+        "capture_legs": 2,
+        "capture_points": 12,
+        "move_index": 140,
+        "notation": "a5xc3xe1"
+      },
+      "target_move_index": 139
+    },
+    {
+      "anchors": [
+        {
+          "blame_candidate": false,
+          "forcing_action_count": 1,
+          "horizon_after_root": 2,
+          "move_index": 104,
+          "observed_action": {
+            "forced_compound_within_horizon": false,
+            "meld_line": null,
+            "notation": "h5-g4",
+            "searched_states": 21
+          },
+          "observed_action_forces_compound_risk": false,
+          "plies_to_observed_punishment": 3,
+          "root_action_count": 11,
+          "safe_alternative_count": 10,
+          "safe_alternative_examples": [
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "c4-b3",
+              "searched_states": 20
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "c4-d3",
+              "searched_states": 20
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "c4-d5",
+              "searched_states": 13
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "c6-d5",
+              "searched_states": 15
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "e4-d3",
+              "searched_states": 14
+            }
+          ],
+          "total_searched_states": 175
+        },
+        {
+          "blame_candidate": true,
+          "forcing_action_count": 10,
+          "horizon_after_root": 0,
+          "move_index": 106,
+          "observed_action": {
+            "forced_compound_within_horizon": true,
+            "meld_line": null,
+            "notation": "e4-f5",
+            "searched_states": 1
+          },
+          "observed_action_forces_compound_risk": true,
+          "plies_to_observed_punishment": 1,
+          "root_action_count": 13,
+          "safe_alternative_count": 3,
+          "safe_alternative_examples": [
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "c4-d5",
+              "searched_states": 1
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "c6-d5",
+              "searched_states": 1
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "e4-d5",
+              "searched_states": 1
+            }
+          ],
+          "total_searched_states": 13
+        }
+      ],
+      "classification": "immediate-move-blame",
+      "earliest_blame_move_index": 106,
+      "earliest_blame_plies_before_punishment": 1,
+      "fixture_id": "tactical-double-jump-05",
+      "oldest_analyzed_move_index": 104,
+      "oldest_frozen_move_index": 100,
+      "punishment": {
+        "capture_legs": 2,
+        "capture_points": 10,
+        "move_index": 107,
+        "notation": "b7xd5xb3"
+      },
+      "target_move_index": 106
+    },
+    {
+      "anchors": [
+        {
+          "blame_candidate": true,
+          "forcing_action_count": 2,
+          "horizon_after_root": 2,
+          "move_index": 29,
+          "observed_action": {
+            "forced_compound_within_horizon": true,
+            "meld_line": null,
+            "notation": "e3-d4",
+            "searched_states": 9
+          },
+          "observed_action_forces_compound_risk": true,
+          "plies_to_observed_punishment": 3,
+          "root_action_count": 4,
+          "safe_alternative_count": 2,
+          "safe_alternative_examples": [
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "c3-d4",
+              "searched_states": 15
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "e3-f4",
+              "searched_states": 4
+            }
+          ],
+          "total_searched_states": 29
+        },
+        {
+          "blame_candidate": false,
+          "forcing_action_count": 3,
+          "horizon_after_root": 0,
+          "move_index": 31,
+          "observed_action": {
+            "forced_compound_within_horizon": true,
+            "meld_line": null,
+            "notation": "d4-c5",
+            "searched_states": 1
+          },
+          "observed_action_forces_compound_risk": true,
+          "plies_to_observed_punishment": 1,
+          "root_action_count": 3,
+          "safe_alternative_count": 0,
+          "safe_alternative_examples": [],
+          "total_searched_states": 3
+        }
+      ],
+      "classification": "upstream-blame",
+      "earliest_blame_move_index": 29,
+      "earliest_blame_plies_before_punishment": 3,
+      "fixture_id": "tactical-double-jump-06",
+      "oldest_analyzed_move_index": 29,
+      "oldest_frozen_move_index": 25,
+      "punishment": {
+        "capture_legs": 2,
+        "capture_points": 5,
+        "move_index": 32,
+        "notation": "b6xd4xb2"
+      },
+      "target_move_index": 31
+    },
+    {
+      "anchors": [
+        {
+          "blame_candidate": false,
+          "forcing_action_count": 0,
+          "horizon_after_root": 2,
+          "move_index": 53,
+          "observed_action": {
+            "forced_compound_within_horizon": false,
+            "meld_line": null,
+            "notation": "a1-b2",
+            "searched_states": 19
+          },
+          "observed_action_forces_compound_risk": false,
+          "plies_to_observed_punishment": 3,
+          "root_action_count": 11,
+          "safe_alternative_count": 11,
+          "safe_alternative_examples": [
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "a1-b2",
+              "searched_states": 19
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b6-a5",
+              "searched_states": 16
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b6-a7",
+              "searched_states": 16
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b6-c5",
+              "searched_states": 13
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b6-c7",
+              "searched_states": 17
+            }
+          ],
+          "total_searched_states": 160
+        },
+        {
+          "blame_candidate": true,
+          "forcing_action_count": 5,
+          "horizon_after_root": 0,
+          "move_index": 55,
+          "observed_action": {
+            "forced_compound_within_horizon": true,
+            "meld_line": null,
+            "notation": "f6-g5",
+            "searched_states": 1
+          },
+          "observed_action_forces_compound_risk": true,
+          "plies_to_observed_punishment": 1,
+          "root_action_count": 11,
+          "safe_alternative_count": 6,
+          "safe_alternative_examples": [
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b6-a5",
+              "searched_states": 1
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b6-a7",
+              "searched_states": 1
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b6-c5",
+              "searched_states": 1
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "b6-c7",
+              "searched_states": 1
+            },
+            {
+              "forced_compound_within_horizon": false,
+              "meld_line": null,
+              "notation": "d6-c7",
+              "searched_states": 1
+            }
+          ],
+          "total_searched_states": 11
+        }
+      ],
+      "classification": "immediate-move-blame",
+      "earliest_blame_move_index": 55,
+      "earliest_blame_plies_before_punishment": 1,
+      "fixture_id": "tactical-double-jump-07",
+      "oldest_analyzed_move_index": 53,
+      "oldest_frozen_move_index": 49,
+      "punishment": {
+        "capture_legs": 2,
+        "capture_points": 11,
+        "move_index": 56,
+        "notation": "e5xc7xa5"
+      },
+      "target_move_index": 55
+    }
+  ]
+}
