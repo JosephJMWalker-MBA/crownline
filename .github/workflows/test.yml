@@ -41,28 +41,27 @@ jobs:
           PY
       - name: Run Crownline tests
         run: pytest -q
-      - name: Run 150ms promotion maturity transfer benchmark
+      - name: Run 150ms wall-clock stability audit
         run: |
-          PYTHONPATH=. python experiments/benchmark_maturity_transfer_150ms.py \
+          PYTHONPATH=. python experiments/benchmark_time_budget_stability.py \
+            --repeats 6 \
             --budget-ms 150 \
             --max-depth 4 \
             --maturity-weight 10 \
-            --max-game-plies 300 \
-            --repetition-limit 3 \
-            --json benchmarks/stage3_maturity_transfer_150ms.json
-      - name: Upload 150ms promotion maturity transfer benchmark
+            --json benchmarks/stage3_time_budget_stability_150ms.json
+      - name: Upload 150ms wall-clock stability audit
         uses: actions/upload-artifact@v4
         with:
-          name: stage3-maturity-transfer-150ms
-          path: benchmarks/stage3_maturity_transfer_150ms.json
-      - name: Commit 150ms maturity transfer evidence
+          name: stage3-time-budget-stability-150ms
+          path: benchmarks/stage3_time_budget_stability_150ms.json
+      - name: Commit 150ms wall-clock stability evidence
         if: github.actor != 'github-actions[bot]'
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add benchmarks/stage3_maturity_transfer_150ms.json
+          git add benchmarks/stage3_time_budget_stability_150ms.json
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "Record 150ms promotion maturity transfer evidence"
+          git commit -m "Record 150ms wall-clock stability evidence"
           git push
