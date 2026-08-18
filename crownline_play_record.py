@@ -186,19 +186,19 @@ def record_move(
 
 def _game_result(crownline_set: CrownlineSet) -> dict[str, Any]:
     game = crownline_set.current_game
-    score_w = game.score("W").total
-    score_b = game.score("B").total
+    white_score = game.score("W").total
+    black_score = game.score("B").total
     if crownline_set.white_participant == "A":
-        score_a, score_b = score_w, score_b
+        score_a, score_b = white_score, black_score
     else:
-        score_a, score_b = score_b, score_w
+        score_a, score_b = black_score, white_score
     winner = "A" if score_a > score_b else "B" if score_b > score_a else "DRAW"
     return {
         "game_number": game.variant.number,
         "score_a": score_a,
         "score_b": score_b,
-        "white_score": score_w,
-        "black_score": score_b if crownline_set.white_participant == "A" else score_a,
+        "white_score": white_score,
+        "black_score": black_score,
         "winner": winner,
         "end_reason": game.end_reason,
         "final_clsn": serialize_clsn(game),
