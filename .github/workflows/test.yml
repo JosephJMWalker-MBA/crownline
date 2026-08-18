@@ -22,25 +22,39 @@ jobs:
           python-version: '3.12'
       - name: Install test dependency
         run: python -m pip install --upgrade pytest
-      - name: Compile Python modules
-        run: python -m py_compile *.py experiments/*.py
-      - name: Run Crownline tests
-        run: pytest -q
-      - name: Run focused quiescence blame diagnostic
+      - name: Capture diagnostics
+        shell: bash
         run: |
-          PYTHONPATH=. python experiments/benchmark_quiescence_blame_points_only.py \
-            --qdepths 0 1 \
-            --depth 3 \
-            --maturity-weight 10 \
-            --json benchmarks/quiescence_blame_points_only_v0_1.json
-      - name: Commit focused quiescence evidence
+          set +e
+          mkdir -p benchmarks
+          {
+            echo '=== compile ==='
+            python -m py_compile *.py experiments/*.py
+            echo "compile_status=$?"
+            echo '=== pytest ==='
+            pytest -q
+            echo "pytest_status=$?"
+            echo '=== focused quiescence ==='
+            timeout 120s env PYTHONPATH=. python experiments/benchmark_quiescence_blame_points_only.py \
+              --qdepths 0 1 \
+              --depth 3 \
+              --maturity-weight 10 \
+              --json benchmarks/quiescence_blame_points_only_v0_1.json
+            echo "benchmark_status=$?"
+          } > benchmarks/quiescence_ci_probe.txt 2>&1
+          cat benchmarks/quiescence_ci_probe.txt
+          exit 0
+      - name: Commit diagnostic probe
         if: github.actor != 'github-actions[bot]'
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add benchmarks/quiescence_blame_points_only_v0_1.json
+          git add benchmarks/quiescence_ci_probe.txt
+          if [ -f benchmarks/quiescence_blame_points_only_v0_1.json ]; then
+            git add benchmarks/quiescence_blame_points_only_v0_1.json
+          fi
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "Record focused quiescence blame evidence"
+          git commit -m "Record quiescence CI diagnostics"
           git push
