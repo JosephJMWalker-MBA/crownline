@@ -4,6 +4,16 @@
 
 The official competitive unit is not a single game. It is a **Crownline Set**: two games played under complementary board conditions, with scores added together.
 
+## Current implementation boundary
+
+Crownline is both a playable game implementation and an evidence-driven rules/AI research environment.
+
+- **Official Rules v1.0** remain the normative rules in [`RULES.md`](RULES.md).
+- The browser currently launches into the **Experimental Crownline v1.1 Candidate** for active playtesting. That launch default does not promote v1.1 to official status.
+- The v1.1 candidate remains **feature-frozen** under a play → observe → record discipline. Promotion requires an explicit review decision after additional complete two-game sets.
+- The browser exposes both the original **Baseline A** computer opponent and a separately selectable **Research / Strong** opponent for v1.1 human product playtesting.
+- Experimental AI features are promoted only when they pass their stated measurement gates. Rejected hypotheses and negative results are preserved as research evidence rather than silently folded into the product opponent.
+
 ## Core idea
 
 Each player begins with six uniquely numbered pieces: **1, 2, 3, 4, 5, 6**.
@@ -93,7 +103,9 @@ The runtime exposes four separated profiles:
 
 Changing the rules profile starts a fresh Crownline Set. Ordinary **Reset set** preserves the currently selected profile.
 
-The v1.1 candidate and comparison profiles do **not** amend Official Rules v1.0. See [`V1_1_CANDIDATE.md`](V1_1_CANDIDATE.md), [`V1_1_PLAYTEST_LOG.md`](V1_1_PLAYTEST_LOG.md), [`SOVEREIGN_EXPERIMENT.md`](SOVEREIGN_EXPERIMENT.md), and [`CROWNED_MELD_EXPERIMENT.md`](CROWNED_MELD_EXPERIMENT.md).
+The browser's current launch default is the **v1.1 Candidate** because it is the active human-play profile. That presentation choice does **not** change rules authority: the v1.1 candidate and comparison profiles do not amend Official Rules v1.0.
+
+See [`V1_1_CANDIDATE.md`](V1_1_CANDIDATE.md), [`V1_1_PLAYTEST_LOG.md`](V1_1_PLAYTEST_LOG.md), [`SOVEREIGN_EXPERIMENT.md`](SOVEREIGN_EXPERIMENT.md), and [`CROWNED_MELD_EXPERIMENT.md`](CROWNED_MELD_EXPERIMENT.md).
 
 ## Candidate playtest phase
 
@@ -124,10 +136,13 @@ Promotion requires an explicit review decision; it is not automatic.
 - `SIMULATION_EVIDENCE.md` — evidence behind the v1.0 rule choices
 - `SOVEREIGN_EXPERIMENT.md` — historical Sovereign simulation plus the refined whole-turn rule boundary
 - `CROWNED_MELD_EXPERIMENT.md` — rationale and evidence for King-required reusable melds and per-player line retirement
+- `AI_BENCHMARKING.md` — reproducible computer-opponent measurement protocol
+- `benchmarks/` — auditable AI experiment results, preserved failures, and current research conclusions
 - `crownline_rules.py` — Game 1 / Game 2 geometry, scoring values, and explicit rules-profile identifiers
 - `crownline_game.py` — deterministic single-game movement, capture, promotion, meld, cooldown, retirement, diagnostics, quota, scoring, and profile-aware move generation
 - `crownline_set.py` — two-game set state, color swap, aggregate scoring, tied-set continuation, and rules-profile persistence
-- `crownline_ai.py` — lightweight deterministic computer opponent search
+- `crownline_ai.py` — deterministic Baseline A computer opponent
+- `crownline_maturity_product_candidate.py` — measured Research / Strong opponent architecture used for v1.1 human playtesting
 - `crownline.py` — stable public Python API
 - `play_crownline.py` — console player for a complete Crownline Set
 - `test_crownline.py` — Official v1.0 conformance tests
@@ -135,7 +150,7 @@ Promotion requires an explicit review decision; it is not automatic.
 - `test_crowned_meld.py` — Crowned Meld, Royal, cooldown, retirement, and diagnostic tests
 - `test_v1_1_candidate.py` — combined-profile and experiment-isolation tests
 - `serve_crownline.py` — dependency-free local browser/API server
-- `web/` — Three.js/WebGL playable client, onboarding, help, Crownline-map hover previews, and contextual rule feedback
+- `web/` — Three.js/WebGL playable client, onboarding, help, Crownline-map hover previews, contextual rule feedback, and AI-profile selection
 
 ## Run the tests
 
@@ -191,28 +206,55 @@ The browser is intentionally non-authoritative: it renders serialized Python sta
 - drag horizontally to rotate the board, or use **Flip board** for an exact 180° view;
 - if multiple legal capture routes reach the same destination, the interface asks which route to use rather than silently choosing;
 - the move-notation panel remains available as a fallback/reference;
-- choose **Computer · Player B** from the opponent menu for single-player mode.
+- choose **Computer · Player B** from the opponent menu for single-player mode;
+- under the v1.1 Candidate, choose either **Baseline A** or **Research / Strong** as the computer profile.
 
-The current computer opponent uses a deterministic depth-2 minimax-style search over authoritative Python game state. It is intended as a playable baseline opponent, not as a claim of solved or optimal Crownline play.
+### Computer opponents
+
+**Baseline A** is the original deterministic depth-2 minimax-style opponent over authoritative Python game state. It is preserved as a reproducible baseline and remains available across rules profiles.
+
+**Research / Strong** is available only under the v1.1 Candidate. Its current measured composition uses:
+
+```text
+150 ms iterative deepening
++ structural exact transposition table
++ p200 exact-history repeat policy
++ promotion maturity w10
++ max depth 4
+```
+
+The stronger profile earned advancement to **human product playtesting** after controlled benchmark work and a reversed-role directional confirmation. That is not a claim that Crownline is solved, that the engine is optimal, or that its measured weights are universal constants. Baseline A remains available so product impressions can be compared against a stable reference.
 
 ## Meld-choice edge case
 
 A single move can theoretically complete more than one eligible Crownline. The engine exposes the competing lines and requires the player to choose which one to bank rather than silently selecting for them.
 
-## Design evidence
+## Design and AI research evidence
 
 Crownline's rules were refined through simulation and human play rather than intuition alone. Experimental work has tested random play, heuristic strategy bots, capture quotas, Crownline persistence, board asymmetry, banked melds, complementary scoring, two-game set balance, Sovereign King behavior, King-required melds, Royal scoring, three-turn meld cooldowns, human-discovered same-line farming, and the combined Sovereign + Crowned Meld rules candidate.
 
 The original Sovereign simulations used the earlier King-step-only refusal semantics. Human play later refined that rule to whole-turn release, so the older numbers should not be treated as direct validation of the current candidate semantics.
 
-See [`SIMULATION_EVIDENCE.md`](SIMULATION_EVIDENCE.md), [`SOVEREIGN_EXPERIMENT.md`](SOVEREIGN_EXPERIMENT.md), [`CROWNED_MELD_EXPERIMENT.md`](CROWNED_MELD_EXPERIMENT.md), [`V1_1_CANDIDATE.md`](V1_1_CANDIDATE.md), and [`V1_1_PLAYTEST_LOG.md`](V1_1_PLAYTEST_LOG.md) for details.
+Computer-opponent research follows the same evidence discipline:
+
+```text
+hypothesis → isolated experiment → independent gate → promote or reject → preserve evidence
+```
+
+That process has produced both positive and negative results. The current Research / Strong composition earned human-facing integration, while later **unretired King coverage** was rejected for product promotion after it increased Crownline-seeking behavior without demonstrating greater competitive strength. A subsequent **mandatory-capture-only quiescence** hypothesis was also rejected after it failed the frozen human tactical gate; the useful result retained from that study was the tactical blame-horizon method.
+
+Preserving those negative results is intentional. A feature changing observable behavior is not enough to call it a stronger policy.
+
+See [`AI_BENCHMARKING.md`](AI_BENCHMARKING.md), [`benchmarks/README.md`](benchmarks/README.md), [`benchmarks/STAGE3_MATURITY_P200_COMPOSITION_CONCLUSION.md`](benchmarks/STAGE3_MATURITY_P200_COMPOSITION_CONCLUSION.md), [`benchmarks/HUMAN_DECISION_V0_1_CONCLUSION.md`](benchmarks/HUMAN_DECISION_V0_1_CONCLUSION.md), and [`benchmarks/TACTICAL_QUIESCENCE_CONCLUSION.md`](benchmarks/TACTICAL_QUIESCENCE_CONCLUSION.md) for the current evidence chain.
+
+See [`SIMULATION_EVIDENCE.md`](SIMULATION_EVIDENCE.md), [`SOVEREIGN_EXPERIMENT.md`](SOVEREIGN_EXPERIMENT.md), [`CROWNED_MELD_EXPERIMENT.md`](CROWNED_MELD_EXPERIMENT.md), [`V1_1_CANDIDATE.md`](V1_1_CANDIDATE.md), and [`V1_1_PLAYTEST_LOG.md`](V1_1_PLAYTEST_LOG.md) for rules-development evidence.
 
 ## Rules authority
 
 The normative specification is [`RULES.md`](RULES.md).
 
-If this README, an experiment, or the browser differs from the official rules, **`RULES.md` governs Official v1.0**.
+If this README, an experiment, or the browser differs from the official rules, **`RULES.md` governs Official v1.0**. The browser's v1.1 launch default is an active playtest choice, not a change to that authority.
 
 ---
 
-**Status:** Official Rules v1.0 frozen; WebGL board directly playable; baseline computer opponent implemented; Crownline v1.1 Candidate feature-frozen as the leading human-play profile; Sovereign King and Crowned Meld retained as comparison controls; onboarding, Crownline geometry hover previews, and engine-backed rule diagnostics implemented; promotion gate documented.
+**Status:** Official Rules v1.0 frozen; WebGL board directly playable; browser currently launches the feature-frozen v1.1 Candidate for active human playtesting; Baseline A and the measured v1.1-only Research / Strong opponent are both implemented; Sovereign King and Crowned Meld remain comparison controls; onboarding, Crownline geometry hover previews, engine-backed rule diagnostics, reproducible AI benchmarking, human-decision diagnostics, and preserved rejected experiments are implemented; v1.1 promotion remains an explicit future review decision.
