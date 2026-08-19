@@ -2,6 +2,39 @@
 
 This directory preserves compact, auditable results from controlled Crownline engine experiments. Competitive claims should be based on complete paired two-game sets. Diagnostic stops such as exact-state repetition remain evidence but are not scored as wins, losses, or draws.
 
+## Current research checkpoint
+
+The sections below preserve the **early benchmark progression** from Baseline A through the first frozen CLSN depth experiments. Their measurements remain part of the evidence chain, but the old "next milestone" language at the end is historical rather than the current frontier.
+
+Subsequent work advanced through search engineering, exact-state trajectory policy, promotion-maturity evaluation, browser-scale composition, human-decision diagnostics, and bounded tactical blame analysis.
+
+The current browser-facing research opponent under the v1.1 Candidate is:
+
+```text
+150 ms iterative deepening
++ structural exact transposition table
++ p200 exact-history repeat policy
++ promotion maturity w10
++ max depth 4
+```
+
+That composition earned advancement to **human product playtesting** after a measured direct comparison and reversed-role directional confirmation. It remains a research profile rather than a claim of optimal play.
+
+Later hypotheses have continued to use independent promotion gates:
+
+- **Unretired King coverage** changed the intended strategic behavior and increased Crownline seeking, but did not demonstrate greater competitive strength; it was rejected for product promotion.
+- **Mandatory-capture-only quiescence** did not improve the frozen human tactical diagnostic and was rejected as the next product-strength change.
+- The useful result retained from the latter study is the **tactical blame-horizon** method, which showed that visible punishment is often downstream of an earlier decision rather than the immediately preceding move.
+
+For the later evidence chain, read:
+
+- [`STAGE3_PRODUCT_COMPOSITION_CONCLUSION.md`](STAGE3_PRODUCT_COMPOSITION_CONCLUSION.md)
+- [`STAGE3_MATURITY_P200_COMPOSITION_CONCLUSION.md`](STAGE3_MATURITY_P200_COMPOSITION_CONCLUSION.md)
+- [`HUMAN_DECISION_V0_1_CONCLUSION.md`](HUMAN_DECISION_V0_1_CONCLUSION.md)
+- [`TACTICAL_QUIESCENCE_CONCLUSION.md`](TACTICAL_QUIESCENCE_CONCLUSION.md)
+
+The research rule remains: **a feature must earn promotion; a negative result remains evidence.**
+
 ## Deterministic evidence boundary
 
 The current baseline engines are deterministic. Repeating the same engine versions from the same exact starting state does **not** create independent samples; it simply reproduces the same trajectory. A seat-balanced pair is therefore the complete evidence unit for one deterministic starting condition.
@@ -139,10 +172,8 @@ Other descriptive event counts also moved strongly toward depth 3: 389 vs 238 ca
 
 The compact auditable evidence is stored in [`position_v0_1_d2_vs_d3_summary.json`](position_v0_1_d2_vs_d3_summary.json). The frozen benchmark inputs are stored in [`position_suite_v0_1.json`](position_suite_v0_1.json).
 
-## Next measurement milestone
+## Historical next-milestone note
 
-Do **not** change the evaluator yet.
+The original version of this checkpoint identified **depth 2 vs depth 4 on the frozen CLSN v0.1 suite** as the next clean experiment and instructed the project not to change the evaluator yet. That was correct at this point in the research sequence and is preserved as historical methodology.
 
-The clean next search-depth question is now **depth 2 vs depth 4 on the exact same frozen CLSN v0.1 suite**. That would complete Stage 1's pure-depth comparison while holding the evaluator, rules, position fixtures, seat balance, and repetition diagnostic fixed.
-
-The important outputs are not only whether depth 4 wins more often, but whether it reduces or changes the four repetition failures and what additional nodes/latency it costs. Only after the depth-4 comparison should Crownline move into isolated search-engineering changes such as move ordering or transposition caching.
+That milestone has since been superseded by the later Stage 2/Stage 3 work linked at the top of this file. Do not use this old checkpoint as the present implementation roadmap.
